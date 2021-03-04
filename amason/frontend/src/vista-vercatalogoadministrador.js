@@ -1,14 +1,14 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 
 /**
- * `vista-catalogo`
+ * `vista-vercatalogoadministrador`
  *
- * VistaCatalogo element.
+ * VistaVercatalogoadministrador element.
  *
  * @customElement
  * @polymer
  */
-class VistaCatalogo extends PolymerElement {
+class VistaVercatalogoadministrador extends PolymerElement {
 
     static get template() {
         return html`
@@ -22,7 +22,7 @@ class VistaCatalogo extends PolymerElement {
     }
 
     static get is() {
-        return 'vista-catalogo';
+        return 'vista-vercatalogoadministrador';
     }
 
     static get properties() {
@@ -32,4 +32,4 @@ class VistaCatalogo extends PolymerElement {
     }
 }
 
-customElements.define(VistaCatalogo.is, VistaCatalogo);
+customElements.define(VistaVercatalogoadministrador.is, VistaVercatalogoadministrador);

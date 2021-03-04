@@ -11,21 +11,21 @@ import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
  * Designer will add and remove fields with @Id mappings but
  * does not overwrite or otherwise change this file.
  */
-@Tag("vista-catalogo")
-@JsModule("./src/vista-catalogo.js")
-public class VistaCatalogo extends PolymerTemplate<VistaCatalogo.VistaCatalogoModel> {
+@Tag("vista-vercatalogocliente")
+@JsModule("./src/vista-vercatalogocliente.js")
+public class VistaVercatalogocliente extends PolymerTemplate<VistaVercatalogocliente.VistaVercatalogoclienteModel> {
 
     /**
      * Creates a new VistaCatalogo.
      */
-    public VistaCatalogo() {
+    public VistaVercatalogocliente() {
         // You can initialise any data required for the connected UI components here.
     }
 
     /**
-     * This model binds properties between VistaCatalogo and vista-catalogo
+     * This model binds properties between VistaVercatalogocliente and vista-vercatalogocliente
      */
-    public interface VistaCatalogoModel extends TemplateModel {
+    public interface VistaVercatalogoclienteModel extends TemplateModel {
         // Add setters and getters for template properties here.
     }
 }
