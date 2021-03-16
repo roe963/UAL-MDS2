@@ -49,11 +49,11 @@ class VistaCliente extends PolymerElement {
    </vaadin-button>
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>
- <vaadin-form-layout style="flex-grow: 0; align-self: stretch; flex-shrink: 0;">
+ <vaadin-form-layout style="flex-grow: 0; align-self: stretch; flex-shrink: 0; padding: var(--lumo-space-xl);">
   <h4>Ofertas</h4>
-  <vista-ofertas style="width: 100%;"></vista-ofertas>
+  <vista-ofertas style="width: 100%; height: 100%;"></vista-ofertas>
  </vaadin-form-layout>
- <vaadin-vertical-layout class="content" style="width: 100%; flex-grow: 1; flex-shrink: 0; flex-basis: auto;">
+ <vaadin-vertical-layout class="content" style="width: 100%; flex-grow: 1; flex-shrink: 0; flex-basis: auto; padding: var(--lumo-space-xl);">
   <h4>Top ventas</h4>
   <vaadin-horizontal-layout theme="spacing" style="align-self: stretch;">
    <vaadin-select value="Item one">
@@ -73,7 +73,7 @@ class VistaCliente extends PolymerElement {
    </vaadin-select>
   </vaadin-horizontal-layout>
   <vaadin-form-layout style="flex-grow: 1; flex-shrink: 0; align-self: stretch;">
-   <vista-categorias style="width: 100%;"></vista-categorias>
+   <vista-categorias style="width: 100%; height: 100%;"></vista-categorias>
   </vaadin-form-layout>
  </vaadin-vertical-layout>
 </vaadin-vertical-layout>

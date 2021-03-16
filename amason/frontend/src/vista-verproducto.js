@@ -1,24 +1,76 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
+import '@vaadin/vaadin-text-field/src/vaadin-text-field.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
+import '@vaadin/vaadin-button/src/vaadin-button.js';
 
-/**
- * `vista-verproducto`
- *
- * VistaVerproducto element.
- *
- * @customElement
- * @polymer
- */
 class VistaVerproducto extends PolymerElement {
 
     static get template() {
         return html`
-            <style include="shared-styles">
+<style include="shared-styles">
                 :host {
                     display: block;
                     height: 100%;
                 }
             </style>
-        `;
+<vaadin-vertical-layout style="width: 100%; height: 100%;">
+ <vaadin-horizontal-layout class="header" style="width: 100%; flex-basis: var(--lumo-size-l); flex-shrink: 0; background-color: var(--lumo-contrast-10pct);">
+  <vaadin-vertical-layout theme="spacing" style="padding-right: var(--lumo-space-m); padding-left: var(--lumo-space-m); align-self: center;">
+   <h2 style="align-self: center;">Amason</h2>
+  </vaadin-vertical-layout>
+  <vaadin-vertical-layout theme="spacing" style="align-self: center;">
+   <vaadin-button>
+    🏠
+   </vaadin-button>
+  </vaadin-vertical-layout>
+  <vaadin-vertical-layout theme="spacing" style="flex-grow: 1; align-self: center; padding-left: var(--lumo-space-xl); padding-bottom: var(--lumo-space-xs); padding-right: var(--lumo-space-xs); padding-top: var(--lumo-space-xs);">
+   <vaadin-text-field style="align-self: stretch;"></vaadin-text-field>
+  </vaadin-vertical-layout>
+  <vaadin-vertical-layout theme="spacing" style="align-self: center;">
+   <vaadin-button>
+    🔍
+   </vaadin-button>
+  </vaadin-vertical-layout>
+  <vaadin-vertical-layout theme="spacing" style="align-self: center; padding-right: var(--lumo-space-m); padding-left: var(--lumo-space-m);">
+   <vaadin-button>
+    🛒
+   </vaadin-button>
+  </vaadin-vertical-layout>
+  <vaadin-vertical-layout theme="spacing" style="align-self: center; padding-right: var(--lumo-space-m);">
+   <vaadin-button>
+     Usuario 
+   </vaadin-button>
+  </vaadin-vertical-layout>
+ </vaadin-horizontal-layout>
+ <vaadin-horizontal-layout theme="spacing" style="flex-grow: 1; align-self: stretch;">
+  <vaadin-horizontal-layout theme="spacing"></vaadin-horizontal-layout>
+  <vaadin-vertical-layout theme="spacing"></vaadin-vertical-layout>
+  <vaadin-vertical-layout theme="spacing">
+   <vaadin-horizontal-layout theme="spacing">
+    <h4>Nombre</h4>
+    <label style="align-self: center;">Label</label>
+   </vaadin-horizontal-layout>
+   <vaadin-horizontal-layout theme="spacing">
+    <h4>Categoría</h4>
+    <label style="align-self: center;">Label</label>
+   </vaadin-horizontal-layout>
+   <vaadin-horizontal-layout theme="spacing">
+    <h4>Precio</h4>
+    <label style="align-self: center;">Label</label>
+   </vaadin-horizontal-layout>
+   <vaadin-horizontal-layout theme="spacing">
+    <h4>Valoración</h4>
+    <label style="align-self: center;">Label</label>
+    <label style="align-self: center;">Label</label>
+   </vaadin-horizontal-layout>
+   <vaadin-button>
+    Comprar
+   </vaadin-button>
+  </vaadin-vertical-layout>
+ </vaadin-horizontal-layout>
+</vaadin-vertical-layout>
+`;
     }
 
     static get is() {
