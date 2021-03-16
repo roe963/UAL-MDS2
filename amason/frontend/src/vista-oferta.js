@@ -11,7 +11,7 @@ class VistaOferta extends PolymerElement {
                     height: 100%;
                 }
             </style>
-<vaadin-vertical-layout style="width: 18%; height: 26%;">
+<vaadin-vertical-layout style="width: 10%;">
  <label style="flex-shrink: 1; align-self: center;">Fecha</label>
  <img style="flex-grow: 0; padding: var(--lumo-space-xl); align-self: center;">
  <label style="flex-shrink: 1; align-self: center;">Precio</label>
