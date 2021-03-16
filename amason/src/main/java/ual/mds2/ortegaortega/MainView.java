@@ -10,7 +10,7 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.PWA;
 
-import interfaz.Iniciar_sesion;
+import interfaz.Cliente;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -42,11 +42,10 @@ public class MainView extends VerticalLayout {
      *
      * @param service The message service. Automatically injected Spring managed bean.
      */
-	
-	Iniciar_sesion iniciar_sesion = new Iniciar_sesion();
     
 	public MainView(@Autowired GreetService service) {
-    	add(iniciar_sesion);
+		Cliente cliente = new Cliente();
+    	add(cliente);
     }
 
 }

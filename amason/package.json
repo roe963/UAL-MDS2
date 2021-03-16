@@ -59,7 +59,7 @@
       "webpack-merge": "4.2.2",
       "webpack-dev-server": "3.11.0"
     },
-    "hash": "688274c8a142713b986109231e8dcc5b58fa5db9432afaf8a1c36b00d2bee0e7"
+    "hash": "ba16cdb71538bd14a4a7dfaa73f21fd6b88f02ba2d31c61024ee41c60be9718f"
   },
   "dependencies": {
     "@polymer/iron-icon": "3.0.1",
