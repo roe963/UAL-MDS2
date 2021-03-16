@@ -5,8 +5,9 @@ import '@vaadin/vaadin-list-box/src/vaadin-list-box.js';
 import '@vaadin/vaadin-item/src/vaadin-item.js';
 import '@vaadin/vaadin-form-layout/src/vaadin-form-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import './vista-ofertas.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
+import './vista-categorias.js';
 
 class VistaCliente extends PolymerElement {
 
@@ -26,7 +27,7 @@ class VistaCliente extends PolymerElement {
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="align-self: center;">
    <vaadin-button>
-    🏠
+     🏠 
    </vaadin-button>
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="align-self: center; flex-grow: 1; flex-shrink: 1;">
@@ -34,12 +35,12 @@ class VistaCliente extends PolymerElement {
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="align-self: center;">
    <vaadin-button>
-    🔍
+     🔍 
    </vaadin-button>
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="align-self: center; padding-right: var(--lumo-space-m); padding-left: var(--lumo-space-m);">
    <vaadin-button>
-    🛒
+     🛒 
    </vaadin-button>
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="align-self: center; padding-right: var(--lumo-space-m);">
@@ -48,10 +49,12 @@ class VistaCliente extends PolymerElement {
    </vaadin-button>
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>
- <vaadin-form-layout style="flex-grow: 1; align-self: stretch;">
-  <vista-ofertas></vista-ofertas>
+ <vaadin-form-layout style="flex-grow: 0; align-self: stretch; flex-shrink: 0;">
+  <h4>Ofertas</h4>
+  <vista-ofertas style="width: 100%;"></vista-ofertas>
  </vaadin-form-layout>
- <vaadin-vertical-layout class="content" style="width: 100%; flex-grow: 1; flex-shrink: 1; flex-basis: auto;">
+ <vaadin-vertical-layout class="content" style="width: 100%; flex-grow: 1; flex-shrink: 0; flex-basis: auto;">
+  <h4>Top ventas</h4>
   <vaadin-horizontal-layout theme="spacing" style="align-self: stretch;">
    <vaadin-select value="Item one">
     <template>
@@ -69,9 +72,10 @@ class VistaCliente extends PolymerElement {
     </template>
    </vaadin-select>
   </vaadin-horizontal-layout>
-  <vaadin-form-layout style="flex-grow: 1;"></vaadin-form-layout>
+  <vaadin-form-layout style="flex-grow: 1; flex-shrink: 0; align-self: stretch;">
+   <vista-categorias style="width: 100%;"></vista-categorias>
+  </vaadin-form-layout>
  </vaadin-vertical-layout>
- <vaadin-horizontal-layout class="footer" style="width: 100%; flex-basis: var(--lumo-size-l); flex-shrink: 0; background-color: var(--lumo-contrast-10pct);"></vaadin-horizontal-layout>
 </vaadin-vertical-layout>
 `;
     }
