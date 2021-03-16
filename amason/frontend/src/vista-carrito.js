@@ -21,7 +21,7 @@ class VistaCarrito extends PolymerElement {
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="align-self: center;">
    <vaadin-button>
-    🏠
+     🏠 
    </vaadin-button>
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="align-self: center; flex-grow: 1; flex-shrink: 1;">
@@ -29,12 +29,12 @@ class VistaCarrito extends PolymerElement {
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="align-self: center;">
    <vaadin-button>
-    🔍
+     🔍 
    </vaadin-button>
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="align-self: center; padding-right: var(--lumo-space-m); padding-left: var(--lumo-space-m);">
    <vaadin-button>
-    🛒
+     🛒 
    </vaadin-button>
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="align-self: center; padding-right: var(--lumo-space-m);">
@@ -44,9 +44,7 @@ class VistaCarrito extends PolymerElement {
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing">
-  <vaadin-button>
-    Button 
-  </vaadin-button>
+  <h4>Carrito</h4>
  </vaadin-horizontal-layout>
  <vaadin-vertical-layout theme="spacing" style="flex-grow: 1; align-self: stretch; flex-shrink: 1; justify-content: space-evenly;">
   <vista-productosdelcarrito style="align-self: stretch; flex-grow: 1; flex-shrink: 1; padding: var(--lumo-space-xl);"></vista-productosdelcarrito>
