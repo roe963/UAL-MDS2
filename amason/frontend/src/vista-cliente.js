@@ -16,45 +16,46 @@ class VistaCliente extends PolymerElement {
                 :host {
                     display: block;
                     height: 100%;
+        			width: 100%;
                 }
             </style>
 <vaadin-vertical-layout style="width: 100%; height: 100%; align-items: stretch;">
- <vaadin-horizontal-layout class="header" style="width: 100%; flex-basis: var(--lumo-size-l); flex-shrink: 0; background-color: var(--lumo-contrast-10pct); align-self: stretch;">
-  <vaadin-vertical-layout theme="spacing" style="padding-right: var(--lumo-space-m); padding-left: var(--lumo-space-m); align-self: center;">
+ <vaadin-horizontal-layout class="header" style="width: 100%; flex-basis: var(--lumo-size-l); flex-shrink: 1; background-color: var(--lumo-contrast-10pct); align-self: stretch; flex-grow: 0;">
+  <vaadin-vertical-layout theme="spacing" style="padding-right: var(--lumo-space-m); padding-left: var(--lumo-space-m); align-self: center; flex-grow: 0;">
    <h2 style="align-self: center;">Amason</h2>
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="align-self: center;">
-   <vaadin-button>
+   <vaadin-button id="button-inicio">
      🏠 
    </vaadin-button>
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="align-self: center; flex-grow: 1; flex-shrink: 1;">
-   <vaadin-text-field style="flex-grow: 0; flex-shrink: 1; align-self: stretch; padding-top: var(--lumo-space-xs); padding-bottom: var(--lumo-space-xs); padding-left: var(--lumo-space-xl); padding-right: var(--lumo-space-xs);"></vaadin-text-field>
+   <vaadin-text-field style="flex-grow: 0; flex-shrink: 1; align-self: stretch; padding-top: var(--lumo-space-xs); padding-bottom: var(--lumo-space-xs); padding-left: var(--lumo-space-xl); padding-right: var(--lumo-space-xs);" id="textfield-buscar"></vaadin-text-field>
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="align-self: center;">
-   <vaadin-button>
+   <vaadin-button id="button-buscar">
      🔍 
    </vaadin-button>
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="align-self: center; padding-right: var(--lumo-space-m); padding-left: var(--lumo-space-m);">
-   <vaadin-button>
+   <vaadin-button id="button-carrito">
      🛒 
    </vaadin-button>
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="align-self: center; padding-right: var(--lumo-space-m);">
-   <vaadin-button>
+   <vaadin-button id="button-usuario">
      Usuario 
    </vaadin-button>
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>
- <vaadin-form-layout style="flex-grow: 0; align-self: stretch; flex-shrink: 0; padding: var(--lumo-space-xl);">
-  <h4>Ofertas</h4>
-  <vista-ofertas style="width: 100%; height: 100%;"></vista-ofertas>
+ <vaadin-form-layout style="flex-grow: 0; align-self: stretch; flex-shrink: 1; padding: var(--lumo-space-xl);">
+  <h4 id="tittle-ofertas">Ofertas</h4>
+  <vista-ofertas style="width: 100%; height: 100%;" id="lista-ofertas"></vista-ofertas>
  </vaadin-form-layout>
- <vaadin-vertical-layout class="content" style="width: 100%; flex-grow: 1; flex-shrink: 0; flex-basis: auto; padding: var(--lumo-space-xl); align-self: stretch;">
-  <h4>Top ventas</h4>
+ <vaadin-vertical-layout class="content" style="width: 100%; flex-grow: 0; flex-shrink: 1; flex-basis: auto; padding: var(--lumo-space-xl); align-self: stretch;">
+  <h4 id="tittle-topventas">Top ventas</h4>
   <vaadin-horizontal-layout theme="spacing" style="align-self: stretch;">
-   <vaadin-select value="Item one">
+   <vaadin-select value="Item one" id="select-categoria">
     <template>
      <vaadin-list-box selected="0">
       <vaadin-item selected>
@@ -70,8 +71,8 @@ class VistaCliente extends PolymerElement {
     </template>
    </vaadin-select>
   </vaadin-horizontal-layout>
-  <vaadin-form-layout style="flex-grow: 1; flex-shrink: 0; align-self: stretch;">
-   <vista-categorias style="width: 100%; height: 100%;"></vista-categorias>
+  <vaadin-form-layout style="flex-grow: 0; flex-shrink: 1; align-self: stretch;">
+   <vista-categorias style="width: 100%; height: 100%;" id="lista-topventas"></vista-categorias>
   </vaadin-form-layout>
  </vaadin-vertical-layout>
 </vaadin-vertical-layout>

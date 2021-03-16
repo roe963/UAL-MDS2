@@ -11,7 +11,7 @@ class VistaIniciarsesion extends PolymerElement {
                     height: 100%;
                 }
             </style>
-<vaadin-login-form></vaadin-login-form>
+<vaadin-login-form id="login"></vaadin-login-form>
 `;
     }
 
