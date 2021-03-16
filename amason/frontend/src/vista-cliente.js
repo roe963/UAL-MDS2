@@ -1,5 +1,4 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
-import '@vaadin/vaadin-context-menu/src/vaadin-context-menu.js';
 import '@vaadin/vaadin-select/src/vaadin-select.js';
 import '@vaadin/vaadin-list-box/src/vaadin-list-box.js';
 import '@vaadin/vaadin-item/src/vaadin-item.js';
@@ -19,9 +18,8 @@ class VistaCliente extends PolymerElement {
                     height: 100%;
                 }
             </style>
-<vaadin-context-menu></vaadin-context-menu>
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-horizontal-layout class="header" style="width: 100%; flex-basis: var(--lumo-size-l); flex-shrink: 0; background-color: var(--lumo-contrast-10pct);">
+<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: stretch;">
+ <vaadin-horizontal-layout class="header" style="width: 100%; flex-basis: var(--lumo-size-l); flex-shrink: 0; background-color: var(--lumo-contrast-10pct); align-self: stretch;">
   <vaadin-vertical-layout theme="spacing" style="padding-right: var(--lumo-space-m); padding-left: var(--lumo-space-m); align-self: center;">
    <h2 style="align-self: center;">Amason</h2>
   </vaadin-vertical-layout>
@@ -53,7 +51,7 @@ class VistaCliente extends PolymerElement {
   <h4>Ofertas</h4>
   <vista-ofertas style="width: 100%; height: 100%;"></vista-ofertas>
  </vaadin-form-layout>
- <vaadin-vertical-layout class="content" style="width: 100%; flex-grow: 1; flex-shrink: 0; flex-basis: auto; padding: var(--lumo-space-xl);">
+ <vaadin-vertical-layout class="content" style="width: 100%; flex-grow: 1; flex-shrink: 0; flex-basis: auto; padding: var(--lumo-space-xl); align-self: stretch;">
   <h4>Top ventas</h4>
   <vaadin-horizontal-layout theme="spacing" style="align-self: stretch;">
    <vaadin-select value="Item one">
