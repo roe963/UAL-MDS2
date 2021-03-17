@@ -59,7 +59,7 @@ class VistaCliente extends PolymerElement {
     <template>
      <vaadin-list-box selected="0">
       <vaadin-item selected>
-        Item one 
+       Categoría
       </vaadin-item>
       <vaadin-item>
         Item two 
