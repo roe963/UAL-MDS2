@@ -19,7 +19,7 @@ class VistaCliente extends PolymerElement {
         			width: 100%;
                 }
             </style>
-<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: stretch;">
+<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: stretch;" id="vista-cliente">
  <vaadin-horizontal-layout class="header" style="width: 100%; flex-basis: var(--lumo-size-l); flex-shrink: 1; background-color: var(--lumo-contrast-10pct); align-self: stretch; flex-grow: 0;">
   <vaadin-vertical-layout theme="spacing" style="padding-right: var(--lumo-space-m); padding-left: var(--lumo-space-m); align-self: center; flex-grow: 0;">
    <h2 style="align-self: center;">Amason</h2>
@@ -52,14 +52,14 @@ class VistaCliente extends PolymerElement {
   <h4 id="tittle-ofertas">Ofertas</h4>
   <vista-ofertas style="width: 100%; height: 100%;" id="lista-ofertas"></vista-ofertas>
  </vaadin-form-layout>
- <vaadin-vertical-layout class="content" style="width: 100%; flex-grow: 0; flex-shrink: 1; flex-basis: auto; padding: var(--lumo-space-xl); align-self: stretch;">
+ <vaadin-vertical-layout class="content" style="width: 100%; flex-grow: 0; flex-shrink: 1; flex-basis: auto; padding: var(--lumo-space-xl); align-self: stretch;" id="layout-topventas">
   <h4 id="tittle-topventas">Top ventas</h4>
   <vaadin-horizontal-layout theme="spacing" style="align-self: stretch;">
    <vaadin-select value="Item one" id="select-categoria">
     <template>
      <vaadin-list-box selected="0">
       <vaadin-item selected>
-       Categoría
+        Categoría 
       </vaadin-item>
       <vaadin-item>
         Item two 

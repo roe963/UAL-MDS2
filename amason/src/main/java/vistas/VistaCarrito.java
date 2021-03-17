@@ -2,9 +2,12 @@ package vistas;
 
 import com.vaadin.flow.templatemodel.TemplateModel;
 import com.vaadin.flow.component.Tag;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
+import com.vaadin.flow.dom.Element;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.polymertemplate.Id;
 
 /**
@@ -17,8 +20,42 @@ import com.vaadin.flow.component.polymertemplate.Id;
 @JsModule("./src/vista-carrito.js")
 public class VistaCarrito extends PolymerTemplate<VistaCarrito.VistaCarritoModel> {
 
-    @Id("vaadinHorizontalLayout")
-	private HorizontalLayout vaadinHorizontalLayout;
+	////// Barra Navegacion /////
+	@Id("button-carrito")
+	private Button verCarrito;
+	
+	@Id("button-inicio")
+	private Button aInicio;
+	
+	
+    public Button getVerCarrito() {
+		return verCarrito;
+	}
+
+	public void setVerCarrito(Button verCarrito) {
+		this.verCarrito = verCarrito;
+	}
+
+	public Button getaInicio() {
+		return aInicio;
+	}
+
+	public void setaInicio(Button aInicio) {
+		this.aInicio = aInicio;
+	}
+	//////Barra Navegacion /////
+	
+	
+    @Id("layout-carrito")
+	private Element layoutCarrito;
+
+	public Element getLayoutCarrito() {
+		return layoutCarrito;
+	}
+
+	public void setLayoutCarrito(Element layoutCarrito) {
+		this.layoutCarrito = layoutCarrito;
+	}
 
 	/**
      * Creates a new VistaCarrito.

@@ -1,8 +1,8 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
-import './vista-productosdelcarrito.js';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
+import './vista-productosdelcarrito.js';
 
 class VistaCarrito extends PolymerElement {
 
@@ -44,10 +44,8 @@ class VistaCarrito extends PolymerElement {
    </vaadin-button>
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing">
+ <vaadin-vertical-layout theme="spacing" id="layout-carrito">
   <h4>Carrito</h4>
- </vaadin-horizontal-layout>
- <vaadin-vertical-layout theme="spacing" style="flex-grow: 1; align-self: stretch; flex-shrink: 1; justify-content: space-evenly;">
   <vista-productosdelcarrito style="align-self: stretch; flex-grow: 1; flex-shrink: 1; padding: var(--lumo-space-xl);"></vista-productosdelcarrito>
  </vaadin-vertical-layout>
 </vaadin-vertical-layout>
