@@ -27,7 +27,7 @@ class VistaPedidoclienteregistrado extends PolymerElement {
   <label style="align-self: center;" id="label-precio">Precio</label>
   <label style="align-self: center; color:red; flex-grow: 0;" id="label-estado">Estado</label>
   <vaadin-button style="align-self: center; flex-grow: 0;">
-   Ver detalles
+   Ver detalle
   </vaadin-button>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>
