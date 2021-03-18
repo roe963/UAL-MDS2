@@ -10,10 +10,7 @@ class VistaCategoria extends PolymerElement {
                     height: 100%;
                 }
             </style>
-<vaadin-vertical-layout style="width: 8%;">
- <img style="flex-grow: 0; padding: var(--lumo-space-xl); align-self: center;">
- <label style="flex-shrink: 1; align-self: center;">Precio</label>
-</vaadin-vertical-layout>
+
 `;
     }
 

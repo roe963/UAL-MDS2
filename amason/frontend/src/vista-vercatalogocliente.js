@@ -3,7 +3,7 @@ import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-select/src/vaadin-select.js';
 import '@vaadin/vaadin-list-box/src/vaadin-list-box.js';
 import '@vaadin/vaadin-item/src/vaadin-item.js';
-import './vista-categorias.js';
+import './vista-productos.js';
 
 class VistaVercatalogocliente extends PolymerElement {
 
@@ -45,11 +45,12 @@ class VistaVercatalogocliente extends PolymerElement {
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>
  <vaadin-vertical-layout theme="spacing" style="align-self: stretch; flex-grow: 1; margin: var(--lumo-space-xl);">
+  <label>Catálogo</label>
   <vaadin-select value="Item one" id="select-categoria">
    <template>
     <vaadin-list-box selected="0">
      <vaadin-item selected>
-      Categoría
+       Categoría 
      </vaadin-item>
      <vaadin-item>
        Item two 
@@ -60,7 +61,7 @@ class VistaVercatalogocliente extends PolymerElement {
     </vaadin-list-box>
    </template>
   </vaadin-select>
-  <vista-categorias style="align-self: stretch;"></vista-categorias>
+  <vista-productos style="align-self: stretch;"></vista-productos>
  </vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;

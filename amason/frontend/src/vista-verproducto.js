@@ -71,7 +71,11 @@ class VistaVerproducto extends PolymerElement {
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout theme="spacing">
     <h4>Precio</h4>
-    <label style="align-self: center;" id="label-precio">Label</label>
+    <label style="align-self: center;" id="label-precio">Precio</label>
+    <h4>Precio anterior</h4>
+    <label style="align-self: center;" id="label-precioanterior">Precio</label>
+    <h4>En oferta hasta</h4>
+    <label style="align-self: center;" id="label-fechaoferta">Fecha</label>
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout theme="spacing">
     <h4>Valoración</h4>
@@ -90,10 +94,10 @@ class VistaVerproducto extends PolymerElement {
  <vaadin-vertical-layout theme="spacing" style="align-self: stretch; flex-grow: 1; margin: var(--lumo-space-xl); margin-top: var(--lumo-space-xs); margin-bottom: var(--lumo-space-xs);">
   <vaadin-tabs style="align-self: stretch;" orientation="horizontal" selected="0">
    <vaadin-tab selected>
-    Descripción
+     Descripción 
    </vaadin-tab>
    <vaadin-tab>
-    Valoraciones
+     Valoraciones 
    </vaadin-tab>
   </vaadin-tabs>
   <vaadin-vertical-layout theme="spacing" style="align-self: stretch; flex-grow: 1;">

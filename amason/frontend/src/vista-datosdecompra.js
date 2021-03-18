@@ -1,24 +1,41 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
+import '@vaadin/vaadin-text-field/src/vaadin-text-field.js';
+import '@vaadin/vaadin-select/src/vaadin-select.js';
+import '@vaadin/vaadin-list-box/src/vaadin-list-box.js';
+import '@vaadin/vaadin-item/src/vaadin-item.js';
 
-/**
- * `vista-datosdecompra`
- *
- * VistaDatosdecompra element.
- *
- * @customElement
- * @polymer
- */
 class VistaDatosdecompra extends PolymerElement {
 
     static get template() {
         return html`
-            <style include="shared-styles">
+<style include="shared-styles">
                 :host {
                     display: block;
                     height: 100%;
                 }
             </style>
-        `;
+<vaadin-vertical-layout>
+ <label>Dirección</label>
+ <vaadin-text-field id="textfield-direccion"></vaadin-text-field>
+ <label style="padding-top: var(--lumo-space-l);">Forma de pago</label>
+ <vaadin-select value="Item one" id="select-formadepago">
+  <template>
+   <vaadin-list-box selected="0">
+    <vaadin-item>
+      Item one 
+    </vaadin-item>
+    <vaadin-item>
+      Item two 
+    </vaadin-item>
+    <vaadin-item>
+      Item three 
+    </vaadin-item>
+   </vaadin-list-box>
+  </template>
+ </vaadin-select>
+</vaadin-vertical-layout>
+`;
     }
 
     static get is() {
