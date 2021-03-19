@@ -3,15 +3,8 @@ import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import './vista-productosdelcarrito.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
+import './vista-productosdelpedido.js';
 
-/**
- * `vista-verpedido`
- *
- * VistaVerpedido element.
- *
- * @customElement
- * @polymer
- */
 class VistaVerpedido extends PolymerElement {
 
     static get template() {
@@ -52,8 +45,27 @@ class VistaVerpedido extends PolymerElement {
    </vaadin-button>
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>
+ <h4 style="padding: var(--lumo-space-xl); padding-bottom: var(--lumo-space-xs);">Heading 4</h4>
+ <vaadin-vertical-layout theme="spacing" style="padding-top: var(--lumo-space-xs); margin: var(--lumo-space-xl); align-self: stretch; margin-top: var(--lumo-space-xs); flex-grow: 1;">
+  <vaadin-horizontal-layout theme="spacing">
+   <h4>Heading 4</h4>
+   <label style="align-self: center;">Label</label>
+   <h4>Heading 4</h4>
+   <label style="align-self: center;">Label</label>
+   <h4>Heading 4</h4>
+   <label style="align-self: center;">Label</label>
+   <h4>Heading 4</h4>
+   <label style="align-self: center;">Label</label>
+   <h4>Heading 4</h4>
+   <label style="align-self: center;">Label</label>
+  </vaadin-horizontal-layout>
+  <vista-productosdelpedido style="flex-grow: 0;"></vista-productosdelpedido>
+  <vaadin-button id="button-cancelarcompra" style="align-self: center;">
+   Cancelar compra
+  </vaadin-button>
+ </vaadin-vertical-layout>
 </vaadin-vertical-layout>
-        `;
+`;
     }
 
     static get is() {

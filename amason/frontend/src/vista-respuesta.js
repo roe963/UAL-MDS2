@@ -1,24 +1,22 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 
-/**
- * `vista-respuesta`
- *
- * VistaRespuesta element.
- *
- * @customElement
- * @polymer
- */
 class VistaRespuesta extends PolymerElement {
 
     static get template() {
         return html`
-            <style include="shared-styles">
+<style include="shared-styles">
                 :host {
                     display: block;
                     height: 100%;
                 }
             </style>
-        `;
+<vaadin-vertical-layout>
+ <h4 id="h-pregunta">Pregunta:</h4>
+ <h4 id="h-respuesta">Respuesta:</h4>
+ <label id="label-mensaje">Mensaje</label>
+</vaadin-vertical-layout>
+`;
     }
 
     static get is() {
