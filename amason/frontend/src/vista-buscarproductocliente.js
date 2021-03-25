@@ -43,7 +43,7 @@ class VistaBuscarproductocliente extends PolymerElement {
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>
  <vaadin-vertical-layout theme="spacing" style="margin: var(--lumo-space-xl); align-self: stretch; flex-grow: 1;">
-  <label>Buscar</label>
+  <h4>Buscar</h4>
   <label id="label-resultados">Resultados</label>
   <vista-productos style="flex-grow: 1; flex-shrink: 1; align-self: stretch;"></vista-productos>
  </vaadin-vertical-layout>

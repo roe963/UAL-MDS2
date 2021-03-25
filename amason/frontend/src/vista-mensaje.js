@@ -13,9 +13,10 @@ class VistaMensaje extends PolymerElement {
                 }
             </style>
 <vaadin-horizontal-layout class="content">
+ <label id="label-usuario" style="flex-grow: 0; margin-right: var(--lumo-space-xl);">Usuario</label>
  <label id="label-mensaje" style="flex-grow: 1;">Mensaje</label>
  <vaadin-button id="button-vermensaje">
-  Ver
+   Ver 
  </vaadin-button>
 </vaadin-horizontal-layout>
 `;
