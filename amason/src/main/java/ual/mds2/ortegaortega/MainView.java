@@ -18,8 +18,11 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.PWA;
 
+import interfaz.Administrador;
 import interfaz.Carrito;
 import interfaz.Cliente;
+import interfaz.Empresa_transportes;
+import interfaz.Encargado_compras;
 import interfaz.Iniciar_sesion;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,89 +55,238 @@ public class MainView extends VerticalLayout {
 	 *                bean.
 	 */
 
+	TIPOUSUARIO usuario = TIPOUSUARIO.CLIENTE;
+
 	private Component vistaActual;
-	
+
+	Cliente cliente;
+	Administrador admin;
+	Encargado_compras encargado;
+	Empresa_transportes transportes;
+
+	Carrito carrito;
+
+	Dialog dialog;
+	Iniciar_sesion ini;
+
 	public MainView(@Autowired GreetService service) {
-		Cliente cliente = new Cliente();
-		Carrito carrito = new Carrito();
-		Iniciar_sesion ini = new Iniciar_sesion();
-		
+		cliente = new Cliente();
+		admin = new Administrador();
+		encargado = new Encargado_compras();
+		transportes = new Empresa_transportes();
+
+		carrito = new Carrito();
+		ini = new Iniciar_sesion();
+
 		vistaActual = cliente;
-		
-		Button btnHome= new Button(new Icon(VaadinIcon.HOME));
-		btnHome.setThemeName("tertiary");
-		TextField txtBuscar = new TextField();
-		txtBuscar.setPlaceholder("Buscar...");
-		txtBuscar.setWidth("400px");
-		Button btnBuscar= new Button(new Icon(VaadinIcon.SEARCH));
-		btnBuscar.setThemeName("tertiary");
-		Button btnCarrito = new Button(new Icon(VaadinIcon.CART));
-		btnCarrito.setThemeName("tertiary");
-		
-		Button btnIniciarSesion = new Button("Entrar");
-		btnIniciarSesion.setThemeName("tertiary");
-		
+		generarMenuBar();
+		add(vistaActual);
+
+		dialog = new Dialog();
+		dialog.add(ini);
+
+		ini.getLoginForm().addLoginListener(e -> {
+			switch (e.getUsername()) {
+			case "admin":
+				dialog.close();
+				usuario = TIPOUSUARIO.ADMIN;
+				CambiarVista(admin, true);
+				break;
+			case "regis":
+				dialog.close();
+				usuario = TIPOUSUARIO.REGISTRADO;
+				CambiarVista(cliente, true);
+				break;
+			case "encar":
+				dialog.close();
+				usuario = TIPOUSUARIO.ENCARGADO;
+				CambiarVista(encargado, true);
+				break;
+			case "trans":
+				dialog.close();
+				usuario = TIPOUSUARIO.TRANSPORTES;
+				CambiarVista(transportes, true);
+				break;
+			default:
+				break;
+			}
+		});
+	}
+
+	private void generarMenuBar() {
+
+		removeAll();
+
 		MenuBar menuBar = new MenuBar();
-//		menuBar.setWidthFull();
 		menuBar.setThemeName("tertiary");
-		menuBar.addItem(btnHome);
-		menuBar.addItem(txtBuscar);
-		menuBar.addItem(btnBuscar);
-		menuBar.addItem(btnCarrito);
-		menuBar.addItem(btnIniciarSesion);
-		
-		
-		MenuItem project = menuBar.addItem("Yo");
-		project.getSubMenu().addItem("Mis datos",
-		        e -> System.out.println("ok1"));
-		project.getSubMenu().addItem("Mis pedidos",
-		        e -> System.out.println("ok1"));
-		project.getSubMenu().addItem("Mis mensajes",
-		        e -> System.out.println("ok2"));
-		project.getSubMenu().addItem("Salir",
-		        e -> System.out.println("ok2"));
 		this.setHorizontalComponentAlignment(Alignment.CENTER, menuBar);
 
+		switch (usuario) {
+		case ADMIN:
+
+			MenuItem administrateMenu = menuBar.addItem("Administrar");
+			administrateMenu.getSubMenu().addItem("Productos", e -> System.out.println("ok1"));
+			administrateMenu.getSubMenu().addItem("Categorias", e -> System.out.println("ok1"));
+			administrateMenu.getSubMenu().addItem("Ofertas", e -> System.out.println("ok2"));
+			administrateMenu.getSubMenu().addItem("Empleados", e -> System.out.println("ok2"));
+
+			MenuItem showMenu = menuBar.addItem("Ver");
+			showMenu.getSubMenu().addItem("Catalogo", e -> System.out.println("ok1"));
+			showMenu.getSubMenu().addItem("Pedidos", e -> System.out.println("ok2"));
+			showMenu.getSubMenu().addItem("Mensajes", e -> System.out.println("ok2"));
+			
+			Button btnChangeSesion = new Button("Salir");
+			btnChangeSesion.setThemeName("tertiary");
+			menuBar.addItem(btnChangeSesion);
+			btnChangeSesion.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+				@Override
+				public void onComponentEvent(ClickEvent<Button> event) {
+					usuario = TIPOUSUARIO.CLIENTE;
+					CambiarVista(cliente, true);
+				}
+			});
+
+			break;
+			
+		case CLIENTE:
+
+			Button btnHome = new Button(new Icon(VaadinIcon.HOME));
+			btnHome.setThemeName("tertiary");
+			menuBar.addItem(btnHome);
+			btnHome.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+				@Override
+				public void onComponentEvent(ClickEvent<Button> event) {
+					CambiarVista(cliente, false);
+				}
+			});
+
+			TextField txtBuscar = new TextField();
+			txtBuscar.setPlaceholder("Buscar...");
+			txtBuscar.setWidth("400px");
+			Button btnBuscar = new Button(new Icon(VaadinIcon.SEARCH));
+			btnBuscar.setThemeName("tertiary");
+			menuBar.addItem(txtBuscar);
+			menuBar.addItem(btnBuscar);
+
+			Button btnCarrito = new Button(new Icon(VaadinIcon.CART));
+			btnCarrito.setThemeName("tertiary");
+			menuBar.addItem(btnCarrito);
+			btnCarrito.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+				@Override
+				public void onComponentEvent(ClickEvent<Button> event) {
+					CambiarVista(carrito, false);
+				}
+			});
+
+			btnChangeSesion = new Button("Entrar");
+			btnChangeSesion.setThemeName("tertiary");
+			menuBar.addItem(btnChangeSesion);
+			btnChangeSesion.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+				@Override
+				public void onComponentEvent(ClickEvent<Button> event) {
+					ini.getLoginForm().setEnabled(true);
+					dialog.open();
+				}
+			});
+
+			break;
+
+		case REGISTRADO:
+			
+			btnHome = new Button(new Icon(VaadinIcon.HOME));
+			btnHome.setThemeName("tertiary");
+			menuBar.addItem(btnHome);
+			btnHome.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+				@Override
+				public void onComponentEvent(ClickEvent<Button> event) {
+					CambiarVista(cliente, false);
+				}
+			});
+
+			txtBuscar = new TextField();
+			txtBuscar.setPlaceholder("Buscar...");
+			txtBuscar.setWidth("400px");
+			btnBuscar = new Button(new Icon(VaadinIcon.SEARCH));
+			btnBuscar.setThemeName("tertiary");
+			menuBar.addItem(txtBuscar);
+			menuBar.addItem(btnBuscar);
+
+			btnCarrito = new Button(new Icon(VaadinIcon.CART));
+			btnCarrito.setThemeName("tertiary");
+			menuBar.addItem(btnCarrito);
+			btnCarrito.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+				@Override
+				public void onComponentEvent(ClickEvent<Button> event) {
+					CambiarVista(carrito, false);
+				}
+			});
+
+			MenuItem me = menuBar.addItem("Yo");
+			me.getSubMenu().addItem("Mis datos", e -> System.out.println("ok1"));
+			me.getSubMenu().addItem("Mis pedidos", e -> System.out.println("ok1"));
+			me.getSubMenu().addItem("Mis mensajes", e -> System.out.println("ok2"));
+			me.getSubMenu().addItem("Salir", e -> System.out.println("ok2"));
+
+			btnChangeSesion = new Button("Salir");
+			btnChangeSesion.setThemeName("tertiary");
+			menuBar.addItem(btnChangeSesion);
+			btnChangeSesion.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+				@Override
+				public void onComponentEvent(ClickEvent<Button> event) {
+					usuario = TIPOUSUARIO.CLIENTE;
+					CambiarVista(cliente, true);
+				}
+			});
+
+			break;
+			
+		case ENCARGADO:
+			
+			btnChangeSesion = new Button("Salir");
+			btnChangeSesion.setThemeName("tertiary");
+			menuBar.addItem(btnChangeSesion);
+			btnChangeSesion.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+				@Override
+				public void onComponentEvent(ClickEvent<Button> event) {
+					usuario = TIPOUSUARIO.CLIENTE;
+					CambiarVista(cliente, true);
+				}
+			});
+
+			break;
+			
+		case TRANSPORTES:
+
+			btnChangeSesion = new Button("Salir");
+			btnChangeSesion.setThemeName("tertiary");
+			menuBar.addItem(btnChangeSesion);
+			btnChangeSesion.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+				@Override
+				public void onComponentEvent(ClickEvent<Button> event) {
+					usuario = TIPOUSUARIO.CLIENTE;
+					CambiarVista(cliente, true);
+				}
+			});
+			
+			break;
+			
+		default:
+			break;
+		}
+
 		add(menuBar);
-		add(vistaActual);
-		
-		btnCarrito.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				// TODO Auto-generated method stub
-				CambiarVista(carrito);
-			}
-		});
-		
-		btnHome.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				// TODO Auto-generated method stub
-				CambiarVista(cliente);
-			}
-		});
-		
-		btnIniciarSesion.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				// TODO Auto-generated method stub
-				Dialog dialog = new Dialog();
-				dialog.add(ini);
-				dialog.open();
-			}
-		});
 
 	}
 
-	private void GenerarMenuBar() {
-		
-	}
-	
-	private void CambiarVista(Component nuevaVista) {
+	private void CambiarVista(Component nuevaVista, boolean sesionChanged) {
 		remove(vistaActual);
+		if (sesionChanged)
+			generarMenuBar();
 		add(nuevaVista);
 		vistaActual = nuevaVista;
+	}
+
+	public enum TIPOUSUARIO {
+		ADMIN, CLIENTE, REGISTRADO, TRANSPORTES, ENCARGADO
 	}
 }

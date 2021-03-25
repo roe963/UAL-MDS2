@@ -3,7 +3,10 @@ package vistas;
 import com.vaadin.flow.templatemodel.TemplateModel;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.login.LoginForm;
+import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
+import com.vaadin.flow.dom.Element;
 
 /**
  * A Designer generated component for the vista-iniciarsesion template.
@@ -15,7 +18,19 @@ import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 @JsModule("./src/vista-iniciarsesion.js")
 public class VistaIniciarsesion extends PolymerTemplate<VistaIniciarsesion.VistaIniciarsesionModel> {
 
-    /**
+	@Id("login")
+	private LoginForm loginForm;
+	
+	
+    public LoginForm getLoginForm() {
+		return loginForm;
+	}
+
+	public void setLoginForm(LoginForm loginForm) {
+		this.loginForm = loginForm;
+	}
+
+	/**
      * Creates a new VistaIniciarsesion.
      */
     public VistaIniciarsesion() {
