@@ -22,12 +22,14 @@ public class UsuarioCriteria extends AbstractORMCriteria {
 	public final IntegerExpression id;
 	public final StringExpression email;
 	public final StringExpression password;
+	public final BooleanExpression activo;
 	
 	public UsuarioCriteria(Criteria criteria) {
 		super(criteria);
 		id = new IntegerExpression("id", this);
 		email = new StringExpression("email", this);
 		password = new StringExpression("password", this);
+		activo = new BooleanExpression("activo", this);
 	}
 	
 	public UsuarioCriteria(PersistentSession session) {

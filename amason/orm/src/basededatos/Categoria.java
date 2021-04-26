@@ -47,6 +47,9 @@ public class Categoria implements Serializable {
 	@Column(name="Nombre", nullable=true, length=255)	
 	private String nombre;
 	
+	@Column(name="Activo", nullable=false, length=1)	
+	private boolean activo;
+	
 	@OneToMany(mappedBy="asignado_a", targetEntity=basededatos.Producto.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
@@ -70,6 +73,14 @@ public class Categoria implements Serializable {
 	
 	public String getNombre() {
 		return nombre;
+	}
+	
+	public void setActivo(boolean value) {
+		this.activo = value;
+	}
+	
+	public boolean getActivo() {
+		return activo;
 	}
 	
 	private void setORM_Contiene_un(java.util.Set value) {

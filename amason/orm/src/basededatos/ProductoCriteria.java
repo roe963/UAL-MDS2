@@ -26,6 +26,7 @@ public class ProductoCriteria extends AbstractORMCriteria {
 	public final AssociationExpression asignado_a;
 	public final StringExpression nombre;
 	public final FloatExpression precio;
+	public final BooleanExpression activo;
 	public final CollectionExpression recibe_una;
 	public final CollectionExpression contiene_una;
 	public final IntegerExpression tiene_unaId;
@@ -40,6 +41,7 @@ public class ProductoCriteria extends AbstractORMCriteria {
 		asignado_a = new AssociationExpression("asignado_a", this);
 		nombre = new StringExpression("nombre", this);
 		precio = new FloatExpression("precio", this);
+		activo = new BooleanExpression("activo", this);
 		recibe_una = new CollectionExpression("ORM_recibe_una", this);
 		contiene_una = new CollectionExpression("ORM_contiene_una", this);
 		tiene_unaId = new IntegerExpression("tiene_una.id", this);

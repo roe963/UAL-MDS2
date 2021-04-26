@@ -1,17 +1,17 @@
 package basededatos;
 
-import java.util.Vector;
+import java.util.ArrayList;
 import basededatos.Administrador;
 
 public class Administradores {
 	public BDPrincipal _bdprincipal_administradores;
-	public Vector<Administrador> _contiene_administrador = new Vector<Administrador>();
+	public ArrayList<Administrador> _contiene_administrador = new ArrayList<Administrador>();
 
-	public Usuario iniciar_sesion(String aMailUsuario) {
+	public Usuario iniciar_sesion(String aMailUsuario, String aPasswordUsuario) {
 		throw new UnsupportedOperationException();
 	}
 
-	public String recuperarContrasena(String aMailUsuario) {
+	public String recuperar_contrasena(String aMailUsuario) {
 		throw new UnsupportedOperationException();
 	}
 }

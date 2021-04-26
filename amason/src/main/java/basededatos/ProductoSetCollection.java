@@ -73,6 +73,7 @@ public class ProductoSetCollection extends org.orm.util.ORMSet {
 	 * <li>id</li>
 	 * <li>nombre</li>
 	 * <li>precio</li>
+	 * <li>activo</li>
 	 * </ul>
 	 * @return The persistent objects sorted array
 	 */
@@ -86,6 +87,7 @@ public class ProductoSetCollection extends org.orm.util.ORMSet {
 	 * <li>id</li>
 	 * <li>nombre</li>
 	 * <li>precio</li>
+	 * <li>activo</li>
 	 * </ul>
 	 * @param ascending true for ascending, false for descending
 	 * @return The persistent objects sorted array

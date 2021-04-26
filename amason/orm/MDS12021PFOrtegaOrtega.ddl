@@ -8,10 +8,10 @@ CREATE TABLE Pedido (Id int(10) NOT NULL AUTO_INCREMENT, ClienteUsuarioId int(10
 CREATE TABLE Valoracion (Id int(10) NOT NULL AUTO_INCREMENT, ProductoId int(10) NOT NULL, Puntuacion int(10) NOT NULL, Comentario varchar(255), PRIMARY KEY (Id)) ENGINE=InnoDB;
 CREATE TABLE Oferta (Id int(10) NOT NULL AUTO_INCREMENT, Fecha bigint(20) NOT NULL, Precio float NOT NULL, PRIMARY KEY (Id)) ENGINE=InnoDB;
 CREATE TABLE Foto (Id int(10) NOT NULL AUTO_INCREMENT, ProductoId int(10) NOT NULL, Url varchar(255), PRIMARY KEY (Id)) ENGINE=InnoDB;
-CREATE TABLE Producto (Id int(10) NOT NULL AUTO_INCREMENT, OfertaId int(10) NOT NULL, CategoriaId int(10) NOT NULL, Nombre varchar(255), Precio float NOT NULL, PRIMARY KEY (Id)) ENGINE=InnoDB;
-CREATE TABLE Categoria (Id int(10) NOT NULL AUTO_INCREMENT, Nombre varchar(255), PRIMARY KEY (Id)) ENGINE=InnoDB;
-CREATE TABLE Usuario (Id int(10) NOT NULL AUTO_INCREMENT, Email varchar(255), Password varchar(255), PRIMARY KEY (Id)) ENGINE=InnoDB;
-CREATE TABLE Cliente (Nombre varchar(255), MetodoPago varchar(255), DireccionEnvio varchar(255), FotoURL varchar(255), Operativo bit(1) NOT NULL, UsuarioId int(10) NOT NULL, PRIMARY KEY (UsuarioId)) ENGINE=InnoDB;
+CREATE TABLE Producto (Id int(10) NOT NULL AUTO_INCREMENT, OfertaId int(10) NOT NULL, CategoriaId int(10) NOT NULL, Nombre varchar(255), Precio float NOT NULL, Activo bit(1) NOT NULL, PRIMARY KEY (Id)) ENGINE=InnoDB;
+CREATE TABLE Categoria (Id int(10) NOT NULL AUTO_INCREMENT, Nombre varchar(255), Activo bit(1) NOT NULL, PRIMARY KEY (Id)) ENGINE=InnoDB;
+CREATE TABLE Usuario (Id int(10) NOT NULL AUTO_INCREMENT, Email varchar(255), Password varchar(255), Activo bit(1) NOT NULL, PRIMARY KEY (Id)) ENGINE=InnoDB;
+CREATE TABLE Cliente (Nombre varchar(255), MetodoPago varchar(255), DireccionEnvio varchar(255), FotoURL varchar(255), UsuarioId int(10) NOT NULL, PRIMARY KEY (UsuarioId)) ENGINE=InnoDB;
 CREATE TABLE Encargado_compras (UsuarioId int(10) NOT NULL, PRIMARY KEY (UsuarioId)) ENGINE=InnoDB;
 CREATE TABLE Empresa_transportes (UsuarioId int(10) NOT NULL, PRIMARY KEY (UsuarioId)) ENGINE=InnoDB;
 CREATE TABLE Administrador (UsuarioId int(10) NOT NULL, PRIMARY KEY (UsuarioId)) ENGINE=InnoDB;

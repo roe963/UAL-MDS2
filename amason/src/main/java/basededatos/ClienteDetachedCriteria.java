@@ -22,11 +22,11 @@ public class ClienteDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression id;
 	public final StringExpression email;
 	public final StringExpression password;
+	public final BooleanExpression activo;
 	public final StringExpression nombre;
 	public final StringExpression metodoPago;
 	public final StringExpression direccionEnvio;
 	public final StringExpression fotoURL;
-	public final BooleanExpression operativo;
 	public final CollectionExpression realiza_un;
 	public final CollectionExpression manda_un;
 	public final CollectionExpression realiza_una;
@@ -36,11 +36,11 @@ public class ClienteDetachedCriteria extends AbstractORMDetachedCriteria {
 		id = new IntegerExpression("id", this.getDetachedCriteria());
 		email = new StringExpression("email", this.getDetachedCriteria());
 		password = new StringExpression("password", this.getDetachedCriteria());
+		activo = new BooleanExpression("activo", this.getDetachedCriteria());
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
 		metodoPago = new StringExpression("metodoPago", this.getDetachedCriteria());
 		direccionEnvio = new StringExpression("direccionEnvio", this.getDetachedCriteria());
 		fotoURL = new StringExpression("fotoURL", this.getDetachedCriteria());
-		operativo = new BooleanExpression("operativo", this.getDetachedCriteria());
 		realiza_un = new CollectionExpression("ORM_realiza_un", this.getDetachedCriteria());
 		manda_un = new CollectionExpression("ORM_manda_un", this.getDetachedCriteria());
 		realiza_una = new CollectionExpression("ORM_realiza_una", this.getDetachedCriteria());
@@ -51,11 +51,11 @@ public class ClienteDetachedCriteria extends AbstractORMDetachedCriteria {
 		id = new IntegerExpression("id", this.getDetachedCriteria());
 		email = new StringExpression("email", this.getDetachedCriteria());
 		password = new StringExpression("password", this.getDetachedCriteria());
+		activo = new BooleanExpression("activo", this.getDetachedCriteria());
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
 		metodoPago = new StringExpression("metodoPago", this.getDetachedCriteria());
 		direccionEnvio = new StringExpression("direccionEnvio", this.getDetachedCriteria());
 		fotoURL = new StringExpression("fotoURL", this.getDetachedCriteria());
-		operativo = new BooleanExpression("operativo", this.getDetachedCriteria());
 		realiza_un = new CollectionExpression("ORM_realiza_un", this.getDetachedCriteria());
 		manda_un = new CollectionExpression("ORM_manda_un", this.getDetachedCriteria());
 		realiza_una = new CollectionExpression("ORM_realiza_una", this.getDetachedCriteria());

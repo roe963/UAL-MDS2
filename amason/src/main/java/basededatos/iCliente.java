@@ -1,14 +1,10 @@
 package basededatos;
 
-import interfaz.Producto;
-
 public interface iCliente {
 
 	public Producto[] busqueda_producto(String aNombreProducto);
 
-	public Producto[] cargar_productos_categoria(String aNombreCategoria);
-
-	public Producto[] cargar_categoria(String aNombreCategoria);
+	public Producto[] cargar_productos_categoria(Categoria aCategoria);
 
 	public Oferta[] cargar_ofertas();
 
@@ -16,7 +12,7 @@ public interface iCliente {
 
 	public Producto[] cargar_productos();
 
-	public void valorar_producto(int aIdPedido, int aIdUsuario, int aPuntuacion, String aComentario);
+	public void valorar_producto(int aIdProducto, int aIdUsuario, int aPuntuacion, String aComentario);
 
 	public Producto cargar_producto(int aIdProducto);
 

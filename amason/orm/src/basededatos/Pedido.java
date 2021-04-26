@@ -134,21 +134,6 @@ public class Pedido implements Serializable {
 	@Transient	
 	public final basededatos.CantidadSetCollection contiene_un = new basededatos.CantidadSetCollection(this, _ormAdapter, ORMConstants.KEY_PEDIDO_CONTIENE_UN, ORMConstants.KEY_CANTIDAD_CONTENIDO_EN, ORMConstants.KEY_MUL_MANY_TO_MANY);
 	
-	public basededatos.Pedido cargar_pedido_cliente_registrado(int idPedido) {
-		//TODO: Implement Method
-		throw new UnsupportedOperationException();
-	}
-	
-	public interfaz.Pedido_cliente_registrado cargar_pedidos_cliente_registrado(int idUsuario) {
-		//TODO: Implement Method
-		throw new UnsupportedOperationException();
-	}
-	
-	public void cancelar_compra(int idPedido) {
-		//TODO: Implement Method
-		throw new UnsupportedOperationException();
-	}
-	
 	public void comprobar_pedido(int idPedido) {
 		//TODO: Implement Method
 		throw new UnsupportedOperationException();
@@ -160,11 +145,6 @@ public class Pedido implements Serializable {
 	}
 	
 	public basededatos.Pedido detalle_pedido(int idPedido) {
-		//TODO: Implement Method
-		throw new UnsupportedOperationException();
-	}
-	
-	public void realizar_pedido(int idCantidad, int idCliente) {
 		//TODO: Implement Method
 		throw new UnsupportedOperationException();
 	}

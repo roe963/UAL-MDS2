@@ -1,5 +1,7 @@
 package basededatos;
 
+import java.util.Date;
+
 public interface iAdministrador {
 
 	public Producto[] cargar_productos();
@@ -16,7 +18,7 @@ public interface iAdministrador {
 
 	public void agregar_producto(String aNombreProducto, int aCategoria, double aPrecioProducto, String aDescripcionProducto, String aImagenProducto1, String aImagenProducto2, String aImagenProducto3, String aImagenProducto4, String aImagenProducto5, int aMagenPrincipal);
 
-	public void modificar_proucto(String aNombreProducto, int aCategoria, double aPrecioProducto, String aDescripcionProducto, String aImagenProducto1, String aImagenProducto2, String aImagenProducto3, String aImagenProducto4, String aImagenProducto5, int aImagenPrincipal, booleam aActivo);
+	public void modificar_proucto(String aNombreProducto, int aCategoria, double aPrecioProducto, String aDescripcionProducto, String aImagenProducto1, String aImagenProducto2, String aImagenProducto3, String aImagenProducto4, String aImagenProducto5, int aImagenPrincipal);
 
 	public void agregar_categoria(String aNombreCategoria);
 
@@ -26,15 +28,25 @@ public interface iAdministrador {
 
 	public void activar_producto(int aIdProducto);
 
-	public void agregar_oferta(int aIdProducto, double aPrecioOferta, date aFechaFinOferta);
+	public void agregar_oferta(int aIdProducto, double aPrecioOferta, Date aFechaFinOferta);
 
 	public Oferta[] cargar_ofertas();
 
-	public void finalizar_oferta();
+	public void finalizar_oferta(int aIdOferta);
 
-	public void agregar_usuario(String aNombreUsuario, String aPasswordUsuario, int aTipoUsuario);
+	public boolean agregar_usuario(String aNombreUsuario, String aPasswordUsuario, int aTipoUsuario);
 
-	public void cargar_empleados();
+	public Usuario[] cargar_empleados();
 
-	public void modificar_usuario(String aNombreUsuario, String aPasswordUsuario, int aTipoUsuario);
+	public boolean modificar_usuario(String aNombreUsuario, String aPasswordUsuario, int aTipoUsuario);
+
+	public Empresa_transportes[] cargar_empleados_empresa_transportes();
+
+	public Encargado_compras[] cargar_empleados_encargado_compras();
+
+	public void cambiar_estado_producto(int aIdProducto, boolean aActivo);
+
+	public void cambiar_estado_categoria(int aIdCategoria, boolean aActivo);
+
+	public boolean cambiar_estado_usaurio(int aIdUsuario, boolean aActivo);
 }

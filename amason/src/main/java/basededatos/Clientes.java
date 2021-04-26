@@ -1,17 +1,17 @@
 package basededatos;
 
-import java.util.Vector;
+import java.util.ArrayList;
 import basededatos.Cliente;
 
 public class Clientes {
 	public BDPrincipal _bdprincipal_clientes;
-	public Vector<Cliente> _contiene_cliente = new Vector<Cliente>();
+	public ArrayList<Cliente> _contiene_cliente = new ArrayList<Cliente>();
 
-	public Usuario iniciar_sesion(String aMailUsuario) {
+	public Usuario iniciar_sesion(String aMailUsuario, String aPasswordUsuario) {
 		throw new UnsupportedOperationException();
 	}
 
-	public String recuperarContrasena(String aMailUsuario) {
+	public String recuperar_contrasena(String aMailUsuario) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -23,11 +23,11 @@ public class Clientes {
 		throw new UnsupportedOperationException();
 	}
 
-	public void seleccionar_direccion_envio(String aDireccionUsuario) {
+	public void seleccionar_direccion_envio(int aIdUsuario, String aDireccionUsuario) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void seleccionar_metodo_pago(String aMetodoPagoUsuario) {
+	public void seleccionar_metodo_pago(int aIdUsuario, String aMetodoPagoUsuario) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -35,7 +35,11 @@ public class Clientes {
 		throw new UnsupportedOperationException();
 	}
 
-	public void guardar_perfil(String aNombreUsuario, String aMailUsuario, String aDireccionUsuario, String aFormaPagoUsuario, String aFotoUsuario, boolean aEstadoCuenta) {
+	public void guardar_perfil(int aIdUsuario, String aNombreUsuario, String aMailUsuario, String aDireccionUsuario, int aFormaPagoUsuario, String aFotoUsuario, boolean aEstadoCuenta) {
+		throw new UnsupportedOperationException();
+	}
+
+	public void actualizas_datos_compra(String aDireccion, String aFormaPago, Cliente aCliente) {
 		throw new UnsupportedOperationException();
 	}
 }

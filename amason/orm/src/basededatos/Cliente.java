@@ -58,9 +58,6 @@ public class Cliente extends basededatos.Usuario implements Serializable {
 	@Column(name="FotoURL", nullable=true, length=255)	
 	private String fotoURL;
 	
-	@Column(name="Operativo", nullable=false, length=1)	
-	private boolean operativo;
-	
 	@OneToMany(mappedBy="realizado_por", targetEntity=basededatos.Pedido.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
@@ -109,14 +106,6 @@ public class Cliente extends basededatos.Usuario implements Serializable {
 		return fotoURL;
 	}
 	
-	public void setOperativo(boolean value) {
-		this.operativo = value;
-	}
-	
-	public boolean getOperativo() {
-		return operativo;
-	}
-	
 	private void setORM_Realiza_un(java.util.Set value) {
 		this.ORM_realiza_un = value;
 	}
@@ -149,11 +138,6 @@ public class Cliente extends basededatos.Usuario implements Serializable {
 	
 	@Transient	
 	public final basededatos.ValoracionSetCollection realiza_una = new basededatos.ValoracionSetCollection(this, _ormAdapter, ORMConstants.KEY_CLIENTE_REALIZA_UNA, ORMConstants.KEY_VALORACION_ESCRITO_POR, ORMConstants.KEY_MUL_MANY_TO_MANY);
-	
-	public void actualizas_datos_compra(String direccion, String formaPago) {
-		//TODO: Implement Method
-		throw new UnsupportedOperationException();
-	}
 	
 	public String toString() {
 		return super.toString();

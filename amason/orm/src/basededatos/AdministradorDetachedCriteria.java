@@ -22,12 +22,14 @@ public class AdministradorDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression id;
 	public final StringExpression email;
 	public final StringExpression password;
+	public final BooleanExpression activo;
 	
 	public AdministradorDetachedCriteria() {
 		super(basededatos.Administrador.class, basededatos.AdministradorCriteria.class);
 		id = new IntegerExpression("id", this.getDetachedCriteria());
 		email = new StringExpression("email", this.getDetachedCriteria());
 		password = new StringExpression("password", this.getDetachedCriteria());
+		activo = new BooleanExpression("activo", this.getDetachedCriteria());
 	}
 	
 	public AdministradorDetachedCriteria(DetachedCriteria aDetachedCriteria) {
@@ -35,6 +37,7 @@ public class AdministradorDetachedCriteria extends AbstractORMDetachedCriteria {
 		id = new IntegerExpression("id", this.getDetachedCriteria());
 		email = new StringExpression("email", this.getDetachedCriteria());
 		password = new StringExpression("password", this.getDetachedCriteria());
+		activo = new BooleanExpression("activo", this.getDetachedCriteria());
 	}
 	
 	public Administrador uniqueAdministrador(PersistentSession session) {

@@ -22,6 +22,7 @@ public class Empresa_transportesDetachedCriteria extends AbstractORMDetachedCrit
 	public final IntegerExpression id;
 	public final StringExpression email;
 	public final StringExpression password;
+	public final BooleanExpression activo;
 	public final CollectionExpression tiene_asignado_un;
 	
 	public Empresa_transportesDetachedCriteria() {
@@ -29,6 +30,7 @@ public class Empresa_transportesDetachedCriteria extends AbstractORMDetachedCrit
 		id = new IntegerExpression("id", this.getDetachedCriteria());
 		email = new StringExpression("email", this.getDetachedCriteria());
 		password = new StringExpression("password", this.getDetachedCriteria());
+		activo = new BooleanExpression("activo", this.getDetachedCriteria());
 		tiene_asignado_un = new CollectionExpression("ORM_tiene_asignado_un", this.getDetachedCriteria());
 	}
 	
@@ -37,6 +39,7 @@ public class Empresa_transportesDetachedCriteria extends AbstractORMDetachedCrit
 		id = new IntegerExpression("id", this.getDetachedCriteria());
 		email = new StringExpression("email", this.getDetachedCriteria());
 		password = new StringExpression("password", this.getDetachedCriteria());
+		activo = new BooleanExpression("activo", this.getDetachedCriteria());
 		tiene_asignado_un = new CollectionExpression("ORM_tiene_asignado_un", this.getDetachedCriteria());
 	}
 	

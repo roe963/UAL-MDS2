@@ -1,26 +1,25 @@
 package basededatos;
 
-import java.util.Vector;
-// import basededatos.Producto;
-// import interfaz.Producto;
+import java.util.ArrayList;
+import basededatos.Producto;
 
 public class Productos {
 	public BDPrincipal _bdprincipal_productos;
-	public Vector<basededatos.Producto> _contiene_producto = new Vector<Producto>();
+	public ArrayList<Producto> _contiene_producto = new ArrayList<Producto>();
 
-	public basededatos.Producto[] cargar_productos(String aNombreProducto) {
+	public Producto[] cargar_productos(String aNombreProducto) {
 		throw new UnsupportedOperationException();
 	}
 
-	public basededatos.Producto[] cargar_productos_categoria(int aIdCategoria) {
+	public Producto[] cargar_productos_categoria(Categoria aCategoria) {
 		throw new UnsupportedOperationException();
 	}
 
-	public interfaz.Producto[] cargar_productos() {
+	public Producto[] cargar_productos() {
 		throw new UnsupportedOperationException();
 	}
 
-	public basededatos.Producto cargar_producto(int aIdProducto) {
+	public Producto cargar_producto(int aIdProducto) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -32,11 +31,19 @@ public class Productos {
 		throw new UnsupportedOperationException();
 	}
 
-	public void modificar_proucto(String aNombreProducto, int aCategoria, double aPrecioProducto, String aDescripcionProducto, String aImagenProducto1, String aImagenProducto2, String aImagenProducto3, String aImagenProducto4, String aImagenProducto5, String aImagenPrincipal_, boolean aActivo) {
+	public void modificar_proucto(String aNombreProducto, int aCategoria, double aPrecioProducto, String aDescripcionProducto, String aImagenProducto1, String aImagenProducto2, String aImagenProducto3, String aImagenProducto4, String aImagenProducto5, String aImagenPrincipal_) {
 		throw new UnsupportedOperationException();
 	}
 
 	public void activar_producto(int aIdProducto) {
+		throw new UnsupportedOperationException();
+	}
+
+	public Producto[] cargar_productos_pedido(Cantidad[] aCantidades) {
+		throw new UnsupportedOperationException();
+	}
+
+	public void cambiar_estado_producto(int aDiProducto, boolean aActivo) {
 		throw new UnsupportedOperationException();
 	}
 }

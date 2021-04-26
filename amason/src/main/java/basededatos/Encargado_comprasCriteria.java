@@ -22,12 +22,14 @@ public class Encargado_comprasCriteria extends AbstractORMCriteria {
 	public final IntegerExpression id;
 	public final StringExpression email;
 	public final StringExpression password;
+	public final BooleanExpression activo;
 	
 	public Encargado_comprasCriteria(Criteria criteria) {
 		super(criteria);
 		id = new IntegerExpression("id", this);
 		email = new StringExpression("email", this);
 		password = new StringExpression("password", this);
+		activo = new BooleanExpression("activo", this);
 	}
 	
 	public Encargado_comprasCriteria(PersistentSession session) {

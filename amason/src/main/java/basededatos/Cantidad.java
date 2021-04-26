@@ -116,11 +116,6 @@ public class Cantidad implements Serializable {
 		return contiene_un;
 	}
 	
-	public basededatos.Cantidad realizar_pedido(int idProducto, int cantidad) {
-		//TODO: Implement Method
-		throw new UnsupportedOperationException();
-	}
-	
 	public void verificar_compra() {
 		//TODO: Implement Method
 		throw new UnsupportedOperationException();

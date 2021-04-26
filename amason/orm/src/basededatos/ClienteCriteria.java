@@ -22,11 +22,11 @@ public class ClienteCriteria extends AbstractORMCriteria {
 	public final IntegerExpression id;
 	public final StringExpression email;
 	public final StringExpression password;
+	public final BooleanExpression activo;
 	public final StringExpression nombre;
 	public final StringExpression metodoPago;
 	public final StringExpression direccionEnvio;
 	public final StringExpression fotoURL;
-	public final BooleanExpression operativo;
 	public final CollectionExpression realiza_un;
 	public final CollectionExpression manda_un;
 	public final CollectionExpression realiza_una;
@@ -36,11 +36,11 @@ public class ClienteCriteria extends AbstractORMCriteria {
 		id = new IntegerExpression("id", this);
 		email = new StringExpression("email", this);
 		password = new StringExpression("password", this);
+		activo = new BooleanExpression("activo", this);
 		nombre = new StringExpression("nombre", this);
 		metodoPago = new StringExpression("metodoPago", this);
 		direccionEnvio = new StringExpression("direccionEnvio", this);
 		fotoURL = new StringExpression("fotoURL", this);
-		operativo = new BooleanExpression("operativo", this);
 		realiza_un = new CollectionExpression("ORM_realiza_un", this);
 		manda_un = new CollectionExpression("ORM_manda_un", this);
 		realiza_una = new CollectionExpression("ORM_realiza_una", this);

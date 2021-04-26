@@ -22,6 +22,7 @@ public class Empresa_transportesCriteria extends AbstractORMCriteria {
 	public final IntegerExpression id;
 	public final StringExpression email;
 	public final StringExpression password;
+	public final BooleanExpression activo;
 	public final CollectionExpression tiene_asignado_un;
 	
 	public Empresa_transportesCriteria(Criteria criteria) {
@@ -29,6 +30,7 @@ public class Empresa_transportesCriteria extends AbstractORMCriteria {
 		id = new IntegerExpression("id", this);
 		email = new StringExpression("email", this);
 		password = new StringExpression("password", this);
+		activo = new BooleanExpression("activo", this);
 		tiene_asignado_un = new CollectionExpression("ORM_tiene_asignado_un", this);
 	}
 	

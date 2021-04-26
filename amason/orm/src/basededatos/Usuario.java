@@ -35,6 +35,9 @@ public class Usuario implements Serializable {
 	@Column(name="Password", nullable=true, length=255)	
 	private String password;
 	
+	@Column(name="Activo", nullable=false, length=1)	
+	private boolean activo;
+	
 	private void setId(int value) {
 		this.id = value;
 	}
@@ -61,6 +64,14 @@ public class Usuario implements Serializable {
 	
 	public String getPassword() {
 		return password;
+	}
+	
+	public void setActivo(boolean value) {
+		this.activo = value;
+	}
+	
+	public boolean getActivo() {
+		return activo;
 	}
 	
 	public String toString() {

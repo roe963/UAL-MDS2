@@ -1,13 +1,13 @@
 package basededatos;
 
-import java.util.Vector;
+import java.util.ArrayList;
 import basededatos.Categoria;
 
 public class Categorias {
 	public BDPrincipal _bdprincipal_categorias;
-	public Vector<Categoria> _contiene_categoria = new Vector<Categoria>();
+	public ArrayList<Categoria> _contiene_categoria = new ArrayList<Categoria>();
 
-	public Producto[] cargar_categoria(String aNombreCategoria) {
+	public Producto[] cargar_categoria(Categoria aCategoria) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -20,6 +20,10 @@ public class Categorias {
 	}
 
 	public void activar_categoria(int aIdCategoria) {
+		throw new UnsupportedOperationException();
+	}
+
+	public void cambiar_estado_categoria(int aIdCategoria, boolean aActivo) {
 		throw new UnsupportedOperationException();
 	}
 }

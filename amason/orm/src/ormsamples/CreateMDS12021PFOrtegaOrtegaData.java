@@ -40,16 +40,16 @@ public class CreateMDS12021PFOrtegaOrtegaData {
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : pertenece_a
 			basededatos.FotoDAO.save(lbasededatosFoto);
 			basededatos.Producto lbasededatosProducto = basededatos.ProductoDAO.createProducto();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : tiene_una, contiene_una, recibe_una, precio, asignado_a, pertenece_a
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : tiene_una, contiene_una, recibe_una, activo, precio, asignado_a, pertenece_a
 			basededatos.ProductoDAO.save(lbasededatosProducto);
 			basededatos.Categoria lbasededatosCategoria = basededatos.CategoriaDAO.createCategoria();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : contiene_un
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : contiene_un, activo
 			basededatos.CategoriaDAO.save(lbasededatosCategoria);
 			basededatos.Usuario lbasededatosUsuario = basededatos.UsuarioDAO.createUsuario();
-			// Initialize the properties of the persistent object here
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : activo
 			basededatos.UsuarioDAO.save(lbasededatosUsuario);
 			basededatos.Cliente lbasededatosCliente = basededatos.ClienteDAO.createCliente();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : realiza_una, manda_un, realiza_un, operativo
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : realiza_una, manda_un, realiza_un
 			basededatos.ClienteDAO.save(lbasededatosCliente);
 			basededatos.Encargado_compras lbasededatosEncargado_compras = basededatos.Encargado_comprasDAO.createEncargado_compras();
 			// Initialize the properties of the persistent object here

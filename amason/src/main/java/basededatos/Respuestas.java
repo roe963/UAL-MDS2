@@ -1,17 +1,17 @@
 package basededatos;
 
-import java.util.Vector;
+import java.util.ArrayList;
 import basededatos.Respuesta;
 
 public class Respuestas {
 	public BDPrincipal _bdprincipal_respuestas;
-	public Vector<Respuesta> _contiene_respuesta = new Vector<Respuesta>();
+	public ArrayList<Respuesta> _contiene_respuesta = new ArrayList<Respuesta>();
 
 	public void ver_mensaje(int aIdMensaje) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void redactar_mensaje(int aIdUsuario, String aMensajeUsuario) {
+	public void redactar_mensaje(String aMensajeUsuario, Mensaje aMensaje) {
 		throw new UnsupportedOperationException();
 	}
 

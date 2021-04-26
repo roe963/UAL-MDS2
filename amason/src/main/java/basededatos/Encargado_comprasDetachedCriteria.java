@@ -22,12 +22,14 @@ public class Encargado_comprasDetachedCriteria extends AbstractORMDetachedCriter
 	public final IntegerExpression id;
 	public final StringExpression email;
 	public final StringExpression password;
+	public final BooleanExpression activo;
 	
 	public Encargado_comprasDetachedCriteria() {
 		super(basededatos.Encargado_compras.class, basededatos.Encargado_comprasCriteria.class);
 		id = new IntegerExpression("id", this.getDetachedCriteria());
 		email = new StringExpression("email", this.getDetachedCriteria());
 		password = new StringExpression("password", this.getDetachedCriteria());
+		activo = new BooleanExpression("activo", this.getDetachedCriteria());
 	}
 	
 	public Encargado_comprasDetachedCriteria(DetachedCriteria aDetachedCriteria) {
@@ -35,6 +37,7 @@ public class Encargado_comprasDetachedCriteria extends AbstractORMDetachedCriter
 		id = new IntegerExpression("id", this.getDetachedCriteria());
 		email = new StringExpression("email", this.getDetachedCriteria());
 		password = new StringExpression("password", this.getDetachedCriteria());
+		activo = new BooleanExpression("activo", this.getDetachedCriteria());
 	}
 	
 	public Encargado_compras uniqueEncargado_compras(PersistentSession session) {
