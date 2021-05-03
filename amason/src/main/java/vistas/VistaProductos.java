@@ -4,6 +4,8 @@ import com.vaadin.flow.templatemodel.TemplateModel;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
+import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.polymertemplate.Id;
 
 /**
  * A Designer generated component for the vista-productos template.
@@ -15,7 +17,18 @@ import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 @JsModule("./src/vista-productos.js")
 public class VistaProductos extends PolymerTemplate<VistaProductos.VistaProductosModel> {
 
-    /**
+    @Id("vistaProducto")
+	private Element vistaProducto;
+
+	public Element getVistaProducto() {
+		return vistaProducto;
+	}
+
+	public void setVistaProducto(Element vistaProducto) {
+		this.vistaProducto = vistaProducto;
+	}
+
+	/**
      * Creates a new VistaProductos.
      */
     public VistaProductos() {

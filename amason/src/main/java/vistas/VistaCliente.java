@@ -69,4 +69,16 @@ public class VistaCliente extends PolymerTemplate<VistaCliente.VistaClienteModel
     public interface VistaClienteModel extends TemplateModel {
         // Add setters and getters for template properties here.
     }
+    
+    
+    
+    
+    
+    @Id("button-usuario")
+	private Button buttonUsuario;
+
+
+	public Button getButtonUsuario() {
+		return buttonUsuario;
+	}
 }

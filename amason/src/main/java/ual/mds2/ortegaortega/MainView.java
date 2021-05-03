@@ -24,6 +24,9 @@ import interfaz.Cliente;
 import interfaz.Empresa_transportes;
 import interfaz.Encargado_compras;
 import interfaz.Iniciar_sesion;
+import interfaz.Productos;
+
+import interfaz.Registrarse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -63,6 +66,9 @@ public class MainView extends VerticalLayout {
 	Administrador admin;
 	Encargado_compras encargado;
 	Empresa_transportes transportes;
+	
+	//Registrarse registrarse;
+	Productos productos;
 
 	Carrito carrito;
 
@@ -74,11 +80,22 @@ public class MainView extends VerticalLayout {
 		admin = new Administrador();
 		encargado = new Encargado_compras();
 		transportes = new Empresa_transportes();
+		
+		//registrarse = new Registrarse();
+		productos = new Productos();
 
 		carrito = new Carrito();
 		ini = new Iniciar_sesion();
 
-		vistaActual = cliente;
+		/*vistaActual = cliente;
+		generarMenuBar();
+		add(vistaActual);*/
+		
+		/*vistaActual = registrarse;
+		generarMenuBar();
+		add(vistaActual);*/
+		
+		vistaActual = productos;
 		generarMenuBar();
 		add(vistaActual);
 

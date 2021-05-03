@@ -2,6 +2,8 @@ package bds;
 
 import java.util.Date;
 
+import org.orm.PersistentException;
+
 import basededatos.Producto;
 import basededatos.Pedido;
 import basededatos.Categoria;
@@ -21,9 +23,9 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 	public Administradores _bd_administradores;
 	public Empresas_transportes _bd_empresas_transportes;
 	public Encargados_compras _bd_encargados_compras;
-	public Clientes _bd_clientes;
+	public Clientes _bd_clientes = new Clientes();
 	public Categorias _bd_categorias;
-	public Productos _bd_productos;
+	public Productos _bd_productos = new Productos();
 	public Fotos _bd_fotos;
 	public Ofertas _bd_ofertas;
 	public Valoraciones _bd_valoraciones;
@@ -35,7 +37,14 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 	public Cantidades _bd_cantidades;
 
 	public Producto[] cargar_productos() {
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
+		Producto[] productos = null;
+        try {
+        	productos = _bd_productos.cargar_productos();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return productos;
 	}
 
 	public Producto[] cargar_productos_categoria(String aNombreCategoria) {
@@ -111,7 +120,12 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 	}
 
 	public void registrar_usuario(String aNombreUsuario, String aMailUsuario, String aPasswordUsuario, String aConfirmPasswordUsuario, String aDireccionUsuario, String aFormaPagoUsuario, String aFotoUsuario) {
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();	
+		try {
+			_bd_clientes.registrar_usuario(aNombreUsuario, aMailUsuario, aPasswordUsuario, aConfirmPasswordUsuario, aDireccionUsuario, aFormaPagoUsuario, aFotoUsuario);
+        } catch (PersistentException e) {
+            e.printStackTrace();
+        }
 	}
 
 	public void valorar_producto(int aIdPedido, int aIdUsuario, int aPuntuacion, String aComentario) {

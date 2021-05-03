@@ -1,9 +1,17 @@
 package bds;
 
 import java.util.ArrayList;
+
+import org.orm.PersistentException;
+import org.orm.PersistentTransaction;
+
+import com.vaadin.flow.router.Route;
+
 import basededatos.Cliente;
+import basededatos.ClienteDAO;
 import basededatos.Usuario;
 
+@Route(value = "Cliente")
 public class Clientes {
 	public BDPrincipal _bdprincipal_clientes;
 	public ArrayList<Cliente> _contiene_cliente = new ArrayList<Cliente>();
@@ -16,8 +24,26 @@ public class Clientes {
 		throw new UnsupportedOperationException();
 	}
 
-	public void registrar_usuario(String aNombreUsuario, String aMailUsuario, String aPasswordUsuario, String aConfirmPasswordUsuario, String aDireccionUsuario, String aFormaPagoUsuario, String aFotoUsuario) {
-		throw new UnsupportedOperationException();
+	public void registrar_usuario(String aNombreUsuario, String aMailUsuario, String aPasswordUsuario, String aConfirmPasswordUsuario, String aDireccionUsuario, String aFormaPagoUsuario, String aFotoUsuario) throws PersistentException {
+		//throw new UnsupportedOperationException();
+		PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession()
+                .beginTransaction();
+		
+		Cliente cliente = new Cliente();
+		cliente.setNombre(aNombreUsuario);
+		cliente.setEmail(aMailUsuario);
+		cliente.setPassword(aPasswordUsuario);
+		cliente.setDireccionEnvio(aDireccionUsuario);
+		cliente.setMetodoPago(aFormaPagoUsuario);
+		cliente.setFotoURL(aFotoUsuario);
+		cliente.setActivo(true);
+		
+        try {
+        	ClienteDAO.save(cliente);
+            t.commit();
+        } catch (PersistentException e) {
+            t.rollback();
+        }
 	}
 
 	public Usuario cargar_perfil(int aIdUsuario) {

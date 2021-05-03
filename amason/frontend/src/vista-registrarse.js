@@ -33,7 +33,7 @@ class VistaRegistrarse extends PolymerElement {
    <vaadin-select value="Item one" id="select-formadepago" label="Forma de pago">
     <template>
      <vaadin-list-box selected="0">
-      <vaadin-item selected>
+      <vaadin-item selected id="vaadinItem">
         Item one 
       </vaadin-item>
       <vaadin-item>
@@ -49,9 +49,9 @@ class VistaRegistrarse extends PolymerElement {
    <vaadin-text-field label="Foto de usuario" placeholder="Placeholder" id="textarea-fotousuario"></vaadin-text-field>
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" style="align-self: center;">
+ <vaadin-horizontal-layout theme="spacing" style="align-self: center;" id="vaadinHorizontalLayout">
   <vaadin-button id="button-crearcuenta">
-   Crear cuenta
+    Crear cuenta 
   </vaadin-button>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>
