@@ -1,20 +1,20 @@
 package bds;
 
-import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Vector;
 
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
 import basededatos.Cantidad;
 import basededatos.Categoria;
-import basededatos.ClienteDAO;
 import basededatos.Producto;
 import basededatos.ProductoDAO;
 import basededatos.Valoracion;
 
 public class Productos {
 	public BDPrincipal _bdprincipal_productos;
-	public ArrayList<Producto> _contiene_producto = new ArrayList<Producto>();
+	public Vector<Producto> _contiene_producto = new Vector<Producto>();
 
 	public Producto[] cargar_productos(String aNombreProducto) {
 		throw new UnsupportedOperationException();
@@ -25,13 +25,15 @@ public class Productos {
 	}
 
 	public Producto[] cargar_productos() throws PersistentException {
-		//throw new UnsupportedOperationException();
+		
 		Producto[] productos = null;
+		
         PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
         
         try {
-        	 productos = ProductoDAO.listProductoByQuery("activo=1", "nombre");
-        	 System.out.println(productos[0].getNombre());
+        	productos = ProductoDAO.listProductoByQuery(null, null);
+        	//Collections.addAll(_contiene_producto, productos);
+
             t.commit();
         } catch (PersistentException e) {
             t.rollback();

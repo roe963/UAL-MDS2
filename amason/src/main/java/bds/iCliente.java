@@ -2,8 +2,8 @@ package bds;
 
 import basededatos.Categoria;
 import basededatos.Oferta;
-import basededatos.Producto;
 import basededatos.Valoracion;
+import basededatos.Producto;
 
 public interface iCliente {
 

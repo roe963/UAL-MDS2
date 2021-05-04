@@ -1,6 +1,6 @@
 package bds;
 
-import java.util.ArrayList;
+import java.util.Vector;
 
 import basededatos.Cantidad;
 import basededatos.Cliente;
@@ -9,7 +9,7 @@ import basededatos.Pedido_pendiente;
 
 public class Pedidos_pendientes {
 	public BDPrincipal _bdprincipal_pedidos_pendientes;
-	public ArrayList<Pedido_pendiente> _contiene_pedido_pendiente = new ArrayList<Pedido_pendiente>();
+	public Vector<Pedido_pendiente> _contiene_pedido_pendiente = new Vector<Pedido_pendiente>();
 
 	public Pedido[] cargar_pedidos_pendientes() {
 		throw new UnsupportedOperationException();

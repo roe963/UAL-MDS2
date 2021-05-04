@@ -1,13 +1,13 @@
 package bds;
 
-import java.util.ArrayList;
+import java.util.Vector;
 
 import basededatos.Pedido;
 import basededatos.Pedido_enviado;
 
 public class Pedidos_enviados {
 	public BDPrincipal _bdprincipal_pedidos_enviados;
-	public ArrayList<Pedido_enviado> _contiene_pedido_enviado = new ArrayList<Pedido_enviado>();
+	public Vector<Pedido_enviado> _contiene_pedido_enviado = new Vector<Pedido_enviado>();
 
 	public Pedido[] cargar_pedidos_enviados(int aIdEmpresaTransportes) {
 		throw new UnsupportedOperationException();

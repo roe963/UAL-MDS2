@@ -10,9 +10,9 @@ public class Producto extends VistaProducto {
 	public Oferta_producto _oferta_producto;
 	public Ver_producto _ver_producto;*/
 	
-	public Producto(Producto producto) {
-		this.setLabelProducto(producto.getLabelProducto());
-		this.setImgProducto(producto.getImgProducto());
-	}
+	//public Producto(Producto producto) {
+		//this.setLabelProducto(producto.getLabelProducto());
+		//this.setImgProducto(producto.getImgProducto());
+	//}
 	
 }

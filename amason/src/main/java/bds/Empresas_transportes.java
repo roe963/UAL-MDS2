@@ -1,14 +1,12 @@
 package bds;
 
-import java.util.ArrayList;
-// import basededatos.Empresa_transportes;
-// import interfaz.Empresa_transportes;
-
+import java.util.Vector;
+import basededatos.Empresa_transportes;
 import basededatos.Usuario;
 
 public class Empresas_transportes {
 	public BDPrincipal _bdprincipal_empresas_trasnportes;
-	public ArrayList<basededatos.Empresa_transportes> _contiene_empresa_transportes = new ArrayList<basededatos.Empresa_transportes>();
+	public Vector<basededatos.Empresa_transportes> _contiene_empresa_transportes = new Vector<Empresa_transportes>();
 
 	public Usuario iniciar_sesion(String aMailUsuario, String aPasswordUsuario) {
 		throw new UnsupportedOperationException();

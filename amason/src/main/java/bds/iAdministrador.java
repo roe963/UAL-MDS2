@@ -4,11 +4,11 @@ import java.util.Date;
 
 import basededatos.Categoria;
 import basededatos.Empresa_transportes;
+import basededatos.Encargado_compras;
 import basededatos.Oferta;
 import basededatos.Pedido;
 import basededatos.Producto;
 import basededatos.Usuario;
-import basededatos.Encargado_compras;
 
 public interface iAdministrador {
 

@@ -4,20 +4,7 @@ import java.util.Date;
 
 import org.orm.PersistentException;
 
-import basededatos.Producto;
-import basededatos.Pedido;
-import basededatos.Categoria;
-import basededatos.Empresa_transportes;
-import basededatos.Encargado_compras;
-import basededatos.Oferta;
-import basededatos.Usuario;
-import basededatos.Valoracion;
-import basededatos.Cantidad;
-import basededatos.Mensaje;
-import basededatos.Respuesta;
-import basededatos.Pedido_pendiente;
-import basededatos.Pedido_enviado;
-import basededatos.Pedido_entregado;
+import basededatos.*;
 
 public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrado, iCorreo_personal, iEmpresa_transportes, iEncargado_compras, iIniciar_sesion, iPasarela_de_pagos {
 	public Administradores _bd_administradores;
@@ -37,11 +24,10 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 	public Cantidades _bd_cantidades;
 
 	public Producto[] cargar_productos() {
-		//throw new UnsupportedOperationException();
 		Producto[] productos = null;
         try {
         	productos = _bd_productos.cargar_productos();
-        } catch (Exception e) {
+        } catch (PersistentException e) {
             e.printStackTrace();
         }
         return productos;
@@ -120,7 +106,6 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 	}
 
 	public void registrar_usuario(String aNombreUsuario, String aMailUsuario, String aPasswordUsuario, String aConfirmPasswordUsuario, String aDireccionUsuario, String aFormaPagoUsuario, String aFotoUsuario) {
-		//throw new UnsupportedOperationException();	
 		try {
 			_bd_clientes.registrar_usuario(aNombreUsuario, aMailUsuario, aPasswordUsuario, aConfirmPasswordUsuario, aDireccionUsuario, aFormaPagoUsuario, aFotoUsuario);
         } catch (PersistentException e) {

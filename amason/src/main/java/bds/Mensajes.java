@@ -1,11 +1,11 @@
 package bds;
 
-import java.util.ArrayList;
+import java.util.Vector;
 import basededatos.Mensaje;
 
 public class Mensajes {
 	public BDPrincipal _bdprincipal_mensajes;
-	public ArrayList<Mensaje> _contiene_mensaje = new ArrayList<Mensaje>();
+	public Vector<Mensaje> _contiene_mensaje = new Vector<Mensaje>();
 
 	public Mensaje[] cargar_mensajes_cliente(int aIdUsuario) {
 		throw new UnsupportedOperationException();

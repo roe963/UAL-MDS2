@@ -1,13 +1,12 @@
 package bds;
 
-import java.util.ArrayList;
 import java.util.Date;
-
+import java.util.Vector;
 import basededatos.Oferta;
 
 public class Ofertas {
 	public BDPrincipal _bdprincipal_ofertas;
-	public ArrayList<Oferta> _contiene_oferta = new ArrayList<Oferta>();
+	public Vector<Oferta> _contiene_oferta = new Vector<Oferta>();
 
 	public void finalizar_oferta(int aIdOferta) {
 		throw new UnsupportedOperationException();

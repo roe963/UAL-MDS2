@@ -1,13 +1,13 @@
 package bds;
 
-import java.util.ArrayList;
+import java.util.Vector;
 
 import basededatos.Mensaje;
 import basededatos.Respuesta;
 
 public class Respuestas {
 	public BDPrincipal _bdprincipal_respuestas;
-	public ArrayList<Respuesta> _contiene_respuesta = new ArrayList<Respuesta>();
+	public Vector<Respuesta> _contiene_respuesta = new Vector<Respuesta>();
 
 	public void ver_mensaje(int aIdMensaje) {
 		throw new UnsupportedOperationException();

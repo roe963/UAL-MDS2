@@ -1,12 +1,12 @@
 package bds;
 
-import java.util.ArrayList;
+import java.util.Vector;
 import basededatos.Categoria;
 import basededatos.Producto;
 
 public class Categorias {
 	public BDPrincipal _bdprincipal_categorias;
-	public ArrayList<Categoria> _contiene_categoria = new ArrayList<Categoria>();
+	public Vector<Categoria> _contiene_categoria = new Vector<Categoria>();
 
 	public Producto[] cargar_categoria(Categoria aCategoria) {
 		throw new UnsupportedOperationException();
