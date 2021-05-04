@@ -9,7 +9,7 @@ License Type: Academic
 <hibernate-configuration>
 	<session-factory>
    	<!-- properties -->
-		<property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+		<property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
 		<property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
 		<property name="connection.url">jdbc:mysql://localhost:3306/amason</property>
 		<property name="connection.username">root</property>

@@ -1,11 +1,17 @@
 package vistas;
 
 import com.vaadin.flow.templatemodel.TemplateModel;
+
+import basededatos.Producto;
+import bds.BDPrincipal;
+import bds.iCliente;
+
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.dom.Element;
 import com.vaadin.flow.component.polymertemplate.Id;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 /**
  * A Designer generated component for the vista-productos template.
@@ -19,7 +25,11 @@ public class VistaProductos extends PolymerTemplate<VistaProductos.VistaProducto
 
     @Id("vistaProducto")
 	private Element vistaProducto;
+	@Id("vaadinHorizontalLayout")
+	private HorizontalLayout vaadinHorizontalLayout;
 
+	iCliente cliente = new BDPrincipal();
+	
 	public Element getVistaProducto() {
 		return vistaProducto;
 	}
@@ -33,6 +43,17 @@ public class VistaProductos extends PolymerTemplate<VistaProductos.VistaProducto
      */
     public VistaProductos() {
         // You can initialise any data required for the connected UI components here.
+    	
+    }
+    
+    void cargar_productos() {
+    	vaadinHorizontalLayout.removeAll();
+    	
+    	Producto[] productos = cliente.cargar_productos();
+
+        for (int i = 0; i < productos.length; i++) {
+            vaadinHorizontalLayout.add(new interfaz.Producto(productos[i]));
+        }
     }
 
     /**

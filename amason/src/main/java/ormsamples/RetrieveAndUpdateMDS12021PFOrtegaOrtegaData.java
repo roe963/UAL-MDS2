@@ -33,15 +33,9 @@ public class RetrieveAndUpdateMDS12021PFOrtegaOrtegaData {
 			basededatos.Valoracion lbasededatosValoracion = basededatos.ValoracionDAO.loadValoracionByQuery(null, null);
 			// Update the properties of the persistent object
 			basededatos.ValoracionDAO.save(lbasededatosValoracion);
-			basededatos.Oferta lbasededatosOferta = basededatos.OfertaDAO.loadOfertaByQuery(null, null);
-			// Update the properties of the persistent object
-			basededatos.OfertaDAO.save(lbasededatosOferta);
 			basededatos.Foto lbasededatosFoto = basededatos.FotoDAO.loadFotoByQuery(null, null);
 			// Update the properties of the persistent object
 			basededatos.FotoDAO.save(lbasededatosFoto);
-			basededatos.Producto lbasededatosProducto = basededatos.ProductoDAO.loadProductoByQuery(null, null);
-			// Update the properties of the persistent object
-			basededatos.ProductoDAO.save(lbasededatosProducto);
 			basededatos.Categoria lbasededatosCategoria = basededatos.CategoriaDAO.loadCategoriaByQuery(null, null);
 			// Update the properties of the persistent object
 			basededatos.CategoriaDAO.save(lbasededatosCategoria);
@@ -60,6 +54,12 @@ public class RetrieveAndUpdateMDS12021PFOrtegaOrtegaData {
 			basededatos.Administrador lbasededatosAdministrador = basededatos.AdministradorDAO.loadAdministradorByQuery(null, null);
 			// Update the properties of the persistent object
 			basededatos.AdministradorDAO.save(lbasededatosAdministrador);
+			basededatos.Oferta lbasededatosOferta = basededatos.OfertaDAO.loadOfertaByQuery(null, null);
+			// Update the properties of the persistent object
+			basededatos.OfertaDAO.save(lbasededatosOferta);
+			basededatos.Producto lbasededatosProducto = basededatos.ProductoDAO.loadProductoByQuery(null, null);
+			// Update the properties of the persistent object
+			basededatos.ProductoDAO.save(lbasededatosProducto);
 			t.commit();
 		}
 		catch (Exception e) {
@@ -117,23 +117,11 @@ public class RetrieveAndUpdateMDS12021PFOrtegaOrtegaData {
 		//lbasededatosValoracionCriteria.id.eq();
 		System.out.println(lbasededatosValoracionCriteria.uniqueValoracion());
 		
-		System.out.println("Retrieving Oferta by OfertaCriteria");
-		basededatos.OfertaCriteria lbasededatosOfertaCriteria = new basededatos.OfertaCriteria();
-		// Please uncomment the follow line and fill in parameter(s)
-		//lbasededatosOfertaCriteria.id.eq();
-		System.out.println(lbasededatosOfertaCriteria.uniqueOferta());
-		
 		System.out.println("Retrieving Foto by FotoCriteria");
 		basededatos.FotoCriteria lbasededatosFotoCriteria = new basededatos.FotoCriteria();
 		// Please uncomment the follow line and fill in parameter(s)
 		//lbasededatosFotoCriteria.id.eq();
 		System.out.println(lbasededatosFotoCriteria.uniqueFoto());
-		
-		System.out.println("Retrieving Producto by ProductoCriteria");
-		basededatos.ProductoCriteria lbasededatosProductoCriteria = new basededatos.ProductoCriteria();
-		// Please uncomment the follow line and fill in parameter(s)
-		//lbasededatosProductoCriteria.id.eq();
-		System.out.println(lbasededatosProductoCriteria.uniqueProducto());
 		
 		System.out.println("Retrieving Categoria by CategoriaCriteria");
 		basededatos.CategoriaCriteria lbasededatosCategoriaCriteria = new basededatos.CategoriaCriteria();
@@ -170,6 +158,18 @@ public class RetrieveAndUpdateMDS12021PFOrtegaOrtegaData {
 		// Please uncomment the follow line and fill in parameter(s)
 		//lbasededatosAdministradorCriteria.id.eq();
 		System.out.println(lbasededatosAdministradorCriteria.uniqueAdministrador());
+		
+		System.out.println("Retrieving Oferta by OfertaCriteria");
+		basededatos.OfertaCriteria lbasededatosOfertaCriteria = new basededatos.OfertaCriteria();
+		// Please uncomment the follow line and fill in parameter(s)
+		//lbasededatosOfertaCriteria.id.eq();
+		System.out.println(lbasededatosOfertaCriteria.uniqueOferta());
+		
+		System.out.println("Retrieving Producto by ProductoCriteria");
+		basededatos.ProductoCriteria lbasededatosProductoCriteria = new basededatos.ProductoCriteria();
+		// Please uncomment the follow line and fill in parameter(s)
+		//lbasededatosProductoCriteria.id.eq();
+		System.out.println(lbasededatosProductoCriteria.uniqueProducto());
 		
 	}
 	

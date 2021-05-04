@@ -65,9 +65,9 @@ public class Producto implements Serializable {
 	@org.hibernate.annotations.GenericGenerator(name="BASEDEDATOS_PRODUCTO_ID_GENERATOR", strategy="native")	
 	private int id;
 	
-	@OneToOne(optional=false, targetEntity=basededatos.Oferta.class, fetch=FetchType.LAZY)	
+	@OneToOne(targetEntity=basededatos.Oferta.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="OfertaId", referencedColumnName="Id", nullable=false) }, foreignKey=@ForeignKey(name="FKProducto445011"))	
+	@JoinColumns(value={ @JoinColumn(name="OfertaId", referencedColumnName="Id") }, foreignKey=@ForeignKey(name="FKProducto445011"))	
 	private basededatos.Oferta pertenece_a;
 	
 	@ManyToOne(targetEntity=basededatos.Categoria.class, fetch=FetchType.LAZY)	

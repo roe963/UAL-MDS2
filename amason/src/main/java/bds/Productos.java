@@ -6,6 +6,9 @@ import java.util.Vector;
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
+import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.notification.Notification.Position;
+
 import basededatos.Cantidad;
 import basededatos.Categoria;
 import basededatos.Producto;

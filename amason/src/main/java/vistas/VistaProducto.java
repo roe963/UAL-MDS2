@@ -1,6 +1,9 @@
 package vistas;
 
 import com.vaadin.flow.templatemodel.TemplateModel;
+
+import basededatos.Producto;
+
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
@@ -44,6 +47,11 @@ public class VistaProducto extends PolymerTemplate<VistaProducto.VistaProductoMo
      */
     public VistaProducto() {
         // You can initialise any data required for the connected UI components here.
+    }
+    
+    public VistaProducto(Producto producto) {
+        // You can initialise any data required for the connected UI components here.
+    	this.labelProducto.setText(producto.getNombre());
     }
 
     /**
