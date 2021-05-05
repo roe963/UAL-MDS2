@@ -11,6 +11,7 @@ public class Producto extends VistaProducto {
 	public Ver_producto _ver_producto;*/
 	
 	public Producto(basededatos.Producto productos) {
+		this.getTextoproducto().setText(productos.getNombre().toString());
 		//this.setLabelProducto(productos.getNombre());
 		//this.setImgProducto(producto.getImgProducto());
 	}

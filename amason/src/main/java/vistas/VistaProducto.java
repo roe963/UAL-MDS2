@@ -23,8 +23,10 @@ public class VistaProducto extends PolymerTemplate<VistaProducto.VistaProductoMo
 
     @Id("img-producto")
 	private Image imgProducto;
-	@Id("label-producto")
-	private Label labelProducto;
+	//@Id("textoproducto")
+	//private Label labelProducto;
+	@Id("textoproducto")
+	private Label textoproducto;
 
 	public Image getImgProducto() {
 		return imgProducto;
@@ -34,13 +36,13 @@ public class VistaProducto extends PolymerTemplate<VistaProducto.VistaProductoMo
 		this.imgProducto = imgProducto;
 	}
 
-	public Label getLabelProducto() {
+	/*public Label getLabelProducto() {
 		return labelProducto;
 	}
 
 	public void setLabelProducto(Label labelProducto) {
 		this.labelProducto = labelProducto;
-	}
+	}*/
 
 	/**
      * Creates a new VistaProducto.
@@ -49,12 +51,20 @@ public class VistaProducto extends PolymerTemplate<VistaProducto.VistaProductoMo
         // You can initialise any data required for the connected UI components here.
     }
     
-    public VistaProducto(Producto producto) {
+    /*public VistaProducto(Producto producto) {
         // You can initialise any data required for the connected UI components here.
     	this.labelProducto.setText(producto.getNombre());
-    }
+    }*/
 
-    /**
+    public Label getTextoproducto() {
+		return textoproducto;
+	}
+
+	public void setTextoproducto(Label textoproducto) {
+		this.textoproducto = textoproducto;
+	}
+
+	/**
      * This model binds properties between VistaProducto and vista-producto
      */
     public interface VistaProductoModel extends TemplateModel {

@@ -4,6 +4,12 @@ import com.vaadin.flow.templatemodel.TemplateModel;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
+import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.component.polymertemplate.Id;
+import com.vaadin.flow.component.radiobutton.RadioButtonGroup;
+import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.button.Button;
+import vistas.VistaDatosdecompra;
 
 /**
  * A Designer generated component for the vista-verperfil template.
@@ -15,7 +21,22 @@ import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 @JsModule("./src/vista-verperfil.js")
 public class VistaVerperfil extends PolymerTemplate<VistaVerperfil.VistaVerperfilModel> {
 
-    /**
+    @Id("textfield-nombre")
+	private TextField textfieldNombre;
+	@Id("correoElectrónico")
+	private TextField correoElectrónico;
+	@Id("radio-estado")
+	private RadioButtonGroup<String> radioEstado;
+	@Id("img-fotousuario")
+	private Image imgFotousuario;
+	@Id("textfield-fotousuario")
+	private TextField textfieldFotousuario;
+	@Id("button-guardar")
+	private Button buttonGuardar;
+	@Id("vistaDatosdecompra")
+	private VistaDatosdecompra vistaDatosdecompra;
+
+	/**
      * Creates a new VistaVerperfil.
      */
     public VistaVerperfil() {

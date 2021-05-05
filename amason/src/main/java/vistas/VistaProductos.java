@@ -46,7 +46,7 @@ public class VistaProductos extends PolymerTemplate<VistaProductos.VistaProducto
     	
     }
     
-    void cargar_productos() {
+    /*void cargar_productos() {
     	vaadinHorizontalLayout.removeAll();
     	
     	Producto[] productos = cliente.cargar_productos();
@@ -54,7 +54,7 @@ public class VistaProductos extends PolymerTemplate<VistaProductos.VistaProducto
         for (int i = 0; i < productos.length; i++) {
             vaadinHorizontalLayout.add(new interfaz.Producto(productos[i]));
         }
-    }
+    }*/
 
     /**
      * This model binds properties between VistaProductos and vista-productos

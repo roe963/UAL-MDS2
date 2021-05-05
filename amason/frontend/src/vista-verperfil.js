@@ -52,29 +52,29 @@ class VistaVerperfil extends PolymerElement {
   <vaadin-horizontal-layout theme="spacing" style="padding: var(--lumo-space-xl); padding-top: var(--lumo-space-xs); align-self: center; flex-grow: 0; padding-bottom: var(--lumo-space-xs);">
    <vaadin-vertical-layout theme="spacing" style="padding: var(--lumo-space-xl); padding-top: var(--lumo-space-xs); padding-bottom: var(--lumo-space-xs);">
     <vaadin-text-field label="Nombre y Apellidos" id="textfield-nombre" style="flex-shrink: 1;"></vaadin-text-field>
-    <vaadin-text-field label="Correo electrónico" name="textfield-email"></vaadin-text-field>
+    <vaadin-text-field label="Correo electrónico" name="textfield-email" id="correoElectrónico"></vaadin-text-field>
    </vaadin-vertical-layout>
-   <vaadin-radio-group theme="vertical" id="radio-estado" style="padding: var(--lumo-space-xl); padding-top: var(--lumo-space-xs); padding-bottom: var(--lumo-space-xs);">
+   <vaadin-radio-group theme="vertical" id="radio-estado" style="padding: var(--lumo-space-xl); padding-top: var(--lumo-space-xs); padding-bottom: var(--lumo-space-xs);" value="on">
     <label>Estado</label>
-    <vaadin-radio-button>
+    <vaadin-radio-button checked>
      <div>
-      Operativo
+       Operativo 
      </div>
     </vaadin-radio-button>
-    <vaadin-radio-button>
+    <vaadin-radio-button tabindex="-1">
      <div>
-      No operativo
+       No operativo 
      </div>
     </vaadin-radio-button>
    </vaadin-radio-group>
-   <vista-datosdecompra style="padding: var(--lumo-space-xl); padding-top: var(--lumo-space-xs); padding-bottom: var(--lumo-space-xs);"></vista-datosdecompra>
+   <vista-datosdecompra style="padding: var(--lumo-space-xl); padding-top: var(--lumo-space-xs); padding-bottom: var(--lumo-space-xs);" id="vistaDatosdecompra"></vista-datosdecompra>
    <vaadin-vertical-layout theme="spacing" style="padding: var(--lumo-space-xl); padding-top: var(--lumo-space-xs); padding-bottom: var(--lumo-space-xs);">
     <img id="img-fotousuario" style="padding: var(--lumo-space-xl); align-self: center;">
     <vaadin-text-field label="Foto de usuario" id="textfield-fotousuario"></vaadin-text-field>
    </vaadin-vertical-layout>
   </vaadin-horizontal-layout>
   <vaadin-button id="button-guardar" style="align-self: center;">
-   Guardar
+    Guardar 
   </vaadin-button>
  </vaadin-vertical-layout>
 </vaadin-vertical-layout>

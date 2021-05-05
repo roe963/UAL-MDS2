@@ -22,7 +22,7 @@ class VistaDatosdecompra extends PolymerElement {
  <vaadin-select value="Item one" id="select-formadepago">
   <template>
    <vaadin-list-box selected="0">
-    <vaadin-item>
+    <vaadin-item selected>
       Item one 
     </vaadin-item>
     <vaadin-item>
