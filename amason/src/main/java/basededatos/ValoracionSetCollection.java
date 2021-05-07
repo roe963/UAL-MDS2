@@ -13,7 +13,8 @@
  */
 package basededatos;
 
-import org.orm.*;
+import org.orm.PersistentException;
+import org.orm.PersistentManager;
 
 public class ValoracionSetCollection extends org.orm.util.ORMSet {
 	public ValoracionSetCollection(Object owner, org.orm.util.ORMAdapter adapter, int ownerKey, int targetKey, int collType) {

@@ -33,9 +33,15 @@ public class DeleteMDS12021PFOrtegaOrtegaData {
 			basededatos.Valoracion lbasededatosValoracion = basededatos.ValoracionDAO.loadValoracionByQuery(null, null);
 			// Delete the persistent object
 			basededatos.ValoracionDAO.delete(lbasededatosValoracion);
+			basededatos.Oferta lbasededatosOferta = basededatos.OfertaDAO.loadOfertaByQuery(null, null);
+			// Delete the persistent object
+			basededatos.OfertaDAO.delete(lbasededatosOferta);
 			basededatos.Foto lbasededatosFoto = basededatos.FotoDAO.loadFotoByQuery(null, null);
 			// Delete the persistent object
 			basededatos.FotoDAO.delete(lbasededatosFoto);
+			basededatos.Producto lbasededatosProducto = basededatos.ProductoDAO.loadProductoByQuery(null, null);
+			// Delete the persistent object
+			basededatos.ProductoDAO.delete(lbasededatosProducto);
 			basededatos.Categoria lbasededatosCategoria = basededatos.CategoriaDAO.loadCategoriaByQuery(null, null);
 			// Delete the persistent object
 			basededatos.CategoriaDAO.delete(lbasededatosCategoria);
@@ -54,12 +60,6 @@ public class DeleteMDS12021PFOrtegaOrtegaData {
 			basededatos.Administrador lbasededatosAdministrador = basededatos.AdministradorDAO.loadAdministradorByQuery(null, null);
 			// Delete the persistent object
 			basededatos.AdministradorDAO.delete(lbasededatosAdministrador);
-			basededatos.Oferta lbasededatosOferta = basededatos.OfertaDAO.loadOfertaByQuery(null, null);
-			// Delete the persistent object
-			basededatos.OfertaDAO.delete(lbasededatosOferta);
-			basededatos.Producto lbasededatosProducto = basededatos.ProductoDAO.loadProductoByQuery(null, null);
-			// Delete the persistent object
-			basededatos.ProductoDAO.delete(lbasededatosProducto);
 			t.commit();
 		}
 		catch (Exception e) {

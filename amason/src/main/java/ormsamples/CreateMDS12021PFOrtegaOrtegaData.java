@@ -4,7 +4,8 @@
  */
 package ormsamples;
 
-import org.orm.*;
+import org.orm.PersistentException;
+import org.orm.PersistentTransaction;
 public class CreateMDS12021PFOrtegaOrtegaData {
 	public void createTestData() throws PersistentException {
 		PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
@@ -33,9 +34,15 @@ public class CreateMDS12021PFOrtegaOrtegaData {
 			basededatos.Valoracion lbasededatosValoracion = basededatos.ValoracionDAO.createValoracion();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : escrito_por, puntuacion, valora_un
 			basededatos.ValoracionDAO.save(lbasededatosValoracion);
+			basededatos.Oferta lbasededatosOferta = basededatos.OfertaDAO.createOferta();
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : precio, fecha
+			basededatos.OfertaDAO.save(lbasededatosOferta);
 			basededatos.Foto lbasededatosFoto = basededatos.FotoDAO.createFoto();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : pertenece_a
 			basededatos.FotoDAO.save(lbasededatosFoto);
+			basededatos.Producto lbasededatosProducto = basededatos.ProductoDAO.createProducto();
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : tiene_una, contiene_una, recibe_una, activo, precio, asignado_a
+			basededatos.ProductoDAO.save(lbasededatosProducto);
 			basededatos.Categoria lbasededatosCategoria = basededatos.CategoriaDAO.createCategoria();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : contiene_un, activo
 			basededatos.CategoriaDAO.save(lbasededatosCategoria);
@@ -54,12 +61,6 @@ public class CreateMDS12021PFOrtegaOrtegaData {
 			basededatos.Administrador lbasededatosAdministrador = basededatos.AdministradorDAO.createAdministrador();
 			// Initialize the properties of the persistent object here
 			basededatos.AdministradorDAO.save(lbasededatosAdministrador);
-			basededatos.Oferta lbasededatosOferta = basededatos.OfertaDAO.createOferta();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : precio, fecha
-			basededatos.OfertaDAO.save(lbasededatosOferta);
-			basededatos.Producto lbasededatosProducto = basededatos.ProductoDAO.createProducto();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : tiene_una, contiene_una, recibe_una, activo, precio, asignado_a
-			basededatos.ProductoDAO.save(lbasededatosProducto);
 			t.commit();
 		}
 		catch (Exception e) {

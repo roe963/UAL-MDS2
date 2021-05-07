@@ -1,6 +1,7 @@
 package bds;
 
 import java.util.Vector;
+
 import basededatos.Mensaje;
 
 public class Mensajes {

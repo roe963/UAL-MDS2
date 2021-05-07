@@ -1,18 +1,17 @@
 package ual.mds2.ortegaortega;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentEventListener;
-import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.button.Button;
-import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.contextmenu.MenuItem;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.menubar.MenuBar;
-import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
@@ -25,10 +24,7 @@ import interfaz.Empresa_transportes;
 import interfaz.Encargado_compras;
 import interfaz.Iniciar_sesion;
 import interfaz.Productos;
-
 import interfaz.Registrarse;
-
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * A sample Vaadin view class.
@@ -67,7 +63,7 @@ public class MainView extends VerticalLayout {
 	Encargado_compras encargado;
 	Empresa_transportes transportes;
 	
-	//Registrarse registrarse;
+	Registrarse registrarse;
 	Productos productos;
 
 	Carrito carrito;
@@ -81,7 +77,7 @@ public class MainView extends VerticalLayout {
 		encargado = new Encargado_compras();
 		transportes = new Empresa_transportes();
 		
-		//registrarse = new Registrarse();
+		registrarse = new Registrarse();
 		productos = new Productos();
 
 		carrito = new Carrito();
@@ -91,13 +87,13 @@ public class MainView extends VerticalLayout {
 		generarMenuBar();
 		add(vistaActual);*/
 		
-		/*vistaActual = registrarse;
-		generarMenuBar();
-		add(vistaActual);*/
-		
-		vistaActual = productos;
+		vistaActual = registrarse;
 		generarMenuBar();
 		add(vistaActual);
+		
+		/*vistaActual = productos;
+		generarMenuBar();
+		add(vistaActual);*/
 
 		dialog = new Dialog();
 		dialog.add(ini);

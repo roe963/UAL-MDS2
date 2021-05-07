@@ -14,7 +14,12 @@
 package basededatos;
 
 import java.io.Serializable;
-import javax.persistence.*;
+
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 @Entity
 @org.hibernate.annotations.Proxy(lazy=false)
 @Table(name="Pedido_pendiente")

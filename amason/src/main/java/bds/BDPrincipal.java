@@ -4,13 +4,28 @@ import java.util.Date;
 
 import org.orm.PersistentException;
 
-import basededatos.*;
+import basededatos.Cantidad;
+import basededatos.Categoria;
+import basededatos.Empresa_transportes;
+import basededatos.Encargado_compras;
+import basededatos.Mensaje;
+import basededatos.Oferta;
+import basededatos.Pedido;
+import basededatos.Pedido_entregado;
+import basededatos.Pedido_enviado;
+import basededatos.Pedido_pendiente;
+import basededatos.Producto;
+import basededatos.Respuesta;
+import basededatos.Usuario;
+import basededatos.Valoracion;
+
+
 
 public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrado, iCorreo_personal, iEmpresa_transportes, iEncargado_compras, iIniciar_sesion, iPasarela_de_pagos {
 	public Administradores _bd_administradores;
 	public Empresas_transportes _bd_empresas_transportes;
 	public Encargados_compras _bd_encargados_compras;
-	public Clientes _bd_clientes = new Clientes();
+	public Clientes _bd_clientes = new Clientes();;
 	public Categorias _bd_categorias;
 	public Productos _bd_productos = new Productos();
 	public Fotos _bd_fotos;
@@ -27,6 +42,7 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 		Producto[] productos = null;
         try {
         	productos = _bd_productos.cargar_productos();
+        	
         } catch (PersistentException e) {
             e.printStackTrace();
         }
@@ -209,7 +225,7 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 		throw new UnsupportedOperationException();
 	}
 
-	public String recuperar_contrasena(String aMailUsuario) {
+	public boolean recuperar_contrasena(String aMailUsuario) {
 		throw new UnsupportedOperationException();
 	}
 

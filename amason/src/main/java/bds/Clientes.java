@@ -8,13 +8,32 @@ import org.orm.PersistentTransaction;
 import basededatos.Cliente;
 import basededatos.ClienteDAO;
 import basededatos.Usuario;
+import basededatos.UsuarioDAO;
 
 public class Clientes {
 	public BDPrincipal _bdprincipal_clientes;
 	public Vector<Cliente> _contiene_cliente = new Vector<Cliente>();
 
-	public Usuario iniciar_sesion(String aMailUsuario, String aPasswordUsuario) {
-		throw new UnsupportedOperationException();
+	public Usuario iniciar_sesion(String aMailUsuario, String aPasswordUsuario) throws PersistentException {
+		PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession()
+                .beginTransaction();
+		
+		Usuario usuario = new Usuario();
+		usuario.setEmail("usuarioincorrecto");
+
+		try {
+			for (Object usr : UsuarioDAO.queryUsuario(null, null)) {
+				Usuario usu = (Usuario) usr;
+				if (usu.getEmail().equals(aMailUsuario) && usu.getPassword().equals(aPasswordUsuario)) {
+					usuario = usu;
+					break;
+				}
+			}
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		return usuario;
 	}
 
 	public String recuperar_contrasena(String aMailUsuario) {

@@ -14,9 +14,15 @@
 package basededatos;
 
 import java.util.List;
+
 import org.hibernate.criterion.DetachedCriteria;
 import org.orm.PersistentSession;
-import org.orm.criteria.*;
+import org.orm.criteria.AbstractORMDetachedCriteria;
+import org.orm.criteria.AssociationExpression;
+import org.orm.criteria.CollectionExpression;
+import org.orm.criteria.FloatExpression;
+import org.orm.criteria.IntegerExpression;
+import org.orm.criteria.LongExpression;
 
 public class Pedido_entregadoDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression id;

@@ -13,7 +13,8 @@
  */
 package basededatos;
 
-import org.orm.*;
+import org.orm.PersistentException;
+import org.orm.PersistentManager;
 
 public class FotoSetCollection extends org.orm.util.ORMSet {
 	public FotoSetCollection(Object owner, org.orm.util.ORMAdapter adapter, int ownerKey, int targetKey, int collType) {

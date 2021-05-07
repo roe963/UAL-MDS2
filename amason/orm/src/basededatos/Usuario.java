@@ -74,6 +74,16 @@ public class Usuario implements Serializable {
 		return activo;
 	}
 	
+	public basededatos.Usuario iniciar_sesion(String mailUsuario, String passwordUsuario) {
+		//TODO: Implement Method
+		throw new UnsupportedOperationException();
+	}
+	
+	public boolean recuperar_contrasena(String mailUsuario) {
+		//TODO: Implement Method
+		throw new UnsupportedOperationException();
+	}
+	
 	public String toString() {
 		return String.valueOf(getId());
 	}

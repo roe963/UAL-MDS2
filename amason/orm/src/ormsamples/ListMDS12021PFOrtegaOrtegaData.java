@@ -73,11 +73,27 @@ public class ListMDS12021PFOrtegaOrtegaData {
 		}
 		System.out.println(length + " record(s) retrieved.");
 		
+		System.out.println("Listing Oferta...");
+		basededatos.Oferta[] basededatosOfertas = basededatos.OfertaDAO.listOfertaByQuery(null, null);
+		length = Math.min(basededatosOfertas.length, ROW_COUNT);
+		for (int i = 0; i < length; i++) {
+			System.out.println(basededatosOfertas[i]);
+		}
+		System.out.println(length + " record(s) retrieved.");
+		
 		System.out.println("Listing Foto...");
 		basededatos.Foto[] basededatosFotos = basededatos.FotoDAO.listFotoByQuery(null, null);
 		length = Math.min(basededatosFotos.length, ROW_COUNT);
 		for (int i = 0; i < length; i++) {
 			System.out.println(basededatosFotos[i]);
+		}
+		System.out.println(length + " record(s) retrieved.");
+		
+		System.out.println("Listing Producto...");
+		basededatos.Producto[] basededatosProductos = basededatos.ProductoDAO.listProductoByQuery(null, null);
+		length = Math.min(basededatosProductos.length, ROW_COUNT);
+		for (int i = 0; i < length; i++) {
+			System.out.println(basededatosProductos[i]);
 		}
 		System.out.println(length + " record(s) retrieved.");
 		
@@ -126,22 +142,6 @@ public class ListMDS12021PFOrtegaOrtegaData {
 		length = Math.min(basededatosAdministradors.length, ROW_COUNT);
 		for (int i = 0; i < length; i++) {
 			System.out.println(basededatosAdministradors[i]);
-		}
-		System.out.println(length + " record(s) retrieved.");
-		
-		System.out.println("Listing Oferta...");
-		basededatos.Oferta[] basededatosOfertas = basededatos.OfertaDAO.listOfertaByQuery(null, null);
-		length = Math.min(basededatosOfertas.length, ROW_COUNT);
-		for (int i = 0; i < length; i++) {
-			System.out.println(basededatosOfertas[i]);
-		}
-		System.out.println(length + " record(s) retrieved.");
-		
-		System.out.println("Listing Producto...");
-		basededatos.Producto[] basededatosProductos = basededatos.ProductoDAO.listProductoByQuery(null, null);
-		length = Math.min(basededatosProductos.length, ROW_COUNT);
-		for (int i = 0; i < length; i++) {
-			System.out.println(basededatosProductos[i]);
 		}
 		System.out.println(length + " record(s) retrieved.");
 		
@@ -244,6 +244,18 @@ public class ListMDS12021PFOrtegaOrtegaData {
 		}
 		System.out.println(length + " Valoracion record(s) retrieved."); 
 		
+		System.out.println("Listing Oferta by Criteria...");
+		basededatos.OfertaCriteria lbasededatosOfertaCriteria = new basededatos.OfertaCriteria();
+		// Please uncomment the follow line and fill in parameter(s) 
+		//lbasededatosOfertaCriteria.id.eq();
+		lbasededatosOfertaCriteria.setMaxResults(ROW_COUNT);
+		basededatos.Oferta[] basededatosOfertas = lbasededatosOfertaCriteria.listOferta();
+		length =basededatosOfertas== null ? 0 : Math.min(basededatosOfertas.length, ROW_COUNT); 
+		for (int i = 0; i < length; i++) {
+			 System.out.println(basededatosOfertas[i]);
+		}
+		System.out.println(length + " Oferta record(s) retrieved."); 
+		
 		System.out.println("Listing Foto by Criteria...");
 		basededatos.FotoCriteria lbasededatosFotoCriteria = new basededatos.FotoCriteria();
 		// Please uncomment the follow line and fill in parameter(s) 
@@ -255,6 +267,18 @@ public class ListMDS12021PFOrtegaOrtegaData {
 			 System.out.println(basededatosFotos[i]);
 		}
 		System.out.println(length + " Foto record(s) retrieved."); 
+		
+		System.out.println("Listing Producto by Criteria...");
+		basededatos.ProductoCriteria lbasededatosProductoCriteria = new basededatos.ProductoCriteria();
+		// Please uncomment the follow line and fill in parameter(s) 
+		//lbasededatosProductoCriteria.id.eq();
+		lbasededatosProductoCriteria.setMaxResults(ROW_COUNT);
+		basededatos.Producto[] basededatosProductos = lbasededatosProductoCriteria.listProducto();
+		length =basededatosProductos== null ? 0 : Math.min(basededatosProductos.length, ROW_COUNT); 
+		for (int i = 0; i < length; i++) {
+			 System.out.println(basededatosProductos[i]);
+		}
+		System.out.println(length + " Producto record(s) retrieved."); 
 		
 		System.out.println("Listing Categoria by Criteria...");
 		basededatos.CategoriaCriteria lbasededatosCategoriaCriteria = new basededatos.CategoriaCriteria();
@@ -327,30 +351,6 @@ public class ListMDS12021PFOrtegaOrtegaData {
 			 System.out.println(basededatosAdministradors[i]);
 		}
 		System.out.println(length + " Administrador record(s) retrieved."); 
-		
-		System.out.println("Listing Oferta by Criteria...");
-		basededatos.OfertaCriteria lbasededatosOfertaCriteria = new basededatos.OfertaCriteria();
-		// Please uncomment the follow line and fill in parameter(s) 
-		//lbasededatosOfertaCriteria.id.eq();
-		lbasededatosOfertaCriteria.setMaxResults(ROW_COUNT);
-		basededatos.Oferta[] basededatosOfertas = lbasededatosOfertaCriteria.listOferta();
-		length =basededatosOfertas== null ? 0 : Math.min(basededatosOfertas.length, ROW_COUNT); 
-		for (int i = 0; i < length; i++) {
-			 System.out.println(basededatosOfertas[i]);
-		}
-		System.out.println(length + " Oferta record(s) retrieved."); 
-		
-		System.out.println("Listing Producto by Criteria...");
-		basededatos.ProductoCriteria lbasededatosProductoCriteria = new basededatos.ProductoCriteria();
-		// Please uncomment the follow line and fill in parameter(s) 
-		//lbasededatosProductoCriteria.id.eq();
-		lbasededatosProductoCriteria.setMaxResults(ROW_COUNT);
-		basededatos.Producto[] basededatosProductos = lbasededatosProductoCriteria.listProducto();
-		length =basededatosProductos== null ? 0 : Math.min(basededatosProductos.length, ROW_COUNT); 
-		for (int i = 0; i < length; i++) {
-			 System.out.println(basededatosProductos[i]);
-		}
-		System.out.println(length + " Producto record(s) retrieved."); 
 		
 	}
 	

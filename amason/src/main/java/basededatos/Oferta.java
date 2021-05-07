@@ -14,7 +14,14 @@
 package basededatos;
 
 import java.io.Serializable;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 @Entity
 @org.hibernate.annotations.Proxy(lazy=false)
 @Table(name="Oferta")

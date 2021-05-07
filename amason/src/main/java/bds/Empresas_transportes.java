@@ -1,7 +1,10 @@
 package bds;
 
 import java.util.Vector;
+
 import basededatos.Empresa_transportes;
+// import basededatos.Empresa_transportes;
+// import interfaz.Empresa_transportes;
 import basededatos.Usuario;
 
 public class Empresas_transportes {

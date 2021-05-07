@@ -33,8 +33,6 @@ public class VistaRegistrarse extends PolymerTemplate<VistaRegistrarse.VistaRegi
 	private PasswordField repeatpassword;
 	@Id("textarea-direccion")
 	private TextField textareaDireccion;
-	@Id("select-formadepago")
-	private Select selectFormadepago;
 	@Id("img-fotousaurio")
 	private Image imgFotousaurio;
 	@Id("textarea-fotousuario")
@@ -42,6 +40,17 @@ public class VistaRegistrarse extends PolymerTemplate<VistaRegistrarse.VistaRegi
 	@Id("button-crearcuenta")
 	protected Button buttonCrearcuenta;
 	
+	@Id("hlSeleccionarFomra")
+	private HorizontalLayout vaadinHorizontalLayout1;
+
+
+	public HorizontalLayout getVaadinHorizontalLayout1() {
+		return vaadinHorizontalLayout1;
+	}
+
+	public void setVaadinHorizontalLayout1(HorizontalLayout vaadinHorizontalLayout1) {
+		this.vaadinHorizontalLayout1 = vaadinHorizontalLayout1;
+	}
 
 	public TextField getTextareaNombre() {
 		return textareaNombre;
@@ -63,9 +72,6 @@ public class VistaRegistrarse extends PolymerTemplate<VistaRegistrarse.VistaRegi
 		return textareaDireccion;
 	}
 	
-	public Select getSelectFormadepago() {
-		return selectFormadepago;
-	}
 
 	public Image getImgFotousaurio() {
 		return imgFotousaurio;
@@ -84,9 +90,14 @@ public class VistaRegistrarse extends PolymerTemplate<VistaRegistrarse.VistaRegi
      */
     public VistaRegistrarse() {
         // You can initialise any data required for the connected UI components here.
+    	//this.vaadinListBox.setAttribute("pago1", "Efectivo");
+    	//this.vaadinListBox.setAttribute("pago2", "Tarjeta");
+
+    	
     }
 
-    /**
+
+	/**
      * This model binds properties between VistaRegistrarse and vista-registrarse
      */
     public interface VistaRegistrarseModel extends TemplateModel {

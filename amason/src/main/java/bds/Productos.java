@@ -1,16 +1,14 @@
 package bds;
 
-import java.util.Collections;
 import java.util.Vector;
 
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
-import com.vaadin.flow.component.notification.Notification;
-import com.vaadin.flow.component.notification.Notification.Position;
-
 import basededatos.Cantidad;
 import basededatos.Categoria;
+import basededatos.Foto;
+import basededatos.FotoDAO;
 import basededatos.Producto;
 import basededatos.ProductoDAO;
 import basededatos.Valoracion;
@@ -28,14 +26,24 @@ public class Productos {
 	}
 
 	public Producto[] cargar_productos() throws PersistentException {
-		
 		Producto[] productos = null;
+		Foto[] fotos= null;
 		
         PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
         
         try {
         	productos = ProductoDAO.listProductoByQuery(null, null);
-        	//Collections.addAll(_contiene_producto, productos);
+        	fotos = FotoDAO.listFotoByQuery(null, null);
+        	
+        	
+        	for (int i = 0; i < productos.length; i++) {
+        		for (int j = 0; j < fotos.length; j++) {
+					if(productos[i].getId() == fotos[j].getPertenece_a().getId() ) {						
+						productos[i].contiene_una.add(fotos[j]);
+						break;
+					}						
+				}				
+			}
 
             t.commit();
         } catch (PersistentException e) {

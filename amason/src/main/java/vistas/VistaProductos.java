@@ -28,7 +28,13 @@ public class VistaProductos extends PolymerTemplate<VistaProductos.VistaProducto
 	@Id("vaadinHorizontalLayout")
 	private HorizontalLayout vaadinHorizontalLayout;
 
-	iCliente cliente = new BDPrincipal();
+	public HorizontalLayout getVaadinHorizontalLayout() {
+		return vaadinHorizontalLayout;
+	}
+
+	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
+		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
+	}
 	
 	public Element getVistaProducto() {
 		return vistaProducto;
@@ -63,3 +69,4 @@ public class VistaProductos extends PolymerTemplate<VistaProductos.VistaProducto
         // Add setters and getters for template properties here.
     }
 }
+

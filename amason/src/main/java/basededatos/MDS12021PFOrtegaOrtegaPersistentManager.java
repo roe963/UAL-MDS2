@@ -13,12 +13,13 @@
  */
 package basededatos;
 
-import org.orm.*;
-import org.orm.cfg.JDBCConnectionSetting;
-import org.hibernate.*;
 import java.util.Properties;
-import org.hibernate.cfg.*;
+
+import org.hibernate.FlushMode;
 import org.hibernate.boot.MetadataSources;
+import org.orm.PersistentException;
+import org.orm.PersistentManager;
+import org.orm.cfg.JDBCConnectionSetting;
 
 public class MDS12021PFOrtegaOrtegaPersistentManager extends PersistentManager {
 	private static final String PROJECT_NAME = "MDS12021PFOrtegaOrtega";
@@ -45,15 +46,15 @@ public class MDS12021PFOrtegaOrtegaPersistentManager extends PersistentManager {
 		aMetadataSources.addAnnotatedClass(basededatos.Mensaje.class);
 		aMetadataSources.addAnnotatedClass(basededatos.Pedido_entregado.class);
 		aMetadataSources.addAnnotatedClass(basededatos.Valoracion.class);
+		aMetadataSources.addAnnotatedClass(basededatos.Oferta.class);
 		aMetadataSources.addAnnotatedClass(basededatos.Foto.class);
+		aMetadataSources.addAnnotatedClass(basededatos.Producto.class);
 		aMetadataSources.addAnnotatedClass(basededatos.Categoria.class);
 		aMetadataSources.addAnnotatedClass(basededatos.Usuario.class);
 		aMetadataSources.addAnnotatedClass(basededatos.Cliente.class);
 		aMetadataSources.addAnnotatedClass(basededatos.Encargado_compras.class);
 		aMetadataSources.addAnnotatedClass(basededatos.Empresa_transportes.class);
 		aMetadataSources.addAnnotatedClass(basededatos.Administrador.class);
-		aMetadataSources.addAnnotatedClass(basededatos.Oferta.class);
-		aMetadataSources.addAnnotatedClass(basededatos.Producto.class);
 	}
 	
 	public String getProjectName() {

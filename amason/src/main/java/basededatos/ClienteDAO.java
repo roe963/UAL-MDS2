@@ -13,10 +13,11 @@
  */
 package basededatos;
 
-import org.orm.*;
-import org.hibernate.Query;
-import org.hibernate.LockMode;
 import java.util.List;
+
+import org.hibernate.Query;
+import org.orm.PersistentException;
+import org.orm.PersistentSession;
 
 public class ClienteDAO {
 	public static Cliente loadClienteByORMID(int id) throws PersistentException {

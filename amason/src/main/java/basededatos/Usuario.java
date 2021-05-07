@@ -14,7 +14,14 @@
 package basededatos;
 
 import java.io.Serializable;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
 @Entity
 @org.hibernate.annotations.Proxy(lazy=false)
 @Table(name="Usuario")
@@ -72,6 +79,16 @@ public class Usuario implements Serializable {
 	
 	public boolean getActivo() {
 		return activo;
+	}
+	
+	public basededatos.Usuario iniciar_sesion(String mailUsuario, String passwordUsuario) {
+		//TODO: Implement Method
+		throw new UnsupportedOperationException();
+	}
+	
+	public boolean recuperar_contrasena(String mailUsuario) {
+		//TODO: Implement Method
+		throw new UnsupportedOperationException();
 	}
 	
 	public String toString() {
