@@ -25,6 +25,7 @@ import interfaz.Encargado_compras;
 import interfaz.Iniciar_sesion;
 import interfaz.Productos;
 import interfaz.Registrarse;
+import interfaz.Ver_producto;
 
 /**
  * A sample Vaadin view class.
@@ -65,6 +66,8 @@ public class MainView extends VerticalLayout {
 	
 	Registrarse registrarse;
 	Productos productos;
+	
+	Ver_producto ver_producto;
 
 	Carrito carrito;
 
@@ -79,6 +82,8 @@ public class MainView extends VerticalLayout {
 		
 		registrarse = new Registrarse();
 		productos = new Productos();
+		
+		ver_producto = new Ver_producto();
 
 		carrito = new Carrito();
 		ini = new Iniciar_sesion();
@@ -91,7 +96,11 @@ public class MainView extends VerticalLayout {
 		generarMenuBar();
 		add(vistaActual);*/
 		
-		vistaActual = productos;
+		/*vistaActual = productos;
+		generarMenuBar();
+		add(vistaActual);*/
+		
+		vistaActual = ver_producto;
 		generarMenuBar();
 		add(vistaActual);
 
