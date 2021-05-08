@@ -57,7 +57,7 @@ class VistaVerproducto extends PolymerElement {
     <iron-icon icon="vaadin:star" style="align-self: center;" id="icon5-valoracion"></iron-icon>
     <label style="align-self: center;" id="label-nopiniones">0 opiniones</label>
    </vaadin-horizontal-layout>
-   <vista-verproductoclientes></vista-verproductoclientes>
+   <vista-verproductoclientes id="vistaVerproductoclientes"></vista-verproductoclientes>
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>
  <vaadin-vertical-layout theme="spacing" style="align-self: stretch; flex-grow: 1; margin: var(--lumo-space-xl); margin-top: var(--lumo-space-xs); margin-bottom: var(--lumo-space-xs);">
