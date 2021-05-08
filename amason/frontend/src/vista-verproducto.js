@@ -1,12 +1,11 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
-import '@vaadin/vaadin-text-field/src/vaadin-text-field.js';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
-import '@vaadin/vaadin-button/src/vaadin-button.js';
 import '@polymer/iron-icon/iron-icon.js';
 import '@vaadin/vaadin-tabs/src/vaadin-tabs.js';
 import '@vaadin/vaadin-tabs/src/vaadin-tab.js';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import './vista-valoraciones.js';
+import './vista-verproductoclientes.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 
 class VistaVerproducto extends PolymerElement {
 
@@ -20,34 +19,6 @@ class VistaVerproducto extends PolymerElement {
                 }
             </style>
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-horizontal-layout class="header" style="width: 100%; flex-basis: var(--lumo-size-l); flex-shrink: 0;">
-  <vaadin-vertical-layout theme="spacing" style="padding-right: var(--lumo-space-m); padding-left: var(--lumo-space-m); align-self: center;">
-   <h2 style="align-self: center;">Amason</h2>
-  </vaadin-vertical-layout>
-  <vaadin-vertical-layout theme="spacing" style="align-self: center;">
-   <vaadin-button id="button-inicio">
-     🏠 
-   </vaadin-button>
-  </vaadin-vertical-layout>
-  <vaadin-vertical-layout theme="spacing" style="flex-grow: 1; align-self: center; padding-left: var(--lumo-space-xl); padding-bottom: var(--lumo-space-xs); padding-right: var(--lumo-space-xs); padding-top: var(--lumo-space-xs);">
-   <vaadin-text-field style="align-self: stretch;" id="textfield-buscar"></vaadin-text-field>
-  </vaadin-vertical-layout>
-  <vaadin-vertical-layout theme="spacing" style="align-self: center;">
-   <vaadin-button id="button-buscar">
-     🔍 
-   </vaadin-button>
-  </vaadin-vertical-layout>
-  <vaadin-vertical-layout theme="spacing" style="align-self: center; padding-right: var(--lumo-space-m); padding-left: var(--lumo-space-m);">
-   <vaadin-button id="button-carrito">
-     🛒 
-   </vaadin-button>
-  </vaadin-vertical-layout>
-  <vaadin-vertical-layout theme="spacing" style="align-self: center; padding-right: var(--lumo-space-m);">
-   <vaadin-button id="button-usuario">
-     Usuario 
-   </vaadin-button>
-  </vaadin-vertical-layout>
- </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing" style="flex-grow: 0; align-self: stretch; padding: var(--lumo-space-xl); background-color: var(--lumo-contrast-10pct); margin: var(--lumo-space-xl); margin-top: var(--lumo-space-xs); margin-bottom: var(--lumo-space-xs);">
   <vaadin-horizontal-layout theme="spacing">
    <vaadin-vertical-layout theme="spacing">
@@ -86,9 +57,7 @@ class VistaVerproducto extends PolymerElement {
     <iron-icon icon="vaadin:star" style="align-self: center;" id="icon5-valoracion"></iron-icon>
     <label style="align-self: center;" id="label-nopiniones">0 opiniones</label>
    </vaadin-horizontal-layout>
-   <vaadin-button id="button-comprar">
-     Comprar 
-   </vaadin-button>
+   <vista-verproductoclientes></vista-verproductoclientes>
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>
  <vaadin-vertical-layout theme="spacing" style="align-self: stretch; flex-grow: 1; margin: var(--lumo-space-xl); margin-top: var(--lumo-space-xs); margin-bottom: var(--lumo-space-xs);">
