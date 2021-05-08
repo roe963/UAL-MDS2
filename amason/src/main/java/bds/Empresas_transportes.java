@@ -3,15 +3,15 @@ package bds;
 import java.util.Vector;
 
 import basededatos.Empresa_transportes;
+import basededatos.Usuario;
 // import basededatos.Empresa_transportes;
 // import interfaz.Empresa_transportes;
-import basededatos.Usuario;
 
 public class Empresas_transportes {
 	public BDPrincipal _bdprincipal_empresas_trasnportes;
 	public Vector<basededatos.Empresa_transportes> _contiene_empresa_transportes = new Vector<Empresa_transportes>();
 
-	public Usuario iniciar_sesion(String aMailUsuario, String aPasswordUsuario) {
+	public Usuario iniciar_sesion_empresa_transportes(int aIsUsuario) {
 		throw new UnsupportedOperationException();
 	}
 

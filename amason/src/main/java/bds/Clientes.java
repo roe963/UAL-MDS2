@@ -14,7 +14,7 @@ public class Clientes {
 	public BDPrincipal _bdprincipal_clientes;
 	public Vector<Cliente> _contiene_cliente = new Vector<Cliente>();
 
-	public Usuario iniciar_sesion(String aMailUsuario, String aPasswordUsuario) throws PersistentException {
+	public Usuario iniciar_sesion_cliente(int aIdUsuario) throws PersistentException {
 		PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession()
                 .beginTransaction();
 		
@@ -24,7 +24,8 @@ public class Clientes {
 		try {
 			for (Object usr : UsuarioDAO.queryUsuario(null, null)) {
 				Usuario usu = (Usuario) usr;
-				if (usu.getEmail().equals(aMailUsuario) && usu.getPassword().equals(aPasswordUsuario)) {
+				//if (usu.getEmail().equals(aMailUsuario) && usu.getPassword().equals(aPasswordUsuario)) {
+				if (usu.getEmail().equals(aIdUsuario)) {
 					usuario = usu;
 					break;
 				}

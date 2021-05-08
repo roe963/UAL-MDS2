@@ -19,24 +19,23 @@ import basededatos.Respuesta;
 import basededatos.Usuario;
 import basededatos.Valoracion;
 
-
-
 public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrado, iCorreo_personal, iEmpresa_transportes, iEncargado_compras, iIniciar_sesion, iPasarela_de_pagos {
-	public Administradores _bd_administradores;
-	public Empresas_transportes _bd_empresas_transportes;
-	public Encargados_compras _bd_encargados_compras;
+	public Administradores _bd_administradores = new Administradores();;
+	public Empresas_transportes _bd_empresas_transportes = new Empresas_transportes();;
+	public Encargados_compras _bd_encargados_compras = new Encargados_compras();;
 	public Clientes _bd_clientes = new Clientes();;
-	public Categorias _bd_categorias;
-	public Productos _bd_productos = new Productos();
-	public Fotos _bd_fotos;
-	public Ofertas _bd_ofertas;
-	public Valoraciones _bd_valoraciones;
-	public Pedidos_enviados _bd_pedidos_enviados;
-	public Pedidos_entregados _bd_pedidos_entregados;
-	public Mensajes _bd_mensajes;
-	public Respuestas _bd_respuestas;
-	public Pedidos_pendientes _bd_pedidos_pendientes;
-	public Cantidades _bd_cantidades;
+	public Categorias _bd_categorias = new Categorias();;
+	public Productos _bd_productos = new Productos();;
+	public Fotos _bd_fotos = new Fotos();;
+	public Ofertas _bd_ofertas = new Ofertas();;
+	public Valoraciones _bd_valoraciones = new Valoraciones();;
+	public Pedidos_enviados _bd_pedidos_enviados = new Pedidos_enviados();;
+	public Pedidos_entregados _bd_pedidos_entregados = new Pedidos_entregados();;
+	public Mensajes _bd_mensajes = new Mensajes();;
+	public Respuestas _bd_respuestas = new Respuestas();;
+	public Pedidos_pendientes _bd_pedidos_pendientes = new Pedidos_pendientes();;
+	public Cantidades _bd_cantidades = new Cantidades();;
+	public Usuario _bd_usuario = new Usuario();
 
 	public Producto[] cargar_productos() {
 		Producto[] productos = null;
@@ -73,7 +72,7 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 		throw new UnsupportedOperationException();
 	}
 
-	public void modificar_proucto(String aNombreProducto, int aCategoria, double aPrecioProducto, String aDescripcionProducto, String aImagenProducto1, String aImagenProducto2, String aImagenProducto3, String aImagenProducto4, String aImagenProducto5, int aImagenPrincipal, boolean aActivo) {
+	public void modificar_proucto(String aNombreProducto, int aCategoria, double aPrecioProducto, String aDescripcionProducto, String aImagenProducto1, String aImagenProducto2, String aImagenProducto3, String aImagenProducto4, String aImagenProducto5, int aImagenPrincipal) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -117,7 +116,27 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 		throw new UnsupportedOperationException();
 	}
 
-	public Producto[] cargar_categoria(String aNombreCategoria) {
+	public Empresa_transportes[] cargar_empleados_empresa_transportes() {
+		throw new UnsupportedOperationException();
+	}
+
+	public Encargado_compras[] cargar_empleados_encargado_compras() {
+		throw new UnsupportedOperationException();
+	}
+
+	public void cambiar_estado_producto(int aIdProducto, boolean aActivo) {
+		throw new UnsupportedOperationException();
+	}
+
+	public void cambiar_estado_categoria(int aIdCategoria, boolean aActivo) {
+		throw new UnsupportedOperationException();
+	}
+
+	public boolean cambiar_estado_usaurio(int aIdUsuario, boolean aActivo) {
+		throw new UnsupportedOperationException();
+	}
+
+	public Producto[] cargar_productos_categoria(Categoria aCategoria) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -129,7 +148,7 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
         }
 	}
 
-	public void valorar_producto(int aIdPedido, int aIdUsuario, int aPuntuacion, String aComentario) {
+	public void valorar_producto(int aIdProducto, int aIdUsuario, int aPuntuacion, String aComentario) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -141,11 +160,11 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 		throw new UnsupportedOperationException();
 	}
 
-	public void seleccionar_direccion_envio(String aDireccionUsuario, int aIdUsuario) {
+	public void seleccionar_direccion_envio(int aIdUsuario, String aDireccionUsuario) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void seleccionar_metodo_pago(String aFormaPagoUsuario, int aIdUsuario) {
+	public void seleccionar_metodo_pago(int aIdUsuario, String aFormaPagoUsuario) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -153,7 +172,7 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 		throw new UnsupportedOperationException();
 	}
 
-	public Cantidad realizar_pedido(Producto[] aProductos, Cantidad[] aCantidades, int aIdCliente, String aDireccion, String aFormaPago) {
+	public void realizar_pedido(Producto[] aProductos, int[] aCantidades, Clientes aCliente, String aDireccion, String aFormaPago) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -161,11 +180,11 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 		throw new UnsupportedOperationException();
 	}
 
-	public void guardar_perfil(String aNombreUsuario, String aMailUsuario, String aDireccionUsuario, String aFormaPagoUsuario, String aFotoUsuario, boolean aEstadoCuenta, int aIdUsuario) {
+	public void guardar_perfil(int aIdUsuario, String aNombreUsuario, String aMailUsuario, String aDireccionUsuario, int aFormaPagoUsuario, String aFotoUsuario, boolean aEstadoCuenta) {
 		throw new UnsupportedOperationException();
 	}
 
-	public Producto[] cargar_productos_pedido(int aIdPedido) {
+	public Producto[] cargar_productos_pedido(Cantidad[] aCantidades) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -174,6 +193,22 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 	}
 
 	public void comprobar_envio(int aIdPedido) {
+		throw new UnsupportedOperationException();
+	}
+
+	public Pedido_pendiente[] cargar_pedidos_pendientes_cliente_registrado(int aIdUsuario) {
+		throw new UnsupportedOperationException();
+	}
+
+	public Pedido_enviado[] cargar_pedidos_enviados_cliente_registrado(int aIdUsuario) {
+		throw new UnsupportedOperationException();
+	}
+
+	public Pedido_entregado[] cargar_pedidos_entregados_cliente_registrado(int aIdUsuario) {
+		throw new UnsupportedOperationException();
+	}
+
+	public Cantidad[] cargar_cantidades_pedido(int aIdPedido) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -221,74 +256,6 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 		throw new UnsupportedOperationException();
 	}
 
-	public Usuario iniciar_sesion(String aMailUsuario, String aPasswordUsuario) {
-		throw new UnsupportedOperationException();
-	}
-
-	public boolean recuperar_contrasena(String aMailUsuario) {
-		throw new UnsupportedOperationException();
-	}
-
-	public void modificar_proucto(String aNombreProducto, int aCategoria, double aPrecioProducto, String aDescripcionProducto, String aImagenProducto1, String aImagenProducto2, String aImagenProducto3, String aImagenProducto4, String aImagenProducto5, int aImagenPrincipal) {
-		throw new UnsupportedOperationException();
-	}
-
-	public Empresa_transportes[] cargar_empleados_empresa_transportes() {
-		throw new UnsupportedOperationException();
-	}
-
-	public Encargado_compras[] cargar_empleados_encargado_compras() {
-		throw new UnsupportedOperationException();
-	}
-
-	public void cambiar_estado_producto(int aIdProducto, boolean aActivo) {
-		throw new UnsupportedOperationException();
-	}
-
-	public void cambiar_estado_categoria(int aIdCategoria, boolean aActivo) {
-		throw new UnsupportedOperationException();
-	}
-
-	public boolean cambiar_estado_usaurio(int aIdUsuario, boolean aActivo) {
-		throw new UnsupportedOperationException();
-	}
-
-	public Producto[] cargar_productos_categoria(Categoria aCategoria) {
-		throw new UnsupportedOperationException();
-	}
-
-	public void seleccionar_direccion_envio(int aIdUsuario, String aDireccionUsuario) {
-		throw new UnsupportedOperationException();
-	}
-
-	public void seleccionar_metodo_pago(int aIdUsuario, String aFormaPagoUsuario) {
-		throw new UnsupportedOperationException();
-	}
-
-	public void guardar_perfil(int aIdUsuario, String aNombreUsuario, String aMailUsuario, String aDireccionUsuario, int aFormaPagoUsuario, String aFotoUsuario, boolean aEstadoCuenta) {
-		throw new UnsupportedOperationException();
-	}
-
-	public Producto[] cargar_productos_pedido(Cantidad[] aCantidades) {
-		throw new UnsupportedOperationException();
-	}
-
-	public Pedido_pendiente[] cargar_pedidos_pendientes_cliente_registrado(int aIdUsuario) {
-		throw new UnsupportedOperationException();
-	}
-
-	public Pedido_enviado[] cargar_pedidos_enviados_cliente_registrado(int aIdUsuario) {
-		throw new UnsupportedOperationException();
-	}
-
-	public Pedido_entregado[] cargar_pedidos_entregados_cliente_registrado(int aIdUsuario) {
-		throw new UnsupportedOperationException();
-	}
-
-	public Cantidad[] cargar_cantidades_pedido(int aIdPedido) {
-		throw new UnsupportedOperationException();
-	}
-
 	public Pedido[] cargar_pedidos_enviados() {
 		throw new UnsupportedOperationException();
 	}
@@ -297,7 +264,14 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 		throw new UnsupportedOperationException();
 	}
 
-	public void realizar_pedido(Producto[] aProductos, int[] aCantidades, Clientes aCliente, String aDireccion, String aFormaPago) {
+	public Usuario iniciar_sesion(String aMailUsuario, String aPasswordUsuario) {
+		Usuario usuario = null;
+		
+		usuario = _bd_usuario.iniciar_sesion(aMailUsuario, aPasswordUsuario);
+		_bd_clientes.iniciar_sesion_cliente(usuario.getId());
+	}
+
+	public boolean recuperar_contrasena(String aMailUsuario) {
 		throw new UnsupportedOperationException();
 	}
 }

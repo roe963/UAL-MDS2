@@ -1,7 +1,6 @@
 package bds;
 
 import java.util.Vector;
-
 import basededatos.Valoracion;
 
 public class Valoraciones {

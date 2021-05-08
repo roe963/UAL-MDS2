@@ -2,7 +2,6 @@ package bds;
 
 import java.util.Date;
 import java.util.Vector;
-
 import basededatos.Oferta;
 
 public class Ofertas {
