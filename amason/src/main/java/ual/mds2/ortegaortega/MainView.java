@@ -87,13 +87,13 @@ public class MainView extends VerticalLayout {
 		generarMenuBar();
 		add(vistaActual);*/
 		
-		vistaActual = registrarse;
-		generarMenuBar();
-		add(vistaActual);
-		
-		/*vistaActual = productos;
+		/*vistaActual = registrarse;
 		generarMenuBar();
 		add(vistaActual);*/
+		
+		vistaActual = productos;
+		generarMenuBar();
+		add(vistaActual);
 
 		dialog = new Dialog();
 		dialog.add(ini);

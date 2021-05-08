@@ -1,7 +1,8 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
+import '@vaadin/vaadin-button/src/vaadin-button.js';
 
-class VistaProducto extends PolymerElement {
+class VistaVerproductoclientes extends PolymerElement {
 
     static get template() {
         return html`
@@ -11,15 +12,16 @@ class VistaProducto extends PolymerElement {
                     height: 100%;
                 }
             </style>
-<vaadin-vertical-layout style="align-items: center;" id="vaadinVerticalLayout">
- <img id="img-producto" style="padding: var(--lumo-space-xl); width: 200; height: 200;">
- <label id="textoproducto">Label</label>
+<vaadin-vertical-layout style="width: 100%; height: 100%;">
+ <vaadin-button id="button-comprar">
+  Comprar
+ </vaadin-button>
 </vaadin-vertical-layout>
 `;
     }
 
     static get is() {
-        return 'vista-producto';
+        return 'vista-verproductoclientes';
     }
 
     static get properties() {
@@ -29,4 +31,4 @@ class VistaProducto extends PolymerElement {
     }
 }
 
-customElements.define(VistaProducto.is, VistaProducto);
+customElements.define(VistaVerproductoclientes.is, VistaVerproductoclientes);

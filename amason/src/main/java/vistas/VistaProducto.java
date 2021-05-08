@@ -7,6 +7,7 @@ import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.templatemodel.TemplateModel;
+import com.vaadin.flow.dom.Element;
 
 /**
  * A Designer generated component for the vista-producto template.
@@ -24,6 +25,16 @@ public class VistaProducto extends PolymerTemplate<VistaProducto.VistaProductoMo
 	//private Label labelProducto;
 	@Id("textoproducto")
 	private Label textoproducto;
+	@Id("vaadinVerticalLayout")
+	private Element vaadinVerticalLayout;
+
+	public Element getVaadinVerticalLayout() {
+		return vaadinVerticalLayout;
+	}
+
+	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
+		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	}
 
 	public Image getImgProducto() {
 		return imgProducto;
