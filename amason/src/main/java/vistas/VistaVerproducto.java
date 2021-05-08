@@ -8,6 +8,8 @@ import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.html.Label;
 import vistas.VistaVerproductoclientes;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.dom.Element;
 
 /**
  * A Designer generated component for the vista-verproducto template.
@@ -21,6 +23,14 @@ public class VistaVerproducto extends PolymerTemplate<VistaVerproducto.VistaVerp
 
     @Id("img1-producto")
 	private Image img1Producto;
+	@Id("img2-producto")
+	private Image img2Producto;
+	@Id("img3-producto")
+	private Image img3Producto;
+	@Id("img4-producto")
+	private Image img4Producto;
+	@Id("img5-producto")
+	private Image img5Producto;
 	@Id("label-nombre")
 	private Label labelNombre;
 	@Id("label-categoria")
@@ -34,8 +44,9 @@ public class VistaVerproducto extends PolymerTemplate<VistaVerproducto.VistaVerp
 	@Id("label-nopiniones")
 	private Label labelNopiniones;
 	@Id("vistaVerproductoclientes")
-	private VistaVerproductoclientes vistaVerproductoclientes;
-
+	private Element vistaVerproductoclientes;
+	
+	
 	/**
      * Creates a new VistaVerproducto.
      */
