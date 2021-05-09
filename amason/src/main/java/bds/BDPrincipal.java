@@ -265,7 +265,7 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 	}
 
 	public Usuario iniciar_sesion(String aMailUsuario, String aPasswordUsuario) {
-		Usuario usuario = null;
+		/*Usuario usuario = null;
 		
 		//usuario = _bd_usuario.iniciar_sesion(aMailUsuario, aPasswordUsuario);
 		//_bd_clientes.iniciar_sesion_cliente(usuario.getId());
@@ -273,8 +273,101 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 		_bd_empresas_transportes.iniciar_sesion_empresa_transportes(usuario.getId());
 		_bd_encargados_compras.iniciar_sesion_encargado_compras(usuario.getId());
 		
+		return usuario = _bd_usuario.iniciar_sesion(aMailUsuario, aPasswordUsuario);*/
 		
-		return usuario = _bd_usuario.iniciar_sesion(aMailUsuario, aPasswordUsuario);
+		
+		Usuario usuario = new Usuario();
+		int id= 0;
+		try {
+			
+			//Buscar en usuario
+			usuario = _bd_usuario.iniciar_sesion(aMailUsuario, aPasswordUsuario);	
+			
+			if(usuario == null) {
+				usuario = new Usuario();
+
+				usuario.setEmail("INCORRECTO");	
+				usuario.setPassword("INCORRECTO");
+
+			}else {
+				id= usuario.getId();
+				usuario = new Usuario();
+				usuario.setEmail("SeguirBuscandoTabla");
+			}			
+			
+			if( usuario.getEmail().equals("INCORRECTO")) {//NO hay usuario				
+					return usuario;		
+			}				
+					
+			
+			//Buscar en cliente
+			if( usuario.getEmail().equals("SeguirBuscandoTabla")) {	
+				usuario= _bd_clientes.iniciar_sesion_cliente(id);	
+
+				if(usuario == null) {
+					usuario = new Usuario();
+					usuario.setEmail("SeguirBuscandoTabla");	
+				}else {		
+					usuario = new Usuario();
+					usuario.setEmail((Integer.toString(id)));
+					usuario.setPassword("TIPO_CLIENTE");
+					return usuario;
+				}	
+			}	
+			
+					
+			//Buscar en Administrador
+			if( usuario.getEmail().equals("SeguirBuscandoTabla")) {
+				usuario= _bd_administradores.iniciar_sesion_administrador(id);				
+				if(usuario == null) {
+					usuario = new Usuario();
+					usuario.setEmail("SeguirBuscandoTabla");	
+				}else {		
+					usuario = new Usuario();
+					usuario.setEmail((Integer.toString(id)));
+					usuario.setPassword("TIPO_ADMINISTRADOR");
+					return usuario;
+				}			
+			}		
+			
+			
+			//Buscar en Empresa de transporte
+			if( usuario.getEmail().equals("SeguirBuscandoTabla")) {
+				usuario= _bd_empresas_transportes.iniciar_sesion_empresa_transportes(id);				
+				if(usuario == null) {
+					usuario = new Usuario();
+					usuario.setEmail("SeguirBuscandoTabla");	
+				}else {		
+					usuario = new Usuario();
+					usuario.setEmail((Integer.toString(id)));
+					usuario.setPassword("TIPO_EMPRESA_TRANSPORTE");
+					return usuario;
+				}			
+			}	
+			
+			
+			//Buscar en Encargado
+			if( usuario.getEmail().equals("SeguirBuscandoTabla")) {//Busca en Empresa de transporte
+				usuario= _bd_encargados_compras.iniciar_sesion_encargado_compras(id);			
+				if(usuario == null) {
+					usuario = new Usuario();
+					usuario.setEmail("SeguirBuscandoTabla");	
+				}else {		
+					usuario = new Usuario();
+					usuario.setEmail((Integer.toString(id)));
+					usuario.setPassword("TIPO_ENCARGADO");
+					return usuario;
+				}			
+			}		
+			
+			
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+				
+		return usuario;
+		
 	}
 
 	public boolean recuperar_contrasena(String aMailUsuario) {

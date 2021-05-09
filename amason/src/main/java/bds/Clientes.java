@@ -15,7 +15,7 @@ public class Clientes {
 	public Vector<Cliente> _contiene_cliente = new Vector<Cliente>();
 
 	public Usuario iniciar_sesion_cliente(int aIdUsuario) throws PersistentException {
-		PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession()
+		/*PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession()
                 .beginTransaction();
 		
 		Usuario usuario = new Usuario();
@@ -34,7 +34,20 @@ public class Clientes {
 		} catch (Exception e) {
 			t.rollback();
 		}
-		return usuario;
+		return usuario;*/
+		
+		
+		PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession()
+                .beginTransaction();
+        Usuario usuario = null;
+        try {
+            usuario = ClienteDAO.getClienteByORMID(aIdUsuario);
+            t.commit();
+        } catch (Exception e) {
+            t.rollback();
+        }
+
+        return usuario;
 	}
 
 	public String recuperar_contrasena(String aMailUsuario) {

@@ -9,6 +9,7 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.PWA;
 
 import interfaz.Cliente;
+import interfaz.Productos;
 
 /**
  * A sample Vaadin view class.
@@ -40,6 +41,7 @@ public class MainView extends VerticalLayout {
 
         ViewChanger.layout = this;
         ViewChanger.generarMenuBar();
-        ViewChanger.CambiarVista(new Cliente(), false);
+        //ViewChanger.CambiarVista(new Cliente(), false);
+        ViewChanger.CambiarVista(new Productos(), false);
     }
 }

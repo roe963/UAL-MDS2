@@ -85,8 +85,8 @@ public class Usuario implements Serializable {
         return activo;
     }
 
-    public basededatos.Usuario iniciar_sesion(String mailUsuario, String passwordUsuario) {
-        Usuario[] Usuarios = null;
+    public basededatos.Usuario iniciar_sesion(String mailUsuario, String passwordUsuario) throws PersistentException {
+        /*Usuario[] Usuarios = null;
         PersistentTransaction t;
         try {
             t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
@@ -101,7 +101,29 @@ public class Usuario implements Serializable {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
-        return Usuarios[0];
+        return Usuarios[0];*/
+    	
+    	
+    	//TODO: Implement Method
+        PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession()
+                .beginTransaction();
+        Usuario usuario = null;
+        try {
+            for (Object usr : UsuarioDAO.queryUsuario(null, null)) {
+                Usuario usu = (Usuario) usr;
+                if (usu.getEmail().equals(mailUsuario) && usu.getPassword().equals(passwordUsuario)) {
+                    usuario = usu;
+                    break;
+                }
+             }
+            t.commit();
+
+        } catch (Exception e) {
+            t.rollback();
+        }
+
+        return usuario;
+        
     }
 
     public boolean recuperar_contrasena(String mailUsuario) {

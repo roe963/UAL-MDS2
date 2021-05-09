@@ -2,7 +2,11 @@ package bds;
 
 import java.util.Vector;
 
+import org.orm.PersistentException;
+import org.orm.PersistentTransaction;
+
 import basededatos.Empresa_transportes;
+import basededatos.Empresa_transportesDAO;
 import basededatos.Usuario;
 // import basededatos.Empresa_transportes;
 // import interfaz.Empresa_transportes;
@@ -11,8 +15,18 @@ public class Empresas_transportes {
 	public BDPrincipal _bdprincipal_empresas_trasnportes;
 	public Vector<basededatos.Empresa_transportes> _contiene_empresa_transportes = new Vector<Empresa_transportes>();
 
-	public Usuario iniciar_sesion_empresa_transportes(int aIsUsuario) {
-		throw new UnsupportedOperationException();
+	public Usuario iniciar_sesion_empresa_transportes(int aIdUsuario) throws PersistentException {
+		PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession()
+                .beginTransaction();
+
+        Usuario usuario = null;
+        try {
+            usuario = Empresa_transportesDAO.getEmpresa_transportesByORMID(aIdUsuario);
+            t.commit();
+        } catch (Exception e) {
+            t.rollback();
+        }
+        return usuario;
 	}
 
 	public String recuperar_contrasena(String aMailUsuario) {

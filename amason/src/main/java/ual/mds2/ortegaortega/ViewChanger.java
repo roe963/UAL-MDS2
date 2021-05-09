@@ -109,10 +109,17 @@ public class ViewChanger {
                     Dialog d = new Dialog();
                     d.add(ini);
                     d.open();
-                    ini.getLoginForm().addLoginListener(e -> {
+                    /*ini.getLoginForm().addLoginListener(e -> {
 
                         Usuario usu = null, aux = null;
-                        usu = new Usuario().iniciar_sesion(e.getUsername(), e.getPassword());
+                        //usu = new Usuario().iniciar_sesion(e.getUsername(), e.getPassword());
+                        
+                        try {
+							usu = new Usuario().iniciar_sesion(e.getUsername(), e.getPassword());
+						} catch (PersistentException e2) {
+							// TODO Auto-generated catch block
+							e2.printStackTrace();
+						}
 
                         if (usu != null) {
                             try {
@@ -190,7 +197,7 @@ public class ViewChanger {
 //                        default:
 //                            break;
 //                        }
-                    });
+                    });*/
                 }
             });
             menuBar.addItem(btnChangeSesion);
