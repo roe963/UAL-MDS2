@@ -1,5 +1,7 @@
 package ual.mds2.ortegaortega;
 
+import org.orm.PersistentException;
+
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentEventListener;
@@ -13,6 +15,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.textfield.TextField;
 
+import basededatos.Usuario;
 import interfaz.Administrador;
 import interfaz.Carrito;
 import interfaz.Cliente;
@@ -107,31 +110,86 @@ public class ViewChanger {
                     d.add(ini);
                     d.open();
                     ini.getLoginForm().addLoginListener(e -> {
-                        System.out.println(e.getUsername());
-                        switch (e.getUsername()) {
-                        case "admin":
-                            d.close();
-                            ViewChanger.usuario = ViewChanger.TIPOUSUARIO.ADMIN;
-                            ViewChanger.CambiarVista(new Administrador(), true);
-                            break;
-                        case "regis":
-                            d.close();
-                            ViewChanger.usuario = ViewChanger.TIPOUSUARIO.REGISTRADO;
-                            ViewChanger.CambiarVista(new Cliente(), true);
-                            break;
-                        case "encar":
-                            d.close();
-                            ViewChanger.usuario = ViewChanger.TIPOUSUARIO.ENCARGADO;
-                            ViewChanger.CambiarVista(new Encargado_compras(), true);
-                            break;
-                        case "trans":
-                            d.close();
-                            ViewChanger.usuario = ViewChanger.TIPOUSUARIO.TRANSPORTES;
-                            ViewChanger.CambiarVista(new Empresa_transportes(), true);
-                            break;
-                        default:
-                            break;
+
+                        Usuario usu = null, aux = null;
+                        usu = new Usuario().iniciar_sesion(e.getUsername(), e.getPassword());
+
+                        if (usu != null) {
+                            try {
+                                aux = new bds.Clientes().iniciar_sesion_cliente(usu.getId());
+                            } catch (PersistentException e1) {
+                                // TODO Auto-generated catch block
+                                e1.printStackTrace();
+                            }
+                            if (aux != null) {
+                                d.close();
+                                ViewChanger.usuario = ViewChanger.TIPOUSUARIO.REGISTRADO;
+                                ViewChanger.CambiarVista(new Cliente(), true);
+                            } else {
+//                                try {
+//                                    aux = new bds.Administradores().iniciar_sesion_administrador(usu.getId());
+//                                } catch (PersistentException e1) {
+//                                    // TODO Auto-generated catch block
+//                                    e1.printStackTrace();
+//                                }
+//                                if (aux != null) {
+//                                    d.close();
+//                                    ViewChanger.usuario = ViewChanger.TIPOUSUARIO.ADMIN;
+//                                    ViewChanger.CambiarVista(new Administrador(), true);
+//                                } else {
+//                                    try {
+//                                        aux = new bds.Encargados_compras()
+//                                                .iniciar_sesion_encargado_compras(usu.getId());
+//                                    } catch (PersistentException e1) {
+//                                        // TODO Auto-generated catch block
+//                                        e1.printStackTrace();
+//                                    }
+//                                    if (aux != null) {
+//                                        d.close();
+//                                        ViewChanger.usuario = ViewChanger.TIPOUSUARIO.ENCARGADO;
+//                                        ViewChanger.CambiarVista(new Encargado_compras(), true);
+//                                    } else
+//                                        try {
+//                                            aux = new bds.Empresas_transportes()
+//                                                    .iniciar_sesion_empresa_transportes(usu.getId());
+//                                        } catch (PersistentException e1) {
+//                                            // TODO Auto-generated catch block
+//                                            e1.printStackTrace();
+//                                        }
+//                                    if (aux != null) {
+//                                        d.close();
+//                                        ViewChanger.usuario = ViewChanger.TIPOUSUARIO.TRANSPORTES;
+//                                        ViewChanger.CambiarVista(new Empresa_transportes(), true);
+//                                    }
+//                                }
+                            }
                         }
+
+//                        System.out.println(e.getUsername());
+//                        switch (e.getUsername()) {
+//                        case "admin":
+//                            d.close();
+//                            ViewChanger.usuario = ViewChanger.TIPOUSUARIO.ADMIN;
+//                            ViewChanger.CambiarVista(new Administrador(), true);
+//                            break;
+//                        case "regis":
+//                            d.close();
+//                            ViewChanger.usuario = ViewChanger.TIPOUSUARIO.REGISTRADO;
+//                            ViewChanger.CambiarVista(new Cliente(), true);
+//                            break;
+//                        case "encar":
+//                            d.close();
+//                            ViewChanger.usuario = ViewChanger.TIPOUSUARIO.ENCARGADO;
+//                            ViewChanger.CambiarVista(new Encargado_compras(), true);
+//                            break;
+//                        case "trans":
+//                            d.close();
+//                            ViewChanger.usuario = ViewChanger.TIPOUSUARIO.TRANSPORTES;
+//                            ViewChanger.CambiarVista(new Empresa_transportes(), true);
+//                            break;
+//                        default:
+//                            break;
+//                        }
                     });
                 }
             });
@@ -193,7 +251,7 @@ public class ViewChanger {
 
         layout.add(menuBar);
     }
-    
+
     public static Button closeSessionButton() {
         Button btnChangeSesion = new Button("Salir");
         btnChangeSesion = new Button("Salir");
