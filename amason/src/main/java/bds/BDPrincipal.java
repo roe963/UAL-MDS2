@@ -267,8 +267,14 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 	public Usuario iniciar_sesion(String aMailUsuario, String aPasswordUsuario) {
 		Usuario usuario = null;
 		
-		usuario = _bd_usuario.iniciar_sesion(aMailUsuario, aPasswordUsuario);
-		_bd_clientes.iniciar_sesion_cliente(usuario.getId());
+		//usuario = _bd_usuario.iniciar_sesion(aMailUsuario, aPasswordUsuario);
+		//_bd_clientes.iniciar_sesion_cliente(usuario.getId());
+		_bd_administradores.iniciar_sesion_administrador(usuario.getId());
+		_bd_empresas_transportes.iniciar_sesion_empresa_transportes(usuario.getId());
+		_bd_encargados_compras.iniciar_sesion_encargado_compras(usuario.getId());
+		
+		
+		return usuario = _bd_usuario.iniciar_sesion(aMailUsuario, aPasswordUsuario);
 	}
 
 	public boolean recuperar_contrasena(String aMailUsuario) {
