@@ -20,7 +20,7 @@ public class Producto extends VistaProducto {
 
 		this.getImgProducto().addClickListener(e->{
             System.out.println("has dado click");
-            ViewChanger.CambiarVista(new Ver_producto(), false);
+            ViewChanger.CambiarVista(new Ver_producto());
         });
 		
 		if( fotos.length==0) {//si no tiene ninguna imagen poner esta por defecto

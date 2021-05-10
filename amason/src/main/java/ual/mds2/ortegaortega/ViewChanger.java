@@ -35,12 +35,22 @@ public class ViewChanger {
     static TIPOUSUARIO usuario = TIPOUSUARIO.CLIENTE;
 
     public static void CambiarVista(Component nuevaVista, boolean sesionChanged) {
+        if (layout == null) {
+            layout = new VerticalLayout();
+            generarMenuBar();
+        }
         if (vistaActual != null)
             layout.remove(vistaActual);
         if (sesionChanged)
             generarMenuBar();
         layout.add(nuevaVista);
         vistaActual = nuevaVista;
+    }
+    
+    public static void CambiarVista(Component nuevaVista) {
+        layout.removeAll();
+        generarMenuBar();
+        layout.add(nuevaVista);
     }
 
     public static void generarMenuBar() {
@@ -77,7 +87,7 @@ public class ViewChanger {
             btnHome.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
                 @Override
                 public void onComponentEvent(ClickEvent<Button> event) {
-                    CambiarVista(new Cliente(), false);
+                    CambiarVista(new Cliente());
                 }
             });
 
@@ -95,7 +105,7 @@ public class ViewChanger {
             btnCarrito.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
                 @Override
                 public void onComponentEvent(ClickEvent<Button> event) {
-                    CambiarVista(new Carrito(), false);
+                    CambiarVista(new Carrito());
                 }
             });
             Button btnChangeSesion = new Button("Salir");
@@ -211,7 +221,7 @@ public class ViewChanger {
             btnHome.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
                 @Override
                 public void onComponentEvent(ClickEvent<Button> event) {
-                    CambiarVista(new Cliente(), false);
+                    CambiarVista(new Cliente());
                 }
             });
 
@@ -229,7 +239,7 @@ public class ViewChanger {
             btnCarrito.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
                 @Override
                 public void onComponentEvent(ClickEvent<Button> event) {
-                    CambiarVista(new Carrito(), false);
+                    CambiarVista(new Carrito());
                 }
             });
 
@@ -267,7 +277,7 @@ public class ViewChanger {
             @Override
             public void onComponentEvent(ClickEvent<Button> event) {
                 usuario = TIPOUSUARIO.CLIENTE;
-                CambiarVista(new Cliente(), true);
+                CambiarVista(new Cliente());
             }
         });
         return btnChangeSesion;

@@ -41,7 +41,7 @@ public class MainView extends VerticalLayout {
 
         ViewChanger.layout = this;
         ViewChanger.generarMenuBar();
-        //ViewChanger.CambiarVista(new Cliente(), false);
-        ViewChanger.CambiarVista(new Productos(), false);
+//        ViewChanger.CambiarVista(new Cliente());
+        ViewChanger.CambiarVista(new Productos());
     }
 }
