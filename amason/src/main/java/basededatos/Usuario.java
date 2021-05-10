@@ -26,6 +26,12 @@ import javax.persistence.Table;
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
+import interfaz.Administrador;
+import interfaz.Cliente;
+import interfaz.Empresa_transportes;
+import interfaz.Encargado_compras;
+import ual.mds2.ortegaortega.ViewChanger;
+
 @Entity
 @org.hibernate.annotations.Proxy(lazy = false)
 @Table(name = "Usuario")
@@ -85,14 +91,14 @@ public class Usuario implements Serializable {
         return activo;
     }
 
-    public basededatos.Usuario iniciar_sesion(String mailUsuario, String passwordUsuario) throws PersistentException {
-        /*Usuario[] Usuarios = null;
+    public basededatos.Usuario iniciar_sesion(String mailUsuario, String passwordUsuario) {
+        Usuario[] usuarios = null;
         PersistentTransaction t;
         try {
             t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
             try {
-                Usuarios = UsuarioDAO.listUsuarioByQuery("Password='" + passwordUsuario + "' and Email='" + mailUsuario + "'",
-                        null);
+                usuarios = UsuarioDAO
+                        .listUsuarioByQuery("Password='" + passwordUsuario + "' and Email='" + mailUsuario + "'", null);
                 t.commit();
             } catch (Exception e) {
                 t.rollback();
@@ -101,29 +107,45 @@ public class Usuario implements Serializable {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
-        return Usuarios[0];*/
-    	
-    	
-    	//TODO: Implement Method
-        PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession()
-                .beginTransaction();
-        Usuario usuario = null;
-        try {
-            for (Object usr : UsuarioDAO.queryUsuario(null, null)) {
-                Usuario usu = (Usuario) usr;
-                if (usu.getEmail().equals(mailUsuario) && usu.getPassword().equals(passwordUsuario)) {
-                    usuario = usu;
-                    break;
-                }
-             }
-            t.commit();
 
-        } catch (Exception e) {
-            t.rollback();
+        if (usuarios.length > 0) {
+            Usuario aux = new bds.Clientes().iniciar_sesion_cliente(usuarios[0].id);
+            if (aux != null) {
+                ViewChanger.usuario = ViewChanger.TIPOUSUARIO.REGISTRADO;
+//                ViewChanger.SaveSession(aux.getId());
+                ViewChanger.CambiarVista(new Cliente());
+                return aux;
+            } else {
+                aux = new bds.Administradores().iniciar_sesion_administrador(usuarios[0].id);
+                if (aux != null) {
+                    ViewChanger.usuario = ViewChanger.TIPOUSUARIO.ADMIN;
+//                    ViewChanger.SaveSession(aux.getId());
+                    ViewChanger.CambiarVista(new Administrador());
+                    return aux;
+                } else {
+                    aux = new bds.Encargados_compras().iniciar_sesion_encargado_compras(usuarios[0].id);
+                    if (aux != null) {
+                        ViewChanger.usuario = ViewChanger.TIPOUSUARIO.ENCARGADO;
+//                        ViewChanger.SaveSession(aux.getId());
+                        ViewChanger.CambiarVista(new Encargado_compras());
+                        return aux;
+                    } else {
+                        aux = new bds.Empresas_transportes().iniciar_sesion_empresa_transportes(usuarios[0].id);
+                        if (aux != null) {
+                            ViewChanger.usuario = ViewChanger.TIPOUSUARIO.TRANSPORTES;
+//                            ViewChanger.SaveSession(aux.getId());
+                            ViewChanger.CambiarVista(new Empresa_transportes());
+                            return aux;
+                        } else {
+                            return usuarios[0];
+                        }
+                    }
+                }
+            }
+        } else {
+            return null;
         }
 
-        return usuario;
-        
     }
 
     public boolean recuperar_contrasena(String mailUsuario) {

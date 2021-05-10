@@ -7,28 +7,33 @@ import org.orm.PersistentTransaction;
 
 import basededatos.Administrador;
 import basededatos.AdministradorDAO;
+import basededatos.Cliente;
+import basededatos.ClienteDAO;
 import basededatos.Usuario;
 
 public class Administradores {
-	public BDPrincipal _bdprincipal_administradores;
-	public Vector<Administrador> _contiene_administrador = new Vector<Administrador>();
+    public BDPrincipal _bdprincipal_administradores;
+    public Vector<Administrador> _contiene_administrador = new Vector<Administrador>();
 
-	public Usuario iniciar_sesion_administrador(int aIdUsuario) throws PersistentException {
-		PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession()
-                .beginTransaction();
-
-        Usuario usuario = null;
+    public Usuario iniciar_sesion_administrador(int aIdUsuario) {
+        Administrador admin = null;
+        PersistentTransaction t;
         try {
-            usuario = AdministradorDAO.getAdministradorByORMID(aIdUsuario);
-            t.commit();
-
-        } catch (Exception e) {
-            t.rollback();
+            t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
+            try {
+                admin = AdministradorDAO.getAdministradorByORMID(aIdUsuario);
+                t.commit();
+            } catch (Exception e) {
+                t.rollback();
+            }
+        } catch (PersistentException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
         }
-        return usuario;
-	}
+        return admin;
+    }
 
-	public String recuperar_contrasena(String aMailUsuario) {
-		throw new UnsupportedOperationException();
-	}
+    public String recuperar_contrasena(String aMailUsuario) {
+        throw new UnsupportedOperationException();
+    }
 }

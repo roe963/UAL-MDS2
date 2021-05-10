@@ -2,7 +2,7 @@ package ual.mds2.ortegaortega;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
@@ -38,10 +38,11 @@ public class MainView extends VerticalLayout {
      */
 
     public MainView(@Autowired GreetService service) {
-
+        ViewChanger.LoadSession();
         ViewChanger.layout = this;
-        ViewChanger.generarMenuBar();
-//        ViewChanger.CambiarVista(new Cliente());
-        ViewChanger.CambiarVista(new Productos());
+//        ViewChanger.generarMenuBar();
+
+//      ViewChanger.CambiarVista(new Cliente());
+//        ViewChanger.CambiarVista(new Productos());
     }
 }

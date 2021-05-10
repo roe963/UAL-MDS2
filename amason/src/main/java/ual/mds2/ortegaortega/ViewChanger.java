@@ -5,6 +5,7 @@ import org.orm.PersistentException;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.contextmenu.MenuItem;
 import com.vaadin.flow.component.dialog.Dialog;
@@ -16,6 +17,8 @@ import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.textfield.TextField;
 
 import basededatos.Usuario;
+import basededatos.UsuarioDAO;
+import bds.BDPrincipal;
 import interfaz.Administrador;
 import interfaz.Carrito;
 import interfaz.Cliente;
@@ -32,7 +35,7 @@ public class ViewChanger {
     public static VerticalLayout layout;
     public static Component vistaActual;
 
-    static TIPOUSUARIO usuario = TIPOUSUARIO.CLIENTE;
+    public static TIPOUSUARIO usuario = TIPOUSUARIO.CLIENTE;
 
     public static void CambiarVista(Component nuevaVista, boolean sesionChanged) {
         if (layout == null) {
@@ -46,7 +49,7 @@ public class ViewChanger {
         layout.add(nuevaVista);
         vistaActual = nuevaVista;
     }
-    
+
     public static void CambiarVista(Component nuevaVista) {
         layout.removeAll();
         generarMenuBar();
@@ -119,69 +122,19 @@ public class ViewChanger {
                     Dialog d = new Dialog();
                     d.add(ini);
                     d.open();
-                    /*ini.getLoginForm().addLoginListener(e -> {
+                    ini.getLoginForm().addLoginListener(e -> {
 
-                        Usuario usu = null, aux = null;
-                        //usu = new Usuario().iniciar_sesion(e.getUsername(), e.getPassword());
-                        
-                        try {
-							usu = new Usuario().iniciar_sesion(e.getUsername(), e.getPassword());
-						} catch (PersistentException e2) {
-							// TODO Auto-generated catch block
-							e2.printStackTrace();
-						}
-
-                        if (usu != null) {
-                            try {
-                                aux = new bds.Clientes().iniciar_sesion_cliente(usu.getId());
-                            } catch (PersistentException e1) {
-                                // TODO Auto-generated catch block
-                                e1.printStackTrace();
-                            }
-                            if (aux != null) {
-                                d.close();
-                                ViewChanger.usuario = ViewChanger.TIPOUSUARIO.REGISTRADO;
-                                ViewChanger.CambiarVista(new Cliente(), true);
-                            } else {
-//                                try {
-//                                    aux = new bds.Administradores().iniciar_sesion_administrador(usu.getId());
-//                                } catch (PersistentException e1) {
-//                                    // TODO Auto-generated catch block
-//                                    e1.printStackTrace();
-//                                }
-//                                if (aux != null) {
-//                                    d.close();
-//                                    ViewChanger.usuario = ViewChanger.TIPOUSUARIO.ADMIN;
-//                                    ViewChanger.CambiarVista(new Administrador(), true);
-//                                } else {
-//                                    try {
-//                                        aux = new bds.Encargados_compras()
-//                                                .iniciar_sesion_encargado_compras(usu.getId());
-//                                    } catch (PersistentException e1) {
-//                                        // TODO Auto-generated catch block
-//                                        e1.printStackTrace();
-//                                    }
-//                                    if (aux != null) {
-//                                        d.close();
-//                                        ViewChanger.usuario = ViewChanger.TIPOUSUARIO.ENCARGADO;
-//                                        ViewChanger.CambiarVista(new Encargado_compras(), true);
-//                                    } else
-//                                        try {
-//                                            aux = new bds.Empresas_transportes()
-//                                                    .iniciar_sesion_empresa_transportes(usu.getId());
-//                                        } catch (PersistentException e1) {
-//                                            // TODO Auto-generated catch block
-//                                            e1.printStackTrace();
-//                                        }
-//                                    if (aux != null) {
-//                                        d.close();
-//                                        ViewChanger.usuario = ViewChanger.TIPOUSUARIO.TRANSPORTES;
-//                                        ViewChanger.CambiarVista(new Empresa_transportes(), true);
-//                                    }
-//                                }
-                            }
+                        Usuario usu = new BDPrincipal().iniciar_sesion(e.getUsername(), e.getPassword());
+                        if (usu == null) {
+                            ini.getLoginForm().setError(true);
+                        } else {
+                            SaveSession(usu);
+                            d.close();
                         }
 
+//                        if (usu != null) {
+//                            if (Login(usu.getId())) d.close();
+//                        }
 //                        System.out.println(e.getUsername());
 //                        switch (e.getUsername()) {
 //                        case "admin":
@@ -207,7 +160,7 @@ public class ViewChanger {
 //                        default:
 //                            break;
 //                        }
-                    });*/
+                    });
                 }
             });
             menuBar.addItem(btnChangeSesion);
@@ -277,9 +230,47 @@ public class ViewChanger {
             @Override
             public void onComponentEvent(ClickEvent<Button> event) {
                 usuario = TIPOUSUARIO.CLIENTE;
+                DeleteSession();
                 CambiarVista(new Cliente());
             }
         });
         return btnChangeSesion;
+    }
+
+    public static void SaveSession(Usuario user) {
+        UI.getCurrent().getPage().executeJs("window.localStorage.setItem($0, $1);", "user", user.getEmail());
+        UI.getCurrent().getPage().executeJs("window.localStorage.setItem($0, $1);", "pass", user.getPassword());
+    }
+
+//    public static void LoadSession() {
+//        String user = "", pass = "";
+//        StringBuilder sb = new StringBuilder();
+//        UI.getCurrent().getPage().executeJs("return window.localStorage.getItem($0);", "user").then(String.class,
+//                result -> System.out.println(result));
+//        user = sb.toString();
+//        sb.delete(0, user.length());
+//        UI.getCurrent().getPage().executeJs("return window.localStorage.getItem($0);", "pass").then(String.class,
+//                result -> sb.append(result));
+//        pass = sb.toString();
+//        if (user.length() > 0 & pass.length() > 0)
+//            new BDPrincipal().iniciar_sesion(user.toString(), pass.toString());
+//    }
+
+    public static void LoadSession() {
+        UI.getCurrent().getPage().executeJs("return window.localStorage.getItem($0);", "user").then(String.class,
+                user -> UI.getCurrent().getPage().executeJs("return window.localStorage.getItem($0);", "pass")
+                        .then(String.class, pass -> initOptions(user, pass)));
+    }
+
+    public static void DeleteSession() {
+        UI.getCurrent().getPage().executeJs("window.localStorage.removeItem($0);", "user");
+        UI.getCurrent().getPage().executeJs("window.localStorage.removeItem($0);", "pass");
+    }
+
+    public static void initOptions(String user, String pass) {
+        if (user != null && user.length() > 0 && pass != null && pass.length() > 0)
+            new BDPrincipal().iniciar_sesion(user, pass);
+        else
+            CambiarVista(new Cliente());
     }
 }

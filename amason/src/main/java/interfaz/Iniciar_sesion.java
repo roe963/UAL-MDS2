@@ -14,36 +14,5 @@ public class Iniciar_sesion extends VistaIniciarsesion{
 
     public Iniciar_sesion() {
 
-        this.getLoginForm().addLoginListener(e -> {
-
-            String email = e.getUsername();
-            String password= e.getPassword();
-
-            Usuario usuario= ini.iniciar_sesion(email, password);
-
-
-            if(usuario.getPassword().equals("TIPO_CLIENTE")) {
-                System.out.println("Abrir ventana TIPO_CLIENTE"+usuario.getEmail());
-                ViewChanger.CambiarVista(new Cliente(), false);
-            }
-            if(usuario.getPassword().equals("TIPO_ADMINISTRADOR")) {
-                System.out.println("Abrir ventana TIPO_ADMINISTRADOR"+usuario.getEmail());
-
-            }
-
-            if(usuario.getPassword().equals("TIPO_EMPRESA_TRANSPORTE")) {
-                System.out.println("Abrir ventana TIPO_EMPRESA_TRANSPORTE"+usuario.getEmail());
-            }
-
-            if(usuario.getPassword().equals("TIPO_ENCARGADO")) {
-                System.out.println("Abrir ventana TIPO_ENCARGADO"+usuario.getEmail());
-            }
-
-            if(usuario.getPassword().equals("INCORRECTO")) {
-                    System.out.println("Correo o password incorrecto");
-
-            }
-        });
-
     }
 }
