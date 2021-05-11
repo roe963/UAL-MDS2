@@ -1,9 +1,10 @@
 package interfaz;
 
 import basededatos.Producto;
+import vistas.VistaVeproducto;
 import vistas.VistaVerproducto;
 
-public class Ver_producto extends VistaVerproducto{
+public class Ver_producto extends VistaVeproducto  {
 	/*private label _nombre;
 	private label _nombreProducto;
 	private label _categoria;

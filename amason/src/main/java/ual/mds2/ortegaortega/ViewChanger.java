@@ -26,6 +26,7 @@ import interfaz.Empresa_transportes;
 import interfaz.Encargado_compras;
 import interfaz.Iniciar_sesion;
 import interfaz.Productos;
+import interfaz.Ver_producto;
 
 public class ViewChanger {
 
@@ -103,7 +104,8 @@ public class ViewChanger {
             btnBuscar.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
                 @Override
                 public void onComponentEvent(ClickEvent<Button> event) {
-                    CambiarVista(new Productos());
+                    //CambiarVista(new Productos());
+                    CambiarVista(new Ver_producto());
                 }
             });
             
