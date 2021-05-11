@@ -1,11 +1,11 @@
 package interfaz;
 
-import java.awt.Label;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.notification.Notification.Position;
+import com.vaadin.flow.component.html.Label;
 
 import basededatos.Producto;
 import bds.BDPrincipal;
@@ -19,23 +19,18 @@ public class Productos extends VistaProductos {
 	
 	public Productos() {
 		
-/*		Producto[] productos = clientes.cargar_productos();
-		
-		//clientes.cargar_productos();
-		//System.out.println(clientes.cargar_productos());
-		
-		Notification.show(productos[0].getNombre(),2000,Position.BOTTOM_CENTER);
-		
-//		for (int i = 0; i < productos.length; i++) {
-//			System.out.println(productos[i].getNombre());
-//		}*/
-		
 		Producto[] productos = clientes.cargar_productos();	
 		
 		this.getVaadinHorizontalLayout().removeAll();			
-			for (int i = 0; i < productos.length; i++) {
-			this.getVaadinHorizontalLayout().add(new interfaz.Producto(productos[i]));
-		}	
+		if (productos.length != 0) {
+            for (int i = 0; i < productos.length; i++) {
+                this.getVaadinHorizontalLayout().add(new interfaz.Producto(productos[i]));
+            }
+        }else {
+            Label titulo= new Label();
+            titulo.setText("No hay productos en la BD");
+            this.getVaadinHorizontalLayout().add(titulo);
+        }
 		
 	}
 }

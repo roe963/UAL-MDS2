@@ -100,7 +100,14 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 	}
 
 	public Oferta[] cargar_ofertas() {
-		throw new UnsupportedOperationException();
+		Oferta[] ofertas = null;
+        try {
+        	ofertas = _bd_ofertas.cargar_ofertas();
+        	
+        } catch (PersistentException e) {
+            e.printStackTrace();
+        }
+        return ofertas;
 	}
 
 	public void finalizar_oferta(int aIdOferta) {

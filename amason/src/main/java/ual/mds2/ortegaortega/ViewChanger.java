@@ -25,6 +25,7 @@ import interfaz.Cliente;
 import interfaz.Empresa_transportes;
 import interfaz.Encargado_compras;
 import interfaz.Iniciar_sesion;
+import interfaz.Productos;
 
 public class ViewChanger {
 
@@ -99,6 +100,13 @@ public class ViewChanger {
             txtBuscar.setWidth("400px");
             Button btnBuscar = new Button(new Icon(VaadinIcon.SEARCH));
             btnBuscar.setThemeName("tertiary");
+            btnBuscar.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+                @Override
+                public void onComponentEvent(ClickEvent<Button> event) {
+                    CambiarVista(new Productos());
+                }
+            });
+            
             menuBar.addItem(txtBuscar);
             menuBar.addItem(btnBuscar);
 
