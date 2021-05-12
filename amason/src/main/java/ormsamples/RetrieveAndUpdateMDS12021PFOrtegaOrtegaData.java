@@ -4,8 +4,7 @@
  */
 package ormsamples;
 
-import org.orm.PersistentException;
-import org.orm.PersistentTransaction;
+import org.orm.*;
 public class RetrieveAndUpdateMDS12021PFOrtegaOrtegaData {
 	public void retrieveAndUpdateTestData() throws PersistentException {
 		PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();

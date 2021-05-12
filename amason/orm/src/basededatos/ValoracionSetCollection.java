@@ -73,6 +73,7 @@ public class ValoracionSetCollection extends org.orm.util.ORMSet {
 	 * <li>id</li>
 	 * <li>puntuacion</li>
 	 * <li>comentario</li>
+	 * <li>fecha</li>
 	 * </ul>
 	 * @return The persistent objects sorted array
 	 */
@@ -86,6 +87,7 @@ public class ValoracionSetCollection extends org.orm.util.ORMSet {
 	 * <li>id</li>
 	 * <li>puntuacion</li>
 	 * <li>comentario</li>
+	 * <li>fecha</li>
 	 * </ul>
 	 * @param ascending true for ascending, false for descending
 	 * @return The persistent objects sorted array

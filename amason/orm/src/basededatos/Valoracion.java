@@ -65,6 +65,9 @@ public class Valoracion implements Serializable {
 	@Column(name="Comentario", nullable=true, length=255)	
 	private String comentario;
 	
+	@Column(name="Fecha", nullable=true)	
+	private date fecha;
+	
 	@ManyToMany(mappedBy="ORM_realiza_una", targetEntity=basededatos.Cliente.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
@@ -96,6 +99,14 @@ public class Valoracion implements Serializable {
 	
 	public String getComentario() {
 		return comentario;
+	}
+	
+	public void setFecha(date value) {
+		this.fecha = value;
+	}
+	
+	public date getFecha() {
+		return fecha;
 	}
 	
 	public void setValora_un(basededatos.Producto value) {

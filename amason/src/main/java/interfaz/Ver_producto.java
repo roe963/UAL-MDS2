@@ -1,5 +1,8 @@
 package interfaz;
 
+import com.vaadin.flow.component.icon.Icon;
+import com.vaadin.flow.component.icon.VaadinIcon;
+
 import basededatos.Foto;
 import basededatos.Oferta;
 import basededatos.Producto;
@@ -37,13 +40,15 @@ public class Ver_producto extends VistaVeproducto  {
 	
 
 	public void cargar_producto (basededatos.Producto producto){
+		int valoracion= 4;
+		int nopiniones= 20;
 		this.getNombreProducto().setText(producto.getNombre());
 		this.getNombreCategoria().setText(producto.getAsignado_a().getNombre());
 		this.getNombrePrecio().setText(Double.toString(producto.getPrecio()));
 		Oferta oferta = producto.getPertenece_a();
 		
-		
-		if(oferta==  null) {
+		//Oculta botones cuando ese producto no tiene ofertas
+		if(oferta ==  null) {
 			//ocultar los titulo porque no hay ofertas
 			this.getTituloAnteriorh41().setVisible(false);
 			this.getPrecioAnterior().setVisible(false);
@@ -56,16 +61,44 @@ public class Ver_producto extends VistaVeproducto  {
 			this.getFechaOferta().setText(Long.toString(oferta.getFecha()));
 		}
 		
-		
-		Foto[] fotos= producto.contiene_una.toArray();
-
-			
+		//Sincroniza la imagen principal
+		Foto[] fotos= producto.contiene_una.toArray();			
 		if( fotos.length==0) {//si no tiene ninguna imagen poner esta por defecto
 			this.getImg1Producto().setSrc("https://www.sabormarino.com/assets/images/default.png");			
 		}else {
 			this.getImg1Producto().setSrc(fotos[0].getUrl());			
 
 		}
+		
+		//Sincronizar las estreallas para la valoración
+		for (int i = 0; i < 5; i++) {			
+	
+			if(i<valoracion) {
+				Icon IconEstrella = VaadinIcon.STAR.create();
+				IconEstrella.setColor("gold");
+				this.getHlValoracion().add(IconEstrella);				
+			}else {
+				Icon IconEstrellaVacia = VaadinIcon.STAR_O.create();
+				IconEstrellaVacia.setColor("gold");
+				this.getHlValoracion().add(IconEstrellaVacia);	
+			}			
+		}
+		
+			
+		//Sincronizar la n opinión
+		this.getnOpiniones().setText(Integer.toString(nopiniones)+ " Opiniones");
+		
+		//El botón es visible cuando eres cliente   ????falta hacer que eres cliente para activar el botón
+		
+		Boolean activarBoton= false;
+		if(activarBoton.equals(true)) {
+			this.getClaseBotonProductoCliente().setVisible(true);			
+		}else {
+			this.getClaseBotonProductoCliente().setVisible(false);			
+
+		}
+		
+
 		
 	}
 }

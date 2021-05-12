@@ -27,6 +27,7 @@ public class ProductoDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final StringExpression nombre;
 	public final FloatExpression precio;
 	public final BooleanExpression activo;
+	public final StringExpression descripcion;
 	public final CollectionExpression recibe_una;
 	public final CollectionExpression contiene_una;
 	public final IntegerExpression tiene_unaId;
@@ -42,6 +43,7 @@ public class ProductoDetachedCriteria extends AbstractORMDetachedCriteria {
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
 		precio = new FloatExpression("precio", this.getDetachedCriteria());
 		activo = new BooleanExpression("activo", this.getDetachedCriteria());
+		descripcion = new StringExpression("descripcion", this.getDetachedCriteria());
 		recibe_una = new CollectionExpression("ORM_recibe_una", this.getDetachedCriteria());
 		contiene_una = new CollectionExpression("ORM_contiene_una", this.getDetachedCriteria());
 		tiene_unaId = new IntegerExpression("tiene_una.id", this.getDetachedCriteria());
@@ -58,6 +60,7 @@ public class ProductoDetachedCriteria extends AbstractORMDetachedCriteria {
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
 		precio = new FloatExpression("precio", this.getDetachedCriteria());
 		activo = new BooleanExpression("activo", this.getDetachedCriteria());
+		descripcion = new StringExpression("descripcion", this.getDetachedCriteria());
 		recibe_una = new CollectionExpression("ORM_recibe_una", this.getDetachedCriteria());
 		contiene_una = new CollectionExpression("ORM_contiene_una", this.getDetachedCriteria());
 		tiene_unaId = new IntegerExpression("tiene_una.id", this.getDetachedCriteria());

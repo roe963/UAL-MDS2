@@ -1,11 +1,10 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
-import '@polymer/iron-icon/iron-icon.js';
 import './vista-verproductoclientes.js';
 import '@vaadin/vaadin-tabs/src/vaadin-tabs.js';
 import '@vaadin/vaadin-tabs/src/vaadin-tab.js';
 import './vista-valoraciones.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 
 class VistaVeproducto extends PolymerElement {
 
@@ -49,12 +48,8 @@ class VistaVeproducto extends PolymerElement {
     <label style="align-self: center;" id="label-fechaoferta">Fecha</label>
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout theme="spacing">
-    <h4>Valoración</h4>
-    <iron-icon icon="vaadin:star" style="align-self: center;" id="icon1-valoracion"></iron-icon>
-    <iron-icon icon="vaadin:star-o" style="align-self: center;" id="icon2-valoracion"></iron-icon>
-    <iron-icon icon="vaadin:star-half-left-o" style="align-self: center;" id="icon3-valoracion"></iron-icon>
-    <iron-icon icon="vaadin:star-half-right-o" style="align-self: center;" id="icon4-valoracion"></iron-icon>
-    <iron-icon icon="vaadin:star" style="align-self: center;" id="icon5-valoracion"></iron-icon>
+    <h4></h4>Valoración
+    <vaadin-horizontal-layout theme="spacing" id="hlValoracion"></vaadin-horizontal-layout>
     <label style="align-self: center;" id="label-nopiniones">0 opiniones</label>
    </vaadin-horizontal-layout>
    <vista-verproductoclientes id="vistaVerproductoclientes"></vista-verproductoclientes>

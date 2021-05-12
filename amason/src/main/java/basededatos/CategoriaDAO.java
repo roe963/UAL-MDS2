@@ -13,11 +13,10 @@
  */
 package basededatos;
 
-import java.util.List;
-
+import org.orm.*;
 import org.hibernate.Query;
-import org.orm.PersistentException;
-import org.orm.PersistentSession;
+import org.hibernate.LockMode;
+import java.util.List;
 
 public class CategoriaDAO {
 	public static Categoria loadCategoriaByORMID(int id) throws PersistentException {

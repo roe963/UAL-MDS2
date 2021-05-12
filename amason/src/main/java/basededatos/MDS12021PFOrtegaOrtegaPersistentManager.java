@@ -13,13 +13,12 @@
  */
 package basededatos;
 
-import java.util.Properties;
-
-import org.hibernate.FlushMode;
-import org.hibernate.boot.MetadataSources;
-import org.orm.PersistentException;
-import org.orm.PersistentManager;
+import org.orm.*;
 import org.orm.cfg.JDBCConnectionSetting;
+import org.hibernate.*;
+import java.util.Properties;
+import org.hibernate.cfg.*;
+import org.hibernate.boot.MetadataSources;
 
 public class MDS12021PFOrtegaOrtegaPersistentManager extends PersistentManager {
 	private static final String PROJECT_NAME = "MDS12021PFOrtegaOrtega";

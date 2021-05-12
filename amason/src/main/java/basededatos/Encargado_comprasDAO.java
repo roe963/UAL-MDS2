@@ -13,11 +13,10 @@
  */
 package basededatos;
 
-import java.util.List;
-
+import org.orm.*;
 import org.hibernate.Query;
-import org.orm.PersistentException;
-import org.orm.PersistentSession;
+import org.hibernate.LockMode;
+import java.util.List;
 
 public class Encargado_comprasDAO {
 	public static Encargado_compras loadEncargado_comprasByORMID(int id) throws PersistentException {

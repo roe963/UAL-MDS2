@@ -25,7 +25,7 @@ public class Ofertas {
 		throw new UnsupportedOperationException();
 	}
 
-	public Oferta[] cargar_ofertas() throws PersistentException{
+	public Oferta[] cargar_ofertas() throws PersistentException {
 		Oferta[] ofertas = null;
 		
         PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();

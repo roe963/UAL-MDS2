@@ -84,6 +84,9 @@ public class Producto implements Serializable {
 	@Column(name="Activo", nullable=false, length=1)	
 	private boolean activo;
 	
+	@Column(name="Descripcion", nullable=true, length=255)	
+	private String descripcion;
+	
 	@OneToMany(mappedBy="valora_un", targetEntity=basededatos.Valoracion.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
@@ -132,6 +135,14 @@ public class Producto implements Serializable {
 	
 	public boolean getActivo() {
 		return activo;
+	}
+	
+	public void setDescripcion(String value) {
+		this.descripcion = value;
+	}
+	
+	public String getDescripcion() {
+		return descripcion;
 	}
 	
 	public void setAsignado_a(basededatos.Categoria value) {

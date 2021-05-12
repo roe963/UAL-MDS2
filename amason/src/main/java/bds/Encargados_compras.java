@@ -12,11 +12,11 @@ import basededatos.Encargado_comprasDAO;
 import basededatos.Usuario;
 
 public class Encargados_compras {
-    public BDPrincipal _bdprincipal_encargados_compras;
-    public Vector<Encargado_compras> _contiene_encargado_compras = new Vector<Encargado_compras>();
+	public BDPrincipal _bdprincipal_encargados_compras;
+	public Vector<Encargado_compras> _contiene_encargado_compras = new Vector<Encargado_compras>();
 
-    public Usuario iniciar_sesion_encargado_compras(int aIdUsuario) {
-        Encargado_compras encargado = null;
+	public Usuario iniciar_sesion_encargado_compras(int aIdUsuario) {
+		Encargado_compras encargado = null;
         PersistentTransaction t;
         try {
             t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
@@ -31,9 +31,9 @@ public class Encargados_compras {
             e1.printStackTrace();
         }
         return encargado;
-    }
+	}
 
-    public String recuperar_contrasena(String aMailUsuario) {
-        throw new UnsupportedOperationException();
-    }
+	public String recuperar_contrasena(String aMailUsuario) {
+		throw new UnsupportedOperationException();
+	}
 }

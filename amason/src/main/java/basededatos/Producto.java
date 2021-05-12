@@ -14,20 +14,7 @@
 package basededatos;
 
 import java.io.Serializable;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.ForeignKey;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.*;
 @Entity
 @org.hibernate.annotations.Proxy(lazy=false)
 @Table(name="Producto")
@@ -97,6 +84,9 @@ public class Producto implements Serializable {
 	@Column(name="Activo", nullable=false, length=1)	
 	private boolean activo;
 	
+	@Column(name="Descripcion", nullable=true, length=255)	
+	private String descripcion;
+	
 	@OneToMany(mappedBy="valora_un", targetEntity=basededatos.Valoracion.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
@@ -145,6 +135,14 @@ public class Producto implements Serializable {
 	
 	public boolean getActivo() {
 		return activo;
+	}
+	
+	public void setDescripcion(String value) {
+		this.descripcion = value;
+	}
+	
+	public String getDescripcion() {
+		return descripcion;
 	}
 	
 	public void setAsignado_a(basededatos.Categoria value) {

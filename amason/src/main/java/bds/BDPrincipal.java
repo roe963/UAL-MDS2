@@ -18,26 +18,23 @@ import basededatos.Producto;
 import basededatos.Respuesta;
 import basededatos.Usuario;
 import basededatos.Valoracion;
-import interfaz.Administrador;
-import interfaz.Cliente;
-import ual.mds2.ortegaortega.ViewChanger;
 
 public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrado, iCorreo_personal, iEmpresa_transportes, iEncargado_compras, iIniciar_sesion, iPasarela_de_pagos {
-	public Administradores _bd_administradores = new Administradores();;
-	public Empresas_transportes _bd_empresas_transportes = new Empresas_transportes();;
-	public Encargados_compras _bd_encargados_compras = new Encargados_compras();;
-	public Clientes _bd_clientes = new Clientes();;
-	public Categorias _bd_categorias = new Categorias();;
-	public Productos _bd_productos = new Productos();;
-	public Fotos _bd_fotos = new Fotos();;
-	public Ofertas _bd_ofertas = new Ofertas();;
-	public Valoraciones _bd_valoraciones = new Valoraciones();;
-	public Pedidos_enviados _bd_pedidos_enviados = new Pedidos_enviados();;
-	public Pedidos_entregados _bd_pedidos_entregados = new Pedidos_entregados();;
-	public Mensajes _bd_mensajes = new Mensajes();;
-	public Respuestas _bd_respuestas = new Respuestas();;
-	public Pedidos_pendientes _bd_pedidos_pendientes = new Pedidos_pendientes();;
-	public Cantidades _bd_cantidades = new Cantidades();;
+	public Administradores _bd_administradores = new Administradores();
+	public Empresas_transportes _bd_empresas_transportes = new Empresas_transportes();
+	public Encargados_compras _bd_encargados_compras = new Encargados_compras();
+	public Clientes _bd_clientes = new Clientes();
+	public Categorias _bd_categorias = new Categorias();
+	public Productos _bd_productos = new Productos();
+	public Fotos _bd_fotos = new Fotos();
+	public Ofertas _bd_ofertas = new Ofertas();
+	public Valoraciones _bd_valoraciones = new Valoraciones();
+	public Pedidos_enviados _bd_pedidos_enviados = new Pedidos_enviados();
+	public Pedidos_entregados _bd_pedidos_entregados = new Pedidos_entregados();
+	public Mensajes _bd_mensajes = new Mensajes();
+	public Respuestas _bd_respuestas = new Respuestas();
+	public Pedidos_pendientes _bd_pedidos_pendientes = new Pedidos_pendientes();
+	public Cantidades _bd_cantidades = new Cantidades();
 	public Usuario _bd_usuario = new Usuario();
 
 	public Producto[] cargar_productos() {
@@ -158,7 +155,7 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
         }
 	}
 
-	public void valorar_producto(int aIdProducto, int aIdUsuario, int aPuntuacion, String aComentario) {
+	public void valorar_producto(int aIdProducto, int aIdUsuario, int aPuntuacion, String aComentario, Date aFecha) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -275,10 +272,9 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 	}
 
 	public Usuario iniciar_sesion(String aMailUsuario, String aPasswordUsuario) {
+		
+		return _bd_usuario.iniciar_sesion(aMailUsuario, aPasswordUsuario);    
 	    
-	    return _bd_usuario.iniciar_sesion(aMailUsuario, aPasswordUsuario);    
-	    
-
 		/*Usuario usuario = null;
 		
 		//usuario = _bd_usuario.iniciar_sesion(aMailUsuario, aPasswordUsuario);
@@ -373,7 +369,6 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 //        }
 //				
 //		return usuario;
-		
 	}
 
 	public boolean recuperar_contrasena(String aMailUsuario) {

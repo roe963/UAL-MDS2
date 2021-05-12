@@ -14,19 +14,9 @@
 package basededatos;
 
 import java.io.Serializable;
+import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.ForeignKey;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.*;
 @Entity
 @org.hibernate.annotations.Proxy(lazy=false)
 @Table(name="Valoracion")
@@ -77,6 +67,9 @@ public class Valoracion implements Serializable {
 	@Column(name="Comentario", nullable=true, length=255)	
 	private String comentario;
 	
+	@Column(name="Fecha", nullable=true)	
+	private Date fecha;
+	
 	@ManyToMany(mappedBy="ORM_realiza_una", targetEntity=basededatos.Cliente.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
@@ -108,6 +101,14 @@ public class Valoracion implements Serializable {
 	
 	public String getComentario() {
 		return comentario;
+	}
+	
+	public void setFecha(Date value) {
+		this.fecha = value;
+	}
+	
+	public Date getFecha() {
+		return fecha;
 	}
 	
 	public void setValora_un(basededatos.Producto value) {

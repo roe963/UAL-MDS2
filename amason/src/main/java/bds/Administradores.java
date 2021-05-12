@@ -12,11 +12,11 @@ import basededatos.ClienteDAO;
 import basededatos.Usuario;
 
 public class Administradores {
-    public BDPrincipal _bdprincipal_administradores;
-    public Vector<Administrador> _contiene_administrador = new Vector<Administrador>();
+	public BDPrincipal _bdprincipal_administradores;
+	public Vector<Administrador> _contiene_administrador = new Vector<Administrador>();
 
-    public Usuario iniciar_sesion_administrador(int aIdUsuario) {
-        Administrador admin = null;
+	public Usuario iniciar_sesion_administrador(int aIdUsuario) {
+		Administrador admin = null;
         PersistentTransaction t;
         try {
             t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
@@ -31,9 +31,9 @@ public class Administradores {
             e1.printStackTrace();
         }
         return admin;
-    }
+	}
 
-    public String recuperar_contrasena(String aMailUsuario) {
-        throw new UnsupportedOperationException();
-    }
+	public String recuperar_contrasena(String aMailUsuario) {
+		throw new UnsupportedOperationException();
+	}
 }

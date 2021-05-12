@@ -57,10 +57,6 @@ public class Productos {
 		throw new UnsupportedOperationException();
 	}
 
-	public Valoracion[] cargar_valoraciones(int aIdProducto) {
-		throw new UnsupportedOperationException();
-	}
-
 	public void agregar_producto(String aNombreProducto, int aCategoria, double aPrecioProducto, String aDescripcionProducto, String aImagenProducto1, String aImagenProducto2, String aImagenProducto3, String aImagenProducto4, String aImagenProducto5, int aImagenPrincipal_) {
 		throw new UnsupportedOperationException();
 	}

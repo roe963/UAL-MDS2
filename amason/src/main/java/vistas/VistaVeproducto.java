@@ -9,6 +9,7 @@ import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.html.H4;
+import com.vaadin.flow.dom.Element;
 
 /**
  * A Designer generated component for the vista-veproducto template.
@@ -40,9 +41,30 @@ public class VistaVeproducto extends PolymerTemplate<VistaVeproducto.VistaVeprod
 	private H4 tituloAnteriorh41;
 	@Id("h4")
 	private H4 tituloOfertah4;
+	@Id("hlValoracion")
+	private HorizontalLayout hlValoracion;
+	@Id("vistaVerproductoclientes")
+	private Element claseBotonProductoCliente;
+
 	
 	
 	
+	public Element getClaseBotonProductoCliente() {
+		return claseBotonProductoCliente;
+	}
+
+	public void setClaseBotonProductoCliente(Element claseBotonProductoCliente) {
+		this.claseBotonProductoCliente = claseBotonProductoCliente;
+	}
+
+	public HorizontalLayout getHlValoracion() {
+		return hlValoracion;
+	}
+
+	public void setHlValoracion(HorizontalLayout hlValoracion) {
+		this.hlValoracion = hlValoracion;
+	}
+
 	public Image getImg1Producto() {
 		return img1Producto;
 	}

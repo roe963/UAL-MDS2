@@ -13,8 +13,7 @@
  */
 package basededatos;
 
-import org.orm.PersistentException;
-import org.orm.PersistentManager;
+import org.orm.*;
 
 public class PedidoSetCollection extends org.orm.util.ORMSet {
 	public PedidoSetCollection(Object owner, org.orm.util.ORMAdapter adapter, int ownerKey, int targetKey, int collType) {

@@ -1,9 +1,11 @@
 package bds;
 
+import java.util.Date;
+
 import basededatos.Categoria;
 import basededatos.Oferta;
-import basededatos.Valoracion;
 import basededatos.Producto;
+import basededatos.Valoracion;
 
 public interface iCliente {
 
@@ -17,7 +19,7 @@ public interface iCliente {
 
 	public Producto[] cargar_productos();
 
-	public void valorar_producto(int aIdProducto, int aIdUsuario, int aPuntuacion, String aComentario);
+	public void valorar_producto(int aIdProducto, int aIdUsuario, int aPuntuacion, String aComentario, Date aFecha);
 
 	public Producto cargar_producto(int aIdProducto);
 
