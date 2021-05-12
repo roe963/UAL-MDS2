@@ -23,7 +23,7 @@ class VistaVeproducto extends PolymerElement {
   <vaadin-horizontal-layout theme="spacing">
    <vaadin-vertical-layout theme="spacing">
     <img style="flex-grow: 0; height: 100%; width: 80%; align-self: center;" id="img1-producto">
-    <vaadin-horizontal-layout theme="spacing">
+    <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout">
      <img style="padding: var(--lumo-space-xl); flex-grow: 0;" id="img2-producto">
      <img style="padding: var(--lumo-space-xl); flex-grow: 0;" id="img3-producto">
      <img style="padding: var(--lumo-space-xl); flex-grow: 0;" id="img4-producto">
@@ -43,9 +43,9 @@ class VistaVeproducto extends PolymerElement {
    <vaadin-horizontal-layout theme="spacing">
     <h4>Precio</h4>
     <label style="align-self: center;" id="label-precio">Precio</label>
-    <h4>Precio anterior</h4>
+    <h4 id="h41">Precio anterior</h4>
     <label style="align-self: center;" id="label-precioanterior">Precio</label>
-    <h4>En oferta hasta</h4>
+    <h4 id="h4">En oferta hasta</h4>
     <label style="align-self: center;" id="label-fechaoferta">Fecha</label>
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout theme="spacing">
