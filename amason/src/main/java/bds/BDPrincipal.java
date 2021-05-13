@@ -160,7 +160,14 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 	}
 
 	public Valoracion[] cargar_valoraciones(int aIdProducto) {
-		throw new UnsupportedOperationException();
+		Valoracion[] valoracion = null;
+        try {
+        	valoracion = _bd_valoraciones.cargar_valoraciones(aIdProducto);
+        	
+        } catch (PersistentException e) {
+            e.printStackTrace();
+        }
+        return valoracion;
 	}
 
 	public void validar_registro() {

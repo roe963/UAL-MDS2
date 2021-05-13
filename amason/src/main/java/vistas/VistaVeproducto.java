@@ -7,9 +7,12 @@ import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.html.H4;
 import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.tabs.Tabs;
+import com.vaadin.flow.component.tabs.Tab;
 
 /**
  * A Designer generated component for the vista-veproducto template.
@@ -45,10 +48,99 @@ public class VistaVeproducto extends PolymerTemplate<VistaVeproducto.VistaVeprod
 	private HorizontalLayout hlValoracion;
 	@Id("vistaVerproductoclientes")
 	private Element claseBotonProductoCliente;
+	
+	@Id("vaadinTabs")
+	private Tabs vaadinTabs;
+	
+	@Id("btnDescripcion")
+	private Tab btnDescripcion;
+	
+	@Id("btnValoracion")
+	private Tab btnValoracion;
+	
+	
+	@Id("vlDescripcion")
+	private VerticalLayout vlDescripcion;
+	
+	@Id("vlValoracion")
+	private VerticalLayout vlValoracion;
+	
+	@Id("label-descripcion")
+	private Label labelDescripcion;
+	
+	@Id("vistaValoraciones")
+	private Element vistaValoraciones;
+	
+	@Id("vldescripcionAndValoracion")
+	private VerticalLayout vldescripcionAndValoracion;
 
 	
 	
 	
+	public VerticalLayout getVldescripcionAndValoracion() {
+		return vldescripcionAndValoracion;
+	}
+
+	public void setVldescripcionAndValoracion(VerticalLayout vldescripcionAndValoracion) {
+		this.vldescripcionAndValoracion = vldescripcionAndValoracion;
+	}
+
+	public Tabs getVaadinTabs() {
+		return vaadinTabs;
+	}
+
+	public void setVaadinTabs(Tabs vaadinTabs) {
+		this.vaadinTabs = vaadinTabs;
+	}
+
+	public Tab getBtnDescripcion() {
+		return btnDescripcion;
+	}
+
+	public void setBtnDescripcion(Tab btnDescripcion) {
+		this.btnDescripcion = btnDescripcion;
+	}
+
+	public Tab getBtnValoracion() {
+		return btnValoracion;
+	}
+
+	public void setBtnValoracion(Tab btnValoracion) {
+		this.btnValoracion = btnValoracion;
+	}
+
+	public VerticalLayout getVlDescripcion() {
+		return vlDescripcion;
+	}
+
+	public void setVlDescripcion(VerticalLayout vlDescripcion) {
+		this.vlDescripcion = vlDescripcion;
+	}
+
+	public VerticalLayout getVlValoracion() {
+		return vlValoracion;
+	}
+
+	public void setVlValoracion(VerticalLayout vlValoracion) {
+		this.vlValoracion = vlValoracion;
+	}
+
+	public Label getLabelDescripcion() {
+		return labelDescripcion;
+	}
+
+	public void setLabelDescripcion(Label labelDescripcion) {
+		this.labelDescripcion = labelDescripcion;
+	}
+
+	public Element getVistaValoraciones() {
+		return vistaValoraciones;
+	}
+
+	public void setVistaValoraciones(Element vistaValoraciones) {
+		this.vistaValoraciones = vistaValoraciones;
+	}
+
 	public Element getClaseBotonProductoCliente() {
 		return claseBotonProductoCliente;
 	}

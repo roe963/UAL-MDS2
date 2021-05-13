@@ -2,8 +2,11 @@ package vistas;
 
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.templatemodel.TemplateModel;
+import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.polymertemplate.Id;
 
 /**
  * A Designer generated component for the vista-valoraciones template.
@@ -15,7 +18,18 @@ import com.vaadin.flow.templatemodel.TemplateModel;
 @JsModule("./src/vista-valoraciones.js")
 public class VistaValoraciones extends PolymerTemplate<VistaValoraciones.VistaValoracionesModel> {
 
-    /**
+    @Id("vaadinVerticalLayout")
+	private VerticalLayout vaadinVerticalLayout;
+
+	public VerticalLayout getVaadinVerticalLayout() {
+		return vaadinVerticalLayout;
+	}
+
+	public void setVaadinVerticalLayout(VerticalLayout vaadinVerticalLayout) {
+		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	}
+
+	/**
      * Creates a new VistaValoraciones.
      */
     public VistaValoraciones() {

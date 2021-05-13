@@ -1,14 +1,23 @@
 package interfaz;
 
+
+import java.util.HashMap;
+import java.util.Map;
+
+import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
+import com.vaadin.flow.component.tabs.Tab;
+import com.vaadin.flow.component.tabs.Tabs;
 
 import basededatos.Foto;
 import basededatos.Oferta;
-import basededatos.Producto;
-import ual.mds2.ortegaortega.ViewChanger;
+import basededatos.Valoracion;
+import bds.BDPrincipal;
+import bds.iCliente;
 import vistas.VistaVeproducto;
-import vistas.VistaVerproducto;
 
 public class Ver_producto extends VistaVeproducto  {
 	/*private label _nombre;
@@ -30,18 +39,24 @@ public class Ver_producto extends VistaVeproducto  {
 	public Producto _producto;
 	public Valoraciones _valoraciones;*/
 	
+	iCliente cliente = new BDPrincipal();
+
 	public Ver_producto() {
 		
 	}
 	
 	public Ver_producto (basededatos.Producto producto) {
 		cargar_producto(producto);		
+		
 	}
 	
 
 	public void cargar_producto (basededatos.Producto producto){
-		int valoracion= 4;
-		int nopiniones= 20;
+		basededatos.Valoracion[] valoraciones=  cliente.cargar_valoraciones(producto.getId());
+
+		int valoracion= numeroValoracion(valoraciones);
+		int nopiniones= valoraciones.length;
+		
 		this.getNombreProducto().setText(producto.getNombre());
 		this.getNombreCategoria().setText(producto.getAsignado_a().getNombre());
 		this.getNombrePrecio().setText(Double.toString(producto.getPrecio()));
@@ -56,7 +71,6 @@ public class Ver_producto extends VistaVeproducto  {
 			this.getFechaOferta().setVisible(false);
 			
 		}else {			
-			System.out.println("hay oferta");
 			this.getPrecioAnterior().setText(Double.toString(oferta.getPrecio()));			
 			this.getFechaOferta().setText(Long.toString(oferta.getFecha()));
 		}
@@ -71,19 +85,8 @@ public class Ver_producto extends VistaVeproducto  {
 		}
 		
 		//Sincronizar las estreallas para la valoración
-		for (int i = 0; i < 5; i++) {			
+		cargarLasEstrellasDeValoracion(valoracion);
 	
-			if(i<valoracion) {
-				Icon IconEstrella = VaadinIcon.STAR.create();
-				IconEstrella.setColor("gold");
-				this.getHlValoracion().add(IconEstrella);				
-			}else {
-				Icon IconEstrellaVacia = VaadinIcon.STAR_O.create();
-				IconEstrellaVacia.setColor("gold");
-				this.getHlValoracion().add(IconEstrellaVacia);	
-			}			
-		}
-		
 			
 		//Sincronizar la n opinión
 		this.getnOpiniones().setText(Integer.toString(nopiniones)+ " Opiniones");
@@ -98,7 +101,66 @@ public class Ver_producto extends VistaVeproducto  {
 
 		}
 		
-
+		//configurar El tabs
 		
+		
+		
+		this.getVldescripcionAndValoracion().removeAll();
+		
+		Tab tab1 = new Tab("Descripción");
+		Div page1 = new Div();
+		Label label = new Label();
+		label.setText(producto.getDescripcion());		
+		page1.add(label);
+
+		Tab tab2 = new Tab("Valoración");
+		Div page2 = new Div();
+		Valoraciones v = new Valoraciones(valoraciones); 
+		page2.add(v);
+
+		page2.setVisible(false);
+
+		Map<Tab, Component> tabsToPages = new HashMap<>();
+		tabsToPages.put(tab1, page1);
+		tabsToPages.put(tab2, page2);
+		Tabs tabs = new Tabs(tab1, tab2 );
+		Div pages = new Div(page1, page2);
+
+		tabs.addSelectedChangeListener(event -> {
+		    tabsToPages.values().forEach(page -> page.setVisible(false));
+		    Component selectedPage = tabsToPages.get(tabs.getSelectedTab());
+		    selectedPage.setVisible(true);
+		});
+
+		this.getVldescripcionAndValoracion().add(tabs, pages);
+		
+	}
+
+	private void cargarLasEstrellasDeValoracion(int valoracion) {
+		// TODO Auto-generated method stub
+		for (int i = 0; i < 5; i++) {			
+			
+			if(i<valoracion) {
+				Icon IconEstrella = VaadinIcon.STAR.create();
+				IconEstrella.setColor("gold");
+				this.getHlValoracion().add(IconEstrella);				
+			}else {
+				Icon IconEstrellaVacia = VaadinIcon.STAR_O.create();
+				IconEstrellaVacia.setColor("gold");
+				this.getHlValoracion().add(IconEstrellaVacia);	
+			}			
+		}
+		
+		
+	}
+
+	private int numeroValoracion(Valoracion[] valoraciones) {
+		// TODO Auto-generated method stub
+		int suma= 0;		
+		for (int i = 0; i < valoraciones.length; i++) {
+			suma+= valoraciones[i].getPuntuacion();
+		}
+		
+		return suma/valoraciones.length;
 	}
 }
