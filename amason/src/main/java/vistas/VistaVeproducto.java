@@ -26,7 +26,7 @@ public class VistaVeproducto extends PolymerTemplate<VistaVeproducto.VistaVeprod
 
     @Id("img1-producto")
 	private Image img1Producto;
-	@Id("vaadinHorizontalLayout")
+	@Id("vlCargarImagenes")
 	private HorizontalLayout vaadinHorizontalLayout;
 	@Id("label-nombre")
 	private Label nombreProducto;
@@ -73,10 +73,21 @@ public class VistaVeproducto extends PolymerTemplate<VistaVeproducto.VistaVeprod
 	
 	@Id("vldescripcionAndValoracion")
 	private VerticalLayout vldescripcionAndValoracion;
+	
+	@Id("vlCargarImagenes")
+	private HorizontalLayout vlCargarImagenes;
 
 	
 	
 	
+	public HorizontalLayout getVlCargarImagenes() {
+		return vlCargarImagenes;
+	}
+
+	public void setVlCargarImagenes(HorizontalLayout vlCargarImagenes) {
+		this.vlCargarImagenes = vlCargarImagenes;
+	}
+
 	public VerticalLayout getVldescripcionAndValoracion() {
 		return vldescripcionAndValoracion;
 	}

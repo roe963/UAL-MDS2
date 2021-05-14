@@ -22,7 +22,7 @@ public class Valoraciones extends VistaValoraciones {
             }
         }else {
             Label titulo= new Label();
-            titulo.setText("No hay productos en la BD");
+            titulo.setText("No hay ninguna valoración en la BD sobre estre producto.");
             this.getVaadinVerticalLayout().add(titulo);
         }
 		

@@ -19,13 +19,14 @@ public class Producto extends VistaProducto {
 		Foto[] fotos= producto.contiene_una.toArray();
 
 		this.getImgProducto().addClickListener(e->{
-            System.out.println("has dado click");
             ViewChanger.CambiarVista(new Ver_producto(producto));
         });
 		
 		if( fotos.length==0) {//si no tiene ninguna imagen poner esta por defecto
 			this.getImgProducto().setSrc("https://www.sabormarino.com/assets/images/default.png");			
 		}else {
+			this.getImgProducto().setMaxHeight("30%");
+			this.getImgProducto().setMaxWidth("30%");
 			this.getImgProducto().setSrc(fotos[0].getUrl());			
 
 		}

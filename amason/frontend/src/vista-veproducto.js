@@ -19,15 +19,10 @@ class VistaVeproducto extends PolymerElement {
             </style>
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
  <vaadin-horizontal-layout theme="spacing" style="flex-grow: 0; align-self: stretch; padding: var(--lumo-space-xl); background-color: var(--lumo-contrast-10pct); margin: var(--lumo-space-xl); margin-top: var(--lumo-space-xs); margin-bottom: var(--lumo-space-xs);">
-  <vaadin-horizontal-layout theme="spacing" style="align-self: center;">
+  <vaadin-horizontal-layout theme="spacing" style="align-self: center; width: 35%;">
    <vaadin-vertical-layout theme="spacing" style="align-self: center; flex-shrink: 1;">
-    <img style="flex-grow: 0; height: 30%; width: 30%; align-self: center; flex-shrink: 1;" id="img1-producto">
-    <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout">
-     <img style="padding: var(--lumo-space-xl); flex-grow: 0;" id="img2-producto">
-     <img style="padding: var(--lumo-space-xl); flex-grow: 0;" id="img3-producto">
-     <img style="padding: var(--lumo-space-xl); flex-grow: 0;" id="img4-producto">
-     <img style="padding: var(--lumo-space-xl); flex-grow: 0;" id="img5-producto">
-    </vaadin-horizontal-layout>
+    <img style="flex-grow: 0; height: 30%; width: 45%; align-self: center; flex-shrink: 1;" id="img1-producto">
+    <vaadin-horizontal-layout theme="spacing" id="vlCargarImagenes"></vaadin-horizontal-layout>
    </vaadin-vertical-layout>
   </vaadin-horizontal-layout>
   <vaadin-vertical-layout theme="spacing" style="flex-grow: 1;">
