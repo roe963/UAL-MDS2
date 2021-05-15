@@ -19,6 +19,16 @@ public class VistaVerproductoclientes extends PolymerTemplate<VistaVerproductocl
 
     @Id("button-comprar")
 	private Button buttonComprar;
+    
+    
+
+	public Button getButtonComprar() {
+		return buttonComprar;
+	}
+
+	public void setButtonComprar(Button buttonComprar) {
+		this.buttonComprar = buttonComprar;
+	}
 
 	/**
      * Creates a new VistaVerproductoclientes.

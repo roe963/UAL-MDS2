@@ -2,8 +2,11 @@ package vistas;
 
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.templatemodel.TemplateModel;
+import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.polymertemplate.Id;
 
 /**
  * A Designer generated component for the vista-productosdelcarrito template.
@@ -15,7 +18,18 @@ import com.vaadin.flow.templatemodel.TemplateModel;
 @JsModule("./src/vista-productosdelcarrito.js")
 public class VistaProductosdelcarrito extends PolymerTemplate<VistaProductosdelcarrito.VistaProductosdelcarritoModel> {
 
-    /**
+    @Id("VlProductos")
+	private VerticalLayout vlProductos;
+
+	public VerticalLayout getVlProductos() {
+		return vlProductos;
+	}
+
+	public void setVlProductos(VerticalLayout vlProductos) {
+		this.vlProductos = vlProductos;
+	}
+
+	/**
      * Creates a new VistaProductosdelcarrito.
      */
     public VistaProductosdelcarrito() {

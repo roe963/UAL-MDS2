@@ -18,6 +18,7 @@ import basededatos.Producto;
 import basededatos.Valoracion;
 import bds.BDPrincipal;
 import bds.iCliente;
+import ual.mds2.ortegaortega.ViewChanger;
 import vistas.VistaVeproducto;
 
 public class Ver_producto extends VistaVeproducto {
@@ -87,8 +88,18 @@ public class Ver_producto extends VistaVeproducto {
 
 		// El botón es visible cuando eres cliente ????falta hacer que eres cliente para
 		// activar el botón
-
+		
+		
+		
 		Boolean activarBoton = false;
+		if(ViewChanger.getEresAdministrador().equals("ADMINISTRADOR")) {
+			activarBoton= false; //ocultar el boton
+		}else {
+			activarBoton= true;//activa el boton cuando eres cliente, y no estas registrado
+		}
+		
+		
+		
 		if (activarBoton.equals(true)) {
 			this.getClaseBotonProductoCliente().setVisible(true);
 		} else {
@@ -126,6 +137,12 @@ public class Ver_producto extends VistaVeproducto {
 		});
 
 		this.getVldescripcionAndValoracion().add(tabs, pages);
+		
+		
+		this.getVlBotonComprar().removeAll();
+		this.getVlBotonComprar().add(new Ver_producto_clientes(producto));
+		
+		
 
 	}
 

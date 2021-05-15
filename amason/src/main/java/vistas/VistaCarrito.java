@@ -3,10 +3,12 @@ package vistas;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.dom.Element;
 import com.vaadin.flow.templatemodel.TemplateModel;
+import com.vaadin.flow.component.html.H4;
 
 /**
  * A Designer generated component for the vista-carrito template.
@@ -18,34 +20,44 @@ import com.vaadin.flow.templatemodel.TemplateModel;
 @JsModule("./src/vista-carrito.js")
 public class VistaCarrito extends PolymerTemplate<VistaCarrito.VistaCarritoModel> {
 
-	////// Barra Navegacion /////
-	@Id("button-carrito")
-	private Button verCarrito;
-	
-	@Id("button-inicio")
-	private Button aInicio;
-	
-	
-    public Button getVerCarrito() {
-		return verCarrito;
-	}
-
-	public void setVerCarrito(Button verCarrito) {
-		this.verCarrito = verCarrito;
-	}
-
-	public Button getaInicio() {
-		return aInicio;
-	}
-
-	public void setaInicio(Button aInicio) {
-		this.aInicio = aInicio;
-	}
-	//////Barra Navegacion /////
 	
 	
     @Id("layout-carrito")
 	private Element layoutCarrito;
+
+	@Id("vlProductos")
+	private VerticalLayout vlProductos;
+
+	@Id("vaadinButton")
+	private Button vaadinButton;
+
+	@Id("h4")
+	private H4 precioTotal;
+	
+
+	public Button getVaadinButton() {
+		return vaadinButton;
+	}
+
+	public void setVaadinButton(Button vaadinButton) {
+		this.vaadinButton = vaadinButton;
+	}
+
+	public H4 getPrecioTotal() {
+		return precioTotal;
+	}
+
+	public void setPrecioTotal(H4 precioTotal) {
+		this.precioTotal = precioTotal;
+	}
+
+	public VerticalLayout getVlProductos() {
+		return vlProductos;
+	}
+
+	public void setVlProductos(VerticalLayout vlProductos) {
+		this.vlProductos = vlProductos;
+	}
 
 	public Element getLayoutCarrito() {
 		return layoutCarrito;

@@ -57,8 +57,19 @@ public class Clientes {
         }
 	}
 
-	public Usuario cargar_perfil(int aIdUsuario) {
-		throw new UnsupportedOperationException();
+	public  Cliente cargar_perfil(int aIdUsuario) throws PersistentException {
+		PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession()
+                .beginTransaction();
+			
+		Cliente cliente =null;
+		  try {
+				 cliente = ClienteDAO.getClienteByORMID(aIdUsuario);
+				 
+	            t.commit();
+	        } catch (PersistentException e) {
+	            t.rollback();
+	        }
+		  return cliente;
 	}
 
 	public void seleccionar_direccion_envio(int aIdUsuario, String aDireccionUsuario) {
@@ -72,9 +83,25 @@ public class Clientes {
 	public void validar_registro() {
 		throw new UnsupportedOperationException();
 	}
+	
+	
+	public void guardar_perfil(int aIdUsuario, String aNombreUsuario, String aMailUsuario, String aDireccionUsuario, String aFormaPagoUsuario, String aFotoUsuario, boolean aEstadoCuenta) throws PersistentException {
+		PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession()
+                .beginTransaction();
 
-	public void guardar_perfil(int aIdUsuario, String aNombreUsuario, String aMailUsuario, String aDireccionUsuario, int aFormaPagoUsuario, String aFotoUsuario, boolean aEstadoCuenta) {
-		throw new UnsupportedOperationException();
+              try {
+        	  Cliente cliente = ClienteDAO.getClienteByORMID(aIdUsuario);              
+              cliente.setNombre(aNombreUsuario);
+              cliente.setEmail(aMailUsuario);
+              cliente.setDireccionEnvio(aDireccionUsuario);
+              cliente.setMetodoPago(aFormaPagoUsuario);
+              cliente.setFotoURL(aFotoUsuario);
+              cliente.setActivo(aEstadoCuenta);
+                  
+            t.commit();
+        } catch (PersistentException e) {
+            t.rollback();
+        }
 	}
 
 	public void actualizas_datos_compra(String aDireccion, String aFormaPago, Cliente aCliente) {

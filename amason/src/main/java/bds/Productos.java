@@ -76,4 +76,6 @@ public class Productos {
 	public void cambiar_estado_producto(int aDiProducto, boolean aActivo) {
 		throw new UnsupportedOperationException();
 	}
+
+	
 }

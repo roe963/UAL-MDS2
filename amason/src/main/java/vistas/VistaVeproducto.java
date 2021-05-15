@@ -76,10 +76,20 @@ public class VistaVeproducto extends PolymerTemplate<VistaVeproducto.VistaVeprod
 	
 	@Id("vlCargarImagenes")
 	private HorizontalLayout vlCargarImagenes;
+	@Id("vlBotonComprar")
+	private HorizontalLayout vlBotonComprar;
 
 	
 	
 	
+	public HorizontalLayout getVlBotonComprar() {
+		return vlBotonComprar;
+	}
+
+	public void setVlBotonComprar(HorizontalLayout vlBotonComprar) {
+		this.vlBotonComprar = vlBotonComprar;
+	}
+
 	public HorizontalLayout getVlCargarImagenes() {
 		return vlCargarImagenes;
 	}

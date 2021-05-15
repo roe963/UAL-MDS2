@@ -1,10 +1,10 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
-import './vista-verproductoclientes.js';
 import '@vaadin/vaadin-tabs/src/vaadin-tabs.js';
 import '@vaadin/vaadin-tabs/src/vaadin-tab.js';
 import './vista-valoraciones.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
+import './vista-verproductoclientes.js';
 
 class VistaVeproducto extends PolymerElement {
 
@@ -47,7 +47,9 @@ class VistaVeproducto extends PolymerElement {
     <vaadin-horizontal-layout theme="spacing" id="hlValoracion"></vaadin-horizontal-layout>
     <label style="align-self: center;" id="label-nopiniones">0 opiniones</label>
    </vaadin-horizontal-layout>
-   <vista-verproductoclientes id="vistaVerproductoclientes"></vista-verproductoclientes>
+   <vaadin-horizontal-layout theme="spacing" id="vlBotonComprar">
+    <vista-verproductoclientes id="vistaVerproductoclientes"></vista-verproductoclientes>
+   </vaadin-horizontal-layout>
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>
  <vaadin-vertical-layout theme="spacing" style="align-self: stretch; flex-grow: 1; margin: var(--lumo-space-xl); margin-top: var(--lumo-space-xs); margin-bottom: var(--lumo-space-xs);" id="vldescripcionAndValoracion">

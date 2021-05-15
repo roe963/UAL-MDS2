@@ -26,4 +26,6 @@ public interface iCliente {
 	public Valoracion[] cargar_valoraciones(int aIdProducto);
 
 	public void validar_registro();
+
+	
 }

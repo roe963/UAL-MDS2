@@ -18,22 +18,24 @@ class VistaDatosdecompra extends PolymerElement {
 <vaadin-vertical-layout>
  <label>Dirección</label>
  <vaadin-text-field id="textfield-direccion"></vaadin-text-field>
- <label style="padding-top: var(--lumo-space-l);">Forma de pago</label>
- <vaadin-select value="Item one" id="select-formadepago">
-  <template>
-   <vaadin-list-box selected="0">
-    <vaadin-item selected>
-      Item one 
-    </vaadin-item>
-    <vaadin-item>
-      Item two 
-    </vaadin-item>
-    <vaadin-item>
-      Item three 
-    </vaadin-item>
-   </vaadin-list-box>
-  </template>
- </vaadin-select>
+ <vaadin-vertical-layout theme="spacing" id="vlFormadePago">
+  <label style="padding-top: var(--lumo-space-l);">Forma de pago</label>
+  <vaadin-select value="Item one" id="select-formadepago">
+   <template>
+    <vaadin-list-box selected="0">
+     <vaadin-item selected>
+       Item one 
+     </vaadin-item>
+     <vaadin-item>
+       Item two 
+     </vaadin-item>
+     <vaadin-item>
+       Item three 
+     </vaadin-item>
+    </vaadin-list-box>
+   </template>
+  </vaadin-select>
+ </vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;
     }

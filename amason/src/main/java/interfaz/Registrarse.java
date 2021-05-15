@@ -39,7 +39,7 @@ public class Registrarse extends VistaRegistrarse{
 	
 	void cargarComponentes() {
 		//carga el select
-		labelSelect.setItems("Con Tarjeta", "Bizum");
+		labelSelect.setItems("Tarjeta", "Bizum");
 		labelSelect.setValue("Con Tarjeta");
 		labelSelect.setLabel("Forma de pago");		
 		this.getVaadinHorizontalLayout1().add(labelSelect);

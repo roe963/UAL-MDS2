@@ -1,11 +1,11 @@
 package bds;
 
 import basededatos.Cantidad;
+import basededatos.Cliente;
 import basededatos.Pedido_entregado;
 import basededatos.Pedido_enviado;
 import basededatos.Pedido_pendiente;
 import basededatos.Producto;
-import basededatos.Usuario;
 
 public interface iCliente_registrado extends iCliente {
 
@@ -17,9 +17,9 @@ public interface iCliente_registrado extends iCliente {
 
 	public void realizar_pedido(Producto[] aProductos, int[] aCantidades, Clientes aCliente, String aDireccion, String aFormaPago);
 
-	public Usuario cargar_perfil(int aIdUsuario);
+	public Cliente cargar_perfil(int aIdUsuario);
 
-	public void guardar_perfil(int aIdUsuario, String aNombreUsuario, String aMailUsuario, String aDireccionUsuario, int aFormaPagoUsuario, String aFotoUsuario, boolean aEstadoCuenta);
+	public void guardar_perfil(int aIdUsuario, String aNombreUsuario, String aMailUsuario, String aDireccionUsuario, String aFormaPagoUsuario, String aFotoUsuario, boolean aEstadoCuenta);
 
 	public Producto[] cargar_productos_pedido(Cantidad[] aCantidades);
 

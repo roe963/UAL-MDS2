@@ -1,5 +1,8 @@
 package ual.mds2.ortegaortega;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.orm.PersistentException;
 
 import com.vaadin.flow.component.ClickEvent;
@@ -16,6 +19,8 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.textfield.TextField;
 
+import basededatos.Cantidad;
+import basededatos.Producto;
 import basededatos.Usuario;
 import basededatos.UsuarioDAO;
 import bds.BDPrincipal;
@@ -26,7 +31,9 @@ import interfaz.Empresa_transportes;
 import interfaz.Encargado_compras;
 import interfaz.Iniciar_sesion;
 import interfaz.Productos;
+import interfaz.Ver_perfil;
 import interfaz.Ver_producto;
+import interfaz.cantidadCache;
 
 public class ViewChanger {
 
@@ -36,8 +43,96 @@ public class ViewChanger {
 
     public static VerticalLayout layout;
     public static Component vistaActual;
+    
+    private static int idUsuario = -1;
+    private static String eresAdministrador = "NO";
+    
+    
+    
+    private static List<Producto> ListaProductos= new ArrayList<Producto>();
+    private static List<cantidadCache> cantidadProductos= new ArrayList<cantidadCache>();
+    
+	public static List<cantidadCache> getCantidadProductos() {
+		return cantidadProductos;
+	}
+	
+	public static void addCantidadProductos(cantidadCache cantidad){
+		ViewChanger.cantidadProductos.add(cantidad);
+	}
+	
+	public static void cambiarCantidad(cantidadCache cantidad){
+		
+		for (int i = 0; i < ListaProductos.size(); i++) {
+			if(ListaProductos.get(i).getId() == cantidad.getIdProducto()) {
+				
+				cantidadProductos.get(i).setCantidad(cantidad.getCantidad());
+				break;
+			}
+			
+		}
+		
+	}
+    
 
     public static TIPOUSUARIO usuario = TIPOUSUARIO.CLIENTE;
+    
+    public static int getIdUsuario() {
+		return idUsuario;
+	}
+    
+	public static void setIdUsuario(int idUsuario) {
+		ViewChanger.idUsuario = idUsuario;
+	}
+	
+	public static String getEresAdministrador() {
+			return eresAdministrador;
+	}
+	    
+	public static void setEresAdministrador(String tipo) {
+		ViewChanger.eresAdministrador = tipo;
+	}
+		
+		
+	
+	public static List<Producto> getListaProductos() {
+		return ListaProductos;
+	}
+	
+	public static void addProducto(Producto producto){
+		ViewChanger.ListaProductos.add(producto);
+	}
+	
+	public static void removeProducto(Producto producto){		
+		 
+		for (int i = 0; i < ViewChanger.ListaProductos.size(); i++) {
+			
+			if(ViewChanger.getListaProductos().get(i).getId() == (producto.getId())) {				
+				ViewChanger.getListaProductos().remove(ViewChanger.getListaProductos().get(i));
+				break;
+			}
+			
+		}
+		
+	}
+	
+	
+	public static void removeCantidadProducto(cantidadCache cantidadCache){		
+		 //cambiarCantidad(cantidadCache);
+		 
+		for (int i = 0; i < cantidadProductos.size(); i++) {
+			
+			System.out.println(ListaProductos.get(i).getId() + "- "+cantidadCache.getIdProducto());
+			if(ListaProductos.get(i).getId()== (cantidadCache.getIdProducto())) {	
+				System.out.println("entra para eliminar");
+				cantidadProductos.remove(cantidadProductos.get(i));
+				//ViewChanger.getCantidadProductos().remove(ViewChanger.getCantidadProductos().get(i));
+				break;
+			}
+			
+		}
+		
+	}
+	
 
     public static void CambiarVista(Component nuevaVista, boolean sesionChanged) {
         if (layout == null) {
@@ -68,7 +163,9 @@ public class ViewChanger {
 
         switch (usuario) {
         case ADMIN:
-
+        	
+        	ViewChanger.setEresAdministrador("ADMINISTRADOR");
+        	
             MenuItem administrateMenu = menuBar.addItem("Administrar");
             administrateMenu.getSubMenu().addItem("Productos", e -> System.out.println("ok1"));
             administrateMenu.getSubMenu().addItem("Categorias", e -> System.out.println("ok1"));
@@ -207,7 +304,7 @@ public class ViewChanger {
             });
 
             MenuItem me = menuBar.addItem("Yo");
-            me.getSubMenu().addItem("Mis datos", e -> System.out.println("ok1"));
+            me.getSubMenu().addItem("Mis datos", e -> CambiarVista(new Ver_perfil()));
             me.getSubMenu().addItem("Mis pedidos", e -> System.out.println("ok1"));
             me.getSubMenu().addItem("Mis mensajes", e -> System.out.println("ok2"));
             me.getSubMenu().addItem("Salir", e -> System.out.println("ok2"));
@@ -248,6 +345,8 @@ public class ViewChanger {
     }
 
     public static void SaveSession(Usuario user) {
+    	
+    	ViewChanger.setIdUsuario(user.getId());    	
         UI.getCurrent().getPage().executeJs("window.localStorage.setItem($0, $1);", "user", user.getEmail());
         UI.getCurrent().getPage().executeJs("window.localStorage.setItem($0, $1);", "pass", user.getPassword());
     }
@@ -273,6 +372,12 @@ public class ViewChanger {
     }
 
     public static void DeleteSession() {
+    	ViewChanger.setIdUsuario(-1);
+    	ViewChanger.setEresAdministrador("NO");
+    	ViewChanger.ListaProductos= new ArrayList<Producto>();
+    	ViewChanger.cantidadProductos= new ArrayList<cantidadCache>();
+    
+    	
         UI.getCurrent().getPage().executeJs("window.localStorage.removeItem($0);", "user");
         UI.getCurrent().getPage().executeJs("window.localStorage.removeItem($0);", "pass");
     }

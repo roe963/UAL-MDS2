@@ -2,11 +2,13 @@ package vistas;
 
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.component.select.Select;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.templatemodel.TemplateModel;
+import com.vaadin.flow.dom.Element;
 
 /**
  * A Designer generated component for the vista-datosdecompra template.
@@ -20,8 +22,26 @@ public class VistaDatosdecompra extends PolymerTemplate<VistaDatosdecompra.Vista
 
     @Id("textfield-direccion")
 	private TextField textfieldDireccion;
-	@Id("select-formadepago")
-	private Select selectFormadepago;
+	@Id("vlFormadePago")
+	private VerticalLayout vlFormadePago;
+
+	
+	
+	public TextField getTextfieldDireccion() {
+		return textfieldDireccion;
+	}
+
+	public void setTextfieldDireccion(TextField textfieldDireccion) {
+		this.textfieldDireccion = textfieldDireccion;
+	}
+
+	public VerticalLayout getVlFormadePago() {
+		return vlFormadePago;
+	}
+
+	public void setVlFormadePago(VerticalLayout vlFormadePago) {
+		this.vlFormadePago = vlFormadePago;
+	}
 
 	/**
      * Creates a new VistaDatosdecompra.

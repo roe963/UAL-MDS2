@@ -6,6 +6,7 @@ import org.orm.PersistentException;
 
 import basededatos.Cantidad;
 import basededatos.Categoria;
+import basededatos.Cliente;
 import basededatos.Empresa_transportes;
 import basededatos.Encargado_compras;
 import basededatos.Mensaje;
@@ -190,12 +191,24 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 		throw new UnsupportedOperationException();
 	}
 
-	public Usuario cargar_perfil(int aIdUsuario) {
-		throw new UnsupportedOperationException();
+	public  Cliente cargar_perfil(int aIdUsuario) {
+		Cliente cliente = null;
+        try {
+        	cliente = _bd_clientes.cargar_perfil(aIdUsuario);
+        	
+        } catch (PersistentException e) {
+            e.printStackTrace();
+        }
+        return cliente;
 	}
 
-	public void guardar_perfil(int aIdUsuario, String aNombreUsuario, String aMailUsuario, String aDireccionUsuario, int aFormaPagoUsuario, String aFotoUsuario, boolean aEstadoCuenta) {
-		throw new UnsupportedOperationException();
+	public void guardar_perfil(int aIdUsuario, String aNombreUsuario, String aMailUsuario, String aDireccionUsuario, String aFormaPagoUsuario, String aFotoUsuario, boolean aEstadoCuenta) {
+		//TODO
+		try {
+			_bd_clientes.guardar_perfil(aIdUsuario, aNombreUsuario, aMailUsuario, aDireccionUsuario, aFormaPagoUsuario, aFotoUsuario,  aEstadoCuenta);
+        } catch (PersistentException e) {
+            e.printStackTrace();
+        }
 	}
 
 	public Producto[] cargar_productos_pedido(Cantidad[] aCantidades) {
