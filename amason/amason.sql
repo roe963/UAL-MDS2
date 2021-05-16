@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-05-2021 a las 20:17:49
+-- Tiempo de generación: 16-05-2021 a las 20:52:30
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.3
 
@@ -49,6 +49,15 @@ CREATE TABLE `cantidad` (
   `ProductoId` int(10) NOT NULL,
   `Cantidad` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `cantidad`
+--
+
+INSERT INTO `cantidad` (`Id`, `ProductoId`, `Cantidad`) VALUES
+(1, 1, 1),
+(2, 1, 1),
+(3, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -190,6 +199,15 @@ CREATE TABLE `pedido` (
   `Precio` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `pedido`
+--
+
+INSERT INTO `pedido` (`Id`, `ClienteUsuarioId`, `Fecha`, `Precio`) VALUES
+(1, 1, 0, 30),
+(2, 1, 0, 30),
+(3, 1, 0, 30);
+
 -- --------------------------------------------------------
 
 --
@@ -232,6 +250,15 @@ CREATE TABLE `pedido_pendiente` (
   `PedidoId` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `pedido_pendiente`
+--
+
+INSERT INTO `pedido_pendiente` (`PedidoId`) VALUES
+(1),
+(2),
+(3);
+
 -- --------------------------------------------------------
 
 --
@@ -245,17 +272,19 @@ CREATE TABLE `producto` (
   `Nombre` varchar(255) DEFAULT NULL,
   `Precio` float NOT NULL,
   `Activo` bit(1) NOT NULL,
-  `Descripcion` varchar(255) DEFAULT NULL
+  `Descripcion` varchar(255) DEFAULT NULL,
+  `CantidadId` int(10) NOT NULL,
+  `ProductoId` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `producto`
 --
 
-INSERT INTO `producto` (`Id`, `OfertaId`, `CategoriaId`, `Nombre`, `Precio`, `Activo`, `Descripcion`) VALUES
-(1, 1, 1, 'Ratón', 30, b'1', 'Logitech\r\ng500'),
-(4, NULL, 1, 'Teclado', 15, b'1', 'Chino\r\nMandarino'),
-(5, 2, 2, 'Bombilla', 22, b'1', 'Bombilla\r\nInteligente\r\nXiaomi');
+INSERT INTO `producto` (`Id`, `OfertaId`, `CategoriaId`, `Nombre`, `Precio`, `Activo`, `Descripcion`, `CantidadId`, `ProductoId`) VALUES
+(1, 1, 1, 'Ratón', 30, b'1', 'Logitech\r\ng500', 0, 0),
+(4, NULL, 1, 'Teclado', 15, b'1', 'Chino\r\nMandarino', 0, 0),
+(5, 2, 2, 'Bombilla', 22, b'1', 'Bombilla\r\nInteligente\r\nXiaomi', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -307,6 +336,14 @@ CREATE TABLE `valoracion` (
   `Fecha` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `valoracion`
+--
+
+INSERT INTO `valoracion` (`Id`, `ProductoId`, `Puntuacion`, `Comentario`, `Fecha`) VALUES
+(1, 1, 5, 'Es un raton muy bueno.', '2021-05-13'),
+(2, 1, 4, 'Es aceptable el producto.', '2021-05-12');
+
 -- --------------------------------------------------------
 
 --
@@ -317,6 +354,14 @@ CREATE TABLE `valoracion_cliente` (
   `ValoracionId` int(10) NOT NULL,
   `ClienteUsuarioId` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `valoracion_cliente`
+--
+
+INSERT INTO `valoracion_cliente` (`ValoracionId`, `ClienteUsuarioId`) VALUES
+(1, 1),
+(2, 1);
 
 --
 -- Índices para tablas volcadas
@@ -455,7 +500,7 @@ ALTER TABLE `valoracion_cliente`
 -- AUTO_INCREMENT de la tabla `cantidad`
 --
 ALTER TABLE `cantidad`
-  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `categoria`
@@ -485,7 +530,7 @@ ALTER TABLE `oferta`
 -- AUTO_INCREMENT de la tabla `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
@@ -509,7 +554,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `valoracion`
 --
 ALTER TABLE `valoracion`
-  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
