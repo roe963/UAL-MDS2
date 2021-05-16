@@ -8,7 +8,7 @@ CREATE TABLE Pedido (Id int(10) NOT NULL AUTO_INCREMENT, ClienteUsuarioId int(10
 CREATE TABLE Valoracion (Id int(10) NOT NULL AUTO_INCREMENT, ProductoId int(10) NOT NULL, Puntuacion int(10) NOT NULL, Comentario varchar(255), Fecha date, PRIMARY KEY (Id));
 CREATE TABLE Oferta (Id int(10) NOT NULL AUTO_INCREMENT, Fecha bigint(20) NOT NULL, Precio float NOT NULL, PRIMARY KEY (Id));
 CREATE TABLE Foto (Id int(10) NOT NULL AUTO_INCREMENT, ProductoId int(10) NOT NULL, Url varchar(255), PRIMARY KEY (Id));
-CREATE TABLE Producto (Id int(10) NOT NULL AUTO_INCREMENT, OfertaId int(10), CategoriaId int(10) NOT NULL, Nombre varchar(255), Precio float NOT NULL, Activo bit(1) NOT NULL, Descripcion varchar(255), PRIMARY KEY (Id));
+CREATE TABLE Producto (Id int(10) NOT NULL AUTO_INCREMENT, OfertaId int(10), CategoriaId int(10) NOT NULL, Nombre varchar(255), Precio float NOT NULL, Activo bit(1) NOT NULL, Descripcion varchar(255), CantidadId int(10) NOT NULL, ProductoId int(10) NOT NULL, PRIMARY KEY (Id));
 CREATE TABLE Categoria (Id int(10) NOT NULL AUTO_INCREMENT, Nombre varchar(255), Activo bit(1) NOT NULL, PRIMARY KEY (Id));
 CREATE TABLE Usuario (Id int(10) NOT NULL AUTO_INCREMENT, Email varchar(255), Password varchar(255), Activo bit(1) NOT NULL, PRIMARY KEY (Id));
 CREATE TABLE Cliente (Nombre varchar(255), MetodoPago varchar(255), DireccionEnvio varchar(255), FotoURL varchar(255), UsuarioId int(10) NOT NULL, PRIMARY KEY (UsuarioId));

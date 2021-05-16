@@ -30,8 +30,7 @@ public class ProductoDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final StringExpression descripcion;
 	public final CollectionExpression recibe_una;
 	public final CollectionExpression contiene_una;
-	public final IntegerExpression tiene_unaId;
-	public final AssociationExpression tiene_una;
+	public final CollectionExpression tiene_una;
 	
 	public ProductoDetachedCriteria() {
 		super(basededatos.Producto.class, basededatos.ProductoCriteria.class);
@@ -46,8 +45,7 @@ public class ProductoDetachedCriteria extends AbstractORMDetachedCriteria {
 		descripcion = new StringExpression("descripcion", this.getDetachedCriteria());
 		recibe_una = new CollectionExpression("ORM_recibe_una", this.getDetachedCriteria());
 		contiene_una = new CollectionExpression("ORM_contiene_una", this.getDetachedCriteria());
-		tiene_unaId = new IntegerExpression("tiene_una.id", this.getDetachedCriteria());
-		tiene_una = new AssociationExpression("tiene_una", this.getDetachedCriteria());
+		tiene_una = new CollectionExpression("ORM_tiene_una", this.getDetachedCriteria());
 	}
 	
 	public ProductoDetachedCriteria(DetachedCriteria aDetachedCriteria) {
@@ -63,8 +61,7 @@ public class ProductoDetachedCriteria extends AbstractORMDetachedCriteria {
 		descripcion = new StringExpression("descripcion", this.getDetachedCriteria());
 		recibe_una = new CollectionExpression("ORM_recibe_una", this.getDetachedCriteria());
 		contiene_una = new CollectionExpression("ORM_contiene_una", this.getDetachedCriteria());
-		tiene_unaId = new IntegerExpression("tiene_una.id", this.getDetachedCriteria());
-		tiene_una = new AssociationExpression("tiene_una", this.getDetachedCriteria());
+		tiene_una = new CollectionExpression("ORM_tiene_una", this.getDetachedCriteria());
 	}
 	
 	public OfertaDetachedCriteria createPertenece_aCriteria() {
@@ -84,7 +81,7 @@ public class ProductoDetachedCriteria extends AbstractORMDetachedCriteria {
 	}
 	
 	public CantidadDetachedCriteria createTiene_unaCriteria() {
-		return new CantidadDetachedCriteria(createCriteria("tiene_una"));
+		return new CantidadDetachedCriteria(createCriteria("ORM_tiene_una"));
 	}
 	
 	public Producto uniqueProducto(PersistentSession session) {

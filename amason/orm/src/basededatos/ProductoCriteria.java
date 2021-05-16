@@ -30,8 +30,7 @@ public class ProductoCriteria extends AbstractORMCriteria {
 	public final StringExpression descripcion;
 	public final CollectionExpression recibe_una;
 	public final CollectionExpression contiene_una;
-	public final IntegerExpression tiene_unaId;
-	public final AssociationExpression tiene_una;
+	public final CollectionExpression tiene_una;
 	
 	public ProductoCriteria(Criteria criteria) {
 		super(criteria);
@@ -46,8 +45,7 @@ public class ProductoCriteria extends AbstractORMCriteria {
 		descripcion = new StringExpression("descripcion", this);
 		recibe_una = new CollectionExpression("ORM_recibe_una", this);
 		contiene_una = new CollectionExpression("ORM_contiene_una", this);
-		tiene_unaId = new IntegerExpression("tiene_una.id", this);
-		tiene_una = new AssociationExpression("tiene_una", this);
+		tiene_una = new CollectionExpression("ORM_tiene_una", this);
 	}
 	
 	public ProductoCriteria(PersistentSession session) {
@@ -75,7 +73,7 @@ public class ProductoCriteria extends AbstractORMCriteria {
 	}
 	
 	public CantidadCriteria createTiene_unaCriteria() {
-		return new CantidadCriteria(createCriteria("tiene_una"));
+		return new CantidadCriteria(createCriteria("ORM_tiene_una"));
 	}
 	
 	public Producto uniqueProducto() {

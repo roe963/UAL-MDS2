@@ -29,6 +29,9 @@ public class Producto implements Serializable {
 		else if (key == ORMConstants.KEY_PRODUCTO_CONTIENE_UNA) {
 			return ORM_contiene_una;
 		}
+		else if (key == ORMConstants.KEY_PRODUCTO_TIENE_UNA) {
+			return ORM_tiene_una;
+		}
 		
 		return null;
 	}
@@ -40,10 +43,6 @@ public class Producto implements Serializable {
 		
 		else if (key == ORMConstants.KEY_PRODUCTO_PERTENECE_A) {
 			this.pertenece_a = (basededatos.Oferta) owner;
-		}
-		
-		else if (key == ORMConstants.KEY_PRODUCTO_TIENE_UNA) {
-			this.tiene_una = (basededatos.Cantidad) owner;
 		}
 	}
 	
@@ -97,9 +96,10 @@ public class Producto implements Serializable {
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_contiene_una = new java.util.HashSet();
 	
-	@OneToOne(mappedBy="contiene_un", targetEntity=basededatos.Cantidad.class, fetch=FetchType.LAZY)	
+	@OneToMany(mappedBy="contiene_un", targetEntity=basededatos.Cantidad.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	private basededatos.Cantidad tiene_una;
+	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
+	private java.util.Set ORM_tiene_una = new java.util.HashSet();
 	
 	private void setId(int value) {
 		this.id = value;
@@ -208,22 +208,16 @@ public class Producto implements Serializable {
 	@Transient	
 	public final basededatos.FotoSetCollection contiene_una = new basededatos.FotoSetCollection(this, _ormAdapter, ORMConstants.KEY_PRODUCTO_CONTIENE_UNA, ORMConstants.KEY_FOTO_PERTENECE_A, ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
-	public void setTiene_una(basededatos.Cantidad value) {
-		if (this.tiene_una != value) {
-			basededatos.Cantidad ltiene_una = this.tiene_una;
-			this.tiene_una = value;
-			if (value != null) {
-				tiene_una.setContiene_un(this);
-			}
-			if (ltiene_una != null && ltiene_una.getContiene_un() == this) {
-				ltiene_una.setContiene_un(null);
-			}
-		}
+	private void setORM_Tiene_una(java.util.Set value) {
+		this.ORM_tiene_una = value;
 	}
 	
-	public basededatos.Cantidad getTiene_una() {
-		return tiene_una;
+	private java.util.Set getORM_Tiene_una() {
+		return ORM_tiene_una;
 	}
+	
+	@Transient	
+	public final basededatos.CantidadSetCollection tiene_una = new basededatos.CantidadSetCollection(this, _ormAdapter, ORMConstants.KEY_PRODUCTO_TIENE_UNA, ORMConstants.KEY_CANTIDAD_CONTIENE_UN, ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	public String toString() {
 		return String.valueOf(getId());

@@ -324,7 +324,7 @@ public class CantidadDAO {
 	public static boolean deleteAndDissociate(basededatos.Cantidad cantidad)throws PersistentException {
 		try {
 			if (cantidad.getContiene_un() != null) {
-				cantidad.getContiene_un().setTiene_una(null);
+				cantidad.getContiene_un().tiene_una.remove(cantidad);
 			}
 			
 			basededatos.Pedido[] lContenido_ens = cantidad.contenido_en.toArray();
@@ -342,7 +342,7 @@ public class CantidadDAO {
 	public static boolean deleteAndDissociate(basededatos.Cantidad cantidad, org.orm.PersistentSession session)throws PersistentException {
 		try {
 			if (cantidad.getContiene_un() != null) {
-				cantidad.getContiene_un().setTiene_una(null);
+				cantidad.getContiene_un().tiene_una.remove(cantidad);
 			}
 			
 			basededatos.Pedido[] lContenido_ens = cantidad.contenido_en.toArray();

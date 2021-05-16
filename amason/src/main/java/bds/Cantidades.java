@@ -33,6 +33,7 @@ public class Cantidades {
 				Producto producto = ProductoDAO.getProductoByORMID(aProductos[i].getId());						
 				Cantidad cant = CantidadDAO.createCantidad();
 				cant.setContiene_un(producto);
+				//cant.setORM_Contiene_un(producto);
 				cant.setCantidad(aCantidades[i]);	
 				
 				CantidadDAO.save(cant);				

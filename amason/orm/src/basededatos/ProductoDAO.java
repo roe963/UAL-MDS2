@@ -339,10 +339,10 @@ public class ProductoDAO {
 			for(int i = 0; i < lContiene_unas.length; i++) {
 				lContiene_unas[i].setPertenece_a(null);
 			}
-			if (producto.getTiene_una() != null) {
-				producto.getTiene_una().setContiene_un(null);
+			basededatos.Cantidad[] lTiene_unas = producto.tiene_una.toArray();
+			for(int i = 0; i < lTiene_unas.length; i++) {
+				lTiene_unas[i].setContiene_un(null);
 			}
-			
 			return delete(producto);
 		}
 		catch(Exception e) {
@@ -369,10 +369,10 @@ public class ProductoDAO {
 			for(int i = 0; i < lContiene_unas.length; i++) {
 				lContiene_unas[i].setPertenece_a(null);
 			}
-			if (producto.getTiene_una() != null) {
-				producto.getTiene_una().setContiene_un(null);
+			basededatos.Cantidad[] lTiene_unas = producto.tiene_una.toArray();
+			for(int i = 0; i < lTiene_unas.length; i++) {
+				lTiene_unas[i].setContiene_un(null);
 			}
-			
 			try {
 				session.delete(producto);
 				return true;

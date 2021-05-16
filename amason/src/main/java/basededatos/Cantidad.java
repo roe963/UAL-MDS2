@@ -54,8 +54,8 @@ public class Cantidad implements Serializable {
 	@org.hibernate.annotations.GenericGenerator(name="BASEDEDATOS_CANTIDAD_ID_GENERATOR", strategy="native")	
 	private int id;
 	
-	@OneToOne(optional=false, targetEntity=basededatos.Producto.class, fetch=FetchType.LAZY)	
-	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
+	@ManyToOne(targetEntity=basededatos.Producto.class, fetch=FetchType.LAZY)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
 	@JoinColumns(value={ @JoinColumn(name="ProductoId", referencedColumnName="Id", nullable=false) }, foreignKey=@ForeignKey(name="FKCantidad314050"))	
 	private basededatos.Producto contiene_un;
 	
@@ -100,19 +100,26 @@ public class Cantidad implements Serializable {
 	public final basededatos.PedidoSetCollection contenido_en = new basededatos.PedidoSetCollection(this, _ormAdapter, ORMConstants.KEY_CANTIDAD_CONTENIDO_EN, ORMConstants.KEY_PEDIDO_CONTIENE_UN, ORMConstants.KEY_MUL_MANY_TO_MANY);
 	
 	public void setContiene_un(basededatos.Producto value) {
-		if (this.contiene_un != value) {
-			basededatos.Producto lcontiene_un = this.contiene_un;
-			this.contiene_un = value;
-			if (value != null) {
-				contiene_un.setTiene_una(this);
-			}
-			if (lcontiene_un != null && lcontiene_un.getTiene_una() == this) {
-				lcontiene_un.setTiene_una(null);
-			}
+		if (contiene_un != null) {
+			contiene_un.tiene_una.remove(this);
+		}
+		if (value != null) {
+			value.tiene_una.add(this);
 		}
 	}
 	
 	public basededatos.Producto getContiene_un() {
+		return contiene_un;
+	}
+	
+	/**
+	 * This method is for internal use only.
+	 */
+	public void setORM_Contiene_un(basededatos.Producto value) {
+		this.contiene_un = value;
+	}
+	
+	private basededatos.Producto getORM_Contiene_un() {
 		return contiene_un;
 	}
 	
