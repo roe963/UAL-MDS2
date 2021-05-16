@@ -20,7 +20,8 @@ import basededatos.Respuesta;
 import basededatos.Usuario;
 import basededatos.Valoracion;
 
-public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrado, iCorreo_personal, iEmpresa_transportes, iEncargado_compras, iIniciar_sesion, iPasarela_de_pagos {
+public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrado, iCorreo_personal,
+		iEmpresa_transportes, iEncargado_compras, iIniciar_sesion, iPasarela_de_pagos {
 	public Administradores _bd_administradores = new Administradores();
 	public Empresas_transportes _bd_empresas_transportes = new Empresas_transportes();
 	public Encargados_compras _bd_encargados_compras = new Encargados_compras();
@@ -40,13 +41,13 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 
 	public Producto[] cargar_productos() {
 		Producto[] productos = null;
-        try {
-        	productos = _bd_productos.cargar_productos();
-        	
-        } catch (PersistentException e) {
-            e.printStackTrace();
-        }
-        return productos;
+		try {
+			productos = _bd_productos.cargar_productos();
+
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		return productos;
 	}
 
 	public Producto[] cargar_productos_categoria(String aNombreCategoria) {
@@ -69,11 +70,15 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 		throw new UnsupportedOperationException();
 	}
 
-	public void agregar_producto(String aNombreProducto, int aCategoria, double aPrecioProducto, String aDescripcionProducto, String aImagenProducto1, String aImagenProducto2, String aImagenProducto3, String aImagenProducto4, String aImagenProducto5, int aMagenPrincipal) {
+	public void agregar_producto(String aNombreProducto, int aCategoria, double aPrecioProducto,
+			String aDescripcionProducto, String aImagenProducto1, String aImagenProducto2, String aImagenProducto3,
+			String aImagenProducto4, String aImagenProducto5, int aMagenPrincipal) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void modificar_proucto(String aNombreProducto, int aCategoria, double aPrecioProducto, String aDescripcionProducto, String aImagenProducto1, String aImagenProducto2, String aImagenProducto3, String aImagenProducto4, String aImagenProducto5, int aImagenPrincipal) {
+	public void modificar_proucto(String aNombreProducto, int aCategoria, double aPrecioProducto,
+			String aDescripcionProducto, String aImagenProducto1, String aImagenProducto2, String aImagenProducto3,
+			String aImagenProducto4, String aImagenProducto5, int aImagenPrincipal) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -99,13 +104,13 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 
 	public Oferta[] cargar_ofertas() {
 		Oferta[] ofertas = null;
-        try {
-        	ofertas = _bd_ofertas.cargar_ofertas();
-        	
-        } catch (PersistentException e) {
-            e.printStackTrace();
-        }
-        return ofertas;
+		try {
+			ofertas = _bd_ofertas.cargar_ofertas();
+
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		return ofertas;
 	}
 
 	public void finalizar_oferta(int aIdOferta) {
@@ -148,12 +153,14 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 		throw new UnsupportedOperationException();
 	}
 
-	public void registrar_usuario(String aNombreUsuario, String aMailUsuario, String aPasswordUsuario, String aConfirmPasswordUsuario, String aDireccionUsuario, String aFormaPagoUsuario, String aFotoUsuario) {
+	public void registrar_usuario(String aNombreUsuario, String aMailUsuario, String aPasswordUsuario,
+			String aConfirmPasswordUsuario, String aDireccionUsuario, String aFormaPagoUsuario, String aFotoUsuario) {
 		try {
-			_bd_clientes.registrar_usuario(aNombreUsuario, aMailUsuario, aPasswordUsuario, aConfirmPasswordUsuario, aDireccionUsuario, aFormaPagoUsuario, aFotoUsuario);
-        } catch (PersistentException e) {
-            e.printStackTrace();
-        }
+			_bd_clientes.registrar_usuario(aNombreUsuario, aMailUsuario, aPasswordUsuario, aConfirmPasswordUsuario,
+					aDireccionUsuario, aFormaPagoUsuario, aFotoUsuario);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void valorar_producto(int aIdProducto, int aIdUsuario, int aPuntuacion, String aComentario, Date aFecha) {
@@ -162,13 +169,13 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 
 	public Valoracion[] cargar_valoraciones(int aIdProducto) {
 		Valoracion[] valoracion = null;
-        try {
-        	valoracion = _bd_valoraciones.cargar_valoraciones(aIdProducto);
-        	
-        } catch (PersistentException e) {
-            e.printStackTrace();
-        }
-        return valoracion;
+		try {
+			valoracion = _bd_valoraciones.cargar_valoraciones(aIdProducto);
+
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		return valoracion;
 	}
 
 	public void validar_registro() {
@@ -187,28 +194,38 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 		throw new UnsupportedOperationException();
 	}
 
-	public void realizar_pedido(Producto[] aProductos, int[] aCantidades, Clientes aCliente, String aDireccion, String aFormaPago) {
-		throw new UnsupportedOperationException();
-	}
-
-	public  Cliente cargar_perfil(int aIdUsuario) {
-		Cliente cliente = null;
-        try {
-        	cliente = _bd_clientes.cargar_perfil(aIdUsuario);
-        	
-        } catch (PersistentException e) {
-            e.printStackTrace();
-        }
-        return cliente;
-	}
-
-	public void guardar_perfil(int aIdUsuario, String aNombreUsuario, String aMailUsuario, String aDireccionUsuario, String aFormaPagoUsuario, String aFotoUsuario, boolean aEstadoCuenta) {
-		//TODO
+	public void realizar_pedido(Producto[] aProductos, int[] aCantidades, Cliente aCliente, String aDireccion,
+			String aFormaPago) {
+//TODO
 		try {
-			_bd_clientes.guardar_perfil(aIdUsuario, aNombreUsuario, aMailUsuario, aDireccionUsuario, aFormaPagoUsuario, aFotoUsuario,  aEstadoCuenta);
-        } catch (PersistentException e) {
-            e.printStackTrace();
-        }
+			_bd_clientes.actualizas_datos_compra(aDireccion, aFormaPago, aCliente);
+			Cantidad arrayCantidad[] =  _bd_cantidades.realizar_pedido(aProductos, aCantidades, aCliente);
+			_bd_pedidos_pendientes.realizar_pedido(arrayCantidad, aCliente);
+
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public Cliente cargar_perfil(int aIdUsuario) {
+		Cliente cliente = null;
+		try {
+			cliente = _bd_clientes.cargar_perfil(aIdUsuario);
+
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		return cliente;
+	}
+
+	public void guardar_perfil(int aIdUsuario, String aNombreUsuario, String aMailUsuario, String aDireccionUsuario,
+			String aFormaPagoUsuario, String aFotoUsuario, boolean aEstadoCuenta) {
+		try {
+			_bd_clientes.guardar_perfil(aIdUsuario, aNombreUsuario, aMailUsuario, aDireccionUsuario, aFormaPagoUsuario,
+					aFotoUsuario, aEstadoCuenta);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public Producto[] cargar_productos_pedido(Cantidad[] aCantidades) {
@@ -292,19 +309,21 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 	}
 
 	public Usuario iniciar_sesion(String aMailUsuario, String aPasswordUsuario) {
-		
-		return _bd_usuario.iniciar_sesion(aMailUsuario, aPasswordUsuario);    
-	    
-		/*Usuario usuario = null;
-		
-		//usuario = _bd_usuario.iniciar_sesion(aMailUsuario, aPasswordUsuario);
-		//_bd_clientes.iniciar_sesion_cliente(usuario.getId());
-		_bd_administradores.iniciar_sesion_administrador(usuario.getId());
-		_bd_empresas_transportes.iniciar_sesion_empresa_transportes(usuario.getId());
-		_bd_encargados_compras.iniciar_sesion_encargado_compras(usuario.getId());
-		
-		return usuario = _bd_usuario.iniciar_sesion(aMailUsuario, aPasswordUsuario);*/
-		
+
+		return _bd_usuario.iniciar_sesion(aMailUsuario, aPasswordUsuario);
+
+		/*
+		 * Usuario usuario = null;
+		 * 
+		 * //usuario = _bd_usuario.iniciar_sesion(aMailUsuario, aPasswordUsuario);
+		 * //_bd_clientes.iniciar_sesion_cliente(usuario.getId());
+		 * _bd_administradores.iniciar_sesion_administrador(usuario.getId());
+		 * _bd_empresas_transportes.iniciar_sesion_empresa_transportes(usuario.getId());
+		 * _bd_encargados_compras.iniciar_sesion_encargado_compras(usuario.getId());
+		 * 
+		 * return usuario = _bd_usuario.iniciar_sesion(aMailUsuario, aPasswordUsuario);
+		 */
+
 //		
 //		Usuario usuario = new Usuario();
 //		int id= 0;

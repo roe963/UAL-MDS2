@@ -47,6 +47,15 @@ public class ViewChanger {
     private static int idUsuario = -1;
     private static String eresAdministrador = "NO";
     
+    private static basededatos.Cliente cliente = null;
+    
+    public static basededatos.Cliente getCliente() {
+    	return cliente;
+    }
+    
+    public static void setCliente(basededatos.Cliente clientenew) {
+    	cliente = clientenew;
+    }    
     
     
     private static List<Producto> ListaProductos= new ArrayList<Producto>();
@@ -114,7 +123,13 @@ public class ViewChanger {
 		}
 		
 	}
+	public static void resetListaProducto(){		
+		 ListaProductos = new ArrayList<Producto>();	
+	}
 	
+	public static void resetListaCantidadProducto(){		
+		 cantidadProductos= new ArrayList<cantidadCache>();
+	}
 	
 	public static void removeCantidadProducto(cantidadCache cantidadCache){		
 		 //cambiarCantidad(cantidadCache);

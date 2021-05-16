@@ -46,7 +46,8 @@ public class Ver_producto_clientes extends VistaVerproductoclientes {
 					ViewChanger.addProducto(producto);					
 					cantidadCache cantidadCache= new cantidadCache(producto.getId(), 1);					
 					ViewChanger.addCantidadProductos(cantidadCache);
-					
+					notificacion();
+										
 				}
 				
 				
@@ -55,4 +56,12 @@ public class Ver_producto_clientes extends VistaVerproductoclientes {
 		
 	}
 	
+	
+	public void notificacion() {
+		Span content = new Span("Tu producto se ha añadido correctamente al carrito!");
+		Notification notification = new Notification(content);
+		notification.setPosition(Position.MIDDLE);
+		notification.setDuration(2000);
+		notification.open();
+	}
 }

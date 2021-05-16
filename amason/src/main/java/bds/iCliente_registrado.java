@@ -15,7 +15,7 @@ public interface iCliente_registrado extends iCliente {
 
 	public void verificar_compra();
 
-	public void realizar_pedido(Producto[] aProductos, int[] aCantidades, Clientes aCliente, String aDireccion, String aFormaPago);
+	public void realizar_pedido(Producto[] aProductos, int[] aCantidades, Cliente aCliente, String aDireccion, String aFormaPago);
 
 	public Cliente cargar_perfil(int aIdUsuario);
 

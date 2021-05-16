@@ -15,7 +15,9 @@ class VistaTramitarpedido extends PolymerElement {
             </style>
 <vaadin-vertical-layout style="align-items: center;">
  <h4>Tramitar pedido</h4>
- <vista-datosdecompra></vista-datosdecompra>
+ <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout">
+  <vista-datosdecompra id="vistaDatosdecompra"></vista-datosdecompra>
+ </vaadin-vertical-layout>
  <vaadin-button id="button-comprar">
    Comprar 
  </vaadin-button>

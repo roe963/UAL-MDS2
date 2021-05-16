@@ -9,6 +9,7 @@ import basededatos.Cliente;
 import basededatos.ClienteDAO;
 import basededatos.Usuario;
 import basededatos.UsuarioDAO;
+import ual.mds2.ortegaortega.ViewChanger;
 
 public class Clientes {
 	public BDPrincipal _bdprincipal_clientes;
@@ -29,6 +30,9 @@ public class Clientes {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
+        
+        ViewChanger.setCliente(cliente);
+        
         return cliente;
 	}
 
@@ -104,7 +108,19 @@ public class Clientes {
         }
 	}
 
-	public void actualizas_datos_compra(String aDireccion, String aFormaPago, Cliente aCliente) {
-		throw new UnsupportedOperationException();
+	public void actualizas_datos_compra(String aDireccion, String aFormaPago, Cliente aCliente) throws PersistentException{
+		PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession()
+                .beginTransaction();
+
+              try {
+        	  Cliente cliente = ClienteDAO.getClienteByORMID(aCliente.getId());              
+              cliente.setDireccionEnvio(aDireccion);
+              cliente.setMetodoPago(aFormaPago);
+                  
+            t.commit();
+        } catch (PersistentException e) {
+            t.rollback();
+        }
+		
 	}
 }
