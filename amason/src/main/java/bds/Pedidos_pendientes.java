@@ -1,9 +1,11 @@
 package bds;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 import java.util.Vector;
 
 import org.orm.PersistentException;
@@ -68,7 +70,30 @@ public class Pedidos_pendientes {
 		throw new UnsupportedOperationException();
 	}
 
-	public Pedido_pendiente[] cargar_pedidos_pendientes_cliente_registrado(int aIdUsuario) {
-		throw new UnsupportedOperationException();
+	public Pedido_pendiente[] cargar_pedidos_pendientes_cliente_registrado(int aIdUsuario)throws PersistentException {
+		PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession()
+				.beginTransaction();
+
+		List<Pedido_pendiente> listaPedido = new ArrayList<Pedido_pendiente>();
+		Pedido_pendiente[] arrayPedido= null;
+		try {
+
+			Pedido_pendiente[] arrayPedidoPendiente = Pedido_pendienteDAO.listPedido_pendienteByQuery(null, null);
+			
+			for (int i = 0; i < arrayPedidoPendiente.length; i++) {				
+				if(arrayPedidoPendiente[i].getRealizado_por().getId() == aIdUsuario) {					
+					listaPedido.add(arrayPedidoPendiente[i]);
+				}						
+			}
+				
+
+			t.commit();
+		} catch (PersistentException e) {
+			t.rollback();
+		}
+				
+		arrayPedido = listaPedido.stream().toArray(basededatos.Pedido_pendiente[]::new);//convertir una lista a un array
+			
+		return arrayPedido;	
 	}
 }

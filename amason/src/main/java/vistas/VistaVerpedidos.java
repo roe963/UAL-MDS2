@@ -2,8 +2,11 @@ package vistas;
 
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.templatemodel.TemplateModel;
+import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.polymertemplate.Id;
 
 /**
  * A Designer generated component for the vista-verpedidos template.
@@ -11,11 +14,23 @@ import com.vaadin.flow.templatemodel.TemplateModel;
  * Designer will add and remove fields with @Id mappings but
  * does not overwrite or otherwise change this file.
  */
-@Tag("vista-verpedidos")
-@JsModule("./src/vista-verpedidos.js")
+@Tag("vista-veepedidos")
+@JsModule("./src/vista-veepedidos.js")
 public class VistaVerpedidos extends PolymerTemplate<VistaVerpedidos.VistaVerpedidosModel> {
 
-    /**
+    @Id("vaadinVerticalLayout")
+	private VerticalLayout vaadinVerticalLayout;
+    
+
+	public VerticalLayout getVaadinVerticalLayout() {
+		return vaadinVerticalLayout;
+	}
+
+	public void setVaadinVerticalLayout(VerticalLayout vaadinVerticalLayout) {
+		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	}
+
+	/**
      * Creates a new VistaVerpedidos.
      */
     public VistaVerpedidos() {

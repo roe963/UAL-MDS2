@@ -196,7 +196,6 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 
 	public void realizar_pedido(Producto[] aProductos, int[] aCantidades, Cliente aCliente, String aDireccion,
 			String aFormaPago) {
-//TODO
 		try {
 			_bd_clientes.actualizas_datos_compra(aDireccion, aFormaPago, aCliente);
 			Cantidad arrayCantidad[] =  _bd_cantidades.realizar_pedido(aProductos, aCantidades, aCliente);
@@ -241,19 +240,40 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 	}
 
 	public Pedido_pendiente[] cargar_pedidos_pendientes_cliente_registrado(int aIdUsuario) {
-		throw new UnsupportedOperationException();
+		Pedido_pendiente[] arrayPedidos = null;
+		try {
+			arrayPedidos = _bd_pedidos_pendientes.cargar_pedidos_pendientes_cliente_registrado(aIdUsuario);
+
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		return arrayPedidos;
 	}
 
 	public Pedido_enviado[] cargar_pedidos_enviados_cliente_registrado(int aIdUsuario) {
-		throw new UnsupportedOperationException();
+		Pedido_enviado[] arrayPedidosEnviado = null;
+		try {
+			arrayPedidosEnviado = _bd_pedidos_enviados.cargar_pedidos_enviados_cliente_registrado(aIdUsuario);
+
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		return arrayPedidosEnviado;
 	}
 
 	public Pedido_entregado[] cargar_pedidos_entregados_cliente_registrado(int aIdUsuario) {
-		throw new UnsupportedOperationException();
+		Pedido_entregado[] arrayPedidosEntregado = null;
+		try {
+			arrayPedidosEntregado = _bd_pedidos_entregados.cargar_pedidos_entregados_cliente_registrado(aIdUsuario);
+
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		return arrayPedidosEntregado;
 	}
 
 	public Cantidad[] cargar_cantidades_pedido(int aIdPedido) {
-		throw new UnsupportedOperationException();
+		throw new UnsupportedOperationException();	
 	}
 
 	public Mensaje[] cargar_mensajes_cliente(int aIdUsuario) {

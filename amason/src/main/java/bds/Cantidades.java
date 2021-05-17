@@ -36,8 +36,9 @@ public class Cantidades {
 				//cant.setORM_Contiene_un(producto);
 				cant.setCantidad(aCantidades[i]);	
 				
-				CantidadDAO.save(cant);				
-				listaCantidad.add(cant);
+				CantidadDAO.save(cant);		
+				
+			
 			}
 				
 
