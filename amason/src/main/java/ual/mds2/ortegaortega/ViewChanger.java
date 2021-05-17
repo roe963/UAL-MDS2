@@ -31,6 +31,7 @@ import interfaz.Empresa_transportes;
 import interfaz.Encargado_compras;
 import interfaz.Iniciar_sesion;
 import interfaz.Productos;
+import interfaz.Ver_pedidos;
 import interfaz.Ver_perfil;
 import interfaz.Ver_producto;
 import interfaz.cantidadCache;
@@ -320,7 +321,7 @@ public class ViewChanger {
 
             MenuItem me = menuBar.addItem("Yo");
             me.getSubMenu().addItem("Mis datos", e -> CambiarVista(new Ver_perfil()));
-            me.getSubMenu().addItem("Mis pedidos", e -> System.out.println("ok1"));
+            me.getSubMenu().addItem("Mis pedidos", e -> CambiarVista(new Ver_pedidos()));
             me.getSubMenu().addItem("Mis mensajes", e -> System.out.println("ok2"));
             me.getSubMenu().addItem("Salir", e -> System.out.println("ok2"));
 
