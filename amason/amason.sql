@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-05-2021 a las 20:52:30
+-- Tiempo de generación: 19-05-2021 a las 17:28:28
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.3
 
@@ -57,7 +57,8 @@ CREATE TABLE `cantidad` (
 INSERT INTO `cantidad` (`Id`, `ProductoId`, `Cantidad`) VALUES
 (1, 1, 1),
 (2, 1, 1),
-(3, 1, 1);
+(3, 1, 1),
+(4, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -206,7 +207,8 @@ CREATE TABLE `pedido` (
 INSERT INTO `pedido` (`Id`, `ClienteUsuarioId`, `Fecha`, `Precio`) VALUES
 (1, 1, 0, 30),
 (2, 1, 0, 30),
-(3, 1, 0, 30);
+(3, 1, 0, 30),
+(4, 1, 0, 30);
 
 -- --------------------------------------------------------
 
@@ -257,7 +259,8 @@ CREATE TABLE `pedido_pendiente` (
 INSERT INTO `pedido_pendiente` (`PedidoId`) VALUES
 (1),
 (2),
-(3);
+(3),
+(4);
 
 -- --------------------------------------------------------
 
@@ -500,7 +503,7 @@ ALTER TABLE `valoracion_cliente`
 -- AUTO_INCREMENT de la tabla `cantidad`
 --
 ALTER TABLE `cantidad`
-  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `categoria`
@@ -530,7 +533,7 @@ ALTER TABLE `oferta`
 -- AUTO_INCREMENT de la tabla `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
