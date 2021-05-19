@@ -1,5 +1,5 @@
 package interfaz;
-import interfaz.Mensaje;
+
 import vistas.VistaVerrespuestas;
 
 public class Ver_respuestas extends VistaVerrespuestas {
