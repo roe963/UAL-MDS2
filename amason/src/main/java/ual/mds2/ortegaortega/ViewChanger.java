@@ -31,6 +31,7 @@ import interfaz.Empresa_transportes;
 import interfaz.Encargado_compras;
 import interfaz.Iniciar_sesion;
 import interfaz.Productos;
+import interfaz.Ver_catalogo_cliente;
 import interfaz.Ver_pedidos;
 import interfaz.Ver_perfil;
 import interfaz.Ver_producto;
@@ -217,8 +218,7 @@ public class ViewChanger {
             btnBuscar.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
                 @Override
                 public void onComponentEvent(ClickEvent<Button> event) {
-                    //CambiarVista(new Productos());
-                    CambiarVista(new Ver_producto());
+                    CambiarVista(new Ver_catalogo_cliente());
                 }
             });
             
@@ -306,6 +306,13 @@ public class ViewChanger {
             txtBuscar.setWidth("400px");
             btnBuscar = new Button(new Icon(VaadinIcon.SEARCH));
             btnBuscar.setThemeName("tertiary");
+            btnBuscar.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+                @Override
+                public void onComponentEvent(ClickEvent<Button> event) {
+                    CambiarVista(new Ver_catalogo_cliente());
+                }
+            });
+            
             menuBar.addItem(txtBuscar);
             menuBar.addItem(btnBuscar);
 
