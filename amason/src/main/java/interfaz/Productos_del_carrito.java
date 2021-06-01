@@ -15,29 +15,26 @@ public class Productos_del_carrito extends VistaProductosdelcarrito {
 	public Vector<Producto_del_carrito> _producto_del_carrito = new Vector<Producto_del_carrito>();
 	*/
 	
+    public List<Producto_del_carrito> ListaProductoCarrito = new ArrayList<Producto_del_carrito>();
 	
-	public Productos_del_carrito () {
-		List<Producto_del_carrito> ListaProductoCarrito = new ArrayList<Producto_del_carrito>();
-		
+	public Productos_del_carrito (List<Producto_del_carrito> productoscarrito) {
 
-		List<basededatos.Producto> listaProductos= ViewChanger.getListaProductos();
-		List<cantidadCache> listaCantidad= ViewChanger.getCantidadProductos();
+	    this.ListaProductoCarrito = productoscarrito;
+
+//		List<basededatos.Producto> listaProductos= ViewChanger.getListaProductos();
+//		List<cantidadCache> listaCantidad= ViewChanger.getCantidadProductos();
 
 		this.getVlProductos().removeAll();
 		
-		if(listaProductos == null) {
+		if(ListaProductoCarrito.size() == 0) {
 			Label titulo= new Label();
             titulo.setText("No hay productos en el carrito");
             this.getVlProductos().add(titulo);
 			
 		}else {
-			
-			
-			for (int i = 0; i < listaProductos.size(); i++) {
-				Producto_del_carrito aux = new Producto_del_carrito(listaProductos.get(i),listaCantidad.get(i));
-				this.getVlProductos().add((aux) );
-				ListaProductoCarrito.add(aux);
-			}
+		    for (Producto_del_carrito producto_del_carrito : ListaProductoCarrito) {
+		        this.getVlProductos().add((producto_del_carrito) );
+            }
 		}
 		
 		

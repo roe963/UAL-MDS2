@@ -18,20 +18,17 @@ import vistas.VistaCarrito;
 public class Carrito extends VistaCarrito {
 
 	public Carrito() {
-		System.out.println(ViewChanger.getCantidadProductos().size());
+		System.out.println(ViewChanger.productoscarrito.size());
 
 		double precioTotal = calcularPrecioTotal();
 		
 		this.getPrecioTotal().setText(String.valueOf(precioTotal));
 		
 		this.getVlProductos().removeAll();
-		Productos_del_carrito productos_del_carrito = new Productos_del_carrito();
-		this.getVlProductos().add(productos_del_carrito);
-			
-				
+//		Productos_del_carrito productos_del_carrito = new Productos_del_carrito();
+		this.getVlProductos().add(new Productos_del_carrito(ViewChanger.productoscarrito));
+
 		btnTramitarPedido();
-	
-		
 	}
 	
 	
@@ -40,9 +37,6 @@ public class Carrito extends VistaCarrito {
 		this.getVaadinButton().addClickListener(new ComponentEventListener() {			 
 			@Override
 			public void onComponentEvent(ComponentEvent event) {
-				
-				
-			
 				Dialog d = new Dialog();
                 d.add(new Tramitar_pedido(d ));
                 d.open();
