@@ -10,6 +10,8 @@ import basededatos.Valoracion;
 public interface iCliente {
 
 	public Producto[] busqueda_producto(String aNombreProducto);
+	
+	public Categoria[] cargar_categorias();
 
 	public Producto[] cargar_productos_categoria(Categoria aCategoria);
 

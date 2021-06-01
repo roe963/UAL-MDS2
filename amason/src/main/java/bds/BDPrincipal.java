@@ -87,7 +87,15 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 	}
 
 	public Categoria[] cargar_categorias() {
-		throw new UnsupportedOperationException();
+		Categoria[] categorias = null;
+		try {
+			//categorias = _bd_productos.cargar_productos();
+			categorias = _bd_categorias.cargar_categorias();
+
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		return categorias;
 	}
 
 	public void activar_categoria(int aIdCategoria) {
