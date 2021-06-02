@@ -157,8 +157,15 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 		throw new UnsupportedOperationException();
 	}
 
-	public Producto[] cargar_productos_categoria(Categoria aCategoria) {
-		throw new UnsupportedOperationException();
+	public Producto[] cargar_productos_categoria(int aIdCategoria) {
+		Producto[] productos = null;
+		try {
+			productos = _bd_productos.cargar_productos_categoria(aIdCategoria);
+
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		return productos;
 	}
 
 	public void registrar_usuario(String aNombreUsuario, String aMailUsuario, String aPasswordUsuario,

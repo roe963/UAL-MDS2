@@ -39,24 +39,25 @@ public class Ver_perfil extends VistaVeperfil {
 		throw new UnsupportedOperationException();
 	}
 
-	/*public void seleccionar_direccion_envio() {
-		throw new UnsupportedOperationException();
-	}
-
-	public void seleccionar_metodo_pago() {
-		throw new UnsupportedOperationException();
-	}*/
+	/*
+	 * public void seleccionar_direccion_envio() { throw new
+	 * UnsupportedOperationException(); }
+	 * 
+	 * public void seleccionar_metodo_pago() { throw new
+	 * UnsupportedOperationException(); }
+	 */
 
 	public void cargar_perfil() {
-		
+
 		int id = ViewChanger.getIdUsuario();
-		
-		System.out.println(id);
-		
+
+		// System.out.println(id);
+
 		Cliente cliente = iclientes_registrado.cargar_perfil(id);
 
-		//1)Crear componente para el Frontend
-		this.getVlEstado().removeAll();;
+		// 1)Crear componente para el Frontend
+		this.getVlEstado().removeAll();
+		;
 		RadioButtonGroup<String> radioGroup = new RadioButtonGroup<>();
 		radioGroup.setLabel("Estado");
 		radioGroup.setItems("Operativo", "No Operativo");
@@ -66,71 +67,75 @@ public class Ver_perfil extends VistaVeperfil {
 		}
 		if (cliente.getActivo() == false) {
 			radioGroup.setValue("No Operativo");
-		}	
-		
+		}
+
 		this.getVlEstado().add(radioGroup);
-		
+
 		this.getVlDireccionyformaPago().removeAll();
-		Datos_de_compra datosCompra = new Datos_de_compra(cliente.getDireccionEnvio(),cliente.getMetodoPago());
+		Datos_de_compra datosCompra = new Datos_de_compra(cliente.getDireccionEnvio(), cliente.getMetodoPago());
 		this.getVlDireccionyformaPago().add(datosCompra);
-		
-		
-		//2) Cargar los nombres en el componente
+
+		// 2) Cargar los nombres en el componente
 
 		this.getTextfieldNombre().setValue(cliente.getNombre());
 		this.getCorreoElectrónico().setValue(cliente.getEmail());
 		this.getImgFotousuario().setSrc(cliente.getFotoURL());
-		
-		if( cliente.getFotoURL() == null ) {//si no tiene ninguna imagen poner esta por defecto
-			this.getImgFotousuario().setMaxHeight("30%");
-			this.getImgFotousuario().setMaxWidth("30%");
-			this.getImgFotousuario().setSrc("https://static.vecteezy.com/system/resources/previews/000/550/731/non_2x/user-icon-vector.jpg");	
-			this.getTextfieldFotousuario().setValue("https://static.vecteezy.com/system/resources/previews/000/550/731/non_2x/user-icon-vector.jpg");
 
-		}else {//carga la foto de la BD			
+		if (cliente.getFotoURL() == null) {// si no tiene ninguna imagen poner esta por defecto
 			this.getImgFotousuario().setMaxHeight("30%");
 			this.getImgFotousuario().setMaxWidth("30%");
-			this.getImgFotousuario().setSrc(cliente.getFotoURL());	
+			this.getImgFotousuario().setSrc(
+					"https://static.vecteezy.com/system/resources/previews/000/550/731/non_2x/user-icon-vector.jpg");
+			this.getTextfieldFotousuario().setValue(
+					"https://static.vecteezy.com/system/resources/previews/000/550/731/non_2x/user-icon-vector.jpg");
+
+		} else {// carga la foto de la BD
+			this.getImgFotousuario().setMaxHeight("30%");
+			this.getImgFotousuario().setMaxWidth("30%");
+			this.getImgFotousuario().setSrc(cliente.getFotoURL());
 			this.getTextfieldFotousuario().setValue(cliente.getFotoURL());
-		}		
-		
-		
+		}
+
 		this.getButtonGuardar().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				
-				
-				String nombre= getTextfieldNombre().getValue();
-				String email= getCorreoElectrónico().getValue();	
-				String direccion=datosCompra.getTextfieldDireccion().getValue();
-				String formaDePago=datosCompra.labelSelect.getValue();
 
-				String url= getTextfieldFotousuario().getValue();				
+				String nombre = getTextfieldNombre().getValue();
+				String email = getCorreoElectrónico().getValue();
+				String direccionEnvio = datosCompra.getTextfieldDireccion().getValue();
+				String metodoPago = datosCompra.labelSelect.getValue();
 
-				Boolean estado= false;					
-				
+				String fotoURL = getTextfieldFotousuario().getValue();
+
+				Boolean activo = false;
+
 				if (radioGroup.getValue().equals("Operativo")) {
-					estado=true;
+					activo = true;
 				}
 				if (radioGroup.getValue().equals("No Operativo")) {
-					estado=false;
-				}				
-						
-				
-				iclientes_registrado.guardar_perfil(cliente.getId(), nombre, email, direccion, formaDePago, url, estado);
-				cargar_perfil();
-				
-				notificacion();
-				
+					activo = false;
+				}
+
+				if (!(nombre.equals(cliente.getNombre()) && email.equals(cliente.getEmail())
+						&& direccionEnvio.equals(cliente.getDireccionEnvio())
+						&& metodoPago.equals(cliente.getMetodoPago()) && fotoURL.equals(cliente.getFotoURL())
+						&& activo.equals(cliente.getActivo()))) {
+					iclientes_registrado.guardar_perfil(cliente.getId(), nombre, email, direccionEnvio, metodoPago,
+							fotoURL, activo);
+					cargar_perfil();
+
+					notificacion("Los datos se han modificado correctamente.");
+				} else {
+					notificacion("No se ha realizado ningún cambio.");
+				}
+
 			}
 		});
 
-
-
 	}
-	
-	public void notificacion() {
-		Span content = new Span("Los datos se han modificado correctamente!");
+
+	public void notificacion(String mensaje) {
+		Span content = new Span(mensaje);
 		Notification notification = new Notification(content);
 		notification.setPosition(Position.MIDDLE);
 		notification.setDuration(2000);

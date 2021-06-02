@@ -13,7 +13,7 @@ public interface iCliente {
 	
 	public Categoria[] cargar_categorias();
 
-	public Producto[] cargar_productos_categoria(Categoria aCategoria);
+	public Producto[] cargar_productos_categoria(int aIdCategoria);
 
 	public Oferta[] cargar_ofertas();
 

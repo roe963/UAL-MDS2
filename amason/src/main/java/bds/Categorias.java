@@ -16,7 +16,7 @@ public class Categorias {
 	public BDPrincipal _bdprincipal_categorias;
 	public Vector<Categoria> _contiene_categoria = new Vector<Categoria>();
 
-	public Producto[] cargar_categoria(Categoria aCategoria) throws PersistentException {
+	public Producto[] cargar_categoria(int aIdCategoria) throws PersistentException {
 		Producto[] productos = null;
 		
         PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
@@ -39,7 +39,7 @@ public class Categorias {
 
 	public Categoria[] cargar_categorias() throws PersistentException {
 		Categoria[] categorias = null;
-		
+				
         PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
         
         try {
