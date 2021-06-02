@@ -11,7 +11,6 @@ import com.vaadin.flow.component.select.Select;
 import basededatos.Categoria;
 import basededatos.Producto;
 import bds.BDPrincipal;
-import bds.Categorias;
 import bds.iCliente;
 import vistas.VistaVercatalogocliente;
 
