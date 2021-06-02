@@ -25,6 +25,7 @@ import basededatos.Usuario;
 import basededatos.UsuarioDAO;
 import bds.BDPrincipal;
 import interfaz.Administrador;
+import interfaz.Buscar_producto_cliente;
 import interfaz.Carrito;
 import interfaz.Cliente;
 import interfaz.Empresa_transportes;
@@ -33,6 +34,7 @@ import interfaz.Iniciar_sesion;
 import interfaz.Producto_del_carrito;
 import interfaz.Productos;
 import interfaz.Productos_del_carrito;
+import interfaz.Ver_catalogo_cliente;
 import interfaz.Ver_pedidos;
 import interfaz.Ver_perfil;
 import interfaz.Ver_producto;
@@ -223,8 +225,11 @@ public class ViewChanger {
             btnBuscar.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
                 @Override
                 public void onComponentEvent(ClickEvent<Button> event) {
-                    //CambiarVista(new Productos());
-                    CambiarVista(new Ver_producto());
+                    if (txtBuscar.isEmpty()) {
+                    	CambiarVista(new Ver_catalogo_cliente());
+        			} else {
+        				CambiarVista(new Buscar_producto_cliente());
+        			}
                 }
             });
             
@@ -312,6 +317,17 @@ public class ViewChanger {
             txtBuscar.setWidth("400px");
             btnBuscar = new Button(new Icon(VaadinIcon.SEARCH));
             btnBuscar.setThemeName("tertiary");
+            btnBuscar.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+                @Override
+                public void onComponentEvent(ClickEvent<Button> event) {
+                    if (txtBuscar.isEmpty()) {
+                    	CambiarVista(new Ver_catalogo_cliente());
+        			} else {
+        				CambiarVista(new Buscar_producto_cliente());
+        			}
+                }
+            });
+            
             menuBar.addItem(txtBuscar);
             menuBar.addItem(btnBuscar);
 
