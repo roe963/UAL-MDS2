@@ -209,12 +209,11 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 		throw new UnsupportedOperationException();
 	}
 
-	public void realizar_pedido(Producto[] aProductos, int[] aCantidades, Cliente aCliente, String aDireccion,
-			String aFormaPago) {
+	public void realizar_pedido(Cantidad[] aCantidades, Cliente aCliente, String aDireccion, String aFormaPago) {
 		try {
 			_bd_clientes.actualizas_datos_compra(aDireccion, aFormaPago, aCliente);
-			Cantidad arrayCantidad[] =  _bd_cantidades.realizar_pedido(aProductos, aCantidades, aCliente);
-			_bd_pedidos_pendientes.realizar_pedido(arrayCantidad, aCliente);
+//			Cantidad arrayCantidad[] =  _bd_cantidades.realizar_pedido(aProductos, aCantidades, aCliente);
+			_bd_pedidos_pendientes.realizar_pedido(aCantidades, aCliente);
 
 		} catch (PersistentException e) {
 			e.printStackTrace();

@@ -1,5 +1,6 @@
 package interfaz;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.vaadin.flow.component.ComponentEvent;
@@ -9,6 +10,7 @@ import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.notification.Notification.Position;
 
+import basededatos.Cantidad;
 import basededatos.Valoracion;
 import bds.BDPrincipal;
 import bds.iCliente_registrado;
@@ -48,22 +50,31 @@ public class Tramitar_pedido extends VistaTramitarpedido {
 				
 				
 				//convertir una lista a un array
-				basededatos.Producto[]  ArrayProductos = null;
-				List<basededatos.Producto> listProducto = ViewChanger.getListaProductos();
-				List<cantidadCache> listCantidades = ViewChanger.getCantidadProductos();
+//				basededatos.Producto[]  ArrayProductos = null;
+//				List<basededatos.Producto> listProducto = ViewChanger.getListaProductos();
+//				List<cantidadCache> listCantidades = ViewChanger.getCantidadProductos();
 				basededatos.Cliente cliente = ViewChanger.getCliente();
 
-				ArrayProductos = listProducto.stream().toArray(basededatos.Producto[]::new);
+//				ArrayProductos = listProducto.stream().toArray(basededatos.Producto[]::new);
+//				
+//				int arrayCantidad[] = new int[listProducto.size()];
+//				for (int i = 0; i < listProducto.size(); i++) {
+//					arrayCantidad[i]= listCantidades.get(i).getCantidad();
+//				}
 				
-				int arrayCantidad[] = new int[listProducto.size()];
-				for (int i = 0; i < listProducto.size(); i++) {
-					arrayCantidad[i]= listCantidades.get(i).getCantidad();
-				}
+				Cantidad[] cant = new Cantidad[ViewChanger.productoscarrito.size()];
+				int aux = 0;
+				for (Producto_del_carrito p : ViewChanger.productoscarrito) {
+				    Cantidad c = new Cantidad();
+				    c.setCantidad(p.getCantidad());
+				    c.setContiene_un(p.getProducto());
+                    cant[aux] = c;
+                    aux++;
+                }
 				
-				iclientes_registrado.realizar_pedido(ArrayProductos, arrayCantidad, cliente, newDireccion, formaPago);
+				iclientes_registrado.realizar_pedido(cant, cliente, newDireccion, formaPago);
 				
-                
-				ViewChanger.resetListaCantidadProducto();
+                ViewChanger.resetListaCantidadProducto();
 				ViewChanger.resetListaProducto();
 				dialog.close();
 				ViewChanger.CambiarVista(new Carrito());

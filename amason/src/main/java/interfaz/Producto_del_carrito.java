@@ -24,17 +24,41 @@ public class Producto_del_carrito extends VistaProductodelcarrito {
 	public Elegir_cantidad _elegir_cantidad;*/
 
 	Select<String> labelSelect = new Select<>();
+	
+	Producto producto;
+	int cantidad;
 
 	
-	public Producto_del_carrito(Producto producto, cantidadCache cantidad) {	
-			
+	public Producto getProducto() {
+        return producto;
+    }
+
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
+
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+
+    public Producto_del_carrito(Producto producto, int cantidad) {	
+		this.producto = producto;
+		this.cantidad = cantidad;
 		cargarDatosAlFront(producto,cantidad);		
 		eliminar(producto);
 		
 	}
 	
 	
-	private void cargarDatosAlFront(Producto producto,cantidadCache cantidad) {
+	private void cargarDatosAlFront(Producto producto,int cantidad) {
 		this.gethProducto().setText(producto.getNombre());
 		this.gethPrecio().setText(Double.toString(producto.getPrecio()));
 		this.getLabelCategoria().setText(producto.getAsignado_a().getNombre());
@@ -47,28 +71,17 @@ public class Producto_del_carrito extends VistaProductodelcarrito {
 			this.getImgProducto().setMaxHeight("30%");
 			this.getImgProducto().setMaxWidth("30%");
 			this.getImgProducto().setSrc(fotos[0].getUrl());			
-
 		}
 		
 		this.getVaadinVerticalLayout2().removeAll();
-		labelSelect.setItems("1", "2","3","4","5");
-		labelSelect.setValue(Integer.toString(cantidad.getCantidad()));
+		labelSelect.setItems("1","2","3","4","5");
+		labelSelect.setValue(Integer.toString(this.cantidad));
 		labelSelect.setLabel("Cantidad");		
 		this.getVaadinVerticalLayout2().add(labelSelect);		
-		
-		
+
 		labelSelect.addValueChangeListener(
 		        event -> {
-			
-					cantidadCache cantidaCache= new cantidadCache(producto.getId(), Integer.parseInt(labelSelect.getValue()) ); 
-					
-					ViewChanger.cambiarCantidad(cantidaCache);
-					
-					ViewChanger.CambiarVista(new Carrito());
-					
-					
-				
-					
+					this.cantidad = Integer.parseInt(labelSelect.getValue()) ; 
 		});
 		
 		

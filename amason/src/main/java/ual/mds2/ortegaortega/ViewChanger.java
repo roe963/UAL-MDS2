@@ -30,8 +30,9 @@ import interfaz.Cliente;
 import interfaz.Empresa_transportes;
 import interfaz.Encargado_compras;
 import interfaz.Iniciar_sesion;
+import interfaz.Producto_del_carrito;
 import interfaz.Productos;
-import interfaz.Ver_catalogo_cliente;
+import interfaz.Productos_del_carrito;
 import interfaz.Ver_pedidos;
 import interfaz.Ver_perfil;
 import interfaz.Ver_producto;
@@ -83,6 +84,10 @@ public class ViewChanger {
 		}
 		
 	}
+	
+	public static List<Producto_del_carrito> productoscarrito = new ArrayList<Producto_del_carrito>();
+	
+//	public static Productos_del_carrito productoscarrito = new Productos_del_carrito();
     
 
     public static TIPOUSUARIO usuario = TIPOUSUARIO.CLIENTE;
@@ -218,7 +223,8 @@ public class ViewChanger {
             btnBuscar.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
                 @Override
                 public void onComponentEvent(ClickEvent<Button> event) {
-                    CambiarVista(new Ver_catalogo_cliente());
+                    //CambiarVista(new Productos());
+                    CambiarVista(new Ver_producto());
                 }
             });
             
@@ -306,13 +312,6 @@ public class ViewChanger {
             txtBuscar.setWidth("400px");
             btnBuscar = new Button(new Icon(VaadinIcon.SEARCH));
             btnBuscar.setThemeName("tertiary");
-            btnBuscar.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-                @Override
-                public void onComponentEvent(ClickEvent<Button> event) {
-                    CambiarVista(new Ver_catalogo_cliente());
-                }
-            });
-            
             menuBar.addItem(txtBuscar);
             menuBar.addItem(btnBuscar);
 

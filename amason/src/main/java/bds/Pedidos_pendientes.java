@@ -38,10 +38,10 @@ public class Pedidos_pendientes {
 				.beginTransaction();
 
 		try {
+            Pedido_pendiente pedidoPendiente = Pedido_pendienteDAO.createPedido_pendiente();
+            Cliente cliente = ClienteDAO.getClienteByORMID(aCliente.getId());
 
 			for (int i = 0; i < aCantidades.length; i++) {
-				Pedido_pendiente pedidoPendiente = Pedido_pendienteDAO.createPedido_pendiente();
-				Cliente cliente = ClienteDAO.getClienteByORMID(aCliente.getId());
 				
 				double precio= aCantidades[i].getContiene_un().getPrecio();
 				double cantidad= aCantidades[i].getCantidad();				
@@ -49,7 +49,8 @@ public class Pedidos_pendientes {
 				
 				pedidoPendiente.setPrecio(total);
 				pedidoPendiente.setORM_Realizado_por(cliente);
-					
+				
+				pedidoPendiente.contiene_un.add(aCantidades[i]);	
 			
 				Pedido_pendienteDAO.save(pedidoPendiente);
 			}
