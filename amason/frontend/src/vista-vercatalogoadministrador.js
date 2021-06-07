@@ -1,10 +1,11 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
-import './vista-productos.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
-import '@vaadin/vaadin-select/src/vaadin-select.js';
-import '@vaadin/vaadin-item/src/vaadin-item.js';
 import './vista-buscarproductoadministrador.js';
+import './vista-productos.js';
+import '@vaadin/vaadin-select/src/vaadin-select.js';
+import '@vaadin/vaadin-list-box/src/vaadin-list-box.js';
+import '@vaadin/vaadin-item/src/vaadin-item.js';
 
 class VistaVercatalogoadministrador extends PolymerElement {
 
@@ -21,23 +22,27 @@ class VistaVercatalogoadministrador extends PolymerElement {
   <h4>Catálogo</h4>
   <vaadin-horizontal-layout theme="spacing" style="align-self: stretch;">
    <vista-buscarproductoadministrador style="flex-grow: 1; margin-right: var(--lumo-space-xl);"></vista-buscarproductoadministrador>
-   <vaadin-select value="Item one" id="select-categoria" style="flex-grow: 1;">
-    <template>
-     <vaadin-list-box selected="0">
-      <vaadin-item selected>
-        Categoría 
-      </vaadin-item>
-      <vaadin-item>
-        Item two 
-      </vaadin-item>
-      <vaadin-item>
-        Item three 
-      </vaadin-item>
-     </vaadin-list-box>
-    </template>
-   </vaadin-select>
+   <vaadin-vertical-layout theme="spacing" id="layout-selectCategoria" style="flex-grow: 1;">
+    <vaadin-select value="Item one" style="align-self: stretch;">
+     <template>
+      <vaadin-list-box>
+       <vaadin-item>
+         Item one 
+       </vaadin-item>
+       <vaadin-item>
+         Item two 
+       </vaadin-item>
+       <vaadin-item>
+         Item three 
+       </vaadin-item>
+      </vaadin-list-box>
+     </template>
+    </vaadin-select>
+   </vaadin-vertical-layout>
   </vaadin-horizontal-layout>
-  <vista-productos style="align-self: stretch;"></vista-productos>
+  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout" style="flex-grow: 1; align-self: stretch;">
+   <vista-productos style="align-self: stretch; flex-grow: 1;"></vista-productos>
+  </vaadin-horizontal-layout>
  </vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;

@@ -34,6 +34,7 @@ import interfaz.Iniciar_sesion;
 import interfaz.Producto_del_carrito;
 import interfaz.Productos;
 import interfaz.Productos_del_carrito;
+import interfaz.Ver_catalogo_administrador;
 import interfaz.Ver_catalogo_cliente;
 import interfaz.Ver_pedidos;
 import interfaz.Ver_perfil;
@@ -197,7 +198,7 @@ public class ViewChanger {
             administrateMenu.getSubMenu().addItem("Empleados", e -> System.out.println("ok2"));
 
             MenuItem showMenu = menuBar.addItem("Ver");
-            showMenu.getSubMenu().addItem("Catalogo", e -> System.out.println("ok1"));
+            showMenu.getSubMenu().addItem("Catalogo", e -> CambiarVista(new Ver_catalogo_administrador()));
             showMenu.getSubMenu().addItem("Pedidos", e -> System.out.println("ok2"));
             showMenu.getSubMenu().addItem("Mensajes", e -> System.out.println("ok2"));
 

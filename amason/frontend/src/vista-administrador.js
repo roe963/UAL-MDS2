@@ -1,5 +1,6 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
+import './vista-vercatalogoadministrador.js';
 
 class VistaAdministrador extends PolymerElement {
 
@@ -11,7 +12,9 @@ class VistaAdministrador extends PolymerElement {
                     height: 100%;
                 }
             </style>
-<vaadin-horizontal-layout style="width: 100%; height: 100%;"></vaadin-horizontal-layout>
+<vaadin-horizontal-layout style="width: 100%; height: 100%;">
+ <vista-vercatalogoadministrador style="flex-grow: 1;"></vista-vercatalogoadministrador>
+</vaadin-horizontal-layout>
 `;
     }
 

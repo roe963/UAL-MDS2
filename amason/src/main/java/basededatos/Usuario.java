@@ -23,6 +23,7 @@ import interfaz.Administrador;
 import interfaz.Cliente;
 import interfaz.Empresa_transportes;
 import interfaz.Encargado_compras;
+import interfaz.Ver_catalogo_administrador;
 import ual.mds2.ortegaortega.ViewChanger;
 
 @Entity
@@ -114,6 +115,7 @@ public class Usuario implements Serializable {
                     ViewChanger.usuario = ViewChanger.TIPOUSUARIO.ADMIN;
 //                    ViewChanger.SaveSession(aux.getId());
                     ViewChanger.CambiarVista(new Administrador());
+                    //ViewChanger.CambiarVista(new Ver_catalogo_administrador());
                     return aux;
                 } else {
                     aux = new bds.Encargados_compras().iniciar_sesion_encargado_compras(usuarios[0].id);

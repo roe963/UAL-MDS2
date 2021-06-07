@@ -7,8 +7,6 @@ import com.vaadin.flow.templatemodel.TemplateModel;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.polymertemplate.Id;
-import com.vaadin.flow.component.select.Select;
-import com.vaadin.flow.dom.Element;
 
 /**
  * A Designer generated component for the vista-catalogo template.
@@ -24,6 +22,7 @@ public class VistaVercatalogocliente extends PolymerTemplate<VistaVercatalogocli
 	private HorizontalLayout vaadinHorizontalLayout;
 	@Id("layout-selectCategoria")
 	private VerticalLayout layoutSelectCategoria;
+	
 	/**
      * Creates a new VistaCatalogo.
      */

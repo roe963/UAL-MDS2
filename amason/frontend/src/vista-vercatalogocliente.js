@@ -37,7 +37,7 @@ class VistaVercatalogocliente extends PolymerElement {
    </vaadin-select>
   </vaadin-vertical-layout>
   <vaadin-horizontal-layout id="vaadinHorizontalLayout" style="align-self: stretch; flex-grow: 1;">
-   <vista-productos style="align-self: stretch;"></vista-productos>
+   <vista-productos style="align-self: stretch; flex-grow: 1;"></vista-productos>
   </vaadin-horizontal-layout>
  </vaadin-vertical-layout>
 </vaadin-vertical-layout>

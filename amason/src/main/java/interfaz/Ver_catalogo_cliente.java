@@ -23,7 +23,7 @@ public class Ver_catalogo_cliente extends VistaVercatalogocliente{
 	
 	public Ver_catalogo_cliente() {
 		// Crear la interfaz lista productos		
-		this.getVaadinHorizontalLayout().removeAll();		
+		this.getVaadinHorizontalLayout().removeAll();
 		this.getVaadinHorizontalLayout().add(new Productos());
 		
 		// Cargar select categorias
