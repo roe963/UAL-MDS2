@@ -4,6 +4,8 @@ import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.templatemodel.TemplateModel;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.polymertemplate.Id;
 
 /**
  * A Designer generated component for the vista-buscarproductocliente template.
@@ -15,7 +17,10 @@ import com.vaadin.flow.templatemodel.TemplateModel;
 @JsModule("./src/vista-buscarproductocliente.js")
 public class VistaBuscarproductocliente extends PolymerTemplate<VistaBuscarproductocliente.VistaBuscarproductoclienteModel> {
 
-    /**
+    @Id("vaadinHorizontalLayout")
+	private HorizontalLayout vaadinHorizontalLayout;
+
+	/**
      * Creates a new VistaBuscarproductocliente.
      */
     public VistaBuscarproductocliente() {
@@ -28,4 +33,13 @@ public class VistaBuscarproductocliente extends PolymerTemplate<VistaBuscarprodu
     public interface VistaBuscarproductoclienteModel extends TemplateModel {
         // Add setters and getters for template properties here.
     }
+
+	public HorizontalLayout getVaadinHorizontalLayout() {
+		return vaadinHorizontalLayout;
+	}
+
+	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
+		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
+	}
+    
 }

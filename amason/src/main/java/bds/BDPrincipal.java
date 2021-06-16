@@ -55,7 +55,14 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 	}
 
 	public Producto[] busqueda_producto(String aNombreProducto) {
-		throw new UnsupportedOperationException();
+		Producto[] productos = null;
+		try {
+			productos = _bd_productos.cargar_productos(aNombreProducto);
+
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		return productos;
 	}
 
 	public Producto cargar_producto(int aIdProducto) {

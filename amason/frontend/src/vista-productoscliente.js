@@ -1,24 +1,18 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
+import './vista-productos.js';
 
-/**
- * `vista-productoscliente`
- *
- * VistaProductoscliente element.
- *
- * @customElement
- * @polymer
- */
 class VistaProductoscliente extends PolymerElement {
 
     static get template() {
         return html`
-            <style include="shared-styles">
+<style include="shared-styles">
                 :host {
                     display: block;
                     height: 100%;
                 }
             </style>
-        `;
+<vista-productos></vista-productos>
+`;
     }
 
     static get is() {

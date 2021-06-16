@@ -15,6 +15,7 @@ import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.menubar.MenuBar;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.textfield.TextField;
@@ -33,6 +34,7 @@ import interfaz.Encargado_compras;
 import interfaz.Iniciar_sesion;
 import interfaz.Producto_del_carrito;
 import interfaz.Productos;
+import interfaz.Productos_categoria_cliente;
 import interfaz.Productos_del_carrito;
 import interfaz.Ver_catalogo_administrador;
 import interfaz.Ver_catalogo_cliente;
@@ -221,7 +223,11 @@ public class ViewChanger {
             TextField txtBuscar = new TextField();
             txtBuscar.setPlaceholder("Buscar...");
             txtBuscar.setWidth("400px");
+            
+            //txtBuscar.addValueChangeListener(event -> Notification.show("Value is: " + event.getValue()));
+            
             Button btnBuscar = new Button(new Icon(VaadinIcon.SEARCH));
+            
             btnBuscar.setThemeName("tertiary");
             btnBuscar.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
                 @Override
@@ -229,7 +235,7 @@ public class ViewChanger {
                     if (txtBuscar.isEmpty()) {
                     	CambiarVista(new Ver_catalogo_cliente());
         			} else {
-        				CambiarVista(new Buscar_producto_cliente());
+        				CambiarVista(new Buscar_producto_cliente(txtBuscar.getValue()));
         			}
                 }
             });
@@ -324,7 +330,7 @@ public class ViewChanger {
                     if (txtBuscar.isEmpty()) {
                     	CambiarVista(new Ver_catalogo_cliente());
         			} else {
-        				CambiarVista(new Buscar_producto_cliente());
+        				CambiarVista(new Buscar_producto_cliente(txtBuscar.getValue()));
         			}
                 }
             });

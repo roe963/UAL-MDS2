@@ -14,7 +14,7 @@ public interface iAdministrador {
 
 	public Producto[] cargar_productos();
 
-	public Producto[] cargar_productos_categoria(String aNombreCategoria);
+	public Producto[] cargar_productos_categoria(int aIdCategoria);
 
 	public Producto[] busqueda_producto(String aNombreProducto);
 

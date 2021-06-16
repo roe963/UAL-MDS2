@@ -7,6 +7,8 @@ import com.vaadin.flow.templatemodel.TemplateModel;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.polymertemplate.Id;
+import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.component.button.Button;
 
 /**
  * A Designer generated component for the vista-vercatalogoadministrador template.
@@ -22,7 +24,10 @@ public class VistaVercatalogoadministrador extends PolymerTemplate<VistaVercatal
 	private HorizontalLayout vaadinHorizontalLayout;
 	@Id("layout-selectCategoria")
 	private VerticalLayout layoutSelectCategoria;
-
+	@Id("textfield-buscar")
+	private TextField textfieldBuscar;
+	@Id("button-buscar")
+	private Button buttonBuscar;
 	/**
      * Creates a new VistaVercatalogoadministrador.
      */
@@ -52,6 +57,22 @@ public class VistaVercatalogoadministrador extends PolymerTemplate<VistaVercatal
 	public void setLayoutSelectCategoria(VerticalLayout layoutSelectCategoria) {
 		this.layoutSelectCategoria = layoutSelectCategoria;
     
+	}
+
+	public TextField getTextfieldBuscar() {
+		return textfieldBuscar;
+	}
+
+	public void setTextfieldBuscar(TextField textfieldBuscar) {
+		this.textfieldBuscar = textfieldBuscar;
+	}
+
+	public Button getButtonBuscar() {
+		return buttonBuscar;
+	}
+
+	public void setButtonBuscar(Button buttonBuscar) {
+		this.buttonBuscar = buttonBuscar;
 	}
 	
 }

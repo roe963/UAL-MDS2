@@ -1,10 +1,5 @@
 package interfaz;
 
-import java.util.Arrays;
-import java.util.List;
-
-import org.orm.PersistentException;
-
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
@@ -15,18 +10,20 @@ import com.vaadin.flow.component.textfield.TextField;
 import basededatos.Categoria;
 import basededatos.Producto;
 import bds.BDPrincipal;
-import bds.iAdministrador;
+import bds.iCliente;
 import ual.mds2.ortegaortega.ViewChanger;
-import vistas.VistaVercatalogoadministrador;
+import vistas.VistaBuscarproductoadministrador;
 
-public class Ver_catalogo_administrador extends VistaVercatalogoadministrador {
+public class Buscar_producto_administrador extends VistaBuscarproductoadministrador {
 	
 	Select<Categoria> labelSelect = new Select<>();
 	String cadena = "";
 	
-	iAdministrador administradores = new BDPrincipal();
+	iCliente clientes = new BDPrincipal();
 	
-	public Ver_catalogo_administrador() {
+	public Buscar_producto_administrador() {
+		super();
+		// TODO Auto-generated constructor stub
 		
 		ViewChanger cambiarVista = new ViewChanger();
 		TextField txtBuscar = this.getTextfieldBuscar();
@@ -46,40 +43,21 @@ public class Ver_catalogo_administrador extends VistaVercatalogoadministrador {
             }
         });
 		
-		//new Buscar_producto_cliente(this.getTextfieldBuscar().getValue());
-		
 		// Crear la interfaz lista productos		
 		this.getVaadinHorizontalLayout().removeAll();
 		this.getVaadinHorizontalLayout().add(new Productos());
-		
-		// Cargar select categorias
-		this.getLayoutSelectCategoria().removeAll();
-		//labelSelect.setLabel("Categorias");
-		labelSelect.setPlaceholder("Categorías");
-		List<Categoria> departmentList = Arrays.asList(administradores.cargar_categorias());
-
-		// Establece que valor de Categoria se va a agregar
-		labelSelect.setItemLabelGenerator(Categoria::getNombre);
-		labelSelect.setItems(departmentList);
-
-		this.getLayoutSelectCategoria().add(labelSelect);
-		
-		labelSelect.addValueChangeListener(
-        event -> {
-        	
-        	try {
-				seleccionar_categoria(event.getValue().getId());
-			} catch (PersistentException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-		});
-		
 	}
 	
-	public void seleccionar_categoria(int idCategoria) throws PersistentException {
-		Producto[] productos = administradores.cargar_productos_categoria(idCategoria);
+	public Buscar_producto_administrador(String nombreProducto) {
+		super();		
+		// Crear la interfaz lista productos		
+		//this.getVaadinHorizontalLayout().removeAll();
+		//this.getVaadinHorizontalLayout().add(new Productos());
+		busqueda_producto(nombreProducto);
+	}
+
+	public void busqueda_producto(String nombreProducto) {
+		Producto[] productos = clientes.busqueda_producto(nombreProducto);
 		
 		this.getVaadinHorizontalLayout().removeAll();			
 		if (productos.length != 0) {
@@ -88,7 +66,7 @@ public class Ver_catalogo_administrador extends VistaVercatalogoadministrador {
             }
         }else {
             Label titulo= new Label();
-            titulo.setText("No hay productos en la BD");
+            titulo.setText("No disponemos de productos con ese nombre.");
             this.getVaadinHorizontalLayout().add(titulo);
         }
 	}
