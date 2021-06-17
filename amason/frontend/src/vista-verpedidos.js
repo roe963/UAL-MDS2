@@ -15,6 +15,7 @@ class VistaVerpedidos extends PolymerElement {
                 }
             </style>
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
+ <vaadin-vertical-layout theme="spacing" id="layout-menu"></vaadin-vertical-layout>
  <vaadin-vertical-layout theme="spacing" style="align-self: stretch; padding: var(--lumo-space-xl);">
   <h4>Mis pedidos</h4>
   <vista-pedidosclienteregistrado></vista-pedidosclienteregistrado>

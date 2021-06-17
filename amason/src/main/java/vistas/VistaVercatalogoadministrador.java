@@ -20,6 +20,19 @@ import com.vaadin.flow.component.button.Button;
 @JsModule("./src/vista-vercatalogoadministrador.js")
 public class VistaVercatalogoadministrador extends PolymerTemplate<VistaVercatalogoadministrador.VistaVercatalogoadministradorModel> {
 
+	//////Barra Navegacion /////
+	@Id("layout-menu")
+	private VerticalLayout layoutMenu;
+  	
+	public VerticalLayout getLayoutMenu() {
+      return layoutMenu;
+	}
+
+	public void setLayoutMenu(VerticalLayout layoutMenu) {
+	  this.layoutMenu = layoutMenu;
+	}
+	//////Barra Navegacion /////
+	
 	@Id("vaadinHorizontalLayout")
 	private HorizontalLayout vaadinHorizontalLayout;
 	@Id("layout-selectCategoria")
@@ -28,6 +41,7 @@ public class VistaVercatalogoadministrador extends PolymerTemplate<VistaVercatal
 	private TextField textfieldBuscar;
 	@Id("button-buscar")
 	private Button buttonBuscar;
+	
 	/**
      * Creates a new VistaVercatalogoadministrador.
      */

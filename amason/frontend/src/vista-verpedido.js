@@ -17,6 +17,7 @@ class VistaVerpedido extends PolymerElement {
                 }
             </style>
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
+ <vaadin-vertical-layout theme="spacing" id="layout-menu"></vaadin-vertical-layout>
  <h4 style="padding: var(--lumo-space-xl); padding-bottom: var(--lumo-space-xs);">Heading 4</h4>
  <vaadin-vertical-layout theme="spacing" style="padding-top: var(--lumo-space-xs); margin: var(--lumo-space-xl); align-self: stretch; margin-top: var(--lumo-space-xs); flex-grow: 1;">
   <vaadin-horizontal-layout theme="spacing">

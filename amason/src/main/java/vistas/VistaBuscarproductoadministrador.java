@@ -8,6 +8,7 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.dom.Element;
 
 /**
@@ -19,6 +20,19 @@ import com.vaadin.flow.dom.Element;
 @Tag("vista-buscarproductoadministrador")
 @JsModule("./src/vista-buscarproductoadministrador.js")
 public class VistaBuscarproductoadministrador extends PolymerTemplate<VistaBuscarproductoadministrador.VistaBuscarproductoadministradorModel> {
+	
+    //////Barra Navegacion /////
+    @Id("layout-menu")
+    private VerticalLayout layoutMenu;
+    
+    public VerticalLayout getLayoutMenu() {
+        return layoutMenu;
+    }
+
+    public void setLayoutMenu(VerticalLayout layoutMenu) {
+        this.layoutMenu = layoutMenu;
+    }
+    //////Barra Navegacion /////
 	
 	@Id("vaadinHorizontalLayout")
 	private HorizontalLayout vaadinHorizontalLayout;

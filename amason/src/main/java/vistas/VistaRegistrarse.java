@@ -7,6 +7,7 @@ import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.textfield.PasswordField;
 import com.vaadin.flow.dom.Element;
@@ -23,6 +24,19 @@ import com.vaadin.flow.component.select.Select;
 @JsModule("./src/vista-registrarse.js")
 public class VistaRegistrarse extends PolymerTemplate<VistaRegistrarse.VistaRegistrarseModel> {
 
+    //////Barra Navegacion /////
+    @Id("layout-menu")
+    private VerticalLayout layoutMenu;
+    
+    public VerticalLayout getLayoutMenu() {
+        return layoutMenu;
+    }
+
+    public void setLayoutMenu(VerticalLayout layoutMenu) {
+        this.layoutMenu = layoutMenu;
+    }
+    //////Barra Navegacion /////
+	
 	@Id("textarea-nombre")
 	private TextField textareaNombre;
 	@Id("textarea-email")

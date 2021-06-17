@@ -20,7 +20,18 @@ import com.vaadin.flow.component.html.H4;
 @JsModule("./src/vista-carrito.js")
 public class VistaCarrito extends PolymerTemplate<VistaCarrito.VistaCarritoModel> {
 
-	
+    //////Barra Navegacion /////
+    @Id("layout-menu")
+    private VerticalLayout layoutMenu;
+    
+    public VerticalLayout getLayoutMenu() {
+        return layoutMenu;
+    }
+
+    public void setLayoutMenu(VerticalLayout layoutMenu) {
+        this.layoutMenu = layoutMenu;
+    }
+    //////Barra Navegacion /////
 	
     @Id("layout-carrito")
 	private Element layoutCarrito;

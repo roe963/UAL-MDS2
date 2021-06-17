@@ -7,6 +7,8 @@ import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
 import vistas.VistaVerproductoclientes;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.dom.Element;
@@ -21,6 +23,19 @@ import com.vaadin.flow.dom.Element;
 @JsModule("./src/vista-verproducto.js")
 public class VistaVerproducto extends PolymerTemplate<VistaVerproducto.VistaVerproductoModel> {
 
+    //////Barra Navegacion /////
+    @Id("layout-menu")
+    private VerticalLayout layoutMenu;
+    
+    public VerticalLayout getLayoutMenu() {
+        return layoutMenu;
+    }
+
+    public void setLayoutMenu(VerticalLayout layoutMenu) {
+        this.layoutMenu = layoutMenu;
+    }
+    //////Barra Navegacion /////
+	
     @Id("img1-producto")
 	private Image img1Producto;
 	@Id("img2-producto")

@@ -15,6 +15,7 @@ class VistaPedidosclienteregistrado extends PolymerElement {
                 }
             </style>
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
+ <vaadin-vertical-layout theme="spacing" id="layout-menu"></vaadin-vertical-layout>
  <vista-pedidoclienteregistrado></vista-pedidoclienteregistrado>
 </vaadin-vertical-layout>
 `;

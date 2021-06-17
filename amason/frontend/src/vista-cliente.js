@@ -19,6 +19,7 @@ class VistaCliente extends PolymerElement {
                 }
             </style>
 <vaadin-vertical-layout style="width: 100%; height: 100%; align-items: stretch;" id="vista-cliente">
+ <vaadin-vertical-layout theme="spacing" id="layout-menu"></vaadin-vertical-layout>
  <vaadin-vertical-layout theme="spacing" style="padding: var(--lumo-space-xl);" id="vl_ofertas">
   <h4 id="tittle-ofertas">Ofertas</h4>
   <vaadin-horizontal-layout theme="spacing" id="hlofertas" style="width: 100%;">

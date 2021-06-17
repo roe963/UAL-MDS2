@@ -18,6 +18,19 @@ import com.vaadin.flow.component.polymertemplate.Id;
 @JsModule("./src/vista-veepedidos.js")
 public class VistaVerpedidos extends PolymerTemplate<VistaVerpedidos.VistaVerpedidosModel> {
 
+    //////Barra Navegacion /////
+    @Id("layout-menu")
+    private VerticalLayout layoutMenu;
+    
+    public VerticalLayout getLayoutMenu() {
+        return layoutMenu;
+    }
+
+    public void setLayoutMenu(VerticalLayout layoutMenu) {
+        this.layoutMenu = layoutMenu;
+    }
+    //////Barra Navegacion /////
+	
     @Id("vaadinVerticalLayout")
 	private VerticalLayout vaadinVerticalLayout;
     

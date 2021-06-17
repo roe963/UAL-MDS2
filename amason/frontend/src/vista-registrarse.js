@@ -16,6 +16,7 @@ class VistaRegistrarse extends PolymerElement {
                 }
             </style>
 <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%;">
+ <vaadin-vertical-layout theme="spacing" id="layout-menu"></vaadin-vertical-layout>
  <h4 style="margin-right: var(--lumo-space-xl); margin-left: var(--lumo-space-xl); align-self: center;">Crear cuenta</h4>
  <vaadin-horizontal-layout class="content" style="align-self: center;">
   <vaadin-vertical-layout theme="spacing" style="flex-grow: 1; align-items: flex-end;">

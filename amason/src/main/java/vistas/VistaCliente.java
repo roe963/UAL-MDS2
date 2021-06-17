@@ -46,6 +46,19 @@ public class VistaCliente extends PolymerTemplate<VistaCliente.VistaClienteModel
 	}*/
 	//////Barra Navegacion /////
 	
+	//////Barra Navegacion /////
+	@Id("layout-menu")
+    private VerticalLayout layoutMenu;
+    
+    public VerticalLayout getLayoutMenu() {
+        return layoutMenu;
+    }
+
+    public void setLayoutMenu(VerticalLayout layoutMenu) {
+        this.layoutMenu = layoutMenu;
+    }
+    //////Barra Navegacion /////
+	
 	// Layout Top Ventas
 	@Id("vaadinHorizontalLayout")
 	private HorizontalLayout vaadinHorizontalLayout;
@@ -135,8 +148,6 @@ public class VistaCliente extends PolymerTemplate<VistaCliente.VistaClienteModel
 	public void setSelectCategoria(Select selectCategoria) {
 		this.selectCategoria = selectCategoria;
 	}
-	
-	
 	
 	/**
      * Creates a new VistaCliente.

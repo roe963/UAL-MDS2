@@ -16,6 +16,7 @@ class VistaCarrito extends PolymerElement {
                 }
             </style>
 <vaadin-vertical-layout style="width: 100%; height: 100%; align-items: stretch;">
+ <vaadin-vertical-layout theme="spacing" id="layout-menu"></vaadin-vertical-layout>
  <vaadin-vertical-layout theme="spacing" id="layout-carrito" style="padding: var(--lumo-space-xl);">
   <h4>Carrito</h4>
   <vaadin-horizontal-layout theme="spacing" style="align-self: stretch;">
