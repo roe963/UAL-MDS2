@@ -1,5 +1,6 @@
 package interfaz;
 
+import com.vaadin.flow.component.UI;
 import basededatos.Foto;
 import ual.mds2.ortegaortega.ViewChanger;
 import vistas.VistaProducto;
@@ -19,7 +20,7 @@ public class Producto extends VistaProducto {
 		Foto[] fotos= producto.contiene_una.toArray();
 
 		this.getImgProducto().addClickListener(e->{
-            ViewChanger.CambiarVista(new Ver_producto(producto));
+		    UI.getCurrent().navigate("producto/" + producto.getId());
         });
 		
 		if( fotos.length==0) {//si no tiene ninguna imagen poner esta por defecto

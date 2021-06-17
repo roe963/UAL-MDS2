@@ -23,30 +23,6 @@ import com.vaadin.flow.component.select.Select;
 public class VistaCliente extends PolymerTemplate<VistaCliente.VistaClienteModel> {
 	
 	//////Barra Navegacion /////
-	/*@Id("button-carrito")
-	private Button verCarrito;
-
-	@Id("button-inicio")
-	private Button aInicio;
-	
-	public Button getVerCarrito() {
-		return verCarrito;
-	}
-
-	public void setVerCarrito(Button verCarrito) {
-		this.verCarrito = verCarrito;
-	}
-
-	public Button getaInicio() {
-		return aInicio;
-	}
-
-	public void setaInicio(Button aInicio) {
-		this.aInicio = aInicio;
-	}*/
-	//////Barra Navegacion /////
-	
-	//////Barra Navegacion /////
 	@Id("layout-menu")
     private VerticalLayout layoutMenu;
     

@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.PWA;
 
@@ -38,11 +39,8 @@ public class MainView extends VerticalLayout {
      */
 
     public MainView(@Autowired GreetService service) {
-        ViewChanger.LoadSession();
-        ViewChanger.layout = this;
-//        ViewChanger.generarMenuBar();
-
-//      ViewChanger.CambiarVista(new Cliente());
-//        ViewChanger.CambiarVista(new Productos());
+        MenuHeader.generarMenuBar();
+        this.add(new Cliente());
+        this.setPadding(false);
     }
 }

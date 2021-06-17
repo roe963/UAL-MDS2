@@ -155,11 +155,8 @@ public class ViewChanger {
 				//ViewChanger.getCantidadProductos().remove(ViewChanger.getCantidadProductos().get(i));
 				break;
 			}
-			
 		}
-		
 	}
-	
 
     public static void CambiarVista(Component nuevaVista, boolean sesionChanged) {
         if (layout == null) {

@@ -17,248 +17,257 @@ import com.vaadin.flow.component.tabs.Tab;
 /**
  * A Designer generated component for the vista-veproducto template.
  *
- * Designer will add and remove fields with @Id mappings but
- * does not overwrite or otherwise change this file.
+ * Designer will add and remove fields with @Id mappings but does not overwrite
+ * or otherwise change this file.
  */
 @Tag("vista-veproducto")
 @JsModule("./src/vista-veproducto.js")
 public class VistaVeproducto extends PolymerTemplate<VistaVeproducto.VistaVeproductoModel> {
 
+    //////Barra Navegacion /////
+    @Id("layout-menu")
+    private VerticalLayout layoutMenu;
+
+    public VerticalLayout getLayoutMenu() {
+        return layoutMenu;
+    }
+
+    public void setLayoutMenu(VerticalLayout layoutMenu) {
+        this.layoutMenu = layoutMenu;
+    }
+    ////// Barra Navegacion /////
+
     @Id("img1-producto")
-	private Image img1Producto;
-	@Id("vlCargarImagenes")
-	private HorizontalLayout vaadinHorizontalLayout;
-	@Id("label-nombre")
-	private Label nombreProducto;
-	@Id("label-categoria")
-	private Label nombreCategoria;
-	@Id("label-precio")
-	private Label nombrePrecio;
-	@Id("label-precioanterior")
-	private Label precioAnterior;
-	@Id("label-fechaoferta")
-	private Label fechaOferta;
-	@Id("label-nopiniones")
-	private Label nOpiniones;
-	@Id("h41")
-	private H4 tituloAnteriorh41;
-	@Id("h4")
-	private H4 tituloOfertah4;
-	@Id("hlValoracion")
-	private HorizontalLayout hlValoracion;
-	@Id("vistaVerproductoclientes")
-	private Element claseBotonProductoCliente;
-	
-	@Id("vaadinTabs")
-	private Tabs vaadinTabs;
-	
-	@Id("btnDescripcion")
-	private Tab btnDescripcion;
-	
-	@Id("btnValoracion")
-	private Tab btnValoracion;
-	
-	
-	@Id("vlDescripcion")
-	private VerticalLayout vlDescripcion;
-	
-	@Id("vlValoracion")
-	private VerticalLayout vlValoracion;
-	
-	@Id("label-descripcion")
-	private Label labelDescripcion;
-	
-	@Id("vistaValoraciones")
-	private Element vistaValoraciones;
-	
-	@Id("vldescripcionAndValoracion")
-	private VerticalLayout vldescripcionAndValoracion;
-	
-	@Id("vlCargarImagenes")
-	private HorizontalLayout vlCargarImagenes;
-	@Id("vlBotonComprar")
-	private HorizontalLayout vlBotonComprar;
+    private Image img1Producto;
+    @Id("vlCargarImagenes")
+    private HorizontalLayout vaadinHorizontalLayout;
+    @Id("label-nombre")
+    private Label nombreProducto;
+    @Id("label-categoria")
+    private Label nombreCategoria;
+    @Id("label-precio")
+    private Label nombrePrecio;
+    @Id("label-precioanterior")
+    private Label precioAnterior;
+    @Id("label-fechaoferta")
+    private Label fechaOferta;
+    @Id("label-nopiniones")
+    private Label nOpiniones;
+    @Id("h41")
+    private H4 tituloAnteriorh41;
+    @Id("h4")
+    private H4 tituloOfertah4;
+    @Id("hlValoracion")
+    private HorizontalLayout hlValoracion;
+    @Id("vistaVerproductoclientes")
+    private Element claseBotonProductoCliente;
 
-	
-	
-	
-	public HorizontalLayout getVlBotonComprar() {
-		return vlBotonComprar;
-	}
+    @Id("vaadinTabs")
+    private Tabs vaadinTabs;
 
-	public void setVlBotonComprar(HorizontalLayout vlBotonComprar) {
-		this.vlBotonComprar = vlBotonComprar;
-	}
+    @Id("btnDescripcion")
+    private Tab btnDescripcion;
 
-	public HorizontalLayout getVlCargarImagenes() {
-		return vlCargarImagenes;
-	}
+    @Id("btnValoracion")
+    private Tab btnValoracion;
 
-	public void setVlCargarImagenes(HorizontalLayout vlCargarImagenes) {
-		this.vlCargarImagenes = vlCargarImagenes;
-	}
+    @Id("vlDescripcion")
+    private VerticalLayout vlDescripcion;
 
-	public VerticalLayout getVldescripcionAndValoracion() {
-		return vldescripcionAndValoracion;
-	}
+    @Id("vlValoracion")
+    private VerticalLayout vlValoracion;
 
-	public void setVldescripcionAndValoracion(VerticalLayout vldescripcionAndValoracion) {
-		this.vldescripcionAndValoracion = vldescripcionAndValoracion;
-	}
+    @Id("label-descripcion")
+    private Label labelDescripcion;
 
-	public Tabs getVaadinTabs() {
-		return vaadinTabs;
-	}
+    @Id("vistaValoraciones")
+    private Element vistaValoraciones;
 
-	public void setVaadinTabs(Tabs vaadinTabs) {
-		this.vaadinTabs = vaadinTabs;
-	}
+    @Id("vldescripcionAndValoracion")
+    private VerticalLayout vldescripcionAndValoracion;
 
-	public Tab getBtnDescripcion() {
-		return btnDescripcion;
-	}
+    @Id("vlCargarImagenes")
+    private HorizontalLayout vlCargarImagenes;
+    @Id("vlBotonComprar")
+    private HorizontalLayout vlBotonComprar;
 
-	public void setBtnDescripcion(Tab btnDescripcion) {
-		this.btnDescripcion = btnDescripcion;
-	}
+    public HorizontalLayout getVlBotonComprar() {
+        return vlBotonComprar;
+    }
 
-	public Tab getBtnValoracion() {
-		return btnValoracion;
-	}
+    public void setVlBotonComprar(HorizontalLayout vlBotonComprar) {
+        this.vlBotonComprar = vlBotonComprar;
+    }
 
-	public void setBtnValoracion(Tab btnValoracion) {
-		this.btnValoracion = btnValoracion;
-	}
+    public HorizontalLayout getVlCargarImagenes() {
+        return vlCargarImagenes;
+    }
 
-	public VerticalLayout getVlDescripcion() {
-		return vlDescripcion;
-	}
+    public void setVlCargarImagenes(HorizontalLayout vlCargarImagenes) {
+        this.vlCargarImagenes = vlCargarImagenes;
+    }
 
-	public void setVlDescripcion(VerticalLayout vlDescripcion) {
-		this.vlDescripcion = vlDescripcion;
-	}
+    public VerticalLayout getVldescripcionAndValoracion() {
+        return vldescripcionAndValoracion;
+    }
 
-	public VerticalLayout getVlValoracion() {
-		return vlValoracion;
-	}
+    public void setVldescripcionAndValoracion(VerticalLayout vldescripcionAndValoracion) {
+        this.vldescripcionAndValoracion = vldescripcionAndValoracion;
+    }
 
-	public void setVlValoracion(VerticalLayout vlValoracion) {
-		this.vlValoracion = vlValoracion;
-	}
+    public Tabs getVaadinTabs() {
+        return vaadinTabs;
+    }
 
-	public Label getLabelDescripcion() {
-		return labelDescripcion;
-	}
+    public void setVaadinTabs(Tabs vaadinTabs) {
+        this.vaadinTabs = vaadinTabs;
+    }
 
-	public void setLabelDescripcion(Label labelDescripcion) {
-		this.labelDescripcion = labelDescripcion;
-	}
+    public Tab getBtnDescripcion() {
+        return btnDescripcion;
+    }
 
-	public Element getVistaValoraciones() {
-		return vistaValoraciones;
-	}
+    public void setBtnDescripcion(Tab btnDescripcion) {
+        this.btnDescripcion = btnDescripcion;
+    }
 
-	public void setVistaValoraciones(Element vistaValoraciones) {
-		this.vistaValoraciones = vistaValoraciones;
-	}
+    public Tab getBtnValoracion() {
+        return btnValoracion;
+    }
 
-	public Element getClaseBotonProductoCliente() {
-		return claseBotonProductoCliente;
-	}
+    public void setBtnValoracion(Tab btnValoracion) {
+        this.btnValoracion = btnValoracion;
+    }
 
-	public void setClaseBotonProductoCliente(Element claseBotonProductoCliente) {
-		this.claseBotonProductoCliente = claseBotonProductoCliente;
-	}
+    public VerticalLayout getVlDescripcion() {
+        return vlDescripcion;
+    }
 
-	public HorizontalLayout getHlValoracion() {
-		return hlValoracion;
-	}
+    public void setVlDescripcion(VerticalLayout vlDescripcion) {
+        this.vlDescripcion = vlDescripcion;
+    }
 
-	public void setHlValoracion(HorizontalLayout hlValoracion) {
-		this.hlValoracion = hlValoracion;
-	}
+    public VerticalLayout getVlValoracion() {
+        return vlValoracion;
+    }
 
-	public Image getImg1Producto() {
-		return img1Producto;
-	}
+    public void setVlValoracion(VerticalLayout vlValoracion) {
+        this.vlValoracion = vlValoracion;
+    }
 
-	public void setImg1Producto(Image img1Producto) {
-		this.img1Producto = img1Producto;
-	}
+    public Label getLabelDescripcion() {
+        return labelDescripcion;
+    }
 
-	public HorizontalLayout getVaadinHorizontalLayout() {
-		return vaadinHorizontalLayout;
-	}
+    public void setLabelDescripcion(Label labelDescripcion) {
+        this.labelDescripcion = labelDescripcion;
+    }
 
-	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
-		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
-	}
+    public Element getVistaValoraciones() {
+        return vistaValoraciones;
+    }
 
-	public Label getNombreProducto() {
-		return nombreProducto;
-	}
+    public void setVistaValoraciones(Element vistaValoraciones) {
+        this.vistaValoraciones = vistaValoraciones;
+    }
 
-	public void setNombreProducto(Label nombreProducto) {
-		this.nombreProducto = nombreProducto;
-	}
+    public Element getClaseBotonProductoCliente() {
+        return claseBotonProductoCliente;
+    }
 
-	public Label getNombreCategoria() {
-		return nombreCategoria;
-	}
+    public void setClaseBotonProductoCliente(Element claseBotonProductoCliente) {
+        this.claseBotonProductoCliente = claseBotonProductoCliente;
+    }
 
-	public void setNombreCategoria(Label nombreCategoria) {
-		this.nombreCategoria = nombreCategoria;
-	}
+    public HorizontalLayout getHlValoracion() {
+        return hlValoracion;
+    }
 
-	public Label getNombrePrecio() {
-		return nombrePrecio;
-	}
+    public void setHlValoracion(HorizontalLayout hlValoracion) {
+        this.hlValoracion = hlValoracion;
+    }
 
-	public void setNombrePrecio(Label nombrePrecio) {
-		this.nombrePrecio = nombrePrecio;
-	}
+    public Image getImg1Producto() {
+        return img1Producto;
+    }
 
-	public Label getPrecioAnterior() {
-		return precioAnterior;
-	}
+    public void setImg1Producto(Image img1Producto) {
+        this.img1Producto = img1Producto;
+    }
 
-	public void setPrecioAnterior(Label precioAnterior) {
-		this.precioAnterior = precioAnterior;
-	}
+    public HorizontalLayout getVaadinHorizontalLayout() {
+        return vaadinHorizontalLayout;
+    }
 
-	public Label getFechaOferta() {
-		return fechaOferta;
-	}
+    public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
+        this.vaadinHorizontalLayout = vaadinHorizontalLayout;
+    }
 
-	public void setFechaOferta(Label fechaOferta) {
-		this.fechaOferta = fechaOferta;
-	}
+    public Label getNombreProducto() {
+        return nombreProducto;
+    }
 
-	public Label getnOpiniones() {
-		return nOpiniones;
-	}
+    public void setNombreProducto(Label nombreProducto) {
+        this.nombreProducto = nombreProducto;
+    }
 
-	public void setnOpiniones(Label nOpiniones) {
-		this.nOpiniones = nOpiniones;
-	}
+    public Label getNombreCategoria() {
+        return nombreCategoria;
+    }
 
-	public H4 getTituloAnteriorh41() {
-		return tituloAnteriorh41;
-	}
+    public void setNombreCategoria(Label nombreCategoria) {
+        this.nombreCategoria = nombreCategoria;
+    }
 
-	public void setTituloAnteriorh41(H4 tituloAnteriorh41) {
-		this.tituloAnteriorh41 = tituloAnteriorh41;
-	}
+    public Label getNombrePrecio() {
+        return nombrePrecio;
+    }
 
-	public H4 getTituloOfertah4() {
-		return tituloOfertah4;
-	}
+    public void setNombrePrecio(Label nombrePrecio) {
+        this.nombrePrecio = nombrePrecio;
+    }
 
-	public void setTituloOfertah4(H4 tituloOfertah4) {
-		this.tituloOfertah4 = tituloOfertah4;
-	}
+    public Label getPrecioAnterior() {
+        return precioAnterior;
+    }
 
-	/**
+    public void setPrecioAnterior(Label precioAnterior) {
+        this.precioAnterior = precioAnterior;
+    }
+
+    public Label getFechaOferta() {
+        return fechaOferta;
+    }
+
+    public void setFechaOferta(Label fechaOferta) {
+        this.fechaOferta = fechaOferta;
+    }
+
+    public Label getnOpiniones() {
+        return nOpiniones;
+    }
+
+    public void setnOpiniones(Label nOpiniones) {
+        this.nOpiniones = nOpiniones;
+    }
+
+    public H4 getTituloAnteriorh41() {
+        return tituloAnteriorh41;
+    }
+
+    public void setTituloAnteriorh41(H4 tituloAnteriorh41) {
+        this.tituloAnteriorh41 = tituloAnteriorh41;
+    }
+
+    public H4 getTituloOfertah4() {
+        return tituloOfertah4;
+    }
+
+    public void setTituloOfertah4(H4 tituloOfertah4) {
+        this.tituloOfertah4 = tituloOfertah4;
+    }
+
+    /**
      * Creates a new VistaVeproducto.
      */
     public VistaVeproducto() {

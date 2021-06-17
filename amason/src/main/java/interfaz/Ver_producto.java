@@ -3,14 +3,22 @@ package interfaz;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.orm.PersistentException;
+
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
+import com.vaadin.flow.component.menubar.MenuBar;
+import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
+import com.vaadin.flow.router.BeforeEvent;
+import com.vaadin.flow.router.HasUrlParameter;
+import com.vaadin.flow.router.OptionalParameter;
+import com.vaadin.flow.router.Route;
 
 import basededatos.Foto;
 import basededatos.Oferta;
@@ -18,10 +26,12 @@ import basededatos.Producto;
 import basededatos.Valoracion;
 import bds.BDPrincipal;
 import bds.iCliente;
+import ual.mds2.ortegaortega.MenuHeader;
 import ual.mds2.ortegaortega.ViewChanger;
 import vistas.VistaVeproducto;
 
-public class Ver_producto extends VistaVeproducto {
+@Route("producto")
+public class Ver_producto extends VistaVeproducto implements HasUrlParameter<String> {
 	/*
 	 * private label _nombre; private label _nombreProducto; private label
 	 * _categoria; private label _nombreCategoria; private label _precio; private
@@ -31,17 +41,35 @@ public class Ver_producto extends VistaVeproducto {
 	 * private image _foto2; private image _foto3; private image _foto4; private
 	 * image _foto5; public Producto _producto; public Valoraciones _valoraciones;
 	 */
+    
+    @Override
+    public void setParameter(BeforeEvent event, @OptionalParameter String parameter) {
+        System.out.println(parameter);
+        
+        try {
+            Producto p = basededatos.ProductoDAO.getProductoByORMID(Integer.parseInt(parameter));
+            cargar_producto(p);
+        } catch (NumberFormatException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (PersistentException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
 
 	iCliente cliente = new BDPrincipal();
 
 	public Ver_producto() {
-
+	    MenuBar mb = MenuHeader.getMenuBar();
+        this.getLayoutMenu().add(mb);
+        this.getLayoutMenu().setHorizontalComponentAlignment(Alignment.CENTER, mb);
 	}
 
-	public Ver_producto(basededatos.Producto producto) {
-		cargar_producto(producto);
-
-	}
+//	public Ver_producto(basededatos.Producto producto) {
+//		cargar_producto(producto);
+//
+//	}
 
 	public void cargar_producto(basededatos.Producto producto) {
 		basededatos.Valoracion[] valoraciones = cliente.cargar_valoraciones(producto.getId());
