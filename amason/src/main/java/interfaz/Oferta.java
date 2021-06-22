@@ -1,5 +1,7 @@
 package interfaz;
 
+import com.vaadin.flow.component.UI;
+
 import basededatos.Foto;
 import basededatos.Producto;
 import ual.mds2.ortegaortega.ViewChanger;
@@ -15,7 +17,7 @@ public class Oferta extends VistaOferta {
 		Producto producto = oferta.getContiene_un();
 		
 		this.getImg().addClickListener(e->{
-            ViewChanger.CambiarVista(new Ver_producto(producto));
+            UI.getCurrent().navigate("producto/" + producto.getId());
         });
 		
 		

@@ -9,15 +9,26 @@ import com.vaadin.flow.component.ComponentEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.html.Span;
+import com.vaadin.flow.component.menubar.MenuBar;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.notification.Notification.Position;
+import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
+import com.vaadin.flow.router.Route;
 
+import ual.mds2.ortegaortega.MenuHeader;
 import ual.mds2.ortegaortega.ViewChanger;
 import vistas.VistaCarrito;
 
+
+@Route("carrito")
 public class Carrito extends VistaCarrito {
 
 	public Carrito() {
+	    
+	    MenuBar mb = MenuHeader.getMenuBar();
+        this.getLayoutMenu().add(mb);
+        this.getLayoutMenu().setHorizontalComponentAlignment(Alignment.CENTER, mb);
+        
 		System.out.println(ViewChanger.productoscarrito.size());
 
 		double precioTotal = calcularPrecioTotal();
