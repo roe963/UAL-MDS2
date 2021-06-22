@@ -60,8 +60,8 @@ public class VistaVerproducto extends PolymerTemplate<VistaVerproducto.VistaVerp
 	private Label labelNopiniones;
 	@Id("vistaVerproductoclientes")
 	private Element vistaVerproductoclientes;
-	
-	
+	@Id("button-comprar")
+	private Button buttonComprar;
 	/**
      * Creates a new VistaVerproducto.
      */

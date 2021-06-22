@@ -2,6 +2,7 @@ package vistas;
 
 import com.vaadin.flow.templatemodel.TemplateModel;
 import com.vaadin.flow.component.Tag;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.component.html.Image;
@@ -79,7 +80,8 @@ public class VistaVeproducto extends PolymerTemplate<VistaVeproducto.VistaVeprod
 	@Id("vlBotonComprar")
 	private HorizontalLayout vlBotonComprar;
 
-	
+	@Id("button-comprar")
+	private Button buttonComprar;
 	
 	
 	public HorizontalLayout getVlBotonComprar() {
@@ -256,6 +258,14 @@ public class VistaVeproducto extends PolymerTemplate<VistaVeproducto.VistaVeprod
 
 	public void setTituloOfertah4(H4 tituloOfertah4) {
 		this.tituloOfertah4 = tituloOfertah4;
+	}
+
+	public Button getButtonComprar() {
+		return buttonComprar;
+	}
+
+	public void setButtonComprar(Button buttonComprar) {
+		this.buttonComprar = buttonComprar;
 	}
 
 	/**

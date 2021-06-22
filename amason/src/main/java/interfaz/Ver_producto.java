@@ -4,11 +4,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.ComponentEvent;
+import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
+import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.notification.Notification.Position;
 import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
 
@@ -143,7 +148,40 @@ public class Ver_producto extends VistaVeproducto {
 		this.getVlBotonComprar().add(new Ver_producto_clientes(producto));
 		
 		
+		
+		this.getButtonComprar().addClickListener(new ComponentEventListener() {			 
+			@Override
+			public void onComponentEvent(ComponentEvent event) {
+				System.out.println("Se añade al carrito" +producto.getNombre());
+				
+				if(ViewChanger.getIdUsuario() == -1) {
+					Span content = new Span("Para comprar tienes que iniciar sesión!!");
+					Notification notification = new Notification(content);
+					notification.setPosition(Position.MIDDLE);
+					notification.setDuration(2000);
+					notification.open();
+					
+				}else {
+					
+					ViewChanger.addProducto(producto);					
+					cantidadCache cantidadCache= new cantidadCache(producto.getId(), 1);					
+					ViewChanger.addCantidadProductos(cantidadCache);
+					notificacion();
+										
+				}
+				
+				
+			}
+		});
 
+	}
+	
+	public void notificacion() {
+		Span content = new Span("Tu producto se ha añadido correctamente al carrito!");
+		Notification notification = new Notification(content);
+		notification.setPosition(Position.MIDDLE);
+		notification.setDuration(2000);
+		notification.open();
 	}
 
 	private void cargarElRestoDeImagenes(Producto producto) {
@@ -193,4 +231,6 @@ public class Ver_producto extends VistaVeproducto {
 
 		return suma / valoraciones.length;
 	}
+	
+	
 }
