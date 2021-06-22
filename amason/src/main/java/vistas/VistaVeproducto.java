@@ -60,8 +60,6 @@ public class VistaVeproducto extends PolymerTemplate<VistaVeproducto.VistaVeprod
     private H4 tituloOfertah4;
     @Id("hlValoracion")
     private HorizontalLayout hlValoracion;
-    @Id("vistaVerproductoclientes")
-    private Element claseBotonProductoCliente;
 
 	@Id("button-comprar")
 	private Button buttonComprar;
@@ -93,16 +91,6 @@ public class VistaVeproducto extends PolymerTemplate<VistaVeproducto.VistaVeprod
 
     @Id("vlCargarImagenes")
     private HorizontalLayout vlCargarImagenes;
-    @Id("vlBotonComprar")
-    private HorizontalLayout vlBotonComprar;
-
-    public HorizontalLayout getVlBotonComprar() {
-        return vlBotonComprar;
-    }
-
-    public void setVlBotonComprar(HorizontalLayout vlBotonComprar) {
-        this.vlBotonComprar = vlBotonComprar;
-    }
 
     public HorizontalLayout getVlCargarImagenes() {
         return vlCargarImagenes;
@@ -174,14 +162,6 @@ public class VistaVeproducto extends PolymerTemplate<VistaVeproducto.VistaVeprod
 
     public void setVistaValoraciones(Element vistaValoraciones) {
         this.vistaValoraciones = vistaValoraciones;
-    }
-
-    public Element getClaseBotonProductoCliente() {
-        return claseBotonProductoCliente;
-    }
-
-    public void setClaseBotonProductoCliente(Element claseBotonProductoCliente) {
-        this.claseBotonProductoCliente = claseBotonProductoCliente;
     }
 
     public HorizontalLayout getHlValoracion() {

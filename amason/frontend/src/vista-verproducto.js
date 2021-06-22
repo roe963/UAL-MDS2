@@ -21,18 +21,13 @@ class VistaVerproducto extends PolymerElement {
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
  <vaadin-vertical-layout theme="spacing" id="layout-menu"></vaadin-vertical-layout>
  <vaadin-horizontal-layout theme="spacing" style="flex-grow: 0; align-self: stretch; padding: var(--lumo-space-xl); background-color: var(--lumo-contrast-10pct); margin: var(--lumo-space-xl); margin-top: var(--lumo-space-xs); margin-bottom: var(--lumo-space-xs);">
-  <vaadin-horizontal-layout theme="spacing">
-   <vaadin-vertical-layout theme="spacing">
-    <img style="flex-grow: 0; height: 100%; width: 80%; align-self: center;" id="img1-producto">
-    <vaadin-horizontal-layout theme="spacing">
-     <img style="padding: var(--lumo-space-xl); flex-grow: 0;" id="img2-producto">
-     <img style="padding: var(--lumo-space-xl); flex-grow: 0;" id="img3-producto">
-     <img style="padding: var(--lumo-space-xl); flex-grow: 0;" id="img4-producto">
-     <img style="padding: var(--lumo-space-xl); flex-grow: 0;" id="img5-producto">
-    </vaadin-horizontal-layout>
+  <vaadin-horizontal-layout theme="spacing" style="align-self: center; width: 35%;">
+   <vaadin-vertical-layout theme="spacing" style="align-self: center; flex-shrink: 1;">
+    <img style="flex-grow: 0; height: 30%; width: 45%; align-self: center; flex-shrink: 1;" id="img1-producto">
+    <vaadin-horizontal-layout theme="spacing" id="vlCargarImagenes"></vaadin-horizontal-layout>
    </vaadin-vertical-layout>
   </vaadin-horizontal-layout>
-  <vaadin-vertical-layout theme="spacing">
+  <vaadin-vertical-layout theme="spacing" style="flex-grow: 1;">
    <vaadin-horizontal-layout theme="spacing">
     <h4>Nombre</h4>
     <label style="align-self: center;" id="label-nombre">Label</label>
@@ -44,41 +39,35 @@ class VistaVerproducto extends PolymerElement {
    <vaadin-horizontal-layout theme="spacing">
     <h4>Precio</h4>
     <label style="align-self: center;" id="label-precio">Precio</label>
-    <h4>Precio anterior</h4>
+    <h4 id="h41">Precio anterior</h4>
     <label style="align-self: center;" id="label-precioanterior">Precio</label>
-    <h4>En oferta hasta</h4>
+    <h4 id="h4">En oferta hasta</h4>
     <label style="align-self: center;" id="label-fechaoferta">Fecha</label>
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout theme="spacing">
-    <h4>Valoración</h4>
-    <iron-icon icon="vaadin:star" style="align-self: center;" id="icon1-valoracion"></iron-icon>
-    <iron-icon icon="vaadin:star-o" style="align-self: center;" id="icon2-valoracion"></iron-icon>
-    <iron-icon icon="vaadin:star-half-left-o" style="align-self: center;" id="icon3-valoracion"></iron-icon>
-    <iron-icon icon="vaadin:star-half-right-o" style="align-self: center;" id="icon4-valoracion"></iron-icon>
-    <iron-icon icon="vaadin:star" style="align-self: center;" id="icon5-valoracion"></iron-icon>
+    <h4></h4>Valoración 
+    <vaadin-horizontal-layout theme="spacing" id="hlValoracion"></vaadin-horizontal-layout>
     <label style="align-self: center;" id="label-nopiniones">0 opiniones</label>
    </vaadin-horizontal-layout>
-   <vaadin-vertical-layout theme="spacing">
-    <vaadin-button id="button-comprar">
-     Comprar
-    </vaadin-button>
-   </vaadin-vertical-layout>
+   <vaadin-button id="button-comprar">
+     Comprar 
+   </vaadin-button>
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>
- <vaadin-vertical-layout theme="spacing" style="align-self: stretch; flex-grow: 1; margin: var(--lumo-space-xl); margin-top: var(--lumo-space-xs); margin-bottom: var(--lumo-space-xs);">
-  <vaadin-tabs style="align-self: stretch;" orientation="horizontal" selected="0">
-   <vaadin-tab selected>
+ <vaadin-vertical-layout theme="spacing" style="align-self: stretch; flex-grow: 1; margin: var(--lumo-space-xl); margin-top: var(--lumo-space-xs); margin-bottom: var(--lumo-space-xs);" id="vldescripcionAndValoracion">
+  <vaadin-tabs style="align-self: stretch;" orientation="horizontal" selected="0" id="vaadinTabs">
+   <vaadin-tab selected id="btnDescripcion">
      Descripción 
    </vaadin-tab>
-   <vaadin-tab>
+   <vaadin-tab id="btnValoracion">
      Valoraciones 
    </vaadin-tab>
   </vaadin-tabs>
-  <vaadin-vertical-layout theme="spacing" style="align-self: stretch; flex-grow: 1;">
+  <vaadin-vertical-layout theme="spacing" style="align-self: stretch; flex-grow: 1;" id="vlDescripcion">
    <label id="label-descripcion">Descripción</label>
   </vaadin-vertical-layout>
-  <vaadin-vertical-layout theme="spacing" style="align-self: stretch; flex-grow: 1;">
-   <vista-valoraciones></vista-valoraciones>
+  <vaadin-vertical-layout theme="spacing" style="align-self: stretch; flex-grow: 1;" id="vlValoracion">
+   <vista-valoraciones id="vistaValoraciones"></vista-valoraciones>
   </vaadin-vertical-layout>
  </vaadin-vertical-layout>
 </vaadin-vertical-layout>

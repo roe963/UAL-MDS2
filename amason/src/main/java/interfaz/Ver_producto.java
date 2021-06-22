@@ -131,15 +131,6 @@ public class Ver_producto extends VistaVeproducto implements HasUrlParameter<Str
 			activarBoton= true;//activa el boton cuando eres cliente, y no estas registrado
 		}
 		
-		
-		
-		if (activarBoton.equals(true)) {
-			this.getClaseBotonProductoCliente().setVisible(true);
-		} else {
-			this.getClaseBotonProductoCliente().setVisible(false);
-
-		}
-
 		// configurar El tabs
 
 		this.getVldescripcionAndValoracion().removeAll();
@@ -170,11 +161,6 @@ public class Ver_producto extends VistaVeproducto implements HasUrlParameter<Str
 		});
 
 		this.getVldescripcionAndValoracion().add(tabs, pages);
-		
-		
-		this.getVlBotonComprar().removeAll();
-		this.getVlBotonComprar().add(new Ver_producto_clientes(producto));
-		
 		
 		
 		this.getButtonComprar().addClickListener(new ComponentEventListener() {			 
