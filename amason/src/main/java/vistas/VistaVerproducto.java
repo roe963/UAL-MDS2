@@ -2,31 +2,33 @@ package vistas;
 
 import com.vaadin.flow.templatemodel.TemplateModel;
 import com.vaadin.flow.component.Tag;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.polymertemplate.Id;
-import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-
-import vistas.VistaVerproductoclientes;
-import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.html.H4;
 import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.tabs.Tabs;
+import com.vaadin.flow.component.tabs.Tab;
 
 /**
  * A Designer generated component for the vista-verproducto template.
  *
- * Designer will add and remove fields with @Id mappings but
- * does not overwrite or otherwise change this file.
+ * Designer will add and remove fields with @Id mappings but does not overwrite
+ * or otherwise change this file.
  */
 @Tag("vista-verproducto")
 @JsModule("./src/vista-verproducto.js")
-public class VistaVerproducto extends PolymerTemplate<VistaVerproducto.VistaVerproductoModel> {
+public class VistaVerproducto extends PolymerTemplate<VistaVerproducto.VistaVeproductoModel> {
 
     //////Barra Navegacion /////
     @Id("layout-menu")
     private VerticalLayout layoutMenu;
-    
+
     public VerticalLayout getLayoutMenu() {
         return layoutMenu;
     }
@@ -34,35 +36,231 @@ public class VistaVerproducto extends PolymerTemplate<VistaVerproducto.VistaVerp
     public void setLayoutMenu(VerticalLayout layoutMenu) {
         this.layoutMenu = layoutMenu;
     }
-    //////Barra Navegacion /////
-	
+    ////// Barra Navegacion /////
+
     @Id("img1-producto")
-	private Image img1Producto;
-	@Id("img2-producto")
-	private Image img2Producto;
-	@Id("img3-producto")
-	private Image img3Producto;
-	@Id("img4-producto")
-	private Image img4Producto;
-	@Id("img5-producto")
-	private Image img5Producto;
-	@Id("label-nombre")
-	private Label labelNombre;
-	@Id("label-categoria")
-	private Label labelCategoria;
-	@Id("label-precio")
-	private Label labelPrecio;
-	@Id("label-precioanterior")
-	private Label labelPrecioanterior;
-	@Id("label-fechaoferta")
-	private Label labelFechaoferta;
-	@Id("label-nopiniones")
-	private Label labelNopiniones;
-	@Id("vistaVerproductoclientes")
-	private Element vistaVerproductoclientes;
+    private Image img1Producto;
+    @Id("vlCargarImagenes")
+    private HorizontalLayout vaadinHorizontalLayout;
+    @Id("label-nombre")
+    private Label nombreProducto;
+    @Id("label-categoria")
+    private Label nombreCategoria;
+    @Id("label-precio")
+    private Label nombrePrecio;
+    @Id("label-precioanterior")
+    private Label precioAnterior;
+    @Id("label-fechaoferta")
+    private Label fechaOferta;
+    @Id("label-nopiniones")
+    private Label nOpiniones;
+    @Id("h41")
+    private H4 tituloAnteriorh41;
+    @Id("h4")
+    private H4 tituloOfertah4;
+    @Id("hlValoracion")
+    private HorizontalLayout hlValoracion;
+
 	@Id("button-comprar")
 	private Button buttonComprar;
-	/**
+	
+    @Id("vaadinTabs")
+    private Tabs vaadinTabs;
+
+
+    @Id("btnDescripcion")
+    private Tab btnDescripcion;
+
+    @Id("btnValoracion")
+    private Tab btnValoracion;
+
+    @Id("vlDescripcion")
+    private VerticalLayout vlDescripcion;
+
+    @Id("vlValoracion")
+    private VerticalLayout vlValoracion;
+
+    @Id("label-descripcion")
+    private Label labelDescripcion;
+
+    @Id("vistaValoraciones")
+    private Element vistaValoraciones;
+
+    @Id("vldescripcionAndValoracion")
+    private VerticalLayout vldescripcionAndValoracion;
+
+    @Id("vlCargarImagenes")
+    private HorizontalLayout vlCargarImagenes;
+
+    public HorizontalLayout getVlCargarImagenes() {
+        return vlCargarImagenes;
+    }
+
+    public void setVlCargarImagenes(HorizontalLayout vlCargarImagenes) {
+        this.vlCargarImagenes = vlCargarImagenes;
+    }
+
+    public VerticalLayout getVldescripcionAndValoracion() {
+        return vldescripcionAndValoracion;
+    }
+
+    public void setVldescripcionAndValoracion(VerticalLayout vldescripcionAndValoracion) {
+        this.vldescripcionAndValoracion = vldescripcionAndValoracion;
+    }
+
+    public Tabs getVaadinTabs() {
+        return vaadinTabs;
+    }
+
+    public void setVaadinTabs(Tabs vaadinTabs) {
+        this.vaadinTabs = vaadinTabs;
+    }
+
+    public Tab getBtnDescripcion() {
+        return btnDescripcion;
+    }
+
+    public void setBtnDescripcion(Tab btnDescripcion) {
+        this.btnDescripcion = btnDescripcion;
+    }
+
+    public Tab getBtnValoracion() {
+        return btnValoracion;
+    }
+
+    public void setBtnValoracion(Tab btnValoracion) {
+        this.btnValoracion = btnValoracion;
+    }
+
+    public VerticalLayout getVlDescripcion() {
+        return vlDescripcion;
+    }
+
+    public void setVlDescripcion(VerticalLayout vlDescripcion) {
+        this.vlDescripcion = vlDescripcion;
+    }
+
+    public VerticalLayout getVlValoracion() {
+        return vlValoracion;
+    }
+
+    public void setVlValoracion(VerticalLayout vlValoracion) {
+        this.vlValoracion = vlValoracion;
+    }
+
+    public Label getLabelDescripcion() {
+        return labelDescripcion;
+    }
+
+    public void setLabelDescripcion(Label labelDescripcion) {
+        this.labelDescripcion = labelDescripcion;
+    }
+
+    public Element getVistaValoraciones() {
+        return vistaValoraciones;
+    }
+
+    public void setVistaValoraciones(Element vistaValoraciones) {
+        this.vistaValoraciones = vistaValoraciones;
+    }
+
+    public HorizontalLayout getHlValoracion() {
+        return hlValoracion;
+    }
+
+    public void setHlValoracion(HorizontalLayout hlValoracion) {
+        this.hlValoracion = hlValoracion;
+    }
+
+    public Image getImg1Producto() {
+        return img1Producto;
+    }
+
+    public void setImg1Producto(Image img1Producto) {
+        this.img1Producto = img1Producto;
+    }
+
+    public HorizontalLayout getVaadinHorizontalLayout() {
+        return vaadinHorizontalLayout;
+    }
+
+    public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
+        this.vaadinHorizontalLayout = vaadinHorizontalLayout;
+    }
+
+    public Label getNombreProducto() {
+        return nombreProducto;
+    }
+
+    public void setNombreProducto(Label nombreProducto) {
+        this.nombreProducto = nombreProducto;
+    }
+
+    public Label getNombreCategoria() {
+        return nombreCategoria;
+    }
+
+    public void setNombreCategoria(Label nombreCategoria) {
+        this.nombreCategoria = nombreCategoria;
+    }
+
+    public Label getNombrePrecio() {
+        return nombrePrecio;
+    }
+
+    public void setNombrePrecio(Label nombrePrecio) {
+        this.nombrePrecio = nombrePrecio;
+    }
+
+    public Label getPrecioAnterior() {
+        return precioAnterior;
+    }
+
+	public Button getButtonComprar() {
+		return buttonComprar;
+	}
+
+	public void setButtonComprar(Button buttonComprar) {
+		this.buttonComprar = buttonComprar;
+	}
+
+    public void setPrecioAnterior(Label precioAnterior) {
+        this.precioAnterior = precioAnterior;
+    }
+
+    public Label getFechaOferta() {
+        return fechaOferta;
+    }
+
+    public void setFechaOferta(Label fechaOferta) {
+        this.fechaOferta = fechaOferta;
+    }
+
+    public Label getnOpiniones() {
+        return nOpiniones;
+    }
+
+    public void setnOpiniones(Label nOpiniones) {
+        this.nOpiniones = nOpiniones;
+    }
+
+    public H4 getTituloAnteriorh41() {
+        return tituloAnteriorh41;
+    }
+
+    public void setTituloAnteriorh41(H4 tituloAnteriorh41) {
+        this.tituloAnteriorh41 = tituloAnteriorh41;
+    }
+
+    public H4 getTituloOfertah4() {
+        return tituloOfertah4;
+    }
+
+    public void setTituloOfertah4(H4 tituloOfertah4) {
+        this.tituloOfertah4 = tituloOfertah4;
+    }
+
+    /**
      * Creates a new VistaVerproducto.
      */
     public VistaVerproducto() {
@@ -70,9 +268,9 @@ public class VistaVerproducto extends PolymerTemplate<VistaVerproducto.VistaVerp
     }
 
     /**
-     * This model binds properties between VistaVerproducto and vista-verproducto
+     * This model binds properties between VistaVerproducto and vista-veproducto
      */
-    public interface VistaVerproductoModel extends TemplateModel {
+    public interface VistaVeproductoModel extends TemplateModel {
         // Add setters and getters for template properties here.
     }
 }

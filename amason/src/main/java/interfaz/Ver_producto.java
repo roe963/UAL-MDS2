@@ -33,10 +33,10 @@ import bds.BDPrincipal;
 import bds.iCliente;
 import ual.mds2.ortegaortega.MenuHeader;
 import ual.mds2.ortegaortega.ViewChanger;
-import vistas.VistaVeproducto;
+import vistas.VistaVerproducto;
 
 @Route("producto")
-public class Ver_producto extends VistaVeproducto implements HasUrlParameter<String> {
+public class Ver_producto extends VistaVerproducto implements HasUrlParameter<String> {
 	/*
 	 * private label _nombre; private label _nombreProducto; private label
 	 * _categoria; private label _nombreCategoria; private label _precio; private
