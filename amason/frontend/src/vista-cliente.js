@@ -4,8 +4,8 @@ import '@vaadin/vaadin-list-box/src/vaadin-list-box.js';
 import '@vaadin/vaadin-item/src/vaadin-item.js';
 import './vista-ofertas.js';
 import './vista-productos.js';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 
 class VistaCliente extends PolymerElement {
 
@@ -18,8 +18,8 @@ class VistaCliente extends PolymerElement {
         			width: 100%;
                 }
             </style>
+<vaadin-vertical-layout theme="spacing" id="layout-menu"></vaadin-vertical-layout>
 <vaadin-vertical-layout style="width: 100%; height: 100%; align-items: stretch;" id="vista-cliente">
- <vaadin-vertical-layout theme="spacing" id="layout-menu"></vaadin-vertical-layout>
  <vaadin-vertical-layout theme="spacing" style="padding: var(--lumo-space-xl);" id="vl_ofertas">
   <h4 id="tittle-ofertas">Ofertas</h4>
   <vaadin-horizontal-layout theme="spacing" id="hlofertas" style="width: 100%;">

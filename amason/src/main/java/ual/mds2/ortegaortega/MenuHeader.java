@@ -14,8 +14,10 @@ import com.vaadin.flow.component.textfield.TextField;
 
 import basededatos.Usuario;
 import bds.BDPrincipal;
+import interfaz.Buscar_producto_cliente;
 import interfaz.Cliente;
 import interfaz.Iniciar_sesion;
+import interfaz.Ver_catalogo_cliente;
 import interfaz.Ver_pedidos;
 import interfaz.Ver_perfil;
 import interfaz.Ver_producto;
@@ -50,8 +52,15 @@ public class MenuHeader {
         btnBuscar.setThemeName("tertiary");
         btnBuscar.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
             @Override
-            public void onComponentEvent(ClickEvent<Button> event) {
-                UI.getCurrent().navigate("producto");
+            public void onComponentEvent(ClickEvent<Button> event) {                
+                if (txtBuscar.isEmpty()) {
+                	//CambiarVista(new Ver_catalogo_cliente());
+                	//UI.getCurrent().navigate("ver_catalogo_cliente");
+                	UI.getCurrent().navigate("administrar_productos");
+    			} else {
+    				//CambiarVista(new Buscar_producto_cliente(txtBuscar.getValue()));
+    				//UI.getCurrent().navigate("producto");
+    			}
             }
         });
 

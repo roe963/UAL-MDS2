@@ -7,6 +7,7 @@ import org.orm.PersistentException;
 
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.select.Select;
+import com.vaadin.flow.router.Route;
 
 import basededatos.Categoria;
 import basededatos.Producto;
@@ -14,6 +15,7 @@ import bds.BDPrincipal;
 import bds.iCliente;
 import vistas.VistaVercatalogocliente;
 
+@Route("ver_catalogo_cliente")
 public class Ver_catalogo_cliente extends VistaVercatalogocliente{
 	
 	Select<Categoria> labelSelect = new Select<>();

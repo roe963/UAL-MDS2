@@ -17,7 +17,20 @@ import com.vaadin.flow.component.polymertemplate.Id;
 @Tag("vista-vercatalogocliente")
 @JsModule("./src/vista-vercatalogocliente.js")
 public class VistaVercatalogocliente extends PolymerTemplate<VistaVercatalogocliente.VistaVercatalogoclienteModel> {
+	
+    //////Barra Navegacion /////
+    @Id("layout-menu")
+    private VerticalLayout layoutMenu;
+    
+    public VerticalLayout getLayoutMenu() {
+        return layoutMenu;
+    }
 
+    public void setLayoutMenu(VerticalLayout layoutMenu) {
+        this.layoutMenu = layoutMenu;
+    }
+    //////Barra Navegacion /////
+	
     @Id("vaadinHorizontalLayout")
 	private HorizontalLayout vaadinHorizontalLayout;
 	@Id("layout-selectCategoria")

@@ -3,6 +3,8 @@ package vistas;
 import com.vaadin.flow.templatemodel.TemplateModel;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 
 /**
@@ -15,6 +17,19 @@ import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 @JsModule("./src/vista-administrarofertas.js")
 public class VistaAdministrarofertas extends PolymerTemplate<VistaAdministrarofertas.VistaAdministrarofertasModel> {
 
+    //////Barra Navegacion /////
+    @Id("layout-menu")
+    private VerticalLayout layoutMenu;
+    
+    public VerticalLayout getLayoutMenu() {
+        return layoutMenu;
+    }
+
+    public void setLayoutMenu(VerticalLayout layoutMenu) {
+        this.layoutMenu = layoutMenu;
+    }
+    //////Barra Navegacion /////
+	
     /**
      * Creates a new VistaAdministrarofertas.
      */
