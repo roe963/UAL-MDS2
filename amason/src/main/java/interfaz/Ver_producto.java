@@ -6,8 +6,6 @@ import java.util.Map;
 import org.orm.PersistentException;
 
 import com.vaadin.flow.component.Component;
-import com.vaadin.flow.component.ComponentEvent;
-import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.Label;
@@ -25,6 +23,8 @@ import com.vaadin.flow.router.HasUrlParameter;
 import com.vaadin.flow.router.OptionalParameter;
 import com.vaadin.flow.router.Route;
 
+import basededatos.Cantidad;
+import basededatos.CantidadDAO;
 import basededatos.Foto;
 import basededatos.Oferta;
 import basededatos.Producto;
@@ -32,6 +32,7 @@ import basededatos.Valoracion;
 import bds.BDPrincipal;
 import bds.iCliente;
 import ual.mds2.ortegaortega.MenuHeader;
+import ual.mds2.ortegaortega.Session;
 import ual.mds2.ortegaortega.ViewChanger;
 import vistas.VistaVerproducto;
 
@@ -163,31 +164,11 @@ public class Ver_producto extends VistaVerproducto implements HasUrlParameter<St
 		this.getVldescripcionAndValoracion().add(tabs, pages);
 		
 		
-		this.getButtonComprar().addClickListener(new ComponentEventListener() {			 
-			@Override
-			public void onComponentEvent(ComponentEvent event) {
-				System.out.println("Se añade al carrito" +producto.getNombre());
-				
-				if(ViewChanger.getIdUsuario() == -1) {
-					Span content = new Span("Para comprar tienes que iniciar sesión!!");
-					Notification notification = new Notification(content);
-					notification.setPosition(Position.MIDDLE);
-					notification.setDuration(2000);
-					notification.open();
-					
-				}else {
-					
-					ViewChanger.addProducto(producto);					
-					cantidadCache cantidadCache= new cantidadCache(producto.getId(), 1);					
-					ViewChanger.addCantidadProductos(cantidadCache);
-					notificacion();
-										
-				}
-				
-				
-			}
+		this.getButtonComprar().addClickListener(event -> {
+		    System.out.println("Se añade al carrito" +producto.getNombre());
+		    Producto_del_carrito p = new Producto_del_carrito(producto, 1);
+		    Session.getCarrito().add(p);
 		});
-
 	}
 	
 	public void notificacion() {

@@ -7,6 +7,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import basededatos.Cantidad;
 import basededatos.Usuario;
+import interfaz.Producto_del_carrito;
 
 public class Session {
     
@@ -40,13 +41,13 @@ public class Session {
         usuario = u;
     }
 
-    private static List<Cantidad> carrito = new ArrayList<>();
+    private static List<Producto_del_carrito> carrito = new ArrayList<>();
 
-    public static List<Cantidad> getCarrito() {
+    public static List<Producto_del_carrito> getCarrito() {
         return carrito;
     }
 
-    public static void setCarrito(List<Cantidad> c) {
+    public static void setCarrito(List<Producto_del_carrito> c) {
         carrito = c;
     }
 

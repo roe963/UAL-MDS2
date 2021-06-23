@@ -16,6 +16,7 @@ import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.router.Route;
 
 import ual.mds2.ortegaortega.MenuHeader;
+import ual.mds2.ortegaortega.Session;
 import ual.mds2.ortegaortega.ViewChanger;
 import vistas.VistaCarrito;
 
@@ -37,7 +38,7 @@ public class Carrito extends VistaCarrito {
 		
 		this.getVlProductos().removeAll();
 //		Productos_del_carrito productos_del_carrito = new Productos_del_carrito();
-		this.getVlProductos().add(new Productos_del_carrito(ViewChanger.productoscarrito));
+		this.getVlProductos().add(new Productos_del_carrito(Session.getCarrito()));
 
 		btnTramitarPedido();
 	}
