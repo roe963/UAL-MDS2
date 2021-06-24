@@ -10,13 +10,17 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.notification.Notification.Position;
 import com.vaadin.flow.component.radiobutton.RadioButtonGroup;
 import com.vaadin.flow.component.radiobutton.RadioGroupVariant;
+import com.vaadin.flow.router.HasUrlParameter;
+import com.vaadin.flow.router.Route;
 
 import basededatos.Cliente;
 import bds.BDPrincipal;
 import bds.iCliente_registrado;
+import ual.mds2.ortegaortega.Session;
 import ual.mds2.ortegaortega.ViewChanger;
 import vistas.VistaVeperfil;
 
+@Route("ver_perfil")
 public class Ver_perfil extends VistaVeperfil {
 	/*
 	 * private label _nombre; private textField _nombreUsuario; private label _mail;
@@ -27,12 +31,13 @@ public class Ver_perfil extends VistaVeperfil {
 	 * _estadoCuenta; private button _guardar; public Cliente_registrado
 	 * _cliente_registrado; public Datos_de_compra _datos_de_compra;
 	 */
-
+	
+	
+	
 	iCliente_registrado iclientes_registrado = new BDPrincipal();
-
+	
 	public Ver_perfil() {
 		cargar_perfil();
-
 	}
 
 	public void guardar_perfil() {
@@ -49,7 +54,8 @@ public class Ver_perfil extends VistaVeperfil {
 
 	public void cargar_perfil() {
 
-		int id = ViewChanger.getIdUsuario();
+		//int id = ViewChanger.getIdUsuario();
+		int id = Session.getCliente().getId();
 
 		// System.out.println(id);
 

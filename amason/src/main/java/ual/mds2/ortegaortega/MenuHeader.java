@@ -54,7 +54,6 @@ public class MenuHeader {
             @Override
             public void onComponentEvent(ClickEvent<Button> event) {                
                 if (txtBuscar.isEmpty()) {
-                	//CambiarVista(new Ver_catalogo_cliente());
                 	//UI.getCurrent().navigate("ver_catalogo_cliente");
                 	UI.getCurrent().navigate("administrar_productos");
     			} else {
@@ -77,10 +76,10 @@ public class MenuHeader {
         case ADMIN:
             
             MenuItem administrateMenu = menuBar.addItem("Administrar");
-            administrateMenu.getSubMenu().addItem("Productos", e -> UI.getCurrent().navigate("productos"));
-            administrateMenu.getSubMenu().addItem("Categorias", e -> UI.getCurrent().navigate("categorias"));
-            administrateMenu.getSubMenu().addItem("Ofertas", e -> UI.getCurrent().navigate("ofertas"));
-            administrateMenu.getSubMenu().addItem("Empleados", e -> UI.getCurrent().navigate("empleados"));
+            administrateMenu.getSubMenu().addItem("Productos", e -> UI.getCurrent().navigate("administrar_productos"));
+            administrateMenu.getSubMenu().addItem("Categorias", e -> UI.getCurrent().navigate("administrar_categorias"));
+            administrateMenu.getSubMenu().addItem("Ofertas", e -> UI.getCurrent().navigate("administrar_ofertas"));
+            administrateMenu.getSubMenu().addItem("Empleados", e -> UI.getCurrent().navigate("administrar_empleados"));
 
             MenuItem showMenu = menuBar.addItem("Ver");
             showMenu.getSubMenu().addItem("Catalogo", e -> UI.getCurrent().navigate("catalogo"));
@@ -133,7 +132,7 @@ public class MenuHeader {
             menuBar.addItem(btnCarrito);
 
             MenuItem me = menuBar.addItem("Yo");
-            me.getSubMenu().addItem("Mis datos", e -> UI.getCurrent().navigate("productos"));
+            me.getSubMenu().addItem("Mis datos", e -> UI.getCurrent().navigate("ver_perfil"));
             me.getSubMenu().addItem("Mis pedidos", e -> UI.getCurrent().navigate("productos"));
             me.getSubMenu().addItem("Mis mensajes", e -> UI.getCurrent().navigate("productos"));
 
