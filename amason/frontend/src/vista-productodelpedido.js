@@ -1,7 +1,7 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 
 class VistaProductodelpedido extends PolymerElement {
 
@@ -14,28 +14,24 @@ class VistaProductodelpedido extends PolymerElement {
         			width: 100%;
                 }
             </style>
-<vaadin-horizontal-layout class="content" style="width: 100%; height: 18%;">
- <vaadin-vertical-layout theme="spacing">
-  <img style="padding: var(--lumo-space-xl);" id="img-pedido">
+<vaadin-horizontal-layout class="content" style="margin-left: var(--lumo-space-s); margin-right: var(--lumo-space-s); justify-content: space-evenly;" theme="spacing-xl">
+ <img style="min-width: 100px; min-height: 100px; padding: var(--lumo-space-s); flex-grow: 1; flex-shrink: 1; align-self: center; max-width: 100px; max-height: 100px;" id="img-producto-pedido">
+ <vaadin-vertical-layout style="flex-shrink: 0; flex-grow: 1; align-items: flex-start;">
+  <vaadin-vertical-layout style="flex-shrink: 0; flex-grow: 0;">
+   <h4 id="h-nombre-producto-pedido" style="flex-grow: 0; flex-shrink: 0;">Producto</h4>
+   <label id="lbl-categoria-producto-pedido" style="flex-shrink: 0;">Categoría</label>
+  </vaadin-vertical-layout>
  </vaadin-vertical-layout>
- <vaadin-vertical-layout theme="spacing" style="padding-left: var(--lumo-space-xl);">
-  <vaadin-list-box>
-   <h4 id="h-pedido">Producto</h4>
-   <label id="label-categoria">Categoría</label>
-  </vaadin-list-box>
-  <label id="label-cantidad">Cantidad</label>
- </vaadin-vertical-layout>
- <vaadin-vertical-layout theme="spacing" style="flex-grow: 1; padding-left: var(--lumo-space-xl); align-self: flex-end;">
-  <vaadin-button id="button-valorar" style="flex-grow: 0;">
-   Valorar
-  </vaadin-button>
- </vaadin-vertical-layout>
- <vaadin-vertical-layout theme="spacing" style="align-self: center; flex-grow: 0; padding-right: var(--lumo-space-xl);">
-  <vaadin-list-box style="align-self: center;">
-   <label style="flex-grow: 0;">Precio</label>
-   <h4 id="h-precio">0,00€</h4>
-  </vaadin-list-box>
- </vaadin-vertical-layout>
+ <vaadin-horizontal-layout style="flex-grow: 1; justify-content: flex-start;">
+  <label style="flex-grow: 0; align-self: center; margin-right: var(--lumo-space-s);" id="lbl-cantidad-producto-pedido">Uds.</label>
+  <label style="flex-grow: 0; align-self: center; margin-right: var(--lumo-space-s);">x</label>
+  <label style="flex-grow: 0; align-self: center; margin-right: var(--lumo-space-s);" id="lbl-precio-producto-pedido">Precio</label>
+  <label style="flex-grow: 0; align-self: center; margin: var(--lumo-space-s);">=</label>
+  <h4 id="h-preciototal-producto-pedido" style="align-self: center;">0,00€</h4>
+ </vaadin-horizontal-layout>
+ <vaadin-button id="button-valorar-producto-pedido" style="flex-grow: 0; align-self: center; flex-shrink: 1;">
+   Valorar 
+ </vaadin-button>
 </vaadin-horizontal-layout>
 `;
     }

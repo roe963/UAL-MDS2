@@ -21,6 +21,7 @@ import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.router.BeforeEvent;
 import com.vaadin.flow.router.HasUrlParameter;
 import com.vaadin.flow.router.OptionalParameter;
+import com.vaadin.flow.router.PreserveOnRefresh;
 import com.vaadin.flow.router.Route;
 
 import basededatos.Cantidad;
@@ -36,6 +37,7 @@ import ual.mds2.ortegaortega.Session;
 import ual.mds2.ortegaortega.ViewChanger;
 import vistas.VistaVerproducto;
 
+@PreserveOnRefresh
 @Route("producto")
 public class Ver_producto extends VistaVerproducto implements HasUrlParameter<String> {
 	/*
@@ -85,7 +87,7 @@ public class Ver_producto extends VistaVerproducto implements HasUrlParameter<St
 
 		this.getNombreProducto().setText(producto.getNombre());
 		this.getNombreCategoria().setText(producto.getAsignado_a().getNombre());
-		this.getNombrePrecio().setText(Double.toString(producto.getPrecio()));
+		this.getNombrePrecio().setText(Double.toString(producto.getPrecio())+"€");
 		Oferta oferta = producto.getPertenece_a();
 
 		// Oculta botones cuando ese producto no tiene ofertas

@@ -3,6 +3,9 @@ package interfaz;
 import java.util.Iterator;
 
 import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.menubar.MenuBar;
+import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
+import com.vaadin.flow.router.Route;
 
 import basededatos.Cantidad;
 import basededatos.Pedido_entregado;
@@ -10,82 +13,47 @@ import basededatos.Pedido_enviado;
 import basededatos.Pedido_pendiente;
 import bds.BDPrincipal;
 import bds.iCliente_registrado;
+import ual.mds2.ortegaortega.MenuHeader;
+import ual.mds2.ortegaortega.Session;
 import ual.mds2.ortegaortega.ViewChanger;
 import vistas.VistaVerpedidos;
 
+@Route("pedidos")
 public class Ver_pedidos extends VistaVerpedidos {
-	/*public Cliente_registrado _cliente_registrado;
-	public Pedidos_cliente_registrado _pedidos_cliente_registrado;*/
-	
-	
-	iCliente_registrado cliente_registrado = new BDPrincipal();
-	
-	public Ver_pedidos() {
-		cargar_pedidos_cliente_registrado();	
-	}
-	
-	
-	public void cargar_pedidos_cliente_registrado() {
-		
-		Pedido_pendiente[] arrayPedidosPendientes = cliente_registrado.cargar_pedidos_pendientes_cliente_registrado(ViewChanger.getIdUsuario());
-		
-		Pedido_enviado[] arrayPedidosEnviados = cliente_registrado.cargar_pedidos_enviados_cliente_registrado(ViewChanger.getIdUsuario());
-		
-		Pedido_entregado[] arrayPedidosEntregado = cliente_registrado.cargar_pedidos_entregados_cliente_registrado(ViewChanger.getIdUsuario());
+    /*
+     * public Cliente_registrado _cliente_registrado; public
+     * Pedidos_cliente_registrado _pedidos_cliente_registrado;
+     */
 
+    iCliente_registrado cliente_registrado = new BDPrincipal();
 
-		
-		this.getVaadinVerticalLayout().removeAll();
-		
-		
-		
-		cargar_pedidos_pendientes(arrayPedidosPendientes);
-		
-		cargar_pedidosEnviados(arrayPedidosEnviados);
-		
-		cargar_pedidoEntregado(arrayPedidosEntregado);
-		
-	}
+    public Ver_pedidos() {
+        MenuBar mb = MenuHeader.getMenuBar();
+        this.getLayoutMenu().removeAll();
+        this.getLayoutMenu().add(mb);
+        this.getLayoutMenu().setHorizontalComponentAlignment(Alignment.CENTER, mb);
 
+        Pedido_pendiente[] arrayPedidosPendientes = cliente_registrado
+                .cargar_pedidos_pendientes_cliente_registrado(Session.getCliente().getId());
 
-	private void cargar_pedidoEntregado(Pedido_entregado[] arrayPedidosEntregado) {
-		if (arrayPedidosEntregado.length != 0) {
-            for (int i = 0; i < arrayPedidosEntregado.length; i++) {
-                this.getVaadinVerticalLayout().add(new  Pedido_cliente_registrado(arrayPedidosEntregado[i]));
-            }
-        }else {
-            Label titulo= new Label();
-            titulo.setText("No hay pedidos Entregados...");
-            this.getVaadinVerticalLayout().add(titulo);
+        Pedido_enviado[] arrayPedidosEnviados = cliente_registrado
+                .cargar_pedidos_enviados_cliente_registrado(Session.getCliente().getId());
+
+        Pedido_entregado[] arrayPedidosEntregado = cliente_registrado
+                .cargar_pedidos_entregados_cliente_registrado(Session.getCliente().getId());
+
+        this.getVaadinVerticalLayout().removeAll();
+
+        for (int i = 0; i < arrayPedidosPendientes.length; i++) {
+            this.getVaadinVerticalLayout().add(new Pedido_cliente_registrado(arrayPedidosPendientes[i]));
         }
-	}
 
-
-	private void cargar_pedidosEnviados(Pedido_enviado[] arrayPedidosEnviados) {
-		if (arrayPedidosEnviados.length != 0) {
-            for (int i = 0; i < arrayPedidosEnviados.length; i++) {
-                this.getVaadinVerticalLayout().add(new  Pedido_cliente_registrado(arrayPedidosEnviados[i]));
-            }
-        }else {
-            Label titulo= new Label();
-            titulo.setText("No hay pedidos Enviados...");
-            this.getVaadinVerticalLayout().add(titulo);
+        for (int i = 0; i < arrayPedidosEnviados.length; i++) {
+            this.getVaadinVerticalLayout().add(new Pedido_cliente_registrado(arrayPedidosEnviados[i]));
         }
-		
-	}
 
-
-	private void cargar_pedidos_pendientes(Pedido_pendiente[] arrayPedidosPendientes ) {
-		if (arrayPedidosPendientes.length != 0) {
-            for (int i = 0; i < arrayPedidosPendientes.length; i++) {
-                this.getVaadinVerticalLayout().add(new  Pedido_cliente_registrado(arrayPedidosPendientes[i]));
-            }
-        }else {
-            Label titulo= new Label();
-            titulo.setText("No hay pedidos pendientes...");
-            this.getVaadinVerticalLayout().add(titulo);
+        for (int i = 0; i < arrayPedidosEntregado.length; i++) {
+            this.getVaadinVerticalLayout().add(new Pedido_cliente_registrado(arrayPedidosEntregado[i]));
         }
-		
-	}
-
+    }
 }

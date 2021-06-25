@@ -1,6 +1,5 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
-import './vista-productodelpedido.js';
 
 class VistaProductosdelpedido extends PolymerElement {
 
@@ -13,9 +12,7 @@ class VistaProductosdelpedido extends PolymerElement {
         			width: 100%;
                 }
             </style>
-<vaadin-vertical-layout>
- <vista-productodelpedido></vista-productodelpedido>
-</vaadin-vertical-layout>
+<vaadin-vertical-layout id="layout-productosdelpedido"></vaadin-vertical-layout>
 `;
     }
 

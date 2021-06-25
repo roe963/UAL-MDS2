@@ -2,8 +2,14 @@ package vistas;
 
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.templatemodel.TemplateModel;
+
+import basededatos.Cantidad;
+
+import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.polymertemplate.Id;
 
 /**
  * A Designer generated component for the vista-productosdelpedido template.
@@ -15,10 +21,21 @@ import com.vaadin.flow.templatemodel.TemplateModel;
 @JsModule("./src/vista-productosdelpedido.js")
 public class VistaProductosdelpedido extends PolymerTemplate<VistaProductosdelpedido.VistaProductosdelpedidoModel> {
 
+    @Id("layout-productosdelpedido")
+    private VerticalLayout productosDelPedido;
+
+    public VerticalLayout getProductosDelPedido() {
+        return productosDelPedido;
+    }
+
+    public void setProductosDelPedido(VerticalLayout productosDelPedido) {
+        this.productosDelPedido = productosDelPedido;
+    }
+
     /**
      * Creates a new VistaProductosdelpedido.
      */
-    public VistaProductosdelpedido() {
+    public VistaProductosdelpedido(Cantidad[] cantidades) {
         // You can initialise any data required for the connected UI components here.
     }
 

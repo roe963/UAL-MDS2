@@ -1,7 +1,6 @@
 package bds;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 import java.util.Vector;
 
 import org.orm.PersistentException;
@@ -10,8 +9,6 @@ import org.orm.PersistentTransaction;
 import basededatos.Pedido;
 import basededatos.Pedido_enviado;
 import basededatos.Pedido_enviadoDAO;
-import basededatos.Pedido_pendiente;
-import basededatos.Pedido_pendienteDAO;
 
 public class Pedidos_enviados {
 	public BDPrincipal _bdprincipal_pedidos_enviados;
@@ -33,30 +30,24 @@ public class Pedidos_enviados {
 		throw new UnsupportedOperationException();
 	}
 
-	public Pedido_enviado[] cargar_pedidos_enviados_cliente_registrado(int aIdUsuario)throws PersistentException  {
-		PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession()
-				.beginTransaction();
+	public Pedido_enviado[] cargar_pedidos_enviados_cliente_registrado(int aIdUsuario) {
+	    PersistentTransaction t;
+	    Pedido_enviado[] arrayPedido = null;
+        try {
+            t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
+            try {
+                Pedido_enviado[] arrayPedidoEnviado = Pedido_enviadoDAO.listPedido_enviadoByQuery(null, null);
+                arrayPedido = Arrays.stream(arrayPedidoEnviado)
+                        .filter(p -> p.getRealizado_por().getId() == aIdUsuario)
+                        .toArray(basededatos.Pedido_enviado[]::new);
 
-		List<Pedido_enviado> listaPedidoEnviado = new ArrayList<Pedido_enviado>();
-		Pedido_enviado[] arrayPedidoEnv= null;
-		try {
-			Pedido_enviado[] arrayPedidoEnviado = Pedido_enviadoDAO.listPedido_enviadoByQuery(null, null);
-			
-			
-			for (int i = 0; i < arrayPedidoEnviado.length; i++) {				
-				if(arrayPedidoEnviado[i].getRealizado_por().getId() == aIdUsuario) {					
-					listaPedidoEnviado.add(arrayPedidoEnviado[i]);
-				}						
-			}
-
-
-			t.commit();
-		} catch (PersistentException e) {
-			t.rollback();
-		}
-				
-		arrayPedidoEnv = listaPedidoEnviado.stream().toArray(basededatos.Pedido_enviado[]::new);//convertir una lista a un array
-			
-		return arrayPedidoEnv;	
+                t.commit();
+            } catch (PersistentException e) {
+                t.rollback();
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        return arrayPedido;
 	}
 }

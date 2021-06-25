@@ -261,40 +261,26 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 	}
 
 	public Pedido_pendiente[] cargar_pedidos_pendientes_cliente_registrado(int aIdUsuario) {
-		Pedido_pendiente[] arrayPedidos = null;
-		try {
-			arrayPedidos = _bd_pedidos_pendientes.cargar_pedidos_pendientes_cliente_registrado(aIdUsuario);
-
-		} catch (PersistentException e) {
-			e.printStackTrace();
-		}
-		return arrayPedidos;
+		return _bd_pedidos_pendientes.cargar_pedidos_pendientes_cliente_registrado(aIdUsuario);
 	}
 
 	public Pedido_enviado[] cargar_pedidos_enviados_cliente_registrado(int aIdUsuario) {
-		Pedido_enviado[] arrayPedidosEnviado = null;
-		try {
-			arrayPedidosEnviado = _bd_pedidos_enviados.cargar_pedidos_enviados_cliente_registrado(aIdUsuario);
-
-		} catch (PersistentException e) {
-			e.printStackTrace();
-		}
-		return arrayPedidosEnviado;
+		return _bd_pedidos_enviados.cargar_pedidos_enviados_cliente_registrado(aIdUsuario);
 	}
 
 	public Pedido_entregado[] cargar_pedidos_entregados_cliente_registrado(int aIdUsuario) {
-		Pedido_entregado[] arrayPedidosEntregado = null;
-		try {
-			arrayPedidosEntregado = _bd_pedidos_entregados.cargar_pedidos_entregados_cliente_registrado(aIdUsuario);
-
-		} catch (PersistentException e) {
-			e.printStackTrace();
-		}
-		return arrayPedidosEntregado;
+		return _bd_pedidos_entregados.cargar_pedidos_entregados_cliente_registrado(aIdUsuario);
 	}
 
 	public Cantidad[] cargar_cantidades_pedido(int aIdPedido) {
-		throw new UnsupportedOperationException();	
+	    Cantidad[] arrayCantidades = null;
+        try {
+            arrayCantidades = _bd_cantidades.cargar_cantidades_pedido(aIdPedido);
+
+        } catch (PersistentException e) {
+            e.printStackTrace();
+        }
+        return arrayCantidades;
 	}
 
 	public Mensaje[] cargar_mensajes_cliente(int aIdUsuario) {
@@ -350,105 +336,7 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 	}
 
 	public Usuario iniciar_sesion(String aMailUsuario, String aPasswordUsuario) {
-
 		return _bd_usuario.iniciar_sesion(aMailUsuario, aPasswordUsuario);
-
-		/*
-		 * Usuario usuario = null;
-		 * 
-		 * //usuario = _bd_usuario.iniciar_sesion(aMailUsuario, aPasswordUsuario);
-		 * //_bd_clientes.iniciar_sesion_cliente(usuario.getId());
-		 * _bd_administradores.iniciar_sesion_administrador(usuario.getId());
-		 * _bd_empresas_transportes.iniciar_sesion_empresa_transportes(usuario.getId());
-		 * _bd_encargados_compras.iniciar_sesion_encargado_compras(usuario.getId());
-		 * 
-		 * return usuario = _bd_usuario.iniciar_sesion(aMailUsuario, aPasswordUsuario);
-		 */
-
-//		
-//		Usuario usuario = new Usuario();
-//		int id= 0;
-//		//Buscar en usuario
-//        usuario = _bd_usuario.iniciar_sesion(aMailUsuario, aPasswordUsuario);	
-//        
-//        if(usuario == null) {
-//        	usuario = new Usuario();
-//
-//        	usuario.setEmail("INCORRECTO");	
-//        	usuario.setPassword("INCORRECTO");
-//
-//        }else {
-//        	id= usuario.getId();
-//        	usuario = new Usuario();
-//        	usuario.setEmail("SeguirBuscandoTabla");
-//        }			
-//        
-//        if( usuario.getEmail().equals("INCORRECTO")) {//NO hay usuario				
-//        		return usuario;		
-//        }				
-//        		
-//        
-//        //Buscar en cliente
-//        if( usuario.getEmail().equals("SeguirBuscandoTabla")) {	
-//        	usuario= _bd_clientes.iniciar_sesion_cliente(id);	
-//
-//        	if(usuario == null) {
-//        		usuario = new Usuario();
-//        		usuario.setEmail("SeguirBuscandoTabla");	
-//        	}else {		
-//        		usuario = new Usuario();
-//        		usuario.setEmail((Integer.toString(id)));
-//        		usuario.setPassword("TIPO_CLIENTE");
-//        		return usuario;
-//        	}	
-//        }	
-//        
-//        		
-//        //Buscar en Administrador
-//        if( usuario.getEmail().equals("SeguirBuscandoTabla")) {
-//        	usuario= _bd_administradores.iniciar_sesion_administrador(id);				
-//        	if(usuario == null) {
-//        		usuario = new Usuario();
-//        		usuario.setEmail("SeguirBuscandoTabla");	
-//        	}else {		
-//        		usuario = new Usuario();
-//        		usuario.setEmail((Integer.toString(id)));
-//        		usuario.setPassword("TIPO_ADMINISTRADOR");
-//        		return usuario;
-//        	}			
-//        }		
-//        
-//        
-//        //Buscar en Empresa de transporte
-//        if( usuario.getEmail().equals("SeguirBuscandoTabla")) {
-//        	usuario= _bd_empresas_transportes.iniciar_sesion_empresa_transportes(id);				
-//        	if(usuario == null) {
-//        		usuario = new Usuario();
-//        		usuario.setEmail("SeguirBuscandoTabla");	
-//        	}else {		
-//        		usuario = new Usuario();
-//        		usuario.setEmail((Integer.toString(id)));
-//        		usuario.setPassword("TIPO_EMPRESA_TRANSPORTE");
-//        		return usuario;
-//        	}			
-//        }	
-//        
-//        
-//        //Buscar en Encargado
-//        if( usuario.getEmail().equals("SeguirBuscandoTabla")) {//Busca en Empresa de transporte
-//        	usuario= _bd_encargados_compras.iniciar_sesion_encargado_compras(id);			
-//        	if(usuario == null) {
-//        		usuario = new Usuario();
-//        		usuario.setEmail("SeguirBuscandoTabla");	
-//        	}else {		
-//        		usuario = new Usuario();
-//        		usuario.setEmail((Integer.toString(id)));
-//        		usuario.setPassword("TIPO_ENCARGADO");
-//        		return usuario;
-//        	}			
-//        }
-//				
-//		return usuario;
 	}
 
 	public boolean recuperar_contrasena(String aMailUsuario) {

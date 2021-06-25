@@ -30,14 +30,14 @@ public class Pedido_pendienteDAO {
 		}
 	}
 	
-	public static Pedido_pendiente getPedido_pendienteByORMID(int id) throws PersistentException {
+	public static Pedido_pendiente getPedido_pendienteByORMID(int id){
 		try {
 			PersistentSession session = MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession();
 			return getPedido_pendienteByORMID(session, id);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
-			throw new PersistentException(e);
+			return null;
 		}
 	}
 	

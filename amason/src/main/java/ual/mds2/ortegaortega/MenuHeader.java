@@ -133,7 +133,7 @@ public class MenuHeader {
 
             MenuItem me = menuBar.addItem("Yo");
             me.getSubMenu().addItem("Mis datos", e -> UI.getCurrent().navigate("ver_perfil"));
-            me.getSubMenu().addItem("Mis pedidos", e -> UI.getCurrent().navigate("productos"));
+            me.getSubMenu().addItem("Mis pedidos", e -> UI.getCurrent().navigate("pedidos"));
             me.getSubMenu().addItem("Mis mensajes", e -> UI.getCurrent().navigate("productos"));
 
             menuBar.addItem(closeSessionButton());

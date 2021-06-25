@@ -1,9 +1,8 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import './vista-productosdelcarrito.js';
-import './vista-productosdelpedido.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 
 class VistaVerpedido extends PolymerElement {
 
@@ -17,25 +16,23 @@ class VistaVerpedido extends PolymerElement {
                 }
             </style>
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-vertical-layout theme="spacing" id="layout-menu"></vaadin-vertical-layout>
- <h4 style="padding: var(--lumo-space-xl); padding-bottom: var(--lumo-space-xs);">Heading 4</h4>
- <vaadin-vertical-layout theme="spacing" style="padding-top: var(--lumo-space-xs); margin: var(--lumo-space-xl); align-self: stretch; margin-top: var(--lumo-space-xs); flex-grow: 1;">
-  <vaadin-horizontal-layout theme="spacing">
-   <h4>Heading 4</h4>
-   <label style="align-self: center;">Label</label>
-   <h4>Heading 4</h4>
-   <label style="align-self: center;">Label</label>
-   <h4>Heading 4</h4>
-   <label style="align-self: center;">Label</label>
-   <h4>Heading 4</h4>
-   <label style="align-self: center;">Label</label>
-   <h4>Heading 4</h4>
-   <label style="align-self: center;">Label</label>
+ <vaadin-vertical-layout id="layout-menu" style="align-self: center;"></vaadin-vertical-layout>
+ <vaadin-vertical-layout style="flex-grow: 1; align-self: stretch; margin: var(--lumo-space-m);">
+  <h4 style="flex-shrink: 0; align-self: flex-start;" id="h-idpedido">Pedido X</h4>
+  <vaadin-horizontal-layout theme="spacing-xl" style="align-self: stretch; justify-content: space-between;">
+   <vaadin-horizontal-layout theme="spacing-l" style="justify-content: flex-start; flex-grow: 1;">
+    <h4>Fecha:</h4>
+    <label style="align-self: center;" id="lbl-fecha-pedido">Label</label>
+    <h4>Precio:</h4>
+    <label style="align-self: center;" id="lbl-precio-pedido">Label</label>
+    <h4>Estado:</h4>
+    <label style="align-self: center;" id="label-estado-pedido">Label</label>
+   </vaadin-horizontal-layout>
+   <vaadin-button id="button-cancelarcompra" style="align-self: center;">
+     Cancelar compra 
+   </vaadin-button>
   </vaadin-horizontal-layout>
-  <vista-productosdelpedido style="flex-grow: 0;"></vista-productosdelpedido>
-  <vaadin-button id="button-cancelarcompra" style="align-self: center;">
-    Cancelar compra 
-  </vaadin-button>
+  <vaadin-vertical-layout id="layout-productosdelpedido" style="flex-grow: 1; flex-shrink: 0; align-self: stretch;"></vaadin-vertical-layout>
  </vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;
