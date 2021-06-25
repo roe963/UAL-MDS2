@@ -2,11 +2,11 @@ package vistas;
 
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.templatemodel.TemplateModel;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.polymertemplate.Id;
-import com.vaadin.flow.dom.Element;
 import com.vaadin.flow.component.select.Select;
 import com.vaadin.flow.component.textfield.TextArea;
 import com.vaadin.flow.component.radiobutton.RadioButtonGroup;
@@ -25,7 +25,7 @@ public class VistaAgregarproducto extends PolymerTemplate<VistaAgregarproducto.V
     @Id("textField-nombre")
 	private TextField textFieldNombre;
 	@Id("layout-selectCategoria")
-	private Element layoutSelectCategoria;
+	private VerticalLayout layoutSelectCategoria;
 	@Id("select-categoria")
 	private Select selectCategoria;
 	@Id("textField-precio")
@@ -42,11 +42,11 @@ public class VistaAgregarproducto extends PolymerTemplate<VistaAgregarproducto.V
 	private TextField textFieldImagen4;
 	@Id("textField-imagen5")
 	private TextField textFieldImagen5;
-	@Id("vaadinRadioGroup")
-	private RadioButtonGroup<String> vaadinRadioGroup;
+	@Id("layout-imagenPrincipal")
+	private VerticalLayout layoutImagenPrincipal;
 	@Id("button-anadir")
 	private Button buttonAnadir;
-	
+
 	/**
      * Creates a new VistaAgregarproducto.
      */
@@ -69,11 +69,11 @@ public class VistaAgregarproducto extends PolymerTemplate<VistaAgregarproducto.V
 		this.textFieldNombre = textFieldNombre;
 	}
 
-	public Element getLayoutSelectCategoria() {
+	public VerticalLayout getLayoutSelectCategoria() {
 		return layoutSelectCategoria;
 	}
 
-	public void setLayoutSelectCategoria(Element layoutSelectCategoria) {
+	public void setLayoutSelectCategoria(VerticalLayout layoutSelectCategoria) {
 		this.layoutSelectCategoria = layoutSelectCategoria;
 	}
 
@@ -141,12 +141,12 @@ public class VistaAgregarproducto extends PolymerTemplate<VistaAgregarproducto.V
 		this.textFieldImagen5 = textFieldImagen5;
 	}
 
-	public RadioButtonGroup<String> getVaadinRadioGroup() {
-		return vaadinRadioGroup;
+	public VerticalLayout getLayoutImagenPrincipal() {
+		return layoutImagenPrincipal;
 	}
 
-	public void setVaadinRadioGroup(RadioButtonGroup<String> vaadinRadioGroup) {
-		this.vaadinRadioGroup = vaadinRadioGroup;
+	public void setLayoutImagenPrincipal(VerticalLayout layoutImagenPrincipal) {
+		this.layoutImagenPrincipal = layoutImagenPrincipal;
 	}
 
 	public Button getButtonAnadir() {

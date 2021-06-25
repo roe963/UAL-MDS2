@@ -22,6 +22,19 @@ import com.vaadin.flow.dom.Element;
 @JsModule("./src/vista-veperfil.js")
 public class VistaVeperfil extends PolymerTemplate<VistaVeperfil.VistaVeperfilModel> {
 
+    //////Barra Navegacion /////
+    @Id("layout-menu")
+    private VerticalLayout layoutMenu;
+
+    public VerticalLayout getLayoutMenu() {
+        return layoutMenu;
+    }
+
+    public void setLayoutMenu(VerticalLayout layoutMenu) {
+        this.layoutMenu = layoutMenu;
+    }
+    ////// Barra Navegacion /////
+	
 	@Id("img-fotousuario")
 	private Image imgFotousuario;
 	@Id("textfield-nombre")

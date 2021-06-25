@@ -1,8 +1,13 @@
 package interfaz;
 
+import com.vaadin.flow.router.PreserveOnRefresh;
+import com.vaadin.flow.router.Route;
+
 import vistas.VistaVerrespuestas;
 
-public class Ver_respuestas extends VistaVerrespuestas {
+@PreserveOnRefresh
+@Route("ver_respuestas")
+public class Ver_respuestas extends VistaVerrespuestas{
 	/*private button _responderMensaje;
 	private button _volverAtras;
 	public Mensaje _mensaje;

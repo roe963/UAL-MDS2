@@ -59,6 +59,7 @@ public class MenuHeader {
     			} else {
     				//CambiarVista(new Buscar_producto_cliente(txtBuscar.getValue()));
     				//UI.getCurrent().navigate("producto");
+    				UI.getCurrent().navigate("ver_catalogo_cliente");
     			}
             }
         });
