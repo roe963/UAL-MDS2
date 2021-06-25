@@ -6,15 +6,20 @@ import java.util.List;
 import org.orm.PersistentException;
 
 import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.menubar.MenuBar;
+import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.select.Select;
+import com.vaadin.flow.router.PreserveOnRefresh;
 import com.vaadin.flow.router.Route;
 
 import basededatos.Categoria;
 import basededatos.Producto;
 import bds.BDPrincipal;
 import bds.iCliente;
+import ual.mds2.ortegaortega.MenuHeader;
 import vistas.VistaVercatalogocliente;
 
+@PreserveOnRefresh
 @Route("ver_catalogo_cliente")
 public class Ver_catalogo_cliente extends VistaVercatalogocliente{
 	
@@ -24,6 +29,11 @@ public class Ver_catalogo_cliente extends VistaVercatalogocliente{
 	iCliente clientes = new BDPrincipal();
 	
 	public Ver_catalogo_cliente() {
+
+	    MenuBar mb = MenuHeader.getMenuBar();
+	    this.getLayoutMenu().add(mb);
+	    this.getLayoutMenu().setHorizontalComponentAlignment(Alignment.CENTER, mb);
+		
 		// Crear la interfaz lista productos		
 		this.getVaadinHorizontalLayout().removeAll();
 		this.getVaadinHorizontalLayout().add(new Productos());

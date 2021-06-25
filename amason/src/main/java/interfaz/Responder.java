@@ -1,7 +1,12 @@
 package interfaz;
 
+import com.vaadin.flow.router.PreserveOnRefresh;
+import com.vaadin.flow.router.Route;
+
 import vistas.VistaResponder;
 
+@PreserveOnRefresh
+@Route("responder")
 public class Responder extends VistaResponder {
 	/*private label _usuario;
 	private label _mensaje;

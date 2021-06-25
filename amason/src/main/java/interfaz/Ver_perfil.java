@@ -6,20 +6,25 @@ import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Span;
+import com.vaadin.flow.component.menubar.MenuBar;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.notification.Notification.Position;
+import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.radiobutton.RadioButtonGroup;
 import com.vaadin.flow.component.radiobutton.RadioGroupVariant;
 import com.vaadin.flow.router.HasUrlParameter;
+import com.vaadin.flow.router.PreserveOnRefresh;
 import com.vaadin.flow.router.Route;
 
 import basededatos.Cliente;
 import bds.BDPrincipal;
 import bds.iCliente_registrado;
+import ual.mds2.ortegaortega.MenuHeader;
 import ual.mds2.ortegaortega.Session;
 import ual.mds2.ortegaortega.ViewChanger;
 import vistas.VistaVeperfil;
 
+@PreserveOnRefresh
 @Route("ver_perfil")
 public class Ver_perfil extends VistaVeperfil {
 	/*
@@ -37,6 +42,9 @@ public class Ver_perfil extends VistaVeperfil {
 	iCliente_registrado iclientes_registrado = new BDPrincipal();
 	
 	public Ver_perfil() {
+		MenuBar mb = MenuHeader.getMenuBar();
+	    this.getLayoutMenu().add(mb);
+	    this.getLayoutMenu().setHorizontalComponentAlignment(Alignment.CENTER, mb);
 		cargar_perfil();
 	}
 
