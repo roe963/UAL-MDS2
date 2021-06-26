@@ -13,8 +13,8 @@ class VistaMensajesclienteregistrado extends PolymerElement {
         			width: 100%;
                 }
             </style>
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vista-mensaje style="align-self: stretch; flex-grow: 0;"></vista-mensaje>
+<vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
+ <vista-mensaje style="align-self: stretch; flex-grow: 0; width: 100%;"></vista-mensaje>
 </vaadin-vertical-layout>
 `;
     }

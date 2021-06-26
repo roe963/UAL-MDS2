@@ -17,12 +17,20 @@ class VistaRespuestas extends PolymerElement {
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
  <vaadin-vertical-layout theme="spacing" id="layout-menu"></vaadin-vertical-layout>
  <vaadin-horizontal-layout theme="spacing" style="align-self: stretch;">
+  <h4 id="h-mensaje" style="flex-grow: 1;">Bandeja de Entrada</h4>
+  <vaadin-button id="button-responder" style="flex-shrink: 0;">
+    Responder 
+  </vaadin-button>
+ </vaadin-horizontal-layout>
+ <vaadin-horizontal-layout theme="spacing" style="align-self: stretch;">
   <h4 id="h-mensaje" style="flex-grow: 1;">Mensaje</h4>
   <vaadin-button id="button-volver" style="align-self: center;">
     Volver 
   </vaadin-button>
  </vaadin-horizontal-layout>
- <vista-respuesta style="align-self: stretch;"></vista-respuesta>
+ <vaadin-vertical-layout id="vaadinVerticalLayout" style="width: 100%;">
+  <vista-respuesta style="align-self: stretch;"></vista-respuesta>
+ </vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;
     }

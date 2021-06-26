@@ -17,6 +17,7 @@ import com.vaadin.flow.router.Route;
 
 import basededatos.Categoria;
 import bds.BDPrincipal;
+import bds.iAdministrador;
 import bds.iCliente;
 import ual.mds2.ortegaortega.MenuHeader;
 import vistas.VistaAgregarproducto;
@@ -48,9 +49,12 @@ public class Agregar_producto extends VistaAgregarproducto {
 	private button _anadirProducto;
 	public Administrar_productos _administrar_productos;*/
 	
+	iAdministrador iadministrador = new BDPrincipal();
+	
 	Select<Categoria> labelSelect = new Select<>();
 	
 	iCliente clientes = new BDPrincipal();
+	Categoria categoria = null;
 	
 	public Agregar_producto() {
 		
@@ -76,11 +80,12 @@ public class Agregar_producto extends VistaAgregarproducto {
 		labelSelect.setItems(departmentList);
 		
 		this.getLayoutSelectCategoria().add(labelSelect);
-		
+				
 		labelSelect.addValueChangeListener(
         event -> {
-        	
-        	System.out.println("entro click");
+        	        	
+        	//categoria = event.getValue().getId();
+        	categoria = event.getValue();
         	
         	/*try {
 				seleccionar_categoria(event.getValue().getId());
@@ -115,6 +120,7 @@ public class Agregar_producto extends VistaAgregarproducto {
 				
 				String nombre = getTextFieldNombre().getValue();
 				//String categoria = getSelectCategoria().getValue().toString();
+				//String categoria = getLayoutSelectCategoria().getId().toString();
 				String precio = getTextFieldPrecio().getValue();
 				String descripcion = getTextAreaDescripcion().getValue();
 				String imagen1 = getTextFieldImagen1().getValue();
@@ -125,7 +131,7 @@ public class Agregar_producto extends VistaAgregarproducto {
 				String imagenPrincipal = radioGroup.getValue();
 				
 				System.out.println(nombre);
-				//System.out.println(categoria);
+				System.out.println(categoria);
 				System.out.println(precio);
 				System.out.println(descripcion);
 				System.out.println(imagen1);
@@ -135,6 +141,8 @@ public class Agregar_producto extends VistaAgregarproducto {
 				System.out.println(imagen5);
 				System.out.println(imagenPrincipal);
 				
+				
+				iadministrador.agregar_producto(nombre, categoria, Double.parseDouble(precio), descripcion, imagen1, imagen2, imagen3, imagen4, imagen5, 1);
 				
 				/*String nombre = getTextfieldNombre().getValue();
 				String email = getCorreoElectrónico().getValue();

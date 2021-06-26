@@ -12,8 +12,7 @@ class VistaRespuesta extends PolymerElement {
                 }
             </style>
 <vaadin-vertical-layout>
- <h4 id="h-pregunta">Pregunta:</h4>
- <h4 id="h-respuesta">Respuesta:</h4>
+ <h4 id="h-respuesta">Usuario: </h4>
  <label id="label-mensaje">Mensaje</label>
 </vaadin-vertical-layout>
 `;

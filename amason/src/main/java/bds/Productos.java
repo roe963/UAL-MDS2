@@ -7,6 +7,8 @@ import org.orm.PersistentTransaction;
 
 import basededatos.Cantidad;
 import basededatos.Categoria;
+import basededatos.Cliente;
+import basededatos.ClienteDAO;
 import basededatos.Foto;
 import basededatos.FotoDAO;
 import basededatos.Producto;
@@ -106,8 +108,36 @@ public class Productos {
 		throw new UnsupportedOperationException();
 	}
 
-	public void agregar_producto(String aNombreProducto, int aCategoria, double aPrecioProducto, String aDescripcionProducto, String aImagenProducto1, String aImagenProducto2, String aImagenProducto3, String aImagenProducto4, String aImagenProducto5, int aImagenPrincipal_) {
-		throw new UnsupportedOperationException();
+	public void agregar_producto(String aNombreProducto, Categoria aCategoria, double aPrecioProducto, String aDescripcionProducto, String aImagenProducto1, String aImagenProducto2, String aImagenProducto3, String aImagenProducto4, String aImagenProducto5, int aImagenPrincipal_) throws PersistentException {
+
+		PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession()
+                .beginTransaction();
+
+        Producto producto = new Producto();
+        
+        //producto
+        producto.setNombre(aNombreProducto);
+        producto.setAsignado_a(aCategoria);
+        producto.setPrecio((float)aPrecioProducto);
+        producto.setDescripcion(aDescripcionProducto);
+        producto.setActivo(true);
+        Cantidad cantidad = new Cantidad();
+        //producto.tiene_una(cantidad);
+        
+        
+        
+        //foto
+        Foto foto = new Foto();
+        foto.setUrl(aImagenProducto1);
+        //setPertenece_a();//producto
+
+        try {
+            ProductoDAO.save(producto);
+            //FotoDAO.save(foto);
+            t.commit();
+        } catch (PersistentException e) {
+            t.rollback();
+        }
 	}
 
 	public void modificar_proucto(String aNombreProducto, int aCategoria, double aPrecioProducto, String aDescripcionProducto, String aImagenProducto1, String aImagenProducto2, String aImagenProducto3, String aImagenProducto4, String aImagenProducto5, String aImagenPrincipal_) {

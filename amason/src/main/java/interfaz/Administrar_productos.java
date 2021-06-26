@@ -5,12 +5,14 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.menubar.MenuBar;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
+import com.vaadin.flow.router.PreserveOnRefresh;
 import com.vaadin.flow.router.Route;
 
 import basededatos.Cliente;
 import ual.mds2.ortegaortega.MenuHeader;
 import vistas.VistaAdministrarproductos;
 
+@PreserveOnRefresh
 @Route("administrar_productos")
 public class Administrar_productos extends VistaAdministrarproductos {
 	/*private label _productosActivos;

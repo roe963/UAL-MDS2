@@ -1,8 +1,8 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
+import '@vaadin/vaadin-button/src/vaadin-button.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import './vista-mensajesclienteregistrado.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
-import '@vaadin/vaadin-button/src/vaadin-button.js';
 
 class VistaVermensajesclienteregistrado extends PolymerElement {
 
@@ -25,7 +25,9 @@ class VistaVermensajesclienteregistrado extends PolymerElement {
      Redactar 
    </vaadin-button>
   </vaadin-horizontal-layout>
-  <vista-mensajesclienteregistrado style="align-self: stretch;"></vista-mensajesclienteregistrado>
+  <vaadin-vertical-layout theme="spacing" style="align-self: stretch;" id="vaadinVerticalLayout2">
+   <vista-mensajesclienteregistrado style="align-self: stretch; width: 100%;"></vista-mensajesclienteregistrado>
+  </vaadin-vertical-layout>
  </vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;

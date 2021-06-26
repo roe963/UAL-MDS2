@@ -77,10 +77,17 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 		throw new UnsupportedOperationException();
 	}
 
-	public void agregar_producto(String aNombreProducto, int aCategoria, double aPrecioProducto,
+	public void agregar_producto(String aNombreProducto, Categoria aCategoria, double aPrecioProducto,
 			String aDescripcionProducto, String aImagenProducto1, String aImagenProducto2, String aImagenProducto3,
 			String aImagenProducto4, String aImagenProducto5, int aMagenPrincipal) {
-		throw new UnsupportedOperationException();
+		
+		try {
+			_bd_productos.agregar_producto(aNombreProducto, aCategoria, aPrecioProducto,aDescripcionProducto, 
+					aImagenProducto1, aImagenProducto2, aImagenProducto3, aImagenProducto4, aImagenProducto5, 
+					aMagenPrincipal);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void modificar_proucto(String aNombreProducto, int aCategoria, double aPrecioProducto,
@@ -284,11 +291,24 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 	}
 
 	public Mensaje[] cargar_mensajes_cliente(int aIdUsuario) {
-		throw new UnsupportedOperationException();
+		Mensaje[] arrayMensajes = null;
+		try {
+			arrayMensajes = _bd_mensajes.cargar_mensajes_cliente(aIdUsuario);
+
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		return arrayMensajes;
 	}
 
 	public void redactar_mensaje(int aIdUsuario, String aMensajeUsuario) {
-		throw new UnsupportedOperationException();
+		try {
+			Mensaje mensaje= _bd_mensajes.crear_mensaje(aIdUsuario);
+			_bd_respuestas.redactar_mensaje(aMensajeUsuario,mensaje);
+			
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void ver_mensaje(int aIdMensaje) {
@@ -296,11 +316,23 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 	}
 
 	public Respuesta[] cargar_respuestas_mensaje(int aIdMensaje) {
-		throw new UnsupportedOperationException();
+		Respuesta[] arrayRespuestas = null;
+		try {
+			arrayRespuestas = _bd_respuestas.cargar_respuestas_mensaje(aIdMensaje);
+
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		return arrayRespuestas;
 	}
 
 	public void responder_respuesta(int aIdMensaje, String aRespuesta) {
-		throw new UnsupportedOperationException();
+		try {
+			_bd_respuestas.responder_respuesta(aIdMensaje, aRespuesta);
+			
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public Mensaje[] cargar_mensajes_administrador() {
