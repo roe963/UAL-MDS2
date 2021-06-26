@@ -56,8 +56,14 @@ public class Ver_pedido extends VistaVerpedido implements HasUrlParameter<String
         this.getFechaPedido().setText(new SimpleDateFormat("dd/MM/yyyy").format(new Date(p.getFecha()*1000)));
         this.getPrecioPedido().setText(String.valueOf(p.getPrecio())+"€");
         
-        Pedido aux = basededatos.Pedido_pendienteDAO.getPedido_pendienteByORMID(p.getId());
-        this.getCancelarCompra().setVisible(aux!=null);
+        Pedido aux;
+		try {
+			aux = basededatos.Pedido_pendienteDAO.getPedido_pendienteByORMID(p.getId());
+			this.getCancelarCompra().setVisible(aux!=null);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         
         cantidades = bd.cargar_cantidades_pedido(p.getId());
         System.out.println("cantidades: "+cantidades.length);

@@ -22,16 +22,18 @@ public class CantidadDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression id;
 	public final IntegerExpression contiene_unId;
 	public final AssociationExpression contiene_un;
+	public final IntegerExpression contenido_enId;
+	public final AssociationExpression contenido_en;
 	public final IntegerExpression cantidad;
-	public final CollectionExpression contenido_en;
 	
 	public CantidadDetachedCriteria() {
 		super(basededatos.Cantidad.class, basededatos.CantidadCriteria.class);
 		id = new IntegerExpression("id", this.getDetachedCriteria());
 		contiene_unId = new IntegerExpression("contiene_un.id", this.getDetachedCriteria());
 		contiene_un = new AssociationExpression("contiene_un", this.getDetachedCriteria());
+		contenido_enId = new IntegerExpression("contenido_en.id", this.getDetachedCriteria());
+		contenido_en = new AssociationExpression("contenido_en", this.getDetachedCriteria());
 		cantidad = new IntegerExpression("cantidad", this.getDetachedCriteria());
-		contenido_en = new CollectionExpression("ORM_contenido_en", this.getDetachedCriteria());
 	}
 	
 	public CantidadDetachedCriteria(DetachedCriteria aDetachedCriteria) {
@@ -39,8 +41,9 @@ public class CantidadDetachedCriteria extends AbstractORMDetachedCriteria {
 		id = new IntegerExpression("id", this.getDetachedCriteria());
 		contiene_unId = new IntegerExpression("contiene_un.id", this.getDetachedCriteria());
 		contiene_un = new AssociationExpression("contiene_un", this.getDetachedCriteria());
+		contenido_enId = new IntegerExpression("contenido_en.id", this.getDetachedCriteria());
+		contenido_en = new AssociationExpression("contenido_en", this.getDetachedCriteria());
 		cantidad = new IntegerExpression("cantidad", this.getDetachedCriteria());
-		contenido_en = new CollectionExpression("ORM_contenido_en", this.getDetachedCriteria());
 	}
 	
 	public ProductoDetachedCriteria createContiene_unCriteria() {
@@ -48,7 +51,7 @@ public class CantidadDetachedCriteria extends AbstractORMDetachedCriteria {
 	}
 	
 	public PedidoDetachedCriteria createContenido_enCriteria() {
-		return new PedidoDetachedCriteria(createCriteria("ORM_contenido_en"));
+		return new PedidoDetachedCriteria(createCriteria("contenido_en"));
 	}
 	
 	public Cantidad uniqueCantidad(PersistentSession session) {

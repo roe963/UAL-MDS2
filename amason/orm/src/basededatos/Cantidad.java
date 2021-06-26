@@ -22,26 +22,18 @@ public class Cantidad implements Serializable {
 	public Cantidad() {
 	}
 	
-	private java.util.Set this_getSet (int key) {
+	private void this_setOwner(Object owner, int key) {
 		if (key == ORMConstants.KEY_CANTIDAD_CONTENIDO_EN) {
-			return ORM_contenido_en;
+			this.contenido_en = (basededatos.Pedido) owner;
 		}
 		
-		return null;
-	}
-	
-	private void this_setOwner(Object owner, int key) {
-		if (key == ORMConstants.KEY_CANTIDAD_CONTIENE_UN) {
+		else if (key == ORMConstants.KEY_CANTIDAD_CONTIENE_UN) {
 			this.contiene_un = (basededatos.Producto) owner;
 		}
 	}
 	
 	@Transient	
 	org.orm.util.ORMAdapter _ormAdapter = new org.orm.util.AbstractORMAdapter() {
-		public java.util.Set getSet(int key) {
-			return this_getSet(key);
-		}
-		
 		public void setOwner(Object owner, int key) {
 			this_setOwner(owner, key);
 		}
@@ -59,14 +51,13 @@ public class Cantidad implements Serializable {
 	@JoinColumns(value={ @JoinColumn(name="ProductoId", referencedColumnName="Id", nullable=false) }, foreignKey=@ForeignKey(name="FKCantidad314050"))	
 	private basededatos.Producto contiene_un;
 	
+	@ManyToOne(targetEntity=basededatos.Pedido.class, fetch=FetchType.LAZY)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
+	@JoinColumns(value={ @JoinColumn(name="PedidoId", referencedColumnName="Id", nullable=false) }, foreignKey=@ForeignKey(name="FKCantidad556731"))	
+	private basededatos.Pedido contenido_en;
+	
 	@Column(name="Cantidad", nullable=false, length=10)	
 	private int cantidad;
-	
-	@ManyToMany(targetEntity=basededatos.Pedido.class)	
-	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinTable(name="Pedido_Cantidad", joinColumns={ @JoinColumn(name="CantidadId") }, inverseJoinColumns={ @JoinColumn(name="PedidoId") })	
-	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
-	private java.util.Set ORM_contenido_en = new java.util.HashSet();
 	
 	private void setId(int value) {
 		this.id = value;
@@ -88,16 +79,29 @@ public class Cantidad implements Serializable {
 		return cantidad;
 	}
 	
-	private void setORM_Contenido_en(java.util.Set value) {
-		this.ORM_contenido_en = value;
+	public void setContenido_en(basededatos.Pedido value) {
+		if (contenido_en != null) {
+			contenido_en.contiene_un.remove(this);
+		}
+		if (value != null) {
+			value.contiene_un.add(this);
+		}
 	}
 	
-	private java.util.Set getORM_Contenido_en() {
-		return ORM_contenido_en;
+	public basededatos.Pedido getContenido_en() {
+		return contenido_en;
 	}
 	
-	@Transient	
-	public final basededatos.PedidoSetCollection contenido_en = new basededatos.PedidoSetCollection(this, _ormAdapter, ORMConstants.KEY_CANTIDAD_CONTENIDO_EN, ORMConstants.KEY_PEDIDO_CONTIENE_UN, ORMConstants.KEY_MUL_MANY_TO_MANY);
+	/**
+	 * This method is for internal use only.
+	 */
+	public void setORM_Contenido_en(basededatos.Pedido value) {
+		this.contenido_en = value;
+	}
+	
+	private basededatos.Pedido getORM_Contenido_en() {
+		return contenido_en;
+	}
 	
 	public void setContiene_un(basededatos.Producto value) {
 		if (contiene_un != null) {

@@ -10,7 +10,7 @@ public class CreateMDS12021PFOrtegaOrtegaData {
 		PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
 		try {
 			basededatos.Cantidad lbasededatosCantidad = basededatos.CantidadDAO.createCantidad();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : contenido_en, cantidad, contiene_un
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : cantidad, contenido_en, contiene_un
 			basededatos.CantidadDAO.save(lbasededatosCantidad);
 			basededatos.Pedido lbasededatosPedido = basededatos.PedidoDAO.createPedido();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : contiene_un, precio, fecha, realizado_por
@@ -22,16 +22,16 @@ public class CreateMDS12021PFOrtegaOrtegaData {
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : asignado_a
 			basededatos.Pedido_enviadoDAO.save(lbasededatosPedido_enviado);
 			basededatos.Respuesta lbasededatosRespuesta = basededatos.RespuestaDAO.createRespuesta();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : orden, pertenece_a
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : orden, pertenece_a, escrita_por
 			basededatos.RespuestaDAO.save(lbasededatosRespuesta);
 			basededatos.Mensaje lbasededatosMensaje = basededatos.MensajeDAO.createMensaje();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : contiene_un, escrito_por
 			basededatos.MensajeDAO.save(lbasededatosMensaje);
 			basededatos.Pedido_entregado lbasededatosPedido_entregado = basededatos.Pedido_entregadoDAO.createPedido_entregado();
-			// Initialize the properties of the persistent object here
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : entregado_por
 			basededatos.Pedido_entregadoDAO.save(lbasededatosPedido_entregado);
 			basededatos.Valoracion lbasededatosValoracion = basededatos.ValoracionDAO.createValoracion();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : escrito_por, puntuacion, valora_un
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : puntuacion, valora_un, escrito_por
 			basededatos.ValoracionDAO.save(lbasededatosValoracion);
 			basededatos.Oferta lbasededatosOferta = basededatos.OfertaDAO.createOferta();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : precio, fecha
@@ -46,7 +46,7 @@ public class CreateMDS12021PFOrtegaOrtegaData {
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : contiene_un, activo
 			basededatos.CategoriaDAO.save(lbasededatosCategoria);
 			basededatos.Usuario lbasededatosUsuario = basededatos.UsuarioDAO.createUsuario();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : activo
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : escribe_una, activo
 			basededatos.UsuarioDAO.save(lbasededatosUsuario);
 			basededatos.Cliente lbasededatosCliente = basededatos.ClienteDAO.createCliente();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : realiza_una, manda_un, realiza_un
@@ -55,7 +55,7 @@ public class CreateMDS12021PFOrtegaOrtegaData {
 			// Initialize the properties of the persistent object here
 			basededatos.Encargado_comprasDAO.save(lbasededatosEncargado_compras);
 			basededatos.Empresa_transportes lbasededatosEmpresa_transportes = basededatos.Empresa_transportesDAO.createEmpresa_transportes();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : tiene_asignado_un
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : tiene_asignado_un, entregado_un
 			basededatos.Empresa_transportesDAO.save(lbasededatosEmpresa_transportes);
 			basededatos.Administrador lbasededatosAdministrador = basededatos.AdministradorDAO.createAdministrador();
 			// Initialize the properties of the persistent object here

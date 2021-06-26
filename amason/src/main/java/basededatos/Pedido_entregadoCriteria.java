@@ -25,6 +25,8 @@ public class Pedido_entregadoCriteria extends AbstractORMCriteria {
 	public final LongExpression fecha;
 	public final FloatExpression precio;
 	public final CollectionExpression contiene_un;
+	public final IntegerExpression entregado_porId;
+	public final AssociationExpression entregado_por;
 	
 	public Pedido_entregadoCriteria(Criteria criteria) {
 		super(criteria);
@@ -34,6 +36,8 @@ public class Pedido_entregadoCriteria extends AbstractORMCriteria {
 		fecha = new LongExpression("fecha", this);
 		precio = new FloatExpression("precio", this);
 		contiene_un = new CollectionExpression("ORM_contiene_un", this);
+		entregado_porId = new IntegerExpression("entregado_por.", this);
+		entregado_por = new AssociationExpression("entregado_por", this);
 	}
 	
 	public Pedido_entregadoCriteria(PersistentSession session) {
@@ -42,6 +46,10 @@ public class Pedido_entregadoCriteria extends AbstractORMCriteria {
 	
 	public Pedido_entregadoCriteria() throws PersistentException {
 		this(MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession());
+	}
+	
+	public Empresa_transportesCriteria createEntregado_porCriteria() {
+		return new Empresa_transportesCriteria(createCriteria("entregado_por"));
 	}
 	
 	public ClienteCriteria createRealizado_porCriteria() {

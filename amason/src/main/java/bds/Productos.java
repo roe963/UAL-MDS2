@@ -6,7 +6,9 @@ import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
 import basededatos.Cantidad;
+import basededatos.CantidadDAO;
 import basededatos.Categoria;
+import basededatos.CategoriaDAO;
 import basededatos.Cliente;
 import basededatos.ClienteDAO;
 import basededatos.Foto;
@@ -121,8 +123,8 @@ public class Productos {
         producto.setPrecio((float)aPrecioProducto);
         producto.setDescripcion(aDescripcionProducto);
         producto.setActivo(true);
-        Cantidad cantidad = new Cantidad();
-        //producto.tiene_una(cantidad);
+        Cantidad cantidad = CantidadDAO.getCantidadByORMID(1);
+        //producto.tiene_una(producto);
         
         
         

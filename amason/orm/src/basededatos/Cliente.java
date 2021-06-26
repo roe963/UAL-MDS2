@@ -68,9 +68,8 @@ public class Cliente extends basededatos.Usuario implements Serializable {
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_manda_un = new java.util.HashSet();
 	
-	@ManyToMany(targetEntity=basededatos.Valoracion.class)	
+	@OneToMany(mappedBy="escrito_por", targetEntity=basededatos.Valoracion.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinTable(name="Valoracion_Cliente", joinColumns={ @JoinColumn(name="ClienteUsuarioId") }, inverseJoinColumns={ @JoinColumn(name="ValoracionId") })	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_realiza_una = new java.util.HashSet();
 	
@@ -137,7 +136,7 @@ public class Cliente extends basededatos.Usuario implements Serializable {
 	}
 	
 	@Transient	
-	public final basededatos.ValoracionSetCollection realiza_una = new basededatos.ValoracionSetCollection(this, _ormAdapter, ORMConstants.KEY_CLIENTE_REALIZA_UNA, ORMConstants.KEY_VALORACION_ESCRITO_POR, ORMConstants.KEY_MUL_MANY_TO_MANY);
+	public final basededatos.ValoracionSetCollection realiza_una = new basededatos.ValoracionSetCollection(this, _ormAdapter, ORMConstants.KEY_CLIENTE_REALIZA_UNA, ORMConstants.KEY_VALORACION_ESCRITO_POR, ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	public String toString() {
 		return super.toString();

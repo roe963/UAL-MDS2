@@ -323,13 +323,17 @@ public class Pedido_entregadoDAO {
 	
 	public static boolean deleteAndDissociate(basededatos.Pedido_entregado pedido_entregado)throws PersistentException {
 		try {
+			if (pedido_entregado.getEntregado_por() != null) {
+				pedido_entregado.getEntregado_por().entregado_un.remove(pedido_entregado);
+			}
+			
 			if (pedido_entregado.getRealizado_por() != null) {
 				pedido_entregado.getRealizado_por().realiza_un.remove(pedido_entregado);
 			}
 			
 			basededatos.Cantidad[] lContiene_uns = pedido_entregado.contiene_un.toArray();
 			for(int i = 0; i < lContiene_uns.length; i++) {
-				lContiene_uns[i].contenido_en.remove(pedido_entregado);
+				lContiene_uns[i].setContenido_en(null);
 			}
 			return delete(pedido_entregado);
 		}
@@ -341,13 +345,17 @@ public class Pedido_entregadoDAO {
 	
 	public static boolean deleteAndDissociate(basededatos.Pedido_entregado pedido_entregado, org.orm.PersistentSession session)throws PersistentException {
 		try {
+			if (pedido_entregado.getEntregado_por() != null) {
+				pedido_entregado.getEntregado_por().entregado_un.remove(pedido_entregado);
+			}
+			
 			if (pedido_entregado.getRealizado_por() != null) {
 				pedido_entregado.getRealizado_por().realiza_un.remove(pedido_entregado);
 			}
 			
 			basededatos.Cantidad[] lContiene_uns = pedido_entregado.contiene_un.toArray();
 			for(int i = 0; i < lContiene_uns.length; i++) {
-				lContiene_uns[i].contenido_en.remove(pedido_entregado);
+				lContiene_uns[i].setContenido_en(null);
 			}
 			try {
 				session.delete(pedido_entregado);

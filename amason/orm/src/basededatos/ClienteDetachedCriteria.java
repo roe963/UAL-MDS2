@@ -23,6 +23,7 @@ public class ClienteDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final StringExpression email;
 	public final StringExpression password;
 	public final BooleanExpression activo;
+	public final CollectionExpression escribe_una;
 	public final StringExpression nombre;
 	public final StringExpression metodoPago;
 	public final StringExpression direccionEnvio;
@@ -37,6 +38,7 @@ public class ClienteDetachedCriteria extends AbstractORMDetachedCriteria {
 		email = new StringExpression("email", this.getDetachedCriteria());
 		password = new StringExpression("password", this.getDetachedCriteria());
 		activo = new BooleanExpression("activo", this.getDetachedCriteria());
+		escribe_una = new CollectionExpression("ORM_escribe_una", this.getDetachedCriteria());
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
 		metodoPago = new StringExpression("metodoPago", this.getDetachedCriteria());
 		direccionEnvio = new StringExpression("direccionEnvio", this.getDetachedCriteria());
@@ -52,6 +54,7 @@ public class ClienteDetachedCriteria extends AbstractORMDetachedCriteria {
 		email = new StringExpression("email", this.getDetachedCriteria());
 		password = new StringExpression("password", this.getDetachedCriteria());
 		activo = new BooleanExpression("activo", this.getDetachedCriteria());
+		escribe_una = new CollectionExpression("ORM_escribe_una", this.getDetachedCriteria());
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
 		metodoPago = new StringExpression("metodoPago", this.getDetachedCriteria());
 		direccionEnvio = new StringExpression("direccionEnvio", this.getDetachedCriteria());
@@ -71,6 +74,10 @@ public class ClienteDetachedCriteria extends AbstractORMDetachedCriteria {
 	
 	public ValoracionDetachedCriteria createRealiza_unaCriteria() {
 		return new ValoracionDetachedCriteria(createCriteria("ORM_realiza_una"));
+	}
+	
+	public RespuestaDetachedCriteria createEscribe_unaCriteria() {
+		return new RespuestaDetachedCriteria(createCriteria("ORM_escribe_una"));
 	}
 	
 	public Cliente uniqueCliente(PersistentSession session) {

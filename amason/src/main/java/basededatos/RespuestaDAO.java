@@ -323,6 +323,10 @@ public class RespuestaDAO {
 	
 	public static boolean deleteAndDissociate(basededatos.Respuesta respuesta)throws PersistentException {
 		try {
+			if (respuesta.getEscrita_por() != null) {
+				respuesta.getEscrita_por().escribe_una.remove(respuesta);
+			}
+			
 			if (respuesta.getPertenece_a() != null) {
 				respuesta.getPertenece_a().contiene_un.remove(respuesta);
 			}
@@ -337,6 +341,10 @@ public class RespuestaDAO {
 	
 	public static boolean deleteAndDissociate(basededatos.Respuesta respuesta, org.orm.PersistentSession session)throws PersistentException {
 		try {
+			if (respuesta.getEscrita_por() != null) {
+				respuesta.getEscrita_por().escribe_una.remove(respuesta);
+			}
+			
 			if (respuesta.getPertenece_a() != null) {
 				respuesta.getPertenece_a().contiene_un.remove(respuesta);
 			}

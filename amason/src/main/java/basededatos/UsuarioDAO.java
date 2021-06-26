@@ -321,6 +321,71 @@ public class UsuarioDAO {
 		}
 	}
 	
+	public static boolean deleteAndDissociate(basededatos.Usuario usuario)throws PersistentException {
+		if (usuario instanceof basededatos.Cliente) {
+			return basededatos.ClienteDAO.deleteAndDissociate((basededatos.Cliente) usuario);
+		}
+		
+		if (usuario instanceof basededatos.Encargado_compras) {
+			return basededatos.Encargado_comprasDAO.deleteAndDissociate((basededatos.Encargado_compras) usuario);
+		}
+		
+		if (usuario instanceof basededatos.Empresa_transportes) {
+			return basededatos.Empresa_transportesDAO.deleteAndDissociate((basededatos.Empresa_transportes) usuario);
+		}
+		
+		if (usuario instanceof basededatos.Administrador) {
+			return basededatos.AdministradorDAO.deleteAndDissociate((basededatos.Administrador) usuario);
+		}
+		
+		try {
+			basededatos.Respuesta[] lEscribe_unas = usuario.escribe_una.toArray();
+			for(int i = 0; i < lEscribe_unas.length; i++) {
+				lEscribe_unas[i].setEscrita_por(null);
+			}
+			return delete(usuario);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			throw new PersistentException(e);
+		}
+	}
+	
+	public static boolean deleteAndDissociate(basededatos.Usuario usuario, org.orm.PersistentSession session)throws PersistentException {
+		if (usuario instanceof basededatos.Cliente) {
+			return basededatos.ClienteDAO.deleteAndDissociate((basededatos.Cliente) usuario, session);
+		}
+		
+		if (usuario instanceof basededatos.Encargado_compras) {
+			return basededatos.Encargado_comprasDAO.deleteAndDissociate((basededatos.Encargado_compras) usuario, session);
+		}
+		
+		if (usuario instanceof basededatos.Empresa_transportes) {
+			return basededatos.Empresa_transportesDAO.deleteAndDissociate((basededatos.Empresa_transportes) usuario, session);
+		}
+		
+		if (usuario instanceof basededatos.Administrador) {
+			return basededatos.AdministradorDAO.deleteAndDissociate((basededatos.Administrador) usuario, session);
+		}
+		
+		try {
+			basededatos.Respuesta[] lEscribe_unas = usuario.escribe_una.toArray();
+			for(int i = 0; i < lEscribe_unas.length; i++) {
+				lEscribe_unas[i].setEscrita_por(null);
+			}
+			try {
+				session.delete(usuario);
+				return true;
+			} catch (Exception e) {
+				return false;
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			throw new PersistentException(e);
+		}
+	}
+	
 	public static boolean refresh(basededatos.Usuario usuario) throws PersistentException {
 		try {
 			MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().refresh(usuario);

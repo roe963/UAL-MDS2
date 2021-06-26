@@ -14,8 +14,6 @@
 package basededatos;
 
 import java.io.Serializable;
-import java.util.Date;
-
 import javax.persistence.*;
 @Entity
 @org.hibernate.annotations.Proxy(lazy=false)
@@ -24,26 +22,18 @@ public class Valoracion implements Serializable {
 	public Valoracion() {
 	}
 	
-	private java.util.Set this_getSet (int key) {
-		if (key == ORMConstants.KEY_VALORACION_ESCRITO_POR) {
-			return ORM_escrito_por;
-		}
-		
-		return null;
-	}
-	
 	private void this_setOwner(Object owner, int key) {
 		if (key == ORMConstants.KEY_VALORACION_VALORA_UN) {
 			this.valora_un = (basededatos.Producto) owner;
+		}
+		
+		else if (key == ORMConstants.KEY_VALORACION_ESCRITO_POR) {
+			this.escrito_por = (basededatos.Cliente) owner;
 		}
 	}
 	
 	@Transient	
 	org.orm.util.ORMAdapter _ormAdapter = new org.orm.util.AbstractORMAdapter() {
-		public java.util.Set getSet(int key) {
-			return this_getSet(key);
-		}
-		
 		public void setOwner(Object owner, int key) {
 			this_setOwner(owner, key);
 		}
@@ -56,6 +46,11 @@ public class Valoracion implements Serializable {
 	@org.hibernate.annotations.GenericGenerator(name="BASEDEDATOS_VALORACION_ID_GENERATOR", strategy="native")	
 	private int id;
 	
+	@ManyToOne(targetEntity=basededatos.Cliente.class, fetch=FetchType.LAZY)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
+	@JoinColumns(value={ @JoinColumn(name="ClienteUsuarioId", referencedColumnName="UsuarioId", nullable=false) }, foreignKey=@ForeignKey(name="FKValoracion994559"))	
+	private basededatos.Cliente escrito_por;
+	
 	@ManyToOne(targetEntity=basededatos.Producto.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
 	@JoinColumns(value={ @JoinColumn(name="ProductoId", referencedColumnName="Id", nullable=false) }, foreignKey=@ForeignKey(name="FKValoracion666204"))	
@@ -67,13 +62,8 @@ public class Valoracion implements Serializable {
 	@Column(name="Comentario", nullable=true, length=255)	
 	private String comentario;
 	
-	@Column(name="Fecha", nullable=true)	
-	private Date fecha;
-	
-	@ManyToMany(mappedBy="ORM_realiza_una", targetEntity=basededatos.Cliente.class)	
-	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
-	private java.util.Set ORM_escrito_por = new java.util.HashSet();
+	@Column(name="Fecha", nullable=true, length=20)	
+	private long fecha;
 	
 	private void setId(int value) {
 		this.id = value;
@@ -103,11 +93,11 @@ public class Valoracion implements Serializable {
 		return comentario;
 	}
 	
-	public void setFecha(Date value) {
+	public void setFecha(long value) {
 		this.fecha = value;
 	}
 	
-	public Date getFecha() {
+	public long getFecha() {
 		return fecha;
 	}
 	
@@ -135,16 +125,29 @@ public class Valoracion implements Serializable {
 		return valora_un;
 	}
 	
-	private void setORM_Escrito_por(java.util.Set value) {
-		this.ORM_escrito_por = value;
+	public void setEscrito_por(basededatos.Cliente value) {
+		if (escrito_por != null) {
+			escrito_por.realiza_una.remove(this);
+		}
+		if (value != null) {
+			value.realiza_una.add(this);
+		}
 	}
 	
-	private java.util.Set getORM_Escrito_por() {
-		return ORM_escrito_por;
+	public basededatos.Cliente getEscrito_por() {
+		return escrito_por;
 	}
 	
-	@Transient	
-	public final basededatos.ClienteSetCollection escrito_por = new basededatos.ClienteSetCollection(this, _ormAdapter, ORMConstants.KEY_VALORACION_ESCRITO_POR, ORMConstants.KEY_CLIENTE_REALIZA_UNA, ORMConstants.KEY_MUL_MANY_TO_MANY);
+	/**
+	 * This method is for internal use only.
+	 */
+	public void setORM_Escrito_por(basededatos.Cliente value) {
+		this.escrito_por = value;
+	}
+	
+	private basededatos.Cliente getORM_Escrito_por() {
+		return escrito_por;
+	}
 	
 	public String toString() {
 		return String.valueOf(getId());

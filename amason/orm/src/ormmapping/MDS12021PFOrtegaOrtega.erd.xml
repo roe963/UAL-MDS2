@@ -25,6 +25,18 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
+    <Column name="PedidoId">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>basededatos.Pedido.Id</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
     <Column name="Cantidad">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
@@ -81,6 +93,18 @@
     <Column name="Id">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="UsuarioId">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>basededatos.Usuario.Id</ReferencedColumn>
       <Type>9</Type>
       <Length>10</Length>
       <Nullable>false</Nullable>
@@ -162,6 +186,18 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
+    <Column name="Empresa_transportesUsuarioId">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>basededatos.Empresa_transportes.UsuarioId</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
   </Entity>
   <Entity name="Pedido" Unlogged="false" PKClustered="0">
     <Column name="Id">
@@ -222,6 +258,18 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
+    <Column name="ClienteUsuarioId">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>basededatos.Cliente.UsuarioId</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
     <Column name="ProductoId">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
@@ -259,8 +307,8 @@
     <Column name="Fecha">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
-      <Type>17</Type>
-      <Length>0</Length>
+      <Type>16</Type>
+      <Length>20</Length>
       <Nullable>true</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
@@ -414,28 +462,6 @@
       <Type>27</Type>
       <Length>255</Length>
       <Nullable>true</Nullable>
-      <IDGenerator>native</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <UserTypes/>
-    </Column>
-    <Column name="CantidadId">
-      <PrimaryKey>false</PrimaryKey>
-      <ForeignKey>false</ForeignKey>
-      <Type>9</Type>
-      <Length>10</Length>
-      <Nullable>false</Nullable>
-      <IDGenerator>native</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <UserTypes/>
-    </Column>
-    <Column name="ProductoId">
-      <PrimaryKey>false</PrimaryKey>
-      <ForeignKey>false</ForeignKey>
-      <Type>9</Type>
-      <Length>10</Length>
-      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
@@ -623,58 +649,6 @@
       <UserTypes/>
     </Column>
   </Entity>
-  <Entity name="Pedido_Cantidad" Unlogged="false" PKClustered="0">
-    <Column name="PedidoId">
-      <PrimaryKey>true</PrimaryKey>
-      <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>basededatos.Pedido.Id</ReferencedColumn>
-      <Type>9</Type>
-      <Length>10</Length>
-      <Nullable>false</Nullable>
-      <IDGenerator>assigned</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <UserTypes/>
-    </Column>
-    <Column name="CantidadId">
-      <PrimaryKey>true</PrimaryKey>
-      <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>basededatos.Cantidad.Id</ReferencedColumn>
-      <Type>9</Type>
-      <Length>10</Length>
-      <Nullable>false</Nullable>
-      <IDGenerator>assigned</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <UserTypes/>
-    </Column>
-  </Entity>
-  <Entity name="Valoracion_Cliente" Unlogged="false" PKClustered="0">
-    <Column name="ValoracionId">
-      <PrimaryKey>true</PrimaryKey>
-      <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>basededatos.Valoracion.Id</ReferencedColumn>
-      <Type>9</Type>
-      <Length>10</Length>
-      <Nullable>false</Nullable>
-      <IDGenerator>assigned</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <UserTypes/>
-    </Column>
-    <Column name="ClienteUsuarioId">
-      <PrimaryKey>true</PrimaryKey>
-      <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>basededatos.Cliente.UsuarioId</ReferencedColumn>
-      <Type>9</Type>
-      <Length>10</Length>
-      <Nullable>false</Nullable>
-      <IDGenerator>assigned</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <UserTypes/>
-    </Column>
-  </Entity>
   <ForeignKey name="FKPedido_pen439286">
     <ReferenceTable>Pedido_pendiente</ReferenceTable>
     <ReferencedTable>Pedido</ReferencedTable>
@@ -795,21 +769,11 @@
       <Column>UsuarioId</Column>
     </RefColumns>
   </ForeignKey>
-  <ForeignKey name="FKPedido_Can792580">
-    <ReferenceTable>Pedido_Cantidad</ReferenceTable>
+  <ForeignKey name="FKCantidad556731">
+    <ReferenceTable>Cantidad</ReferenceTable>
     <ReferencedTable>Pedido</ReferencedTable>
     <Columns>
       <Column>PedidoId</Column>
-    </Columns>
-    <RefColumns>
-      <Column>Id</Column>
-    </RefColumns>
-  </ForeignKey>
-  <ForeignKey name="FKPedido_Can239945">
-    <ReferenceTable>Pedido_Cantidad</ReferenceTable>
-    <ReferencedTable>Cantidad</ReferencedTable>
-    <Columns>
-      <Column>CantidadId</Column>
     </Columns>
     <RefColumns>
       <Column>Id</Column>
@@ -855,24 +819,34 @@
       <Column>Id</Column>
     </RefColumns>
   </ForeignKey>
-  <ForeignKey name="FKValoracion671731">
-    <ReferenceTable>Valoracion_Cliente</ReferenceTable>
-    <ReferencedTable>Valoracion</ReferencedTable>
-    <Columns>
-      <Column>ValoracionId</Column>
-    </Columns>
-    <RefColumns>
-      <Column>Id</Column>
-    </RefColumns>
-  </ForeignKey>
-  <ForeignKey name="FKValoracion639395">
-    <ReferenceTable>Valoracion_Cliente</ReferenceTable>
+  <ForeignKey name="FKValoracion994559">
+    <ReferenceTable>Valoracion</ReferenceTable>
     <ReferencedTable>Cliente</ReferencedTable>
     <Columns>
       <Column>ClienteUsuarioId</Column>
     </Columns>
     <RefColumns>
       <Column>UsuarioId</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKPedido_ent545421">
+    <ReferenceTable>Pedido_entregado</ReferenceTable>
+    <ReferencedTable>Empresa_transportes</ReferencedTable>
+    <Columns>
+      <Column>Empresa_transportesUsuarioId</Column>
+    </Columns>
+    <RefColumns>
+      <Column>UsuarioId</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKRespuesta179661">
+    <ReferenceTable>Respuesta</ReferenceTable>
+    <ReferencedTable>Usuario</ReferencedTable>
+    <Columns>
+      <Column>UsuarioId</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Id</Column>
     </RefColumns>
   </ForeignKey>
 </Model>

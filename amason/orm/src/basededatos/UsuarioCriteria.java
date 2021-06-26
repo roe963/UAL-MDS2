@@ -23,6 +23,7 @@ public class UsuarioCriteria extends AbstractORMCriteria {
 	public final StringExpression email;
 	public final StringExpression password;
 	public final BooleanExpression activo;
+	public final CollectionExpression escribe_una;
 	
 	public UsuarioCriteria(Criteria criteria) {
 		super(criteria);
@@ -30,6 +31,7 @@ public class UsuarioCriteria extends AbstractORMCriteria {
 		email = new StringExpression("email", this);
 		password = new StringExpression("password", this);
 		activo = new BooleanExpression("activo", this);
+		escribe_una = new CollectionExpression("ORM_escribe_una", this);
 	}
 	
 	public UsuarioCriteria(PersistentSession session) {
@@ -38,6 +40,10 @@ public class UsuarioCriteria extends AbstractORMCriteria {
 	
 	public UsuarioCriteria() throws PersistentException {
 		this(MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession());
+	}
+	
+	public RespuestaCriteria createEscribe_unaCriteria() {
+		return new RespuestaCriteria(createCriteria("ORM_escribe_una"));
 	}
 	
 	public Usuario uniqueUsuario() {

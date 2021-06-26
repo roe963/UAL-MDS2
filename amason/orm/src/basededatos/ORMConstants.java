@@ -26,6 +26,8 @@ public interface ORMConstants extends org.orm.util.ORMBaseConstants {
 	
 	final int KEY_CLIENTE_REALIZA_UNA = -157277386;
 	
+	final int KEY_EMPRESA_TRANSPORTES_ENTREGADO_UN = -361570093;
+	
 	final int KEY_EMPRESA_TRANSPORTES_TIENE_ASIGNADO_UN = 1318695476;
 	
 	final int KEY_FOTO_PERTENECE_A = -2146228946;
@@ -37,6 +39,8 @@ public interface ORMConstants extends org.orm.util.ORMBaseConstants {
 	final int KEY_OFERTA_CONTIENE_UN = 247772709;
 	
 	final int KEY_PEDIDO_CONTIENE_UN = 1706156345;
+	
+	final int KEY_PEDIDO_ENTREGADO_ENTREGADO_POR = -234489215;
 	
 	final int KEY_PEDIDO_ENVIADO_ASIGNADO_A = -1027441831;
 	
@@ -52,7 +56,11 @@ public interface ORMConstants extends org.orm.util.ORMBaseConstants {
 	
 	final int KEY_PRODUCTO_TIENE_UNA = -708398351;
 	
+	final int KEY_RESPUESTA_ESCRITA_POR = 769620174;
+	
 	final int KEY_RESPUESTA_PERTENECE_A = -640166486;
+	
+	final int KEY_USUARIO_ESCRIBE_UNA = 1304852647;
 	
 	final int KEY_VALORACION_ESCRITO_POR = -456779330;
 	

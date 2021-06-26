@@ -333,7 +333,11 @@ public class ClienteDAO {
 			}
 			basededatos.Valoracion[] lRealiza_unas = cliente.realiza_una.toArray();
 			for(int i = 0; i < lRealiza_unas.length; i++) {
-				lRealiza_unas[i].escrito_por.remove(cliente);
+				lRealiza_unas[i].setEscrito_por(null);
+			}
+			basededatos.Respuesta[] lEscribe_unas = cliente.escribe_una.toArray();
+			for(int i = 0; i < lEscribe_unas.length; i++) {
+				lEscribe_unas[i].setEscrita_por(null);
 			}
 			return delete(cliente);
 		}
@@ -355,7 +359,11 @@ public class ClienteDAO {
 			}
 			basededatos.Valoracion[] lRealiza_unas = cliente.realiza_una.toArray();
 			for(int i = 0; i < lRealiza_unas.length; i++) {
-				lRealiza_unas[i].escrito_por.remove(cliente);
+				lRealiza_unas[i].setEscrito_por(null);
+			}
+			basededatos.Respuesta[] lEscribe_unas = cliente.escribe_una.toArray();
+			for(int i = 0; i < lEscribe_unas.length; i++) {
+				lEscribe_unas[i].setEscrita_por(null);
 			}
 			try {
 				session.delete(cliente);

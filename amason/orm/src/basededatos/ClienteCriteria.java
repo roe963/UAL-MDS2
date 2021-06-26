@@ -23,6 +23,7 @@ public class ClienteCriteria extends AbstractORMCriteria {
 	public final StringExpression email;
 	public final StringExpression password;
 	public final BooleanExpression activo;
+	public final CollectionExpression escribe_una;
 	public final StringExpression nombre;
 	public final StringExpression metodoPago;
 	public final StringExpression direccionEnvio;
@@ -37,6 +38,7 @@ public class ClienteCriteria extends AbstractORMCriteria {
 		email = new StringExpression("email", this);
 		password = new StringExpression("password", this);
 		activo = new BooleanExpression("activo", this);
+		escribe_una = new CollectionExpression("ORM_escribe_una", this);
 		nombre = new StringExpression("nombre", this);
 		metodoPago = new StringExpression("metodoPago", this);
 		direccionEnvio = new StringExpression("direccionEnvio", this);
@@ -64,6 +66,10 @@ public class ClienteCriteria extends AbstractORMCriteria {
 	
 	public ValoracionCriteria createRealiza_unaCriteria() {
 		return new ValoracionCriteria(createCriteria("ORM_realiza_una"));
+	}
+	
+	public RespuestaCriteria createEscribe_unaCriteria() {
+		return new RespuestaCriteria(createCriteria("ORM_escribe_una"));
 	}
 	
 	public Cliente uniqueCliente() {

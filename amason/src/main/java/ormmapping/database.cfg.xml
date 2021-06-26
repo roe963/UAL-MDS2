@@ -244,7 +244,7 @@
   <Setting type="1048576">
     <Driver>MySQL5 (Connector/J Driver)</Driver>
     <DriverFiles>&lt;&lt;MySQL Connector/J 8.0.23&gt;&gt;</DriverFiles>
-    <Dialect>org.hibernate.dialect.MySQL5Dialect</Dialect>
+    <Dialect>org.hibernate.dialect.MySQL5InnoDBDialect</Dialect>
     <DriverClass>com.mysql.cj.jdbc.Driver</DriverClass>
     <URL>jdbc:mysql://localhost:3306/amason</URL>
     <UserName>root</UserName>
@@ -289,7 +289,7 @@
   <Setting type="2">
     <Driver>MySQL5 (Connector/J Driver)</Driver>
     <DriverFiles>&lt;&lt;MySQL Connector/J 8.0.23&gt;&gt;</DriverFiles>
-    <Dialect>org.hibernate.dialect.MySQL5Dialect</Dialect>
+    <Dialect>org.hibernate.dialect.MySQL5InnoDBDialect</Dialect>
     <DriverClass>com.mysql.cj.jdbc.Driver</DriverClass>
     <URL>jdbc:mysql://localhost:3306/amason</URL>
     <UserName>root</UserName>

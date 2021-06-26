@@ -23,6 +23,7 @@ public class UsuarioDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final StringExpression email;
 	public final StringExpression password;
 	public final BooleanExpression activo;
+	public final CollectionExpression escribe_una;
 	
 	public UsuarioDetachedCriteria() {
 		super(basededatos.Usuario.class, basededatos.UsuarioCriteria.class);
@@ -30,6 +31,7 @@ public class UsuarioDetachedCriteria extends AbstractORMDetachedCriteria {
 		email = new StringExpression("email", this.getDetachedCriteria());
 		password = new StringExpression("password", this.getDetachedCriteria());
 		activo = new BooleanExpression("activo", this.getDetachedCriteria());
+		escribe_una = new CollectionExpression("ORM_escribe_una", this.getDetachedCriteria());
 	}
 	
 	public UsuarioDetachedCriteria(DetachedCriteria aDetachedCriteria) {
@@ -38,6 +40,11 @@ public class UsuarioDetachedCriteria extends AbstractORMDetachedCriteria {
 		email = new StringExpression("email", this.getDetachedCriteria());
 		password = new StringExpression("password", this.getDetachedCriteria());
 		activo = new BooleanExpression("activo", this.getDetachedCriteria());
+		escribe_una = new CollectionExpression("ORM_escribe_una", this.getDetachedCriteria());
+	}
+	
+	public RespuestaDetachedCriteria createEscribe_unaCriteria() {
+		return new RespuestaDetachedCriteria(createCriteria("ORM_escribe_una"));
 	}
 	
 	public Usuario uniqueUsuario(PersistentSession session) {

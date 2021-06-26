@@ -323,9 +323,17 @@ public class Empresa_transportesDAO {
 	
 	public static boolean deleteAndDissociate(basededatos.Empresa_transportes empresa_transportes)throws PersistentException {
 		try {
+			basededatos.Pedido_entregado[] lEntregado_uns = empresa_transportes.entregado_un.toArray();
+			for(int i = 0; i < lEntregado_uns.length; i++) {
+				lEntregado_uns[i].setEntregado_por(null);
+			}
 			basededatos.Pedido_enviado[] lTiene_asignado_uns = empresa_transportes.tiene_asignado_un.toArray();
 			for(int i = 0; i < lTiene_asignado_uns.length; i++) {
 				lTiene_asignado_uns[i].setAsignado_a(null);
+			}
+			basededatos.Respuesta[] lEscribe_unas = empresa_transportes.escribe_una.toArray();
+			for(int i = 0; i < lEscribe_unas.length; i++) {
+				lEscribe_unas[i].setEscrita_por(null);
 			}
 			return delete(empresa_transportes);
 		}
@@ -337,9 +345,17 @@ public class Empresa_transportesDAO {
 	
 	public static boolean deleteAndDissociate(basededatos.Empresa_transportes empresa_transportes, org.orm.PersistentSession session)throws PersistentException {
 		try {
+			basededatos.Pedido_entregado[] lEntregado_uns = empresa_transportes.entregado_un.toArray();
+			for(int i = 0; i < lEntregado_uns.length; i++) {
+				lEntregado_uns[i].setEntregado_por(null);
+			}
 			basededatos.Pedido_enviado[] lTiene_asignado_uns = empresa_transportes.tiene_asignado_un.toArray();
 			for(int i = 0; i < lTiene_asignado_uns.length; i++) {
 				lTiene_asignado_uns[i].setAsignado_a(null);
+			}
+			basededatos.Respuesta[] lEscribe_unas = empresa_transportes.escribe_una.toArray();
+			for(int i = 0; i < lEscribe_unas.length; i++) {
+				lEscribe_unas[i].setEscrita_por(null);
 			}
 			try {
 				session.delete(empresa_transportes);

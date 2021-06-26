@@ -22,16 +22,18 @@ public class CantidadCriteria extends AbstractORMCriteria {
 	public final IntegerExpression id;
 	public final IntegerExpression contiene_unId;
 	public final AssociationExpression contiene_un;
+	public final IntegerExpression contenido_enId;
+	public final AssociationExpression contenido_en;
 	public final IntegerExpression cantidad;
-	public final CollectionExpression contenido_en;
 	
 	public CantidadCriteria(Criteria criteria) {
 		super(criteria);
 		id = new IntegerExpression("id", this);
 		contiene_unId = new IntegerExpression("contiene_un.id", this);
 		contiene_un = new AssociationExpression("contiene_un", this);
+		contenido_enId = new IntegerExpression("contenido_en.id", this);
+		contenido_en = new AssociationExpression("contenido_en", this);
 		cantidad = new IntegerExpression("cantidad", this);
-		contenido_en = new CollectionExpression("ORM_contenido_en", this);
 	}
 	
 	public CantidadCriteria(PersistentSession session) {
@@ -47,7 +49,7 @@ public class CantidadCriteria extends AbstractORMCriteria {
 	}
 	
 	public PedidoCriteria createContenido_enCriteria() {
-		return new PedidoCriteria(createCriteria("ORM_contenido_en"));
+		return new PedidoCriteria(createCriteria("contenido_en"));
 	}
 	
 	public Cantidad uniqueCantidad() {

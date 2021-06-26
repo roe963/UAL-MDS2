@@ -26,6 +26,10 @@ public class Respuesta implements Serializable {
 		if (key == ORMConstants.KEY_RESPUESTA_PERTENECE_A) {
 			this.pertenece_a = (basededatos.Mensaje) owner;
 		}
+		
+		else if (key == ORMConstants.KEY_RESPUESTA_ESCRITA_POR) {
+			this.escrita_por = (basededatos.Usuario) owner;
+		}
 	}
 	
 	@Transient	
@@ -41,6 +45,11 @@ public class Respuesta implements Serializable {
 	@GeneratedValue(generator="BASEDEDATOS_RESPUESTA_ID_GENERATOR")	
 	@org.hibernate.annotations.GenericGenerator(name="BASEDEDATOS_RESPUESTA_ID_GENERATOR", strategy="native")	
 	private int id;
+	
+	@ManyToOne(targetEntity=basededatos.Usuario.class, fetch=FetchType.LAZY)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
+	@JoinColumns(value={ @JoinColumn(name="UsuarioId", referencedColumnName="Id", nullable=false) }, foreignKey=@ForeignKey(name="FKRespuesta179661"))	
+	private basededatos.Usuario escrita_por;
 	
 	@ManyToOne(targetEntity=basededatos.Mensaje.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
@@ -103,6 +112,30 @@ public class Respuesta implements Serializable {
 	
 	private basededatos.Mensaje getORM_Pertenece_a() {
 		return pertenece_a;
+	}
+	
+	public void setEscrita_por(basededatos.Usuario value) {
+		if (escrita_por != null) {
+			escrita_por.escribe_una.remove(this);
+		}
+		if (value != null) {
+			value.escribe_una.add(this);
+		}
+	}
+	
+	public basededatos.Usuario getEscrita_por() {
+		return escrita_por;
+	}
+	
+	/**
+	 * This method is for internal use only.
+	 */
+	public void setORM_Escrita_por(basededatos.Usuario value) {
+		this.escrita_por = value;
+	}
+	
+	private basededatos.Usuario getORM_Escrita_por() {
+		return escrita_por;
 	}
 	
 	public String toString() {

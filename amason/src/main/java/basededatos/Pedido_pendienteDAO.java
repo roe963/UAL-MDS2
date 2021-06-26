@@ -30,14 +30,14 @@ public class Pedido_pendienteDAO {
 		}
 	}
 	
-	public static Pedido_pendiente getPedido_pendienteByORMID(int id){
+	public static Pedido_pendiente getPedido_pendienteByORMID(int id) throws PersistentException {
 		try {
 			PersistentSession session = MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession();
 			return getPedido_pendienteByORMID(session, id);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
-			return null;
+			throw new PersistentException(e);
 		}
 	}
 	
@@ -329,7 +329,7 @@ public class Pedido_pendienteDAO {
 			
 			basededatos.Cantidad[] lContiene_uns = pedido_pendiente.contiene_un.toArray();
 			for(int i = 0; i < lContiene_uns.length; i++) {
-				lContiene_uns[i].contenido_en.remove(pedido_pendiente);
+				lContiene_uns[i].setContenido_en(null);
 			}
 			return delete(pedido_pendiente);
 		}
@@ -347,7 +347,7 @@ public class Pedido_pendienteDAO {
 			
 			basededatos.Cantidad[] lContiene_uns = pedido_pendiente.contiene_un.toArray();
 			for(int i = 0; i < lContiene_uns.length; i++) {
-				lContiene_uns[i].contenido_en.remove(pedido_pendiente);
+				lContiene_uns[i].setContenido_en(null);
 			}
 			try {
 				session.delete(pedido_pendiente);

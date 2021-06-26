@@ -20,6 +20,8 @@ import org.orm.criteria.*;
 
 public class RespuestaDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression id;
+	public final IntegerExpression escrita_porId;
+	public final AssociationExpression escrita_por;
 	public final IntegerExpression pertenece_aId;
 	public final AssociationExpression pertenece_a;
 	public final IntegerExpression orden;
@@ -28,6 +30,8 @@ public class RespuestaDetachedCriteria extends AbstractORMDetachedCriteria {
 	public RespuestaDetachedCriteria() {
 		super(basededatos.Respuesta.class, basededatos.RespuestaCriteria.class);
 		id = new IntegerExpression("id", this.getDetachedCriteria());
+		escrita_porId = new IntegerExpression("escrita_por.id", this.getDetachedCriteria());
+		escrita_por = new AssociationExpression("escrita_por", this.getDetachedCriteria());
 		pertenece_aId = new IntegerExpression("pertenece_a.id", this.getDetachedCriteria());
 		pertenece_a = new AssociationExpression("pertenece_a", this.getDetachedCriteria());
 		orden = new IntegerExpression("orden", this.getDetachedCriteria());
@@ -37,10 +41,16 @@ public class RespuestaDetachedCriteria extends AbstractORMDetachedCriteria {
 	public RespuestaDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, basededatos.RespuestaCriteria.class);
 		id = new IntegerExpression("id", this.getDetachedCriteria());
+		escrita_porId = new IntegerExpression("escrita_por.id", this.getDetachedCriteria());
+		escrita_por = new AssociationExpression("escrita_por", this.getDetachedCriteria());
 		pertenece_aId = new IntegerExpression("pertenece_a.id", this.getDetachedCriteria());
 		pertenece_a = new AssociationExpression("pertenece_a", this.getDetachedCriteria());
 		orden = new IntegerExpression("orden", this.getDetachedCriteria());
 		contendio = new StringExpression("contendio", this.getDetachedCriteria());
+	}
+	
+	public UsuarioDetachedCriteria createEscrita_porCriteria() {
+		return new UsuarioDetachedCriteria(createCriteria("escrita_por"));
 	}
 	
 	public MensajeDetachedCriteria createPertenece_aCriteria() {

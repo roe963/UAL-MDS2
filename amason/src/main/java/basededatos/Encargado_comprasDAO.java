@@ -321,6 +321,39 @@ public class Encargado_comprasDAO {
 		}
 	}
 	
+	public static boolean deleteAndDissociate(basededatos.Encargado_compras encargado_compras)throws PersistentException {
+		try {
+			basededatos.Respuesta[] lEscribe_unas = encargado_compras.escribe_una.toArray();
+			for(int i = 0; i < lEscribe_unas.length; i++) {
+				lEscribe_unas[i].setEscrita_por(null);
+			}
+			return delete(encargado_compras);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			throw new PersistentException(e);
+		}
+	}
+	
+	public static boolean deleteAndDissociate(basededatos.Encargado_compras encargado_compras, org.orm.PersistentSession session)throws PersistentException {
+		try {
+			basededatos.Respuesta[] lEscribe_unas = encargado_compras.escribe_una.toArray();
+			for(int i = 0; i < lEscribe_unas.length; i++) {
+				lEscribe_unas[i].setEscrita_por(null);
+			}
+			try {
+				session.delete(encargado_compras);
+				return true;
+			} catch (Exception e) {
+				return false;
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			throw new PersistentException(e);
+		}
+	}
+	
 	public static boolean refresh(basededatos.Encargado_compras encargado_compras) throws PersistentException {
 		try {
 			MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().refresh(encargado_compras);

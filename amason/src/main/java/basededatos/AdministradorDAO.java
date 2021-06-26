@@ -321,6 +321,39 @@ public class AdministradorDAO {
 		}
 	}
 	
+	public static boolean deleteAndDissociate(basededatos.Administrador administrador)throws PersistentException {
+		try {
+			basededatos.Respuesta[] lEscribe_unas = administrador.escribe_una.toArray();
+			for(int i = 0; i < lEscribe_unas.length; i++) {
+				lEscribe_unas[i].setEscrita_por(null);
+			}
+			return delete(administrador);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			throw new PersistentException(e);
+		}
+	}
+	
+	public static boolean deleteAndDissociate(basededatos.Administrador administrador, org.orm.PersistentSession session)throws PersistentException {
+		try {
+			basededatos.Respuesta[] lEscribe_unas = administrador.escribe_una.toArray();
+			for(int i = 0; i < lEscribe_unas.length; i++) {
+				lEscribe_unas[i].setEscrita_por(null);
+			}
+			try {
+				session.delete(administrador);
+				return true;
+			} catch (Exception e) {
+				return false;
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			throw new PersistentException(e);
+		}
+	}
+	
 	public static boolean refresh(basededatos.Administrador administrador) throws PersistentException {
 		try {
 			MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().refresh(administrador);

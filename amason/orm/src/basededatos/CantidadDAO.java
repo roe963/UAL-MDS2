@@ -327,10 +327,10 @@ public class CantidadDAO {
 				cantidad.getContiene_un().tiene_una.remove(cantidad);
 			}
 			
-			basededatos.Pedido[] lContenido_ens = cantidad.contenido_en.toArray();
-			for(int i = 0; i < lContenido_ens.length; i++) {
-				lContenido_ens[i].contiene_un.remove(cantidad);
+			if (cantidad.getContenido_en() != null) {
+				cantidad.getContenido_en().contiene_un.remove(cantidad);
 			}
+			
 			return delete(cantidad);
 		}
 		catch(Exception e) {
@@ -345,10 +345,10 @@ public class CantidadDAO {
 				cantidad.getContiene_un().tiene_una.remove(cantidad);
 			}
 			
-			basededatos.Pedido[] lContenido_ens = cantidad.contenido_en.toArray();
-			for(int i = 0; i < lContenido_ens.length; i++) {
-				lContenido_ens[i].contiene_un.remove(cantidad);
+			if (cantidad.getContenido_en() != null) {
+				cantidad.getContenido_en().contiene_un.remove(cantidad);
 			}
+			
 			try {
 				session.delete(cantidad);
 				return true;

@@ -66,7 +66,7 @@ public class Pedido implements Serializable {
 	@Column(name="Precio", nullable=false)	
 	private float precio;
 	
-	@ManyToMany(mappedBy="ORM_contenido_en", targetEntity=basededatos.Cantidad.class)	
+	@OneToMany(mappedBy="contenido_en", targetEntity=basededatos.Cantidad.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_contiene_un = new java.util.HashSet();
@@ -132,7 +132,7 @@ public class Pedido implements Serializable {
 	}
 	
 	@Transient	
-	public final basededatos.CantidadSetCollection contiene_un = new basededatos.CantidadSetCollection(this, _ormAdapter, ORMConstants.KEY_PEDIDO_CONTIENE_UN, ORMConstants.KEY_CANTIDAD_CONTENIDO_EN, ORMConstants.KEY_MUL_MANY_TO_MANY);
+	public final basededatos.CantidadSetCollection contiene_un = new basededatos.CantidadSetCollection(this, _ormAdapter, ORMConstants.KEY_PEDIDO_CONTIENE_UN, ORMConstants.KEY_CANTIDAD_CONTENIDO_EN, ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	public void comprobar_pedido(int idPedido) {
 		//TODO: Implement Method

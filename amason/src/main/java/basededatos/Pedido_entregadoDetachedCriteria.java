@@ -25,6 +25,8 @@ public class Pedido_entregadoDetachedCriteria extends AbstractORMDetachedCriteri
 	public final LongExpression fecha;
 	public final FloatExpression precio;
 	public final CollectionExpression contiene_un;
+	public final IntegerExpression entregado_porId;
+	public final AssociationExpression entregado_por;
 	
 	public Pedido_entregadoDetachedCriteria() {
 		super(basededatos.Pedido_entregado.class, basededatos.Pedido_entregadoCriteria.class);
@@ -34,6 +36,8 @@ public class Pedido_entregadoDetachedCriteria extends AbstractORMDetachedCriteri
 		fecha = new LongExpression("fecha", this.getDetachedCriteria());
 		precio = new FloatExpression("precio", this.getDetachedCriteria());
 		contiene_un = new CollectionExpression("ORM_contiene_un", this.getDetachedCriteria());
+		entregado_porId = new IntegerExpression("entregado_por.", this.getDetachedCriteria());
+		entregado_por = new AssociationExpression("entregado_por", this.getDetachedCriteria());
 	}
 	
 	public Pedido_entregadoDetachedCriteria(DetachedCriteria aDetachedCriteria) {
@@ -44,6 +48,12 @@ public class Pedido_entregadoDetachedCriteria extends AbstractORMDetachedCriteri
 		fecha = new LongExpression("fecha", this.getDetachedCriteria());
 		precio = new FloatExpression("precio", this.getDetachedCriteria());
 		contiene_un = new CollectionExpression("ORM_contiene_un", this.getDetachedCriteria());
+		entregado_porId = new IntegerExpression("entregado_por.", this.getDetachedCriteria());
+		entregado_por = new AssociationExpression("entregado_por", this.getDetachedCriteria());
+	}
+	
+	public Empresa_transportesDetachedCriteria createEntregado_porCriteria() {
+		return new Empresa_transportesDetachedCriteria(createCriteria("entregado_por"));
 	}
 	
 	public ClienteDetachedCriteria createRealizado_porCriteria() {

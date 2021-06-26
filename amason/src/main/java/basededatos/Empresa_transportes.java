@@ -25,7 +25,10 @@ public class Empresa_transportes extends basededatos.Usuario implements Serializ
 	}
 	
 	private java.util.Set this_getSet (int key) {
-		if (key == ORMConstants.KEY_EMPRESA_TRANSPORTES_TIENE_ASIGNADO_UN) {
+		if (key == ORMConstants.KEY_EMPRESA_TRANSPORTES_ENTREGADO_UN) {
+			return ORM_entregado_un;
+		}
+		else if (key == ORMConstants.KEY_EMPRESA_TRANSPORTES_TIENE_ASIGNADO_UN) {
 			return ORM_tiene_asignado_un;
 		}
 		
@@ -40,10 +43,26 @@ public class Empresa_transportes extends basededatos.Usuario implements Serializ
 		
 	};
 	
+	@OneToMany(mappedBy="entregado_por", targetEntity=basededatos.Pedido_entregado.class)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
+	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
+	private java.util.Set ORM_entregado_un = new java.util.HashSet();
+	
 	@OneToMany(mappedBy="asignado_a", targetEntity=basededatos.Pedido_enviado.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_tiene_asignado_un = new java.util.HashSet();
+	
+	private void setORM_Entregado_un(java.util.Set value) {
+		this.ORM_entregado_un = value;
+	}
+	
+	private java.util.Set getORM_Entregado_un() {
+		return ORM_entregado_un;
+	}
+	
+	@Transient	
+	public final basededatos.Pedido_entregadoSetCollection entregado_un = new basededatos.Pedido_entregadoSetCollection(this, _ormAdapter, ORMConstants.KEY_EMPRESA_TRANSPORTES_ENTREGADO_UN, ORMConstants.KEY_PEDIDO_ENTREGADO_ENTREGADO_POR, ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	private void setORM_Tiene_asignado_un(java.util.Set value) {
 		this.ORM_tiene_asignado_un = value;

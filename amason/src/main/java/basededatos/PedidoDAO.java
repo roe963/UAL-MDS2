@@ -341,7 +341,7 @@ public class PedidoDAO {
 			
 			basededatos.Cantidad[] lContiene_uns = pedido.contiene_un.toArray();
 			for(int i = 0; i < lContiene_uns.length; i++) {
-				lContiene_uns[i].contenido_en.remove(pedido);
+				lContiene_uns[i].setContenido_en(null);
 			}
 			return delete(pedido);
 		}
@@ -371,7 +371,7 @@ public class PedidoDAO {
 			
 			basededatos.Cantidad[] lContiene_uns = pedido.contiene_un.toArray();
 			for(int i = 0; i < lContiene_uns.length; i++) {
-				lContiene_uns[i].contenido_en.remove(pedido);
+				lContiene_uns[i].setContenido_en(null);
 			}
 			try {
 				session.delete(pedido);

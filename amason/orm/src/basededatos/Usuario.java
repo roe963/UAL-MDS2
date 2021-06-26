@@ -23,6 +23,22 @@ public class Usuario implements Serializable {
 	public Usuario() {
 	}
 	
+	private java.util.Set this_getSet (int key) {
+		if (key == ORMConstants.KEY_USUARIO_ESCRIBE_UNA) {
+			return ORM_escribe_una;
+		}
+		
+		return null;
+	}
+	
+	@Transient	
+	org.orm.util.ORMAdapter _ormAdapter = new org.orm.util.AbstractORMAdapter() {
+		public java.util.Set getSet(int key) {
+			return this_getSet(key);
+		}
+		
+	};
+	
 	@Column(name="Id", nullable=false, length=10)	
 	@Id	
 	@GeneratedValue(generator="BASEDEDATOS_USUARIO_ID_GENERATOR")	
@@ -37,6 +53,11 @@ public class Usuario implements Serializable {
 	
 	@Column(name="Activo", nullable=false, length=1)	
 	private boolean activo;
+	
+	@OneToMany(mappedBy="escrita_por", targetEntity=basededatos.Respuesta.class)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
+	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
+	private java.util.Set ORM_escribe_una = new java.util.HashSet();
 	
 	private void setId(int value) {
 		this.id = value;
@@ -73,6 +94,17 @@ public class Usuario implements Serializable {
 	public boolean getActivo() {
 		return activo;
 	}
+	
+	private void setORM_Escribe_una(java.util.Set value) {
+		this.ORM_escribe_una = value;
+	}
+	
+	private java.util.Set getORM_Escribe_una() {
+		return ORM_escribe_una;
+	}
+	
+	@Transient	
+	public final basededatos.RespuestaSetCollection escribe_una = new basededatos.RespuestaSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_ESCRIBE_UNA, ORMConstants.KEY_RESPUESTA_ESCRITA_POR, ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	public basededatos.Usuario iniciar_sesion(String mailUsuario, String passwordUsuario) {
 		//TODO: Implement Method

@@ -20,38 +20,44 @@ import org.orm.criteria.*;
 
 public class ValoracionDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression id;
+	public final IntegerExpression escrito_porId;
+	public final AssociationExpression escrito_por;
 	public final IntegerExpression valora_unId;
 	public final AssociationExpression valora_un;
 	public final IntegerExpression puntuacion;
 	public final StringExpression comentario;
-	public final CollectionExpression escrito_por;
+	public final LongExpression fecha;
 	
 	public ValoracionDetachedCriteria() {
 		super(basededatos.Valoracion.class, basededatos.ValoracionCriteria.class);
 		id = new IntegerExpression("id", this.getDetachedCriteria());
+		escrito_porId = new IntegerExpression("escrito_por.", this.getDetachedCriteria());
+		escrito_por = new AssociationExpression("escrito_por", this.getDetachedCriteria());
 		valora_unId = new IntegerExpression("valora_un.id", this.getDetachedCriteria());
 		valora_un = new AssociationExpression("valora_un", this.getDetachedCriteria());
 		puntuacion = new IntegerExpression("puntuacion", this.getDetachedCriteria());
 		comentario = new StringExpression("comentario", this.getDetachedCriteria());
-		escrito_por = new CollectionExpression("ORM_escrito_por", this.getDetachedCriteria());
+		fecha = new LongExpression("fecha", this.getDetachedCriteria());
 	}
 	
 	public ValoracionDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, basededatos.ValoracionCriteria.class);
 		id = new IntegerExpression("id", this.getDetachedCriteria());
+		escrito_porId = new IntegerExpression("escrito_por.", this.getDetachedCriteria());
+		escrito_por = new AssociationExpression("escrito_por", this.getDetachedCriteria());
 		valora_unId = new IntegerExpression("valora_un.id", this.getDetachedCriteria());
 		valora_un = new AssociationExpression("valora_un", this.getDetachedCriteria());
 		puntuacion = new IntegerExpression("puntuacion", this.getDetachedCriteria());
 		comentario = new StringExpression("comentario", this.getDetachedCriteria());
-		escrito_por = new CollectionExpression("ORM_escrito_por", this.getDetachedCriteria());
+		fecha = new LongExpression("fecha", this.getDetachedCriteria());
+	}
+	
+	public ClienteDetachedCriteria createEscrito_porCriteria() {
+		return new ClienteDetachedCriteria(createCriteria("escrito_por"));
 	}
 	
 	public ProductoDetachedCriteria createValora_unCriteria() {
 		return new ProductoDetachedCriteria(createCriteria("valora_un"));
-	}
-	
-	public ClienteDetachedCriteria createEscrito_porCriteria() {
-		return new ClienteDetachedCriteria(createCriteria("ORM_escrito_por"));
 	}
 	
 	public Valoracion uniqueValoracion(PersistentSession session) {

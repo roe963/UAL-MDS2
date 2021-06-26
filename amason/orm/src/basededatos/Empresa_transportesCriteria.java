@@ -23,6 +23,8 @@ public class Empresa_transportesCriteria extends AbstractORMCriteria {
 	public final StringExpression email;
 	public final StringExpression password;
 	public final BooleanExpression activo;
+	public final CollectionExpression escribe_una;
+	public final CollectionExpression entregado_un;
 	public final CollectionExpression tiene_asignado_un;
 	
 	public Empresa_transportesCriteria(Criteria criteria) {
@@ -31,6 +33,8 @@ public class Empresa_transportesCriteria extends AbstractORMCriteria {
 		email = new StringExpression("email", this);
 		password = new StringExpression("password", this);
 		activo = new BooleanExpression("activo", this);
+		escribe_una = new CollectionExpression("ORM_escribe_una", this);
+		entregado_un = new CollectionExpression("ORM_entregado_un", this);
 		tiene_asignado_un = new CollectionExpression("ORM_tiene_asignado_un", this);
 	}
 	
@@ -42,8 +46,16 @@ public class Empresa_transportesCriteria extends AbstractORMCriteria {
 		this(MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession());
 	}
 	
+	public Pedido_entregadoCriteria createEntregado_unCriteria() {
+		return new Pedido_entregadoCriteria(createCriteria("ORM_entregado_un"));
+	}
+	
 	public Pedido_enviadoCriteria createTiene_asignado_unCriteria() {
 		return new Pedido_enviadoCriteria(createCriteria("ORM_tiene_asignado_un"));
+	}
+	
+	public RespuestaCriteria createEscribe_unaCriteria() {
+		return new RespuestaCriteria(createCriteria("ORM_escribe_una"));
 	}
 	
 	public Empresa_transportes uniqueEmpresa_transportes() {
