@@ -5,7 +5,6 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.templatemodel.TemplateModel;
-import com.vaadin.flow.dom.Element;
 import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.button.Button;
 
@@ -18,12 +17,12 @@ import com.vaadin.flow.component.button.Button;
 @Tag("vista-tramitarpedido")
 @JsModule("./src/vista-tramitarpedido.js")
 public class VistaTramitarpedido extends PolymerTemplate<VistaTramitarpedido.VistaTramitarpedidoModel> {
-
    
 	@Id("button-comprar")
 	private Button buttonComprar;
-	@Id("vaadinVerticalLayout")
-	private VerticalLayout vaadinVerticalLayout;
+	
+	@Id("layout-datoscompra")
+	private VerticalLayout datosCompra;
 
 	
 	public Button getButtonComprar() {
@@ -34,12 +33,12 @@ public class VistaTramitarpedido extends PolymerTemplate<VistaTramitarpedido.Vis
 		this.buttonComprar = buttonComprar;
 	}
 
-	public VerticalLayout getVaadinVerticalLayout() {
-		return vaadinVerticalLayout;
+	public VerticalLayout getDatosCompra() {
+		return datosCompra;
 	}
 
-	public void setVaadinVerticalLayout(VerticalLayout vaadinVerticalLayout) {
-		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	public void setDatosCompra(VerticalLayout datosCompra) {
+		this.datosCompra = datosCompra;
 	}
 
 	/**

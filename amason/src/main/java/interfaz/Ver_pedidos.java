@@ -34,13 +34,13 @@ public class Ver_pedidos extends VistaVerpedidos {
         this.getLayoutMenu().setHorizontalComponentAlignment(Alignment.CENTER, mb);
 
         Pedido_pendiente[] arrayPedidosPendientes = cliente_registrado
-                .cargar_pedidos_pendientes_cliente_registrado(Session.getCliente().getId());
+                .cargar_pedidos_pendientes_cliente_registrado(Session.getUsuario().getId());
 
         Pedido_enviado[] arrayPedidosEnviados = cliente_registrado
-                .cargar_pedidos_enviados_cliente_registrado(Session.getCliente().getId());
+                .cargar_pedidos_enviados_cliente_registrado(Session.getUsuario().getId());
 
         Pedido_entregado[] arrayPedidosEntregado = cliente_registrado
-                .cargar_pedidos_entregados_cliente_registrado(Session.getCliente().getId());
+                .cargar_pedidos_entregados_cliente_registrado(Session.getUsuario().getId());
 
         this.getVaadinVerticalLayout().removeAll();
 

@@ -39,7 +39,7 @@ import com.vaadin.flow.router.OptionalParameter;
 public class Respuestas extends VistaRespuestas implements HasUrlParameter<String>  {
 	public Ver_respuestas _ver_respuestas;
 	public Vector<Respuesta> _respuesta = new Vector<Respuesta>();
-	int idUsuario= Session.getCliente().getId();
+	int idUsuario= Session.getUsuario().getId();
 	
 	iCorreo_personal icorreo = new BDPrincipal();
 	public static int parametro=0; 

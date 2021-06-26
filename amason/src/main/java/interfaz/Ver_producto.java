@@ -1,6 +1,7 @@
 package interfaz;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import org.orm.PersistentException;
@@ -165,11 +166,12 @@ public class Ver_producto extends VistaVerproducto implements HasUrlParameter<St
 
 		this.getVldescripcionAndValoracion().add(tabs, pages);
 		
-		
 		this.getButtonComprar().addClickListener(event -> {
-		    System.out.println("Se añade al carrito" +producto.getNombre());
-		    Producto_del_carrito p = new Producto_del_carrito(producto, 1);
-		    Session.getCarrito().add(p);
+		    System.out.println("Se añade al carrito" +producto.getNombre());		    
+		    Cantidad c = new Cantidad();
+		    c.setCantidad(1);
+		    c.setContiene_un(producto);
+		    Session.addToCarrito(c);
 		});
 	}
 	

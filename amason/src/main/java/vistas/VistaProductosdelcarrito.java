@@ -18,18 +18,18 @@ import com.vaadin.flow.component.polymertemplate.Id;
 @JsModule("./src/vista-productosdelcarrito.js")
 public class VistaProductosdelcarrito extends PolymerTemplate<VistaProductosdelcarrito.VistaProductosdelcarritoModel> {
 
-    @Id("VlProductos")
-	private VerticalLayout vlProductos;
+    @Id("layout-productosdelcarrito")
+	private VerticalLayout productosDelCarrito;
 
-	public VerticalLayout getVlProductos() {
-		return vlProductos;
-	}
+	public VerticalLayout getProductosDelCarrito() {
+        return productosDelCarrito;
+    }
 
-	public void setVlProductos(VerticalLayout vlProductos) {
-		this.vlProductos = vlProductos;
-	}
+    public void setProductosDelCarrito(VerticalLayout productosDelCarrito) {
+        this.productosDelCarrito = productosDelCarrito;
+    }
 
-	/**
+    /**
      * Creates a new VistaProductosdelcarrito.
      */
     public VistaProductosdelcarrito() {
