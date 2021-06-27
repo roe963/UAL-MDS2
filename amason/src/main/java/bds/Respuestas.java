@@ -33,7 +33,7 @@ public class Respuestas {
 		    	Mensaje mensaje = MensajeDAO.getMensajeByORMID(aMensaje.getId());
 		    	respuesta= new Respuesta();
 		    	respuesta.setPertenece_a(mensaje);
-		    	respuesta.setEscrita_por(Session.getCliente());
+		    	respuesta.setEscrita_por(Session.getUsuario());
 		    	//calcular el número de respuesta y le pone un orden
 		    	Respuesta[] respuestas = cargar_respuestas_mensaje(aMensaje.getId());
 		    	respuesta.setOrden(respuestas.length+1);
@@ -50,26 +50,30 @@ public class Respuestas {
     	}
 	}
 
-	public Respuesta[] cargar_respuestas_mensaje(int aIdMensaje)throws PersistentException  {
+	public Respuesta[] cargar_respuestas_mensaje(int aIdMensaje) {
 		Respuesta[] respuestas = null;
 		
-        PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
-        
+        PersistentTransaction t;
         try {
-        	respuestas = RespuestaDAO.listRespuestaByQuery("MensajeId=" + aIdMensaje, null);
-            t.commit();
-        } catch (PersistentException e) {
-            t.rollback();
+        	t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
+	        try {
+	        	respuestas = RespuestaDAO.listRespuestaByQuery("MensajeId=" + aIdMensaje, null);
+	            t.commit();
+	        } catch (PersistentException e) {
+	            t.rollback();
+	        }
+        } catch (Exception e) {
+        // TODO: handle exception
         }
-        
         return respuestas;
 	}
 
-	public void responder_respuesta(int aIdMensaje, String aRespuesta)  throws PersistentException{
-		 PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
+	public void responder_respuesta(int aIdMensaje, String aRespuesta) {
+		 PersistentTransaction t;
 	    	Respuesta respuesta = null;
 			
 	    	try {
+	    		t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
 		        try {
 		        	Mensaje mensaje = MensajeDAO.getMensajeByORMID(aIdMensaje);
 		        	respuesta= new  Respuesta();

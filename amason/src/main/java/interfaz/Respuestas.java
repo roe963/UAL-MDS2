@@ -39,7 +39,7 @@ import com.vaadin.flow.router.OptionalParameter;
 public class Respuestas extends VistaRespuestas implements HasUrlParameter<String>  {
 	public Ver_respuestas _ver_respuestas;
 	public Vector<Respuesta> _respuesta = new Vector<Respuesta>();
-	int idUsuario= Session.getCliente().getId();
+	int idUsuario= Session.getUsuario().getId();
 	
 	iCorreo_personal icorreo = new BDPrincipal();
 	public static int parametro=0; 
@@ -67,11 +67,6 @@ public class Respuestas extends VistaRespuestas implements HasUrlParameter<Strin
 		MenuBar mb = MenuHeader.getMenuBar();
 		this.getLayoutMenu().add(mb);
 		this.getLayoutMenu().setHorizontalComponentAlignment(Alignment.CENTER, mb);
-			    
-	
-		this.getButtonVolver().addClickListener(e->{
-			UI.getCurrent().navigate("ver_mensajes_cliente_registrado");
-		});
 		
 		this.getButtonResponder().addClickListener(e->{
 			responder_respuesta();			
