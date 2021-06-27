@@ -16,7 +16,7 @@ public class Tramitar_pedido extends VistaTramitarpedido {
 
     iCliente_registrado bd = new BDPrincipal();
 
-    public Tramitar_pedido(Dialog dialog) {
+    public Tramitar_pedido(Dialog dialog, UI ui) {
 
         basededatos.Cliente cliente = bd.cargar_perfil(Session.getUsuario().getId());
 
@@ -31,7 +31,7 @@ public class Tramitar_pedido extends VistaTramitarpedido {
             dialog.close();
 
             Session.vaciarCarrito();
-            UI.getCurrent().getPage().reload();
+            ui.navigate("cliente");
         });
 
     }

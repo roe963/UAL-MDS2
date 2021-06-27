@@ -34,17 +34,17 @@ public class Pedidos_pendientes {
         try {
             t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
             try {
-                Pedido pedido = PedidoDAO.createPedido();
+                Pedido_pendiente pedido = Pedido_pendienteDAO.createPedido_pendiente();
                 pedido.setFecha(System.currentTimeMillis());
                 pedido.setPrecio((float)Session.calcularPrecioTotalCarrito());
                 pedido.setRealizado_por(aCliente);
                 PedidoDAO.save(pedido);
+                Pedido_pendienteDAO.save(pedido);
                 
                 for(Cantidad c : aCantidades) {
                     c.setContenido_en(pedido);
                     CantidadDAO.save(c);
                 }
-                Pedido_pendienteDAO.save((Pedido_pendiente) pedido);
 
                 t.commit();
             } catch (PersistentException e) {
