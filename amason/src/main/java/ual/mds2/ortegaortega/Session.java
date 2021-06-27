@@ -66,6 +66,15 @@ public class Session {
             carrito.add(c);
     }
     
+    public static void removeFromCarrito(Cantidad c) {
+        for (Cantidad aux : Session.getCarrito()) {
+            if (aux.getContiene_un().getId() == c.getContiene_un().getId()) {
+                carrito.remove(aux);
+                break;
+            }
+        }
+    }
+    
     public static double calcularPrecioTotalCarrito() {
         Double precioTotal = 0.0;
         for(Cantidad c: carrito) {
