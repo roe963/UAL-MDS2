@@ -16,42 +16,67 @@ public class Mensajes {
 	public BDPrincipal _bdprincipal_mensajes;
 	public Vector<Mensaje> _contiene_mensaje = new Vector<Mensaje>();
 
-	public Mensaje[] cargar_mensajes_cliente(int aIdUsuario)  throws PersistentException{
+	public Mensaje[] cargar_mensajes_cliente(int aIdUsuario) {
 		Mensaje[] mensajes = null;
 		
-        PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
+        PersistentTransaction t;
         
         try {
-        	mensajes = MensajeDAO.listMensajeByQuery("ClienteUsuarioId=" + aIdUsuario, null);        	
-            t.commit();
-            
-        } catch (PersistentException e) {
-            t.rollback();
+        	t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
+	        try {
+	        	mensajes = MensajeDAO.listMensajeByQuery("ClienteUsuarioId=" + aIdUsuario, null);        	
+	            t.commit();
+	            
+	        } catch (PersistentException e) {
+	            t.rollback();
+	        }
+        } catch (Exception e) {
+        // TODO: handle exception
         }
         
         return mensajes;
 	}
 
 	public Mensaje[] cargar_mensajes_administrador() {
-		throw new UnsupportedOperationException();
+		Mensaje[] mensajes = null;
+		
+        PersistentTransaction t;
+        try {
+        	t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
+	        try {
+	        	mensajes = MensajeDAO.listMensajeByQuery(null, null);        	
+	            t.commit();
+	            
+	        } catch (PersistentException e) {
+	            t.rollback();
+	        }
+        } catch (Exception e) {
+        // TODO: handle exception
+    	}
+        
+        return mensajes;
 	}
 
-	public Mensaje crear_mensaje(int aIdUsuario) throws PersistentException{		
+	public Mensaje crear_mensaje(int aIdUsuario) {		
 		
-        PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
+        PersistentTransaction t;
     	Mensaje nuevoMensaje = null;
-
-        try {
-        	Cliente cliente = ClienteDAO.getClienteByORMID(aIdUsuario);
-        	nuevoMensaje= new  Mensaje();
-        	nuevoMensaje.setEscrito_por(cliente);  
-        	MensajeDAO.save(nuevoMensaje);
-            t.commit();
-            
-        } catch (PersistentException e) {
-            t.rollback();           
-         
-        }
+    	try {
+    		t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
+	        try {
+	        	Cliente cliente = ClienteDAO.getClienteByORMID(aIdUsuario);
+	        	nuevoMensaje= new  Mensaje();
+	        	nuevoMensaje.setEscrito_por(cliente);  
+	        	MensajeDAO.save(nuevoMensaje);
+	            t.commit();
+	            
+	        } catch (PersistentException e) {
+	            t.rollback();           
+	         
+	        }
+    	} catch (Exception e) {
+        // TODO: handle exception
+    	}
         
         return nuevoMensaje;
 	}

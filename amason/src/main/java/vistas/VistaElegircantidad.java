@@ -4,6 +4,8 @@ import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.templatemodel.TemplateModel;
+import com.vaadin.flow.component.select.Select;
+import com.vaadin.flow.component.polymertemplate.Id;
 
 /**
  * A Designer generated component for the vista-elegircantidad template.
@@ -14,6 +16,18 @@ import com.vaadin.flow.templatemodel.TemplateModel;
 @Tag("vista-elegircantidad")
 @JsModule("./src/vista-elegircantidad.js")
 public class VistaElegircantidad extends PolymerTemplate<VistaElegircantidad.VistaElegircantidadModel> {
+
+    @Id("select-cantidad")
+    private Select<Integer> selectCantidad;
+    
+
+    public Select<Integer> getSelectCantidad() {
+        return selectCantidad;
+    }
+
+    public void setSelectCantidad(Select<Integer> selectCantidad) {
+        this.selectCantidad = selectCantidad;
+    }
 
     /**
      * Creates a new VistaElegircantidad.

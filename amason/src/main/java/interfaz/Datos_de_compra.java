@@ -1,34 +1,22 @@
 package interfaz;
-
-import com.vaadin.flow.component.select.Select;
-
+import bds.BDPrincipal;
+import bds.iCliente_registrado;
+import ual.mds2.ortegaortega.Session;
 import vistas.VistaDatosdecompra;
 
 public class Datos_de_compra extends VistaDatosdecompra {
-	/*
-	 * private button _comprar; public Ver_perfil _ver_perfil; public
-	 * Tramitar_pedido _tramitar_pedido; public Seleccionar_direccion_de_envio
-	 * _seleccionar_direccion_de_envio; public Seleccionar_metodo_de_pago
-	 * _seleccionar_metodo_de_pago;
-	 */
 
-	
-	Select<String> labelSelect = new Select<>();
-
-	public Datos_de_compra(String direccion, String formaPago) {
-	
-
-		this.getTextfieldDireccion().setValue(direccion);
+    iCliente_registrado bd = new BDPrincipal();
+    
+	public Datos_de_compra() {
+	    
+	    basededatos.Cliente c = bd.cargar_perfil(Session.getUsuario().getId());
+	    
+	    System.out.println(c.getDireccionEnvio()+" "+c.getMetodoPago());
+	    
+		this.getTextfieldDireccion().setValue(c.getDireccionEnvio());
 		
-		// carga el select
-		this.getVlFormadePago().removeAll();
-		labelSelect.setItems("Tarjeta", "Bizum");
-		labelSelect.setValue(formaPago);
-		labelSelect.setLabel("Forma de pago");
-		this.getVlFormadePago().add(labelSelect);
-
+		this.getFormadepago().setItems(new String[] {"Tarjeta", "PayPal"});
+		this.getFormadepago().setValue(c.getMetodoPago());
 	}
-
-	
-
 }

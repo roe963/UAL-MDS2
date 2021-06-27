@@ -22,10 +22,9 @@ public class VistaDatosdecompra extends PolymerTemplate<VistaDatosdecompra.Vista
 
     @Id("textfield-direccion")
 	private TextField textfieldDireccion;
-	@Id("vlFormadePago")
-	private VerticalLayout vlFormadePago;
-
-	
+    
+	@Id("select-formadepago")
+	private Select<String> formadepago;
 	
 	public TextField getTextfieldDireccion() {
 		return textfieldDireccion;
@@ -35,15 +34,15 @@ public class VistaDatosdecompra extends PolymerTemplate<VistaDatosdecompra.Vista
 		this.textfieldDireccion = textfieldDireccion;
 	}
 
-	public VerticalLayout getVlFormadePago() {
-		return vlFormadePago;
-	}
+	public Select<String> getFormadepago() {
+        return formadepago;
+    }
 
-	public void setVlFormadePago(VerticalLayout vlFormadePago) {
-		this.vlFormadePago = vlFormadePago;
-	}
+    public void setFormadepago(Select<String> formadepago) {
+        this.formadepago = formadepago;
+    }
 
-	/**
+    /**
      * Creates a new VistaDatosdecompra.
      */
     public VistaDatosdecompra() {

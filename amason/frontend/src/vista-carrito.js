@@ -1,8 +1,7 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
-import './vista-productosdelcarrito.js';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 
 class VistaCarrito extends PolymerElement {
 
@@ -16,19 +15,19 @@ class VistaCarrito extends PolymerElement {
                 }
             </style>
 <vaadin-vertical-layout style="width: 100%; height: 100%; align-items: stretch;">
- <vaadin-vertical-layout theme="spacing" id="layout-menu"></vaadin-vertical-layout>
- <vaadin-vertical-layout theme="spacing" id="layout-carrito" style="padding: var(--lumo-space-xl);">
-  <h4>Carrito</h4>
-  <vaadin-horizontal-layout theme="spacing" style="align-self: stretch;">
-   <label style="align-self: center; flex-grow: 0;">Precio Total</label>
-   <h4 style="align-self: center; flex-grow: 1;" id="h4">0,00 </h4>
-   <vaadin-button style="flex-grow: 0; flex-shrink: 1; align-self: center;" id="vaadinButton">
+ <vaadin-vertical-layout id="layout-menu" style="align-self: center;"></vaadin-vertical-layout>
+ <vaadin-vertical-layout style="flex-shrink: 1; flex-grow: 1; align-self: stretch; margin: var(--lumo-space-m);">
+  <h4 style="align-self: flex-start; flex-shrink: 0;">Carrito</h4>
+  <vaadin-horizontal-layout theme="spacing-xl" style="justify-content: space-between; flex-grow: 0; flex-shrink: 1; align-self: stretch;">
+   <vaadin-horizontal-layout theme="spacing-l" style="align-self: stretch; flex-grow: 1;">
+    <h4 style="flex-grow: 0;" id="h4">Precio total</h4>
+    <label style="flex-grow: 0; align-self: center;" id="lbl-precio-carrito">Precio Total</label>
+   </vaadin-horizontal-layout>
+   <vaadin-button style="flex-grow: 0; flex-shrink: 1; align-self: center;" id="button-tramitarpedido">
      Tramitar pedido 
    </vaadin-button>
   </vaadin-horizontal-layout>
-  <vaadin-vertical-layout theme="spacing" id="vlProductos" style="width: 100%;">
-   <vista-productosdelcarrito style="align-self: stretch; flex-grow: 1; flex-shrink: 1; padding: var(--lumo-space-xl);"></vista-productosdelcarrito>
-  </vaadin-vertical-layout>
+  <vaadin-vertical-layout id="layout-productosdelcarrito" style="flex-grow: 1; align-self: stretch; flex-shrink: 0;"></vaadin-vertical-layout>
  </vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;

@@ -4,6 +4,9 @@ import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.templatemodel.TemplateModel;
+
+import basededatos.Cantidad;
+
 import com.vaadin.flow.dom.Element;
 import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.html.Image;
@@ -22,83 +25,89 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 @JsModule("./src/vista-productodelcarrito.js")
 public class VistaProductodelcarrito extends PolymerTemplate<VistaProductodelcarrito.VistaProductodelcarritoModel> {
 
-    @Id("vaadinVerticalLayout")
-	private Element vaadinVerticalLayout;
-	@Id("img-producto")
-	private Image imgProducto;
-	@Id("button-eliminar")
-	private Button buttonEliminar;
-	@Id("h-precio")
-	private H4 hPrecio;
-	@Id("label-categoria")
-	private Label labelCategoria;
-	@Id("h-producto")
-	private H4 hProducto;
-	@Id("vaadinVerticalLayout2")
-	private VerticalLayout vaadinVerticalLayout2;
+	@Id("img-producto-carrito")
+	private Image imageProducto;
 	
+	@Id("h-nombre-producto-carrito")
+    private H4 nombreProducto;
 	
+	@Id("lbl-categoria-producto-carrito")
+    private Label categoriaProducto;
 	
-	public VerticalLayout getVaadinVerticalLayout2() {
-		return vaadinVerticalLayout2;
-	}
+	@Id("lbl-precio-producto-carrito")
+    private Label precioPoducto;
+	
+	@Id("h-preciototal-producto-carrito")
+	private H4 precioTotalPoducto;
 
-	public void setVaadinVerticalLayout2(VerticalLayout vaadinVerticalLayout2) {
-		this.vaadinVerticalLayout2 = vaadinVerticalLayout2;
-	}
+    @Id("button-eliminar-producto-carrito")
+    private Button eliminarProducto;
 
-	public H4 gethProducto() {
-		return hProducto;
-	}
+    @Id("layout-selec-cantidad")
+    private VerticalLayout layoutSelecCantidad;
+	
 
-	public void sethProducto(H4 hProducto) {
-		this.hProducto = hProducto;
-	}
+	public Image getImageProducto() {
+        return imageProducto;
+    }
 
-	public Label getLabelCategoria() {
-		return labelCategoria;
-	}
+    public void setImageProducto(Image imageProducto) {
+        this.imageProducto = imageProducto;
+    }
 
-	public void setLabelCategoria(Label labelCategoria) {
-		this.labelCategoria = labelCategoria;
-	}
+    public H4 getNombreProducto() {
+        return nombreProducto;
+    }
 
-	public Element getVaadinVerticalLayout() {
-		return vaadinVerticalLayout;
-	}
+    public void setNombreProducto(H4 nombreProducto) {
+        this.nombreProducto = nombreProducto;
+    }
 
-	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
-		this.vaadinVerticalLayout = vaadinVerticalLayout;
-	}
+    public Label getCategoriaProducto() {
+        return categoriaProducto;
+    }
 
-	public Image getImgProducto() {
-		return imgProducto;
-	}
+    public void setCategoriaProducto(Label categoriaProducto) {
+        this.categoriaProducto = categoriaProducto;
+    }
 
-	public void setImgProducto(Image imgProducto) {
-		this.imgProducto = imgProducto;
-	}
+    public Label getPrecioPoducto() {
+        return precioPoducto;
+    }
 
-	public Button getButtonEliminar() {
-		return buttonEliminar;
-	}
+    public void setPrecioPoducto(Label precioPoducto) {
+        this.precioPoducto = precioPoducto;
+    }
 
-	public void setButtonEliminar(Button buttonEliminar) {
-		this.buttonEliminar = buttonEliminar;
-	}
+    public H4 getPrecioTotalPoducto() {
+        return precioTotalPoducto;
+    }
 
-	public H4 gethPrecio() {
-		return hPrecio;
-	}
+    public void setPrecioTotalPoducto(H4 precioTotalPoducto) {
+        this.precioTotalPoducto = precioTotalPoducto;
+    }
 
-	public void sethPrecio(H4 hPrecio) {
-		this.hPrecio = hPrecio;
-	}
+    public Button getEliminarProducto() {
+        return eliminarProducto;
+    }
 
-	/**
+    public void setEliminarProducto(Button eliminarProducto) {
+        this.eliminarProducto = eliminarProducto;
+    }
+
+    public VerticalLayout getLayoutSelecCantidad() {
+        return layoutSelecCantidad;
+    }
+
+    public void setLayoutSelecCantidad(VerticalLayout layoutSelecCantidad) {
+        this.layoutSelecCantidad = layoutSelecCantidad;
+    }
+
+    /**
      * Creates a new VistaProductodelcarrito.
+	 * @param c 
      */
-    public VistaProductodelcarrito() {
+    public VistaProductodelcarrito(Cantidad c) {
         // You can initialise any data required for the connected UI components here.
     }
 

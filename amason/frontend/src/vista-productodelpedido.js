@@ -17,12 +17,10 @@ class VistaProductodelpedido extends PolymerElement {
 <vaadin-horizontal-layout class="content" style="margin-left: var(--lumo-space-s); margin-right: var(--lumo-space-s); justify-content: space-evenly;" theme="spacing-xl">
  <img style="min-width: 100px; min-height: 100px; padding: var(--lumo-space-s); flex-grow: 1; flex-shrink: 1; align-self: center; max-width: 100px; max-height: 100px;" id="img-producto-pedido">
  <vaadin-vertical-layout style="flex-shrink: 0; flex-grow: 1; align-items: flex-start;">
-  <vaadin-vertical-layout style="flex-shrink: 0; flex-grow: 0;">
-   <h4 id="h-nombre-producto-pedido" style="flex-grow: 0; flex-shrink: 0;">Producto</h4>
-   <label id="lbl-categoria-producto-pedido" style="flex-shrink: 0;">Categoría</label>
-  </vaadin-vertical-layout>
+  <h4 id="h-nombre-producto-pedido" style="flex-grow: 0; flex-shrink: 0;">Producto</h4>
+  <label id="lbl-categoria-producto-pedido" style="flex-shrink: 0;">Categoría</label>
  </vaadin-vertical-layout>
- <vaadin-horizontal-layout style="flex-grow: 1; justify-content: flex-start;">
+ <vaadin-horizontal-layout style="flex-grow: 1; justify-content: flex-start; align-self: center;">
   <label style="flex-grow: 0; align-self: center; margin-right: var(--lumo-space-s);" id="lbl-cantidad-producto-pedido">Uds.</label>
   <label style="flex-grow: 0; align-self: center; margin-right: var(--lumo-space-s);">x</label>
   <label style="flex-grow: 0; align-self: center; margin-right: var(--lumo-space-s);" id="lbl-precio-producto-pedido">Precio</label>

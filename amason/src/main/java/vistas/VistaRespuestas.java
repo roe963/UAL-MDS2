@@ -25,8 +25,6 @@ public class VistaRespuestas extends PolymerTemplate<VistaRespuestas.VistaRespue
     private VerticalLayout layoutMenu;
 	@Id("vaadinVerticalLayout")
 	private VerticalLayout vaadinVerticalLayout;
-	@Id("button-volver")
-	private Button buttonVolver;
 	@Id("h-mensaje")
 	private H4 hMensaje;
 	@Id("button-responder")
@@ -51,8 +49,6 @@ public class VistaRespuestas extends PolymerTemplate<VistaRespuestas.VistaRespue
     }
     //////Barra Navegacion /////
     
-    
-	
     /**
      * Creates a new VistaRespuestas.
      */
@@ -68,9 +64,6 @@ public class VistaRespuestas extends PolymerTemplate<VistaRespuestas.VistaRespue
 		this.vaadinVerticalLayout = vaadinVerticalLayout;
 	}
 	
-	
-	
-	
 	public H4 gethMensaje() {
 		return hMensaje;
 	}
@@ -78,18 +71,7 @@ public class VistaRespuestas extends PolymerTemplate<VistaRespuestas.VistaRespue
 	public void sethMensaje(H4 hMensaje) {
 		this.hMensaje = hMensaje;
 	}
-
-	public Button getButtonVolver() {
-		return buttonVolver;
-	}
-
-	public void setButtonVolver(Button buttonVolver) {
-		this.buttonVolver = buttonVolver;
-	}
-
-
-
-
+	
 	/**
      * This model binds properties between VistaRespuestas and vista-respuestas
      */

@@ -78,7 +78,7 @@ public class Respuestas {
 		        	Mensaje mensaje = MensajeDAO.getMensajeByORMID(aIdMensaje);
 		        	respuesta= new  Respuesta();
 		        	respuesta.setPertenece_a(mensaje);  
-		        	respuesta.setEscrita_por(Session.getCliente());
+		        	respuesta.setEscrita_por(Session.getUsuario());
 		        	//calcular el número de respuesta y le pone un orden
 		        	Respuesta[] respuestas = cargar_respuestas_mensaje(aIdMensaje);
 		        	respuesta.setOrden(respuestas.length+1);

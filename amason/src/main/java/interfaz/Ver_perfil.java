@@ -63,7 +63,7 @@ public class Ver_perfil extends VistaVeperfil {
 	public void cargar_perfil() {
 
 		//int id = ViewChanger.getIdUsuario();
-		int id = Session.getCliente().getId();
+		int id = Session.getUsuario().getId();
 
 		// System.out.println(id);
 
@@ -86,7 +86,7 @@ public class Ver_perfil extends VistaVeperfil {
 		this.getVlEstado().add(radioGroup);
 
 		this.getVlDireccionyformaPago().removeAll();
-		Datos_de_compra datosCompra = new Datos_de_compra(cliente.getDireccionEnvio(), cliente.getMetodoPago());
+		Datos_de_compra datosCompra = new Datos_de_compra();
 		this.getVlDireccionyformaPago().add(datosCompra);
 
 		// 2) Cargar los nombres en el componente
@@ -117,7 +117,7 @@ public class Ver_perfil extends VistaVeperfil {
 				String nombre = getTextfieldNombre().getValue();
 				String email = getCorreoElectrónico().getValue();
 				String direccionEnvio = datosCompra.getTextfieldDireccion().getValue();
-				String metodoPago = datosCompra.labelSelect.getValue();
+				String metodoPago = datosCompra.getFormadepago().getValue();
 
 				String fotoURL = getTextfieldFotousuario().getValue();
 

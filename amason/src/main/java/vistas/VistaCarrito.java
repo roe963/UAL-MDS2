@@ -9,6 +9,7 @@ import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.dom.Element;
 import com.vaadin.flow.templatemodel.TemplateModel;
 import com.vaadin.flow.component.html.H4;
+import com.vaadin.flow.component.html.Label;
 
 /**
  * A Designer generated component for the vista-carrito template.
@@ -32,53 +33,41 @@ public class VistaCarrito extends PolymerTemplate<VistaCarrito.VistaCarritoModel
         this.layoutMenu = layoutMenu;
     }
     //////Barra Navegacion /////
-	
-    @Id("layout-carrito")
-	private Element layoutCarrito;
 
-	@Id("vlProductos")
-	private VerticalLayout vlProductos;
+	@Id("lbl-precio-carrito")
+	private Label precioCarrito;
 
-	@Id("vaadinButton")
-	private Button vaadinButton;
+	@Id("button-tramitarpedido")
+	private Button tramitarPedido;
 
-	@Id("h4")
-	private H4 precioTotal;
-	
+	@Id("layout-productosdelcarrito")
+	private VerticalLayout productosDelCarrito;
 
-	public Button getVaadinButton() {
-		return vaadinButton;
-	}
+    public Label getPrecioCarrito() {
+        return precioCarrito;
+    }
 
-	public void setVaadinButton(Button vaadinButton) {
-		this.vaadinButton = vaadinButton;
-	}
+    public void setPrecioCarrito(Label precioCarrito) {
+        this.precioCarrito = precioCarrito;
+    }
 
-	public H4 getPrecioTotal() {
-		return precioTotal;
-	}
+    public Button getTramitarPedido() {
+        return tramitarPedido;
+    }
 
-	public void setPrecioTotal(H4 precioTotal) {
-		this.precioTotal = precioTotal;
-	}
+    public void setTramitarPedido(Button tramitarPedido) {
+        this.tramitarPedido = tramitarPedido;
+    }
 
-	public VerticalLayout getVlProductos() {
-		return vlProductos;
-	}
+    public VerticalLayout getProductosDelCarrito() {
+        return productosDelCarrito;
+    }
 
-	public void setVlProductos(VerticalLayout vlProductos) {
-		this.vlProductos = vlProductos;
-	}
+    public void setProductosDelCarrito(VerticalLayout productosDelCarrito) {
+        this.productosDelCarrito = productosDelCarrito;
+    }
 
-	public Element getLayoutCarrito() {
-		return layoutCarrito;
-	}
-
-	public void setLayoutCarrito(Element layoutCarrito) {
-		this.layoutCarrito = layoutCarrito;
-	}
-
-	/**
+    /**
      * Creates a new VistaCarrito.
      */
     public VistaCarrito() {

@@ -31,7 +31,7 @@ public class Ver_mensajes_cliente_registrado extends VistaVermensajesclienteregi
 	public Redactar _redactar;*/
 		
 	iCorreo_personal correo = new BDPrincipal();
-	int idUsuario= Session.getCliente().getId();
+	int idUsuario= Session.getUsuario().getId();
 	
 	public Ver_mensajes_cliente_registrado () {		
 		//cargar el menú 
