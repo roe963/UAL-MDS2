@@ -219,19 +219,19 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
         throw new UnsupportedOperationException();
     }
 
-    public void verificar_compra() {
-        throw new UnsupportedOperationException();
-    }
-
     public void realizar_pedido(Cantidad[] aCantidades, Cliente aCliente, String aDireccion, String aFormaPago) {
         _bd_clientes.actualizas_datos_compra(aDireccion, aFormaPago, aCliente);
         _bd_pedidos_pendientes.realizar_pedido(aCantidades, aCliente);
+    }
+    
+    public void verificar_compra() {
+        throw new UnsupportedOperationException();
     }
 
     public Cliente cargar_perfil(int aIdUsuario) {
         return _bd_clientes.cargar_perfil(aIdUsuario);
     }
-
+    
     public void guardar_perfil(int aIdUsuario, String aNombreUsuario, String aMailUsuario, String aDireccionUsuario,
             String aFormaPagoUsuario, String aFotoUsuario, boolean aEstadoCuenta) {
         try {
@@ -277,54 +277,30 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
         return arrayCantidades;
     }
 
-    public Mensaje[] cargar_mensajes_cliente(int aIdUsuario) {
-        Mensaje[] arrayMensajes = null;
-        try {
-            arrayMensajes = _bd_mensajes.cargar_mensajes_cliente(aIdUsuario);
+	public Mensaje[] cargar_mensajes_cliente(int aIdUsuario) {
+		return _bd_mensajes.cargar_mensajes_cliente(aIdUsuario);
+	}
+    
+	public void redactar_mensaje(int aIdUsuario, String aMensajeUsuario) {
+		Mensaje mensaje= _bd_mensajes.crear_mensaje(aIdUsuario);
+		_bd_respuestas.redactar_mensaje(aMensajeUsuario,mensaje);
+	}
 
-        } catch (PersistentException e) {
-            e.printStackTrace();
-        }
-        return arrayMensajes;
-    }
-
-    public void redactar_mensaje(int aIdUsuario, String aMensajeUsuario) {
-        try {
-            Mensaje mensaje = _bd_mensajes.crear_mensaje(aIdUsuario);
-            _bd_respuestas.redactar_mensaje(aMensajeUsuario, mensaje);
-
-        } catch (PersistentException e) {
-            e.printStackTrace();
-        }
-    }
-
+	public Respuesta[] cargar_respuestas_mensaje(int aIdMensaje) {
+		return _bd_respuestas.cargar_respuestas_mensaje(aIdMensaje);
+	}
+	
     public void ver_mensaje(int aIdMensaje) {
         throw new UnsupportedOperationException();
     }
+        
+	public void responder_respuesta(int aIdMensaje, String aRespuesta) {
+		_bd_respuestas.responder_respuesta(aIdMensaje, aRespuesta);
+	}
 
-    public Respuesta[] cargar_respuestas_mensaje(int aIdMensaje) {
-        Respuesta[] arrayRespuestas = null;
-        try {
-            arrayRespuestas = _bd_respuestas.cargar_respuestas_mensaje(aIdMensaje);
-
-        } catch (PersistentException e) {
-            e.printStackTrace();
-        }
-        return arrayRespuestas;
-    }
-
-    public void responder_respuesta(int aIdMensaje, String aRespuesta) {
-        try {
-            _bd_respuestas.responder_respuesta(aIdMensaje, aRespuesta);
-
-        } catch (PersistentException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public Mensaje[] cargar_mensajes_administrador() {
-        throw new UnsupportedOperationException();
-    }
+	public Mensaje[] cargar_mensajes_administrador() {
+		return _bd_mensajes.cargar_mensajes_administrador();
+	}
 
     public Pedido[] cargar_pedidos_enviados(int aIdEmpresaTransportes) {
         throw new UnsupportedOperationException();

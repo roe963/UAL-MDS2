@@ -6,6 +6,8 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.templatemodel.TemplateModel;
+import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.button.Button;
 
 /**
  * A Designer generated component for the vista-vermensajesadministrador template.
@@ -20,6 +22,9 @@ public class VistaVermensajesadministrador extends PolymerTemplate<VistaVermensa
     //////Barra Navegacion /////
     @Id("layout-menu")
     private VerticalLayout layoutMenu;
+	@Id("verticalLayout")
+	private VerticalLayout verticalLayout;
+
     
     public VerticalLayout getLayoutMenu() {
         return layoutMenu;
@@ -30,6 +35,9 @@ public class VistaVermensajesadministrador extends PolymerTemplate<VistaVermensa
     }
     //////Barra Navegacion /////
 	
+    
+    
+    
     /**
      * Creates a new VistaVermensajesadministrador.
      */
@@ -37,7 +45,17 @@ public class VistaVermensajesadministrador extends PolymerTemplate<VistaVermensa
         // You can initialise any data required for the connected UI components here.
     }
 
-    /**
+    public VerticalLayout getVerticalLayout() {
+		return verticalLayout;
+	}
+
+	public void setVerticalLayout(VerticalLayout verticalLayout) {
+		this.verticalLayout = verticalLayout;
+	}
+
+
+
+	/**
      * This model binds properties between VistaVermensajesadministrador and vista-vermensajesadministrador
      */
     public interface VistaVermensajesadministradorModel extends TemplateModel {

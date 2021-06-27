@@ -67,11 +67,6 @@ public class Respuestas extends VistaRespuestas implements HasUrlParameter<Strin
 		MenuBar mb = MenuHeader.getMenuBar();
 		this.getLayoutMenu().add(mb);
 		this.getLayoutMenu().setHorizontalComponentAlignment(Alignment.CENTER, mb);
-			    
-	
-		this.getButtonVolver().addClickListener(e->{
-			UI.getCurrent().navigate("ver_mensajes_cliente_registrado");
-		});
 		
 		this.getButtonResponder().addClickListener(e->{
 			responder_respuesta();			

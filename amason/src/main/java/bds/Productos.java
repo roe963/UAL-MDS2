@@ -123,10 +123,8 @@ public class Productos {
         producto.setPrecio((float)aPrecioProducto);
         producto.setDescripcion(aDescripcionProducto);
         producto.setActivo(true);
-        Cantidad cantidad = CantidadDAO.getCantidadByORMID(1);
+        //Cantidad cantidad = CantidadDAO.getCantidadByORMID(1);
         //producto.tiene_una(producto);
-        
-        
         
         //foto
         Foto foto = new Foto();
