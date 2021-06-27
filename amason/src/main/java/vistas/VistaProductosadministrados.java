@@ -2,8 +2,11 @@ package vistas;
 
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.templatemodel.TemplateModel;
+import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.polymertemplate.Id;
 
 /**
  * A Designer generated component for the vista-productosadministrados template.
@@ -15,7 +18,12 @@ import com.vaadin.flow.templatemodel.TemplateModel;
 @JsModule("./src/vista-productosadministrados.js")
 public class VistaProductosadministrados extends PolymerTemplate<VistaProductosadministrados.VistaProductosadministradosModel> {
 
-    /**
+    @Id("layout-Productos")
+	private VerticalLayout layoutProductos;
+	@Id("vistaProductoAdministrado")
+	private Element vistaProductoAdministrado;
+
+	/**
      * Creates a new VistaProductosadministrados.
      */
     public VistaProductosadministrados() {
@@ -28,4 +36,21 @@ public class VistaProductosadministrados extends PolymerTemplate<VistaProductosa
     public interface VistaProductosadministradosModel extends TemplateModel {
         // Add setters and getters for template properties here.
     }
+
+	public VerticalLayout getLayoutProductos() {
+		return layoutProductos;
+	}
+
+	public void setLayoutProductos(VerticalLayout layoutProductos) {
+		this.layoutProductos = layoutProductos;
+	}
+
+	public Element getVistaProductoAdministrado() {
+		return vistaProductoAdministrado;
+	}
+
+	public void setVistaProductoAdministrado(Element vistaProductoAdministrado) {
+		this.vistaProductoAdministrado = vistaProductoAdministrado;
+	}
+    
 }

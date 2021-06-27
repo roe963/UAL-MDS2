@@ -57,7 +57,7 @@ public class Productos {
         PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
         
         try {
-        	productos = ProductoDAO.listProductoByQuery("CategoriaId=" + aIdCategoria, null);
+        	productos = ProductoDAO.listProductoByQuery("CategoriaId=" + aIdCategoria + "Activo=1", null);
         	//productos = ProductoDAO.listProductoByQuery(null, null);
         	fotos = FotoDAO.listFotoByQuery(null, null);
         	
@@ -85,7 +85,7 @@ public class Productos {
         PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
         
         try {
-        	productos = ProductoDAO.listProductoByQuery(null, null);
+        	productos = ProductoDAO.listProductoByQuery("Activo=1", null);
         	fotos = FotoDAO.listFotoByQuery(null, null);
         	
         	
@@ -114,10 +114,9 @@ public class Productos {
 
 		PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession()
                 .beginTransaction();
-
+		
+		//producto
         Producto producto = new Producto();
-        
-        //producto
         producto.setNombre(aNombreProducto);
         producto.setAsignado_a(aCategoria);
         producto.setPrecio((float)aPrecioProducto);
@@ -129,11 +128,11 @@ public class Productos {
         //foto
         Foto foto = new Foto();
         foto.setUrl(aImagenProducto1);
-        //setPertenece_a();//producto
+        foto.setPertenece_a(producto);
 
         try {
             ProductoDAO.save(producto);
-            //FotoDAO.save(foto);
+            FotoDAO.save(foto);
             t.commit();
         } catch (PersistentException e) {
             t.rollback();

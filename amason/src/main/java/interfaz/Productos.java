@@ -21,7 +21,7 @@ public class Productos extends VistaProductos {
 		
 		Producto[] productos = clientes.cargar_productos();	
 		
-		this.getVaadinHorizontalLayout().removeAll();			
+		this.getVaadinHorizontalLayout().removeAll();
 		if (productos.length != 0) {
             for (int i = 0; i < productos.length; i++) {
                 this.getVaadinHorizontalLayout().add(new interfaz.Producto(productos[i]));

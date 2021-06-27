@@ -64,9 +64,7 @@ public class Ver_perfil extends VistaVeperfil {
 
 		//int id = ViewChanger.getIdUsuario();
 		int id = Session.getUsuario().getId();
-
-		// System.out.println(id);
-
+		
 		Cliente cliente = iclientes_registrado.cargar_perfil(id);
 
 		// 1)Crear componente para el Frontend

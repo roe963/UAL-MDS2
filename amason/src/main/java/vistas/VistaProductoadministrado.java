@@ -4,6 +4,11 @@ import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.templatemodel.TemplateModel;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.polymertemplate.Id;
+import com.vaadin.flow.component.html.H4;
+import com.vaadin.flow.component.checkbox.Checkbox;
+import com.vaadin.flow.component.html.Label;
 
 /**
  * A Designer generated component for the vista-productoadministrado template.
@@ -15,7 +20,12 @@ import com.vaadin.flow.templatemodel.TemplateModel;
 @JsModule("./src/vista-productoadministrado.js")
 public class VistaProductoadministrado extends PolymerTemplate<VistaProductoadministrado.VistaProductoadministradoModel> {
 
-    /**
+    @Id("layout-producto")
+	private HorizontalLayout layoutProducto;
+	@Id("label-producto")
+	private Label labelProducto;
+
+	/**
      * Creates a new VistaProductoadministrado.
      */
     public VistaProductoadministrado() {
@@ -28,4 +38,21 @@ public class VistaProductoadministrado extends PolymerTemplate<VistaProductoadmi
     public interface VistaProductoadministradoModel extends TemplateModel {
         // Add setters and getters for template properties here.
     }
+
+	public HorizontalLayout getLayoutProducto() {
+		return layoutProducto;
+	}
+
+	public void setLayoutProducto(HorizontalLayout layoutProducto) {
+		this.layoutProducto = layoutProducto;
+	}
+
+	public Label getLabelProducto() {
+		return labelProducto;
+	}
+
+	public void setLabelProducto(Label labelProducto) {
+		this.labelProducto = labelProducto;
+	}
+    
 }

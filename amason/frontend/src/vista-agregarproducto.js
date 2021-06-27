@@ -4,8 +4,8 @@ import '@vaadin/vaadin-list-box/src/vaadin-list-box.js';
 import '@vaadin/vaadin-item/src/vaadin-item.js';
 import '@vaadin/vaadin-text-field/src/vaadin-text-area.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
+import '@vaadin/vaadin-checkbox/src/vaadin-checkbox.js';
 
 class VistaAgregarproducto extends PolymerElement {
 
@@ -18,7 +18,7 @@ class VistaAgregarproducto extends PolymerElement {
                 }
             </style>
 <vaadin-vertical-layout style="width: 100%; height: 100%; align-items: stretch;">
- <vaadin-text-field label="Nombre" id="textField-nombre"></vaadin-text-field>
+ <vaadin-text-field label="Nombre" id="textField-nombre" style="align-self: stretch;"></vaadin-text-field>
  <label>Categoría</label>
  <vaadin-vertical-layout theme="spacing" id="layout-selectCategoria">
   <vaadin-select value="Item one" id="select-categoria">
@@ -39,16 +39,12 @@ class VistaAgregarproducto extends PolymerElement {
  </vaadin-vertical-layout>
  <vaadin-text-field label="Precio" id="textField-precio"></vaadin-text-field>
  <vaadin-text-area label="Descripción" placeholder="" id="textArea-descripcion"></vaadin-text-area>
- <vaadin-horizontal-layout theme="spacing">
-  <vaadin-text-field label="Imagen 1" id="textField-imagen1" style="flex-grow: 0; width: 18%;"></vaadin-text-field>
-  <vaadin-text-field label="Imagen 2" id="textField-imagen2" style="flex-grow: 0; width: 18%;"></vaadin-text-field>
-  <vaadin-text-field label="Imagen 3" id="textField-imagen3" style="width: 18%;"></vaadin-text-field>
-  <vaadin-text-field label="Imagen 4" id="textField-imagen4" style="width: 18%;"></vaadin-text-field>
-  <vaadin-text-field label="Imagen 5" id="textField-imagen5" style="flex-grow: 1; flex-shrink: 1; width: 18%;"></vaadin-text-field>
- </vaadin-horizontal-layout>
- <vaadin-vertical-layout theme="spacing" id="layout-imagenPrincipal" style="align-self: center; flex-grow: 0; flex-shrink: 1;"></vaadin-vertical-layout>
+ <vaadin-text-field label="Imagen" id="textField-imagen" style="flex-grow: 0;"></vaadin-text-field>
+ <vaadin-checkbox id="checkbox-productoActivo" style="align-self: center; margin: var(--lumo-space-m);" checked>
+   Producto Activo 
+ </vaadin-checkbox>
  <vaadin-button id="button-anadir">
-  Añadir
+   Añadir 
  </vaadin-button>
 </vaadin-vertical-layout>
 `;

@@ -51,7 +51,7 @@ public class Respuestas extends VistaRespuestas implements HasUrlParameter<Strin
         	basededatos.Respuesta[] respuestas = icorreo.cargar_respuestas_mensaje(Integer.parseInt(parameter));
         	cargar_respuestas_mensaje(respuestas); 
         	parametro = Integer.parseInt(parameter);
-    		this.gethMensaje().setText("Mensaje "+parameter);
+    		this.gethMensaje().setText("Mensaje");
 
         } catch (NumberFormatException e) {
             e.printStackTrace();

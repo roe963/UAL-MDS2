@@ -11,6 +11,7 @@ import com.vaadin.flow.component.select.Select;
 import com.vaadin.flow.component.textfield.TextArea;
 import com.vaadin.flow.component.radiobutton.RadioButtonGroup;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.checkbox.Checkbox;
 
 /**
  * A Designer generated component for the vista-agregarproducto template.
@@ -32,20 +33,12 @@ public class VistaAgregarproducto extends PolymerTemplate<VistaAgregarproducto.V
 	private TextField textFieldPrecio;
 	@Id("textArea-descripcion")
 	private TextArea textAreaDescripcion;
-	@Id("textField-imagen1")
-	private TextField textFieldImagen1;
-	@Id("textField-imagen2")
-	private TextField textFieldImagen2;
-	@Id("textField-imagen3")
-	private TextField textFieldImagen3;
-	@Id("textField-imagen4")
-	private TextField textFieldImagen4;
-	@Id("textField-imagen5")
-	private TextField textFieldImagen5;
-	@Id("layout-imagenPrincipal")
-	private VerticalLayout layoutImagenPrincipal;
+	@Id("textField-imagen")
+	private TextField textFieldImagen;
 	@Id("button-anadir")
 	private Button buttonAnadir;
+	@Id("checkbox-productoActivo")
+	private Checkbox checkboxProductoActivo;
 
 	/**
      * Creates a new VistaAgregarproducto.
@@ -101,52 +94,12 @@ public class VistaAgregarproducto extends PolymerTemplate<VistaAgregarproducto.V
 		this.textAreaDescripcion = textAreaDescripcion;
 	}
 
-	public TextField getTextFieldImagen1() {
-		return textFieldImagen1;
+	public TextField getTextFieldImagen() {
+		return textFieldImagen;
 	}
 
-	public void setTextFieldImagen1(TextField textFieldImagen1) {
-		this.textFieldImagen1 = textFieldImagen1;
-	}
-
-	public TextField getTextFieldImagen2() {
-		return textFieldImagen2;
-	}
-
-	public void setTextFieldImagen2(TextField textFieldImagen2) {
-		this.textFieldImagen2 = textFieldImagen2;
-	}
-
-	public TextField getTextFieldImagen3() {
-		return textFieldImagen3;
-	}
-
-	public void setTextFieldImagen3(TextField textFieldImagen3) {
-		this.textFieldImagen3 = textFieldImagen3;
-	}
-
-	public TextField getTextFieldImagen4() {
-		return textFieldImagen4;
-	}
-
-	public void setTextFieldImagen4(TextField textFieldImagen4) {
-		this.textFieldImagen4 = textFieldImagen4;
-	}
-
-	public TextField getTextFieldImagen5() {
-		return textFieldImagen5;
-	}
-
-	public void setTextFieldImagen5(TextField textFieldImagen5) {
-		this.textFieldImagen5 = textFieldImagen5;
-	}
-
-	public VerticalLayout getLayoutImagenPrincipal() {
-		return layoutImagenPrincipal;
-	}
-
-	public void setLayoutImagenPrincipal(VerticalLayout layoutImagenPrincipal) {
-		this.layoutImagenPrincipal = layoutImagenPrincipal;
+	public void setTextFieldImagen(TextField textFieldImagen1) {
+		this.textFieldImagen = textFieldImagen1;
 	}
 
 	public Button getButtonAnadir() {
@@ -155,6 +108,14 @@ public class VistaAgregarproducto extends PolymerTemplate<VistaAgregarproducto.V
 
 	public void setButtonAnadir(Button buttonAnadir) {
 		this.buttonAnadir = buttonAnadir;
+	}
+
+	public Checkbox getCheckboxProductoActivo() {
+		return checkboxProductoActivo;
+	}
+
+	public void setCheckboxProductoActivo(Checkbox checkboxProductoActivo) {
+		this.checkboxProductoActivo = checkboxProductoActivo;
 	}
     
 }

@@ -42,7 +42,7 @@ public class Ver_mensajes_administrador extends VistaVermensajesadministrador {
 		
 		if (mensajes.length != 0) {
 			for (int i = 0; i < mensajes.length; i++) {
-				this.getVerticalLayout().add(new Mensaje(mensajes[i]));
+				this.getVerticalLayout().add(new Mensaje(mensajes[i],i));
 			}
 
 		} else {

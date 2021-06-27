@@ -56,7 +56,7 @@ public class Ver_mensajes_cliente_registrado extends VistaVermensajesclienteregi
 		
 		if (mensajes.length != 0) {
 			for (int i = 0; i < mensajes.length; i++) {
-				this.getVaadinVerticalLayout2().add(new Mensaje(mensajes[i]));
+				this.getVaadinVerticalLayout2().add(new Mensaje(mensajes[i],i));
 			}
 
 		} else {

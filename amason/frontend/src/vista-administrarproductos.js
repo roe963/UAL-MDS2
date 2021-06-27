@@ -16,8 +16,9 @@ class VistaAdministrarproductos extends PolymerElement {
                 }
             </style>
 <vaadin-vertical-layout theme="spacing" id="layout-menu"></vaadin-vertical-layout>
+<h4 style="margin: var(--lumo-space-xl);">Administrar productos</h4>
 <vaadin-horizontal-layout class="content" style="width: 100%; height: 100%;">
- <vaadin-vertical-layout theme="spacing" id="layout-anadirProducto" style="flex-grow: 1; width: 50%; height: 100%; margin-right: var(--lumo-space-m); margin-left: var(--lumo-space-xl); align-items: stretch;">
+ <vaadin-vertical-layout theme="spacing" id="layout-anadirProducto" style="flex-grow: 1; width: 100%; height: 100%; margin-right: var(--lumo-space-m); margin-left: var(--lumo-space-xl); align-items: stretch;">
   <vista-agregarproducto></vista-agregarproducto>
  </vaadin-vertical-layout>
  <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%; flex-grow: 1; margin-left: var(--lumo-space-m); margin-right: var(--lumo-space-xl); align-items: stretch;">
@@ -27,7 +28,7 @@ class VistaAdministrarproductos extends PolymerElement {
    <vista-productosadministrados></vista-productosadministrados>
   </vaadin-horizontal-layout>
   <vaadin-button id="button-guardar">
-   Guardar
+    Guardar 
   </vaadin-button>
  </vaadin-vertical-layout>
 </vaadin-horizontal-layout>
