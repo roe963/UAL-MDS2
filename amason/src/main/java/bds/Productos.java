@@ -29,7 +29,7 @@ public class Productos {
         
         try {
         	//productos = ProductoDAO.listProductoByQuery("Nombre=\"" + aNombreProducto + "\"", null);
-        	productos = ProductoDAO.listProductoByQuery("Nombre LIKE '%" + aNombreProducto + "%'", null);
+        	productos = ProductoDAO.listProductoByQuery("Nombre LIKE '%" + aNombreProducto + "%' AND Activo=1", null);
         	
         	fotos = FotoDAO.listFotoByQuery(null, null);
         	
@@ -57,7 +57,7 @@ public class Productos {
         PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
         
         try {
-        	productos = ProductoDAO.listProductoByQuery("CategoriaId=" + aIdCategoria + "Activo=1", null);
+        	productos = ProductoDAO.listProductoByQuery("CategoriaId=" + aIdCategoria + " AND Activo=1", null);
         	//productos = ProductoDAO.listProductoByQuery(null, null);
         	fotos = FotoDAO.listFotoByQuery(null, null);
         	
