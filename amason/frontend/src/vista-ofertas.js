@@ -1,6 +1,5 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
-import './vista-oferta.js';
 
 class VistaOfertas extends PolymerElement {
 
@@ -12,9 +11,7 @@ class VistaOfertas extends PolymerElement {
                     height: 100%;
                 }
             </style>
-<vaadin-horizontal-layout class="content" style="width: 100%; height: 100%;" id="vaadinHorizontalLayout">
- <vista-oferta style="flex-grow: 0;"></vista-oferta>
-</vaadin-horizontal-layout>
+<vaadin-horizontal-layout class="content" id="layout-ofertas" style="justify-content: space-between;"></vaadin-horizontal-layout>
 `;
     }
 

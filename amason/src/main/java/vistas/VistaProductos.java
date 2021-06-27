@@ -23,28 +23,18 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 @JsModule("./src/vista-productos.js")
 public class VistaProductos extends PolymerTemplate<VistaProductos.VistaProductosModel> {
 
-    @Id("vistaProducto")
-	private Element vistaProducto;
-	@Id("vaadinHorizontalLayout")
-	private HorizontalLayout vaadinHorizontalLayout;
+    @Id("layout-productos")
+    private HorizontalLayout layoutProductos;
 
-	public HorizontalLayout getVaadinHorizontalLayout() {
-		return vaadinHorizontalLayout;
-	}
+	public HorizontalLayout getLayoutProductos() {
+        return layoutProductos;
+    }
 
-	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
-		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
-	}
-	
-	public Element getVistaProducto() {
-		return vistaProducto;
-	}
+    public void setLayoutProductos(HorizontalLayout layoutProductos) {
+        this.layoutProductos = layoutProductos;
+    }
 
-	public void setVistaProducto(Element vistaProducto) {
-		this.vistaProducto = vistaProducto;
-	}
-
-	/**
+    /**
      * Creates a new VistaProductos.
      */
     public VistaProductos() {

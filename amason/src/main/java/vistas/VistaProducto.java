@@ -8,6 +8,7 @@ import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.templatemodel.TemplateModel;
 import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.html.H4;
 
 /**
  * A Designer generated component for the vista-producto template.
@@ -21,20 +22,10 @@ public class VistaProducto extends PolymerTemplate<VistaProducto.VistaProductoMo
 
     @Id("img-producto")
 	private Image imgProducto;
-	//@Id("textoproducto")
-	//private Label labelProducto;
-	@Id("textoproducto")
-	private Label textoproducto;
-	@Id("vaadinVerticalLayout")
-	private Element vaadinVerticalLayout;
-
-	public Element getVaadinVerticalLayout() {
-		return vaadinVerticalLayout;
-	}
-
-	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
-		this.vaadinVerticalLayout = vaadinVerticalLayout;
-	}
+	@Id("h-nombre-producto")
+    private H4 nombreProducto;
+    @Id("lbl-precio-producto")
+    private Label precioProducto;
 
 	public Image getImgProducto() {
 		return imgProducto;
@@ -44,33 +35,28 @@ public class VistaProducto extends PolymerTemplate<VistaProducto.VistaProductoMo
 		this.imgProducto = imgProducto;
 	}
 
-	/*public Label getLabelProducto() {
-		return labelProducto;
-	}
+	public H4 getNombreProducto() {
+        return nombreProducto;
+    }
 
-	public void setLabelProducto(Label labelProducto) {
-		this.labelProducto = labelProducto;
-	}*/
+    public void setNombreProducto(H4 nombreProducto) {
+        this.nombreProducto = nombreProducto;
+    }
 
-	/**
+    public Label getPrecioProducto() {
+        return precioProducto;
+    }
+
+    public void setPrecioProducto(Label precioProducto) {
+        this.precioProducto = precioProducto;
+    }
+
+    /**
      * Creates a new VistaProducto.
      */
     public VistaProducto() {
         // You can initialise any data required for the connected UI components here.
     }
-    
-    /*public VistaProducto(Producto producto) {
-        // You can initialise any data required for the connected UI components here.
-    	this.labelProducto.setText(producto.getNombre());
-    }*/
-
-    public Label getTextoproducto() {
-		return textoproducto;
-	}
-
-	public void setTextoproducto(Label textoproducto) {
-		this.textoproducto = textoproducto;
-	}
 
 	/**
      * This model binds properties between VistaProducto and vista-producto

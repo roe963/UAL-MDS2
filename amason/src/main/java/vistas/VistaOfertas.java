@@ -17,23 +17,27 @@ import com.vaadin.flow.component.polymertemplate.Id;
 @JsModule("./src/vista-ofertas.js")
 public class VistaOfertas extends PolymerTemplate<VistaOfertas.VistaOfertasModel> {
 
+    @Id("layout-ofertas")
+    private HorizontalLayout layoutOfertas;
+ 
+
+    public HorizontalLayout getLayoutOfertas() {
+        return layoutOfertas;
+    }
+
+
+    public void setLayoutOfertas(HorizontalLayout layoutOfertas) {
+        this.layoutOfertas = layoutOfertas;
+    }
+
+
     /**
      * Creates a new VistaOfertas.
      */
     public VistaOfertas() {
         // You can initialise any data required for the connected UI components here.
     }
-    
-    @Id("vaadinHorizontalLayout")
-	private HorizontalLayout vaadinHorizontalLayout;
-    
-    public HorizontalLayout getVaadinHorizontalLayout() {
-		return vaadinHorizontalLayout;
-	}
 
-	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
-		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
-	}
     
     /**
      * This model binds properties between VistaOfertas and vista-ofertas

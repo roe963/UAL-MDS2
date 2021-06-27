@@ -1,10 +1,6 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
-import '@vaadin/vaadin-select/src/vaadin-select.js';
-import '@vaadin/vaadin-list-box/src/vaadin-list-box.js';
-import '@vaadin/vaadin-item/src/vaadin-item.js';
-import './vista-ofertas.js';
-import './vista-productos.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
+import '@vaadin/vaadin-select/src/vaadin-select.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 
 class VistaCliente extends PolymerElement {
@@ -18,36 +14,19 @@ class VistaCliente extends PolymerElement {
         			width: 100%;
                 }
             </style>
-<vaadin-vertical-layout theme="spacing" id="layout-menu"></vaadin-vertical-layout>
-<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: stretch;" id="vista-cliente">
- <vaadin-vertical-layout theme="spacing" style="padding: var(--lumo-space-xl);" id="vl_ofertas">
-  <h4 id="tittle-ofertas">Ofertas</h4>
-  <vaadin-horizontal-layout theme="spacing" id="hlofertas" style="width: 100%;">
-   <vista-ofertas style="width: 100%; height: 100%;" id="lista-ofertas"></vista-ofertas>
-  </vaadin-horizontal-layout>
+<vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%;">
+ <vaadin-vertical-layout id="layout-menu" style="align-items: center; align-self: center;"></vaadin-vertical-layout>
+ <vaadin-vertical-layout style="align-self: stretch; margin-bottom: var(--lumo-space-xs); margin-right: var(--lumo-space-xl); margin-left: var(--lumo-space-xl); margin-top: var(--lumo-space-xs); padding-top: var(--lumo-space-m); padding-right: var(--lumo-space-xl); padding-left: var(--lumo-space-xl);" id="vl_ofertas">
+  <h4 style="align-self: center;">Ofertas</h4>
+  <vaadin-horizontal-layout theme="spacing-s" id="layout-ofertas" style="width: 100%; justify-content: center; align-self: stretch; flex-grow: 0; flex-shrink: 1;"></vaadin-horizontal-layout>
  </vaadin-vertical-layout>
- <vaadin-vertical-layout class="content" style="width: 100%; flex-grow: 0; flex-shrink: 1; flex-basis: auto; padding: var(--lumo-space-xl); align-self: stretch;" id="layout-topventas">
-  <h4 id="tittle-topventas">Top ventas</h4>
-  <vaadin-horizontal-layout theme="spacing" style="align-self: stretch;">
-   <vaadin-select value="Item one" id="select-categoria">
-    <template>
-     <vaadin-list-box selected="0">
-      <vaadin-item selected>
-        Categoría 
-      </vaadin-item>
-      <vaadin-item>
-        Item two 
-      </vaadin-item>
-      <vaadin-item>
-        Item three 
-      </vaadin-item>
-     </vaadin-list-box>
-    </template>
-   </vaadin-select>
+ <vaadin-vertical-layout class="content" style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; align-self: stretch; margin-right: var(--lumo-space-xl); margin-bottom: var(--lumo-space-xs); margin-left: var(--lumo-space-xl); margin-top: var(--lumo-space-xs); padding-top: var(--lumo-space-m); padding-right: var(--lumo-space-xl); padding-left: var(--lumo-space-xl);">
+  <h4 style="flex-grow: 0; align-self: center;">Top ventas</h4>
+  <vaadin-horizontal-layout style="margin-bottom: var(--lumo-space-m); align-self: center;">
+   <label style="margin-right: var(--lumo-space-m); align-self: center;">Categoría</label>
+   <vaadin-select value="Item one" id="select-categoria" style="align-self: center; flex-shrink: 1;"></vaadin-select>
   </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout" style="width: 100%;">
-   <vista-productos style="align-self: stretch; flex-grow: 1;"></vista-productos>
-  </vaadin-horizontal-layout>
+  <vaadin-horizontal-layout id="layout-topventas-categoria" style="align-self: stretch; justify-content: center;"></vaadin-horizontal-layout>
  </vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;
