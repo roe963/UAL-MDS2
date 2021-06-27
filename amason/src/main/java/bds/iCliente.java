@@ -21,7 +21,7 @@ public interface iCliente {
 
 	public Producto[] cargar_productos();
 
-	public void valorar_producto(int aIdProducto, int aIdUsuario, int aPuntuacion, String aComentario, Date aFecha);
+	public void valorar_producto(int aIdProducto, int aIdUsuario, int aPuntuacion, String aComentario, long aFecha);
 
 	public Producto cargar_producto(int aIdProducto);
 

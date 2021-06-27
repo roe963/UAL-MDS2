@@ -1,7 +1,6 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import './vista-productosdelcarrito.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
-import './vista-pedidosclienteregistrado.js';
 
 class VistaVeepedidos extends PolymerElement {
 
@@ -15,12 +14,10 @@ class VistaVeepedidos extends PolymerElement {
                 }
             </style>
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-vertical-layout theme="spacing" id="layout-menu"></vaadin-vertical-layout>
- <vaadin-vertical-layout theme="spacing" style="align-self: stretch; padding: var(--lumo-space-xl);">
-  <h4>Mis pedidos</h4>
-  <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout" style="width: 100%;">
-   <vista-pedidosclienteregistrado></vista-pedidosclienteregistrado>
-  </vaadin-vertical-layout>
+ <vaadin-vertical-layout id="layout-menu" style="align-self: center;"></vaadin-vertical-layout>
+ <vaadin-vertical-layout style="align-self: stretch; flex-grow: 1; margin: var(--lumo-space-m);">
+  <h4 style="align-self: flex-start; flex-shrink: 0;">Mis pedidos</h4>
+  <vaadin-vertical-layout id="layout-mispedidos" style="flex-grow: 0; flex-shrink: 1; align-self: stretch;"></vaadin-vertical-layout>
  </vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;

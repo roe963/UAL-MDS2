@@ -4,9 +4,11 @@ import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.templatemodel.TemplateModel;
-import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.html.H5;
 import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.html.H4;
+import com.vaadin.flow.component.html.Label;
 
 /**
  * A Designer generated component for the vista-oferta template.
@@ -18,38 +20,58 @@ import com.vaadin.flow.component.html.Image;
 @JsModule("./src/vista-oferta.js")
 public class VistaOferta extends PolymerTemplate<VistaOferta.VistaOfertaModel> {
 
-    @Id("fecha")
-	private Label label;
-	@Id("img")
-	private Image img;
-	@Id("precio")
-	private Label label1;
+	@Id("h-fecha-oferta")
+    private H5 fechaOferta;
+    @Id("img-producto")
+    private Image imgProducto;
+    @Id("h-nombre-producto")
+    private H4 nombreProducto;
+    @Id("lbl-precio-normal")
+    private Label precioNormal;
+    @Id("h-precio-oferta")
+    private H5 precioOferta;
 
-	public Label getLabel() {
-		return label;
-	}
+    public H5 getFechaOferta() {
+        return fechaOferta;
+    }
 
-	public void setLabel(Label label) {
-		this.label = label;
-	}
+    public void setFechaOferta(H5 fechaOferta) {
+        this.fechaOferta = fechaOferta;
+    }
 
-	public Image getImg() {
-		return img;
-	}
+    public Image getImgProducto() {
+        return imgProducto;
+    }
 
-	public void setImg(Image img) {
-		this.img = img;
-	}
+    public void setImgProducto(Image imgProducto) {
+        this.imgProducto = imgProducto;
+    }
 
-	public Label getLabel1() {
-		return label1;
-	}
+    public H4 getNombreProducto() {
+        return nombreProducto;
+    }
 
-	public void setLabel1(Label label1) {
-		this.label1 = label1;
-	}
+    public void setNombreProducto(H4 nombreProducto) {
+        this.nombreProducto = nombreProducto;
+    }
 
-	/**
+    public Label getPrecioNormal() {
+        return precioNormal;
+    }
+
+    public void setPrecioNormal(Label precioNormal) {
+        this.precioNormal = precioNormal;
+    }
+
+    public H5 getPrecioOferta() {
+        return precioOferta;
+    }
+
+    public void setPrecioOferta(H5 precioOferta) {
+        this.precioOferta = precioOferta;
+    }
+
+    /**
      * Creates a new VistaOferta.
      */
     public VistaOferta() {

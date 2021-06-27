@@ -53,7 +53,7 @@ public class Ver_pedido extends VistaVerpedido implements HasUrlParameter<String
         this.getLayoutMenu().setHorizontalComponentAlignment(Alignment.CENTER, mb);
         
         this.getIdPdido().setText("Pedido "+p.getId());
-        this.getFechaPedido().setText(new SimpleDateFormat("dd/MM/yyyy").format(new Date(p.getFecha()*1000)));
+        this.getFechaPedido().setText(new SimpleDateFormat("dd/MM/yyyy").format(new Date(p.getFecha())));
         this.getPrecioPedido().setText(String.valueOf(p.getPrecio())+"€");
         
         Pedido aux;

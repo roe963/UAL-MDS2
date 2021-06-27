@@ -15,14 +15,14 @@ class VistaValorarproducto extends PolymerElement {
                 }
             </style>
 <vaadin-vertical-layout>
- <h4 id="h-producto">Producto</h4>
- <vaadin-horizontal-layout theme="spacing">
-  <label style="flex-grow: 0; align-self: center;">Valoración:</label>
-  <vaadin-vertical-layout theme="spacing" id="vlselectvaloracion"></vaadin-vertical-layout>
+ <h4 id="h-nombreproducto" style="align-self: center;">Producto</h4>
+ <vaadin-horizontal-layout theme="spacing" style="align-self: center;">
+  <label style="flex-grow: 0; align-self: center; margin-right: var(--lumo-space-l);">Puntuación:</label>
+  <vaadin-vertical-layout id="layout-selectpuntuacion" style="align-self: center;"></vaadin-vertical-layout>
  </vaadin-horizontal-layout>
- <vaadin-text-area label="" placeholder="Opinión" id="textarea-valoracion" style="align-self: stretch;"></vaadin-text-area>
- <vaadin-button id="button-enviarvaloracion">
-   Enviar 
+ <vaadin-text-area label="" placeholder="Opinión" id="textarea-descripcionvaloracion" style="align-self: center; margin: var(--lumo-space-m); width: 400px; height: 200px;"></vaadin-text-area>
+ <vaadin-button id="button-enviarvaloracion" style="align-self: center;">
+  Valorar
  </vaadin-button>
 </vaadin-vertical-layout>
 `;

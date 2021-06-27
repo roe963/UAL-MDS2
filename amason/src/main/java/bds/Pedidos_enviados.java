@@ -9,6 +9,8 @@ import org.orm.PersistentTransaction;
 import basededatos.Pedido;
 import basededatos.Pedido_enviado;
 import basededatos.Pedido_enviadoDAO;
+import basededatos.Pedido_pendiente;
+import basededatos.Pedido_pendienteDAO;
 
 public class Pedidos_enviados {
 	public BDPrincipal _bdprincipal_pedidos_enviados;
@@ -27,7 +29,20 @@ public class Pedidos_enviados {
 	}
 
 	public Pedido[] cargar_pedidos_enviados() {
-		throw new UnsupportedOperationException();
+	    PersistentTransaction t;
+        Pedido_enviado[] arrayPedido = null;
+        try {
+            t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
+            try {
+                arrayPedido = Pedido_enviadoDAO.listPedido_enviadoByQuery(null, null);
+                t.commit();
+            } catch (PersistentException e) {
+                t.rollback();
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        return arrayPedido;
 	}
 
 	public Pedido_enviado[] cargar_pedidos_enviados_cliente_registrado(int aIdUsuario) {

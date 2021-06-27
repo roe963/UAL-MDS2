@@ -11,9 +11,10 @@ class VistaProducto extends PolymerElement {
                     height: 100%;
                 }
             </style>
-<vaadin-vertical-layout style="align-items: center;" id="vaadinVerticalLayout">
- <img id="img-producto" style="padding: var(--lumo-space-xl);">
- <label id="textoproducto">Label</label>
+<vaadin-vertical-layout style="align-items: center;">
+ <img id="img-producto" style="padding: var(--lumo-space-s); width: 200px; height: 200px;">
+ <h4 id="h-nombre-producto">Heading 4</h4>
+ <label id="lbl-precio-producto">Label</label>
 </vaadin-vertical-layout>
 `;
     }

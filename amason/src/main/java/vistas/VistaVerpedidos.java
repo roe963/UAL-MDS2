@@ -31,16 +31,16 @@ public class VistaVerpedidos extends PolymerTemplate<VistaVerpedidos.VistaVerped
     }
     //////Barra Navegacion /////
 	
-    @Id("vaadinVerticalLayout")
-	private VerticalLayout vaadinVerticalLayout;
+    @Id("layout-mispedidos")
+	private VerticalLayout misPedidos;
     
 
-	public VerticalLayout getVaadinVerticalLayout() {
-		return vaadinVerticalLayout;
+	public VerticalLayout getMisPedidos() {
+		return misPedidos;
 	}
 
-	public void setVaadinVerticalLayout(VerticalLayout vaadinVerticalLayout) {
-		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	public void setMisPedidos(VerticalLayout vaadinVerticalLayout) {
+		this.misPedidos = vaadinVerticalLayout;
 	}
 
 	/**
