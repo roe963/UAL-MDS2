@@ -20,6 +20,7 @@ public class Cliente extends VistaCliente {
     
 	public Cliente() {
 	    MenuBar mb = MenuHeader.getMenuBar();
+	    this.getLayoutMenu().removeAll();
 	    this.getLayoutMenu().add(mb);
 	    this.getLayoutMenu().setHorizontalComponentAlignment(Alignment.CENTER, mb);
 	    

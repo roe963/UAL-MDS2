@@ -4,6 +4,10 @@ import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.templatemodel.TemplateModel;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.polymertemplate.Id;
+import com.vaadin.flow.dom.Element;
 
 /**
  * A Designer generated component for the vista-pedidospendientes template.
@@ -14,6 +18,17 @@ import com.vaadin.flow.templatemodel.TemplateModel;
 @Tag("vista-pedidospendientes")
 @JsModule("./src/vista-pedidospendientes.js")
 public class VistaPedidospendientes extends PolymerTemplate<VistaPedidospendientes.VistaPedidospendientesModel> {
+
+    @Id("layout-pedidos-pendinetes")
+    private VerticalLayout layoutPedidosPendinetes;
+
+    public VerticalLayout getLayoutPedidosPendinetes() {
+        return layoutPedidosPendinetes;
+    }
+
+    public void setLayoutPedidosPendinetes(VerticalLayout layoutPedidosPendinetes) {
+        this.layoutPedidosPendinetes = layoutPedidosPendinetes;
+    }
 
     /**
      * Creates a new VistaPedidospendientes.

@@ -21,7 +21,20 @@ public class Pedidos_pendientes {
     public Vector<Pedido_pendiente> _contiene_pedido_pendiente = new Vector<Pedido_pendiente>();
 
     public Pedido[] cargar_pedidos_pendientes() {
-        throw new UnsupportedOperationException();
+        PersistentTransaction t;
+        Pedido_pendiente[] arrayPedido = null;
+        try {
+            t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
+            try {
+                arrayPedido = Pedido_pendienteDAO.listPedido_pendienteByQuery(null, null);
+                t.commit();
+            } catch (PersistentException e) {
+                t.rollback();
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        return arrayPedido;
     }
 
     public void eliminar_pendiente_enviado(int aIdPedido) {

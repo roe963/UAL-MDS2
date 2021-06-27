@@ -2,8 +2,11 @@ package vistas;
 
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.templatemodel.TemplateModel;
+import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.polymertemplate.Id;
 
 /**
  * A Designer generated component for the vista-pedidosenviados template.
@@ -14,6 +17,17 @@ import com.vaadin.flow.templatemodel.TemplateModel;
 @Tag("vista-pedidosenviados")
 @JsModule("./src/vista-pedidosenviados.js")
 public class VistaPedidosenviados extends PolymerTemplate<VistaPedidosenviados.VistaPedidosenviadosModel> {
+
+    @Id("layout-pedidos-enviados")
+    private VerticalLayout layoutPedidosEnviados;
+
+    public VerticalLayout getLayoutPedidosEnviados() {
+        return layoutPedidosEnviados;
+    }
+
+    public void setLayoutPedidosEnviados(VerticalLayout layoutPedidosEnviados) {
+        this.layoutPedidosEnviados = layoutPedidosEnviados;
+    }
 
     /**
      * Creates a new VistaPedidosenviados.

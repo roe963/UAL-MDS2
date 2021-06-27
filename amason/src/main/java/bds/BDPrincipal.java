@@ -315,7 +315,7 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
     }
 
     public Pedido[] cargar_pedidos_pendientes() {
-        throw new UnsupportedOperationException();
+        return _bd_pedidos_pendientes.cargar_pedidos_pendientes();
     }
 
     public void marcar_como_enviado(int aIdPedido, int aIdEmpresaTransportes) {
@@ -323,7 +323,7 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
     }
 
     public Pedido[] cargar_pedidos_enviados() {
-        throw new UnsupportedOperationException();
+        return _bd_pedidos_enviados.cargar_pedidos_enviados();
     }
 
     public Empresa_transportes[] cargar_empresas_transportes() {

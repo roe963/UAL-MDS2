@@ -4,6 +4,9 @@ import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.templatemodel.TemplateModel;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.polymertemplate.Id;
+import com.vaadin.flow.component.html.Label;
 
 /**
  * A Designer generated component for the vista-pedidoenviado template.
@@ -14,6 +17,27 @@ import com.vaadin.flow.templatemodel.TemplateModel;
 @Tag("vista-pedidoenviado")
 @JsModule("./src/vista-pedidoenviado.js")
 public class VistaPedidoenviado extends PolymerTemplate<VistaPedidoenviado.VistaPedidoenviadoModel> {
+
+    @Id("btn-ver-detalles-pedido")
+    private Button btnVerDetallesPedido;
+    @Id("lbl-pedido")
+    private Label lblPedido;
+
+    public Button getBtnVerDetallesPedido() {
+        return btnVerDetallesPedido;
+    }
+
+    public void setBtnVerDetallesPedido(Button btnVerDetallesPedido) {
+        this.btnVerDetallesPedido = btnVerDetallesPedido;
+    }
+
+    public Label getLblPedido() {
+        return lblPedido;
+    }
+
+    public void setLblPedido(Label lblPedido) {
+        this.lblPedido = lblPedido;
+    }
 
     /**
      * Creates a new VistaPedidoenviado.

@@ -1,24 +1,18 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 
-/**
- * `vista-pedidospendientes`
- *
- * VistaPedidospendientes element.
- *
- * @customElement
- * @polymer
- */
 class VistaPedidospendientes extends PolymerElement {
 
     static get template() {
         return html`
-            <style include="shared-styles">
+<style include="shared-styles">
                 :host {
                     display: block;
                     height: 100%;
                 }
             </style>
-        `;
+<vaadin-vertical-layout theme="spacing" id="layout-pedidos-pendinetes"></vaadin-vertical-layout>
+`;
     }
 
     static get is() {

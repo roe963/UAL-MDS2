@@ -4,6 +4,9 @@ import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.templatemodel.TemplateModel;
+import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.polymertemplate.Id;
+import com.vaadin.flow.component.button.Button;
 
 /**
  * A Designer generated component for the vista-pedidopendiente template.
@@ -14,6 +17,38 @@ import com.vaadin.flow.templatemodel.TemplateModel;
 @Tag("vista-pedidopendiente")
 @JsModule("./src/vista-pedidopendiente.js")
 public class VistaPedidopendiente extends PolymerTemplate<VistaPedidopendiente.VistaPedidopendienteModel> {
+
+    @Id("lbl-pedido")
+    private Label lblPedido;
+    @Id("btn-ver-detalles-pedido")
+    private Button btnVerDetallesPedido;
+    @Id("btn-marcar-entregado")
+    private Button btnMarcarEntregado;
+    
+
+    public Label getLblPedido() {
+        return lblPedido;
+    }
+
+    public void setLblPedido(Label lblPedido) {
+        this.lblPedido = lblPedido;
+    }
+
+    public Button getBtnVerDetallesPedido() {
+        return btnVerDetallesPedido;
+    }
+
+    public void setBtnVerDetallesPedido(Button btnVerDetallesPedido) {
+        this.btnVerDetallesPedido = btnVerDetallesPedido;
+    }
+
+    public Button getBtnMarcarEntregado() {
+        return btnMarcarEntregado;
+    }
+
+    public void setBtnMarcarEntregado(Button btnMarcarEntregado) {
+        this.btnMarcarEntregado = btnMarcarEntregado;
+    }
 
     /**
      * Creates a new VistaPedidopendiente.
