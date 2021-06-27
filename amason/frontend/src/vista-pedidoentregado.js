@@ -1,24 +1,24 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
+import '@vaadin/vaadin-button/src/vaadin-button.js';
 
-/**
- * `vista-pedidoentregado`
- *
- * VistaPedidoentregado element.
- *
- * @customElement
- * @polymer
- */
 class VistaPedidoentregado extends PolymerElement {
 
     static get template() {
         return html`
-            <style include="shared-styles">
+<style include="shared-styles">
                 :host {
                     display: block;
                     height: 100%;
                 }
             </style>
-        `;
+<vaadin-horizontal-layout class="content" style="justify-content: space-between; align-items: center; width: 500px; padding-right: var(--lumo-space-s); padding-left: var(--lumo-space-s);">
+ <label id="lbl-pedido" style="align-self: center;">Label</label>
+ <vaadin-button id="btn-ver-detalles-pedido" style="align-self: center;">
+  Detalles
+ </vaadin-button>
+</vaadin-horizontal-layout>
+`;
     }
 
     static get is() {

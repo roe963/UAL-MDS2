@@ -18,10 +18,10 @@ import com.vaadin.flow.component.html.Label;
 @JsModule("./src/vista-pedidoenviado.js")
 public class VistaPedidoenviado extends PolymerTemplate<VistaPedidoenviado.VistaPedidoenviadoModel> {
 
-    @Id("btn-ver-detalles-pedido")
-    private Button btnVerDetallesPedido;
     @Id("lbl-pedido")
     private Label lblPedido;
+    @Id("btn-ver-detalles-pedido")
+    private Button btnVerDetallesPedido;
 
     public Button getBtnVerDetallesPedido() {
         return btnVerDetallesPedido;

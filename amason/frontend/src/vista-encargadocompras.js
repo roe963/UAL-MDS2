@@ -15,8 +15,8 @@ class VistaEncargadocompras extends PolymerElement {
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
  <vaadin-vertical-layout theme="spacing" id="layout-header" style="align-self: center;"></vaadin-vertical-layout>
  <vaadin-horizontal-layout style="align-self: stretch; margin-top: var(--lumo-space-m); justify-content: space-between;">
-  <vaadin-vertical-layout theme="spacing" id="layout-pedidos-pendientes" style="flex-grow: 1; flex-shrink: 0; margin: var(--lumo-space-m);"></vaadin-vertical-layout>
-  <vaadin-vertical-layout theme="spacing" id="layout-pedidos-enviados" style="flex-grow: 1; flex-shrink: 0; margin: var(--lumo-space-m);"></vaadin-vertical-layout>
+  <vaadin-vertical-layout theme="spacing" id="layout-pedidos-pendientes" style="flex-grow: 0; flex-shrink: 1; align-items: stretch; margin: var(--lumo-space-m);"></vaadin-vertical-layout>
+  <vaadin-vertical-layout theme="spacing" id="layout-pedidos-enviados" style="flex-grow: 0; flex-shrink: 1; margin: var(--lumo-space-m);"></vaadin-vertical-layout>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>
 `;

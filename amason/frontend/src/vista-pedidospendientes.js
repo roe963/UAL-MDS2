@@ -11,7 +11,7 @@ class VistaPedidospendientes extends PolymerElement {
                     height: 100%;
                 }
             </style>
-<vaadin-vertical-layout theme="spacing" id="layout-pedidos-pendinetes"></vaadin-vertical-layout>
+<vaadin-vertical-layout theme="spacing" id="layout-pedidos-pendinetes" style="width: 100%;"></vaadin-vertical-layout>
 `;
     }
 

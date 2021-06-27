@@ -12,9 +12,9 @@ class VistaPedidopendiente extends PolymerElement {
                     height: 100%;
                 }
             </style>
-<vaadin-horizontal-layout class="content" style="justify-content: space-between; padding-right: var(--lumo-space-s); padding-left: var(--lumo-space-s);">
- <label id="lbl-pedido" style="align-self: center; flex-grow: 1; flex-shrink: 0;">Label</label>
- <vaadin-horizontal-layout theme="spacing">
+<vaadin-horizontal-layout class="content" style="justify-content: flex-start; padding-right: var(--lumo-space-s); padding-left: var(--lumo-space-s); width: 500px;">
+ <label id="lbl-pedido" style="align-self: center; flex-grow: 0; flex-shrink: 1; margin-right: var(--lumo-space-xl);">Label</label>
+ <vaadin-horizontal-layout theme="spacing" style="justify-content: flex-end; flex-grow: 1;">
   <vaadin-button id="btn-ver-detalles-pedido" style="align-self: center;">
     Detalles 
   </vaadin-button>

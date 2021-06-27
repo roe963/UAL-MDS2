@@ -12,10 +12,10 @@ class VistaPedidoenviado extends PolymerElement {
                     height: 100%;
                 }
             </style>
-<vaadin-horizontal-layout class="content" style="justify-content: space-between; padding-right: var(--lumo-space-s); padding-left: var(--lumo-space-s);">
- <label id="lbl-pedido" style="flex-grow: 1; align-self: center;">Label</label>
- <vaadin-button id="btn-ver-detalles-pedido">
-  Detalles
+<vaadin-horizontal-layout class="content" style="justify-content: space-between; padding-right: var(--lumo-space-s); padding-left: var(--lumo-space-s); align-items: center; width: 500px;">
+ <label id="lbl-pedido" style="flex-grow: 0; align-self: center; flex-shrink: 1;">Label</label>
+ <vaadin-button id="btn-ver-detalles-pedido" style="flex-grow: 0;">
+   Detalles 
  </vaadin-button>
 </vaadin-horizontal-layout>
 `;

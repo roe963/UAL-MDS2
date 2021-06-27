@@ -1,12 +1,18 @@
 package interfaz;
 
-import java.util.Vector;
-import interfaz.Pedido_entregado;
+import bds.BDPrincipal;
+import bds.iEmpresa_transportes;
+import ual.mds2.ortegaortega.Session;
 import vistas.VistaPedidosentregados;
 
 public class Pedidos_entregados extends VistaPedidosentregados {
+    
+    iEmpresa_transportes bd = new BDPrincipal();
 
-	public Pedido[] cargar_pedidos_entregados() {
-		throw new UnsupportedOperationException();
-	}
+    public Pedidos_entregados() {
+        
+        for(basededatos.Pedido p : bd.cargar_pedidos_entregados(Session.getUsuario().getId())) {
+            this.getLayoutPedidosEntregados().add(new Pedido_entregado(p));
+        }
+    }
 }

@@ -303,11 +303,11 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 	}
 
     public Pedido[] cargar_pedidos_enviados(int aIdEmpresaTransportes) {
-        throw new UnsupportedOperationException();
+        return _bd_pedidos_enviados.cargar_pedidos_enviados(aIdEmpresaTransportes);
     }
 
-    public Pedido[] cargar_pedidos_entregados() {
-        throw new UnsupportedOperationException();
+    public Pedido[] cargar_pedidos_entregados(int aIdEmpresaTransportes) {
+        return _bd_pedidos_entregados.cargar_pedidos_entregados(aIdEmpresaTransportes);
     }
 
     public void marcar_como_entregado(int aIdPedido) {
@@ -337,4 +337,5 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
     public boolean recuperar_contrasena(String aMailUsuario) {
         throw new UnsupportedOperationException();
     }
+
 }

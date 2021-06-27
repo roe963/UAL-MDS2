@@ -17,7 +17,7 @@ public class Encargado_compras extends VistaEncargadocompras {
         this.getLayoutHeader().removeAll();
         this.getLayoutHeader().add(mb);
         this.getLayoutHeader().setHorizontalComponentAlignment(Alignment.CENTER, mb);
-//		this.getLayoutPedidosPendientes().add(new Pedidos_pendientes());
+		this.getLayoutPedidosPendientes().add(new Pedidos_pendientes());
         this.getLayoutPedidosEnviados().add(new Pedidos_enviados());
 	}
 }

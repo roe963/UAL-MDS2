@@ -17,7 +17,24 @@ public class Pedidos_enviados {
 	public Vector<Pedido_enviado> _contiene_pedido_enviado = new Vector<Pedido_enviado>();
 
 	public Pedido[] cargar_pedidos_enviados(int aIdEmpresaTransportes) {
-		throw new UnsupportedOperationException();
+	    PersistentTransaction t;
+        Pedido_enviado[] arrayPedido = null;
+        try {
+            t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
+            try {
+                Pedido_enviado[] arrayPedidoEnviado = Pedido_enviadoDAO.listPedido_enviadoByQuery(null, null);
+                arrayPedido = Arrays.stream(arrayPedidoEnviado)
+                        .filter(p -> p.getAsignado_a().getId() == aIdEmpresaTransportes)
+                        .toArray(basededatos.Pedido_enviado[]::new);
+
+                t.commit();
+            } catch (PersistentException e) {
+                t.rollback();
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        return arrayPedido;
 	}
 
 	public void agregar_pendiente_enviado(int aIdPedido, int aIdEmpresaTransportes) {

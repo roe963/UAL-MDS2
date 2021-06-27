@@ -20,9 +20,9 @@ public class VistaEncargadocompras extends PolymerTemplate<VistaEncargadocompras
 
     @Id("layout-header")
     private VerticalLayout layoutHeader;
-    @Id("layout-pedidos-pendientes")
-    private VerticalLayout layoutPedidosPendientes;
     @Id("layout-pedidos-enviados")
+    private VerticalLayout layoutPedidosPendientes;
+    @Id("layout-pedidos-entregados")
     private VerticalLayout layoutPedidosEnviados;
     
 

@@ -30,9 +30,6 @@ public class Clientes {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
-
-        ViewChanger.setCliente(cliente);
-
         return cliente;
     }
 
