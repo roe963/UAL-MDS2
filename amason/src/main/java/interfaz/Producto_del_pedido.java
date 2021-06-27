@@ -1,5 +1,8 @@
 package interfaz;
 
+import com.vaadin.flow.component.UI;
+import com.vaadin.flow.component.dialog.Dialog;
+
 import basededatos.Cantidad;
 import basededatos.Producto;
 import vistas.VistaProductodelpedido;
@@ -15,5 +18,10 @@ public class Producto_del_pedido extends VistaProductodelpedido {
         this.getPrecioPoducto().setText(String.valueOf(p.getPrecio())+"€");
         this.getPrecioTotalPoducto().setText(String.valueOf(p.getPrecio()*c.getCantidad())+"€");
         this.getImageProducto().setSrc(p.contiene_una.toArray()[0].getUrl());
+        this.getValorarProducto().addClickListener(event -> {
+            Dialog d = new Dialog();
+            d.add(new Valorar_producto(p, d, UI.getCurrent()));
+            d.open();
+        });
     }
 }

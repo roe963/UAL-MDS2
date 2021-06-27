@@ -8,42 +8,65 @@ import java.util.Vector;
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
-
+import basededatos.ClienteDAO;
+import basededatos.ProductoDAO;
 import basededatos.Valoracion;
 import basededatos.ValoracionDAO;
 
 public class Valoraciones {
-	public BDPrincipal _bdprincipal_valoraciones;
-	public Vector<Valoracion> _contine_valoracion = new Vector<Valoracion>();
+    public BDPrincipal _bdprincipal_valoraciones;
+    public Vector<Valoracion> _contine_valoracion = new Vector<Valoracion>();
 
-	public void valorar_producto(int aIdProducto, int aIdUsuario, int aPuntiacion, String aComentario, Date aFecha) {
-		throw new UnsupportedOperationException();
-	}
+    public void valorar_producto(int aIdProducto, int aIdUsuario, int aPuntiacion, String aComentario, long aFecha) {
+        PersistentTransaction t;
 
-	public Valoracion[] cargar_valoraciones(int aIdProducto) throws PersistentException {
-		Valoracion[] valoraciones = null;
-		List<Valoracion> aux = new ArrayList<>();
-		Valoracion[] SalidaValoraciones = null;
-		
-        PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
-        
         try {
-        	valoraciones = ValoracionDAO.listValoracionByQuery(null, null);   
+            t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
+            try {
+                Valoracion valoracion = ValoracionDAO.createValoracion();
+                basededatos.Cliente cliente = ClienteDAO.getClienteByORMID(aIdUsuario);
+                basededatos.Producto producto = ProductoDAO.getProductoByORMID(aIdProducto);
+                valoracion.setValora_un(producto);
+                valoracion.setEscrito_por(cliente);
+                valoracion.setPuntuacion(aPuntiacion);
+                valoracion.setComentario(aComentario);
+                valoracion.setFecha(System.currentTimeMillis());
+                ValoracionDAO.save(valoracion);
+                
+                t.commit();
+            } catch (PersistentException e) {
+                t.rollback();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-        	for (int i = 0; i < valoraciones.length; i++) {
-        		if(valoraciones[i].getValora_un().getId() == aIdProducto) {
-        			aux.add(valoraciones[i]);
-        		}				
-			}
-        	
+    public Valoracion[] cargar_valoraciones(int aIdProducto) throws PersistentException {
+        Valoracion[] valoraciones = null;
+        List<Valoracion> aux = new ArrayList<>();
+        Valoracion[] SalidaValoraciones = null;
+
+        PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession()
+                .beginTransaction();
+
+        try {
+            valoraciones = ValoracionDAO.listValoracionByQuery(null, null);
+
+            for (int i = 0; i < valoraciones.length; i++) {
+                if (valoraciones[i].getValora_un().getId() == aIdProducto) {
+                    aux.add(valoraciones[i]);
+                }
+            }
+
             t.commit();
         } catch (PersistentException e) {
             t.rollback();
         }
-        
-        //convertir a un array
+
+        // convertir a un array
         SalidaValoraciones = aux.stream().toArray(Valoracion[]::new);
-        
+
         return SalidaValoraciones;
-	}
+    }
 }

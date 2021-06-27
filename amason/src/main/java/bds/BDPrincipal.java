@@ -192,8 +192,8 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
         }
     }
 
-    public void valorar_producto(int aIdProducto, int aIdUsuario, int aPuntuacion, String aComentario, Date aFecha) {
-        throw new UnsupportedOperationException();
+    public void valorar_producto(int aIdProducto, int aIdUsuario, int aPuntuacion, String aComentario, long aFecha) {
+        _bd_valoraciones.valorar_producto(aIdProducto, aIdUsuario, aPuntuacion, aComentario, aFecha);
     }
 
     public Valoracion[] cargar_valoraciones(int aIdProducto) {
