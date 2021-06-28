@@ -334,7 +334,8 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
     }
 
     public void marcar_como_enviado(int aIdPedido, int aIdEmpresaTransportes) {
-        throw new UnsupportedOperationException();
+        _bd_pedidos_enviados.agregar_pendiente_enviado(aIdPedido, aIdEmpresaTransportes);
+        _bd_pedidos_pendientes.eliminar_pendiente_enviado(aIdPedido);
     }
 
     public Pedido[] cargar_pedidos_enviados() {
@@ -342,7 +343,7 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
     }
 
     public Empresa_transportes[] cargar_empresas_transportes() {
-        throw new UnsupportedOperationException();
+        return _bd_empresas_transportes.cargar_empresas_transportes();
     }
 
     public Usuario iniciar_sesion(String aMailUsuario, String aPasswordUsuario) {

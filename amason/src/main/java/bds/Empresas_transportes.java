@@ -9,6 +9,8 @@ import basededatos.Cliente;
 import basededatos.ClienteDAO;
 import basededatos.Empresa_transportes;
 import basededatos.Empresa_transportesDAO;
+import basededatos.Pedido_enviado;
+import basededatos.Pedido_enviadoDAO;
 import basededatos.Usuario;
 
 public class Empresas_transportes {
@@ -50,7 +52,20 @@ public class Empresas_transportes {
 	}
 
 	public basededatos.Empresa_transportes[] cargar_empresas_transportes() {
-		throw new UnsupportedOperationException();
+	    PersistentTransaction t;
+        Empresa_transportes[] empresas = null;
+        try {
+            t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
+            try {
+                empresas = Empresa_transportesDAO.listEmpresa_transportesByQuery(null, null);
+                t.commit();
+            } catch (PersistentException e) {
+                t.rollback();
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        return empresas;
 	}
 
 	public boolean cambiar_estado_usaurio(int aIdUsuario, boolean aActivo) {

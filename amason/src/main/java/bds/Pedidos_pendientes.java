@@ -12,6 +12,8 @@ import basededatos.Cliente;
 import basededatos.ClienteDAO;
 import basededatos.Pedido;
 import basededatos.PedidoDAO;
+import basededatos.Pedido_enviado;
+import basededatos.Pedido_enviadoDAO;
 import basededatos.Pedido_pendiente;
 import basededatos.Pedido_pendienteDAO;
 import ual.mds2.ortegaortega.Session;
@@ -38,7 +40,19 @@ public class Pedidos_pendientes {
     }
 
     public void eliminar_pendiente_enviado(int aIdPedido) {
-        throw new UnsupportedOperationException();
+        PersistentTransaction t;
+        try {
+            t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
+            try {
+                Pedido_pendiente pedido = Pedido_pendienteDAO.getPedido_pendienteByORMID(aIdPedido);
+                Pedido_pendienteDAO.deleteAndDissociate(pedido);
+                t.commit();
+            } catch (PersistentException e) {
+                t.rollback();
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
     }
 
     public void realizar_pedido(Cantidad[] aCantidades, Cliente aCliente) {
@@ -49,12 +63,12 @@ public class Pedidos_pendientes {
             try {
                 Pedido_pendiente pedido = Pedido_pendienteDAO.createPedido_pendiente();
                 pedido.setFecha(System.currentTimeMillis());
-                pedido.setPrecio((float)Session.calcularPrecioTotalCarrito());
+                pedido.setPrecio((float) Session.calcularPrecioTotalCarrito());
                 pedido.setRealizado_por(aCliente);
                 PedidoDAO.save(pedido);
                 Pedido_pendienteDAO.save(pedido);
-                
-                for(Cantidad c : aCantidades) {
+
+                for (Cantidad c : aCantidades) {
                     c.setContenido_en(pedido);
                     CantidadDAO.save(c);
                 }

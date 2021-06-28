@@ -1,5 +1,6 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
+import '@vaadin/vaadin-select/src/vaadin-select.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
 
 class VistaPedidopendiente extends PolymerElement {
@@ -18,9 +19,8 @@ class VistaPedidopendiente extends PolymerElement {
   <vaadin-button id="btn-ver-detalles-pedido" style="align-self: center;">
     Detalles 
   </vaadin-button>
-  <vaadin-button id="btn-marcar-enviado" style="align-self: center;">
-   Asignar
-  </vaadin-button>
+  <label style="margin-left: var(--lumo-space-xl); align-self: center;">Asignar</label>
+  <vaadin-select value="Item one" id="select-empresa-transportes"></vaadin-select>
  </vaadin-horizontal-layout>
 </vaadin-horizontal-layout>
 `;
