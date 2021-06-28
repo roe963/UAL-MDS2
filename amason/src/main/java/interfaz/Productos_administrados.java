@@ -8,6 +8,7 @@ import com.vaadin.flow.component.html.Label;
 
 import basededatos.Producto;
 import bds.BDPrincipal;
+import bds.iAdministrador;
 import bds.iCliente;
 import interfaz.Producto_administrado;
 import vistas.VistaProductosadministrados;
@@ -17,13 +18,15 @@ public class Productos_administrados extends VistaProductosadministrados{
 	public Vector<Producto_administrado> _producto_administrado = new Vector<Producto_administrado>();*/
 	
 	public Productos_administrados(Agregar_producto agregar_producto) {
-		cargar_productos(agregar_producto);
+		cargar_todos_productos(agregar_producto);
 	}
 	
-	iCliente clientes = new BDPrincipal();
+	//iCliente clientes = new BDPrincipal();
+	iAdministrador administrador = new BDPrincipal();
 	
-	public void cargar_productos(Agregar_producto agregar_producto) {
-		Producto[] productos = clientes.cargar_productos();	
+	public void cargar_todos_productos(Agregar_producto agregar_producto) {
+		//Producto[] productos = clientes.cargar_productos();
+		Producto[] productos = administrador.cargar_todos_productos();
 		
 		this.getLayoutProductos().removeAll();
 		if (productos.length != 0) {

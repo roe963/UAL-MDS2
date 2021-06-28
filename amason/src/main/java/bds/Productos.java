@@ -106,12 +106,41 @@ public class Productos {
         
         return productos;
 	}
+	
+	public Producto[] cargar_todos_productos() throws PersistentException {
+		Producto[] productos = null;
+		Foto[] fotos= null;
+		
+        PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
+        
+        try {
+        	//productos = ProductoDAO.listProductoByQuery(null, null);
+        	productos = ProductoDAO.listProductoByQuery(null, null);
+        	fotos = FotoDAO.listFotoByQuery(null, null);
+        	
+        	
+        	for (int i = 0; i < productos.length; i++) {
+        		for (int j = 0; j < fotos.length; j++) {
+					if(productos[i].getId() == fotos[j].getPertenece_a().getId() ) {						
+						productos[i].contiene_una.add(fotos[j]);
+						break;
+					}						
+				}				
+			}
+
+            t.commit();
+        } catch (PersistentException e) {
+            t.rollback();
+        }
+        
+        return productos;
+	}
 
 	public Producto cargar_producto(int aIdProducto) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void agregar_producto(String aNombreProducto, Categoria aCategoria, double aPrecioProducto, String aDescripcionProducto, String aImagenProducto1, String aImagenProducto2, String aImagenProducto3, String aImagenProducto4, String aImagenProducto5, int aImagenPrincipal_) throws PersistentException {
+	public void agregar_producto(String aNombreProducto, Categoria aCategoria, double aPrecioProducto, String aDescripcionProducto, String aImagenProducto) throws PersistentException {
 
 		PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession()
                 .beginTransaction();
@@ -128,7 +157,7 @@ public class Productos {
         
         //foto
         Foto foto = new Foto();
-        foto.setUrl(aImagenProducto1);
+        foto.setUrl(aImagenProducto);
         foto.setPertenece_a(producto);
 
         try {
@@ -140,7 +169,7 @@ public class Productos {
         }
 	}
 
-	public void modificar_proucto(String aNombreProducto, int aCategoria, double aPrecioProducto, String aDescripcionProducto, String aImagenProducto1, String aImagenProducto2, String aImagenProducto3, String aImagenProducto4, String aImagenProducto5, String aImagenPrincipal_) {
+	public void modificar_proucto(String aNombreProducto, int aCategoria, double aPrecioProducto, String aDescripcionProducto, String aImagenProducto) throws PersistentException {
 		throw new UnsupportedOperationException();
 	}
 

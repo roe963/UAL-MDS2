@@ -7,15 +7,15 @@ import basededatos.Categoria;
 import basededatos.Foto;
 import basededatos.Producto;
 import bds.BDPrincipal;
-import bds.iCliente;
+import bds.iAdministrador;
 import vistas.VistaProductoadministrado;
 
 public class Producto_administrado extends VistaProductoadministrado {
 	
-	iCliente clientes = new BDPrincipal();
+	iAdministrador administrador = new BDPrincipal();
 	
 	public Producto_administrado(basededatos.Producto producto,Agregar_producto agregar_producto) {
-		Producto[] productos = clientes.cargar_productos();
+		Producto[] productos = administrador.cargar_todos_productos();
 		
 		this.getLabelProducto().setText(producto.getNombre().toString());
 		

@@ -12,7 +12,7 @@ import basededatos.Usuario;
 
 public interface iAdministrador {
 
-	public Producto[] cargar_productos();
+	public Producto[] cargar_todos_productos();
 
 	public Producto[] cargar_productos_categoria(int aIdCategoria);
 
@@ -24,9 +24,9 @@ public interface iAdministrador {
 
 	public Pedido detalle_pedido(int aIdPedido);
 
-	public void agregar_producto(String aNombreProducto, Categoria aCategoria, double aPrecioProducto, String aDescripcionProducto, String aImagenProducto1, String aImagenProducto2, String aImagenProducto3, String aImagenProducto4, String aImagenProducto5, int aMagenPrincipal);
+	public void agregar_producto(String aNombreProducto, Categoria aCategoria, double aPrecioProducto, String aDescripcionProducto, String aImagenProducto);
 
-	public void modificar_proucto(String aNombreProducto, int aCategoria, double aPrecioProducto, String aDescripcionProducto, String aImagenProducto1, String aImagenProducto2, String aImagenProducto3, String aImagenProducto4, String aImagenProducto5, int aImagenPrincipal);
+	public void modificar_proucto(String aNombreProducto, int aCategoria, double aPrecioProducto, String aDescripcionProducto, String aImagenProducto);
 
 	public void agregar_categoria(String aNombreCategoria);
 
