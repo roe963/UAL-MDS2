@@ -24,14 +24,16 @@ import vistas.VistaAgregarproducto;
 
 public class Agregar_producto extends VistaAgregarproducto {
 	
-	iAdministrador iadministrador = new BDPrincipal();
+	iAdministrador administrador = new BDPrincipal();
 	
 	Select<Categoria> labelSelect = new Select<>();
 	
-	iCliente clientes = new BDPrincipal();
 	Categoria categoria = null;
 	
 	public Agregar_producto() {
+		
+		getTextFieldIdProducto().setVisible(false);
+		getTextFieldIdFoto().setVisible(false);
 		
 		getCheckboxProductoActivo().setValue(true);
 		cargar_categorias();
@@ -56,7 +58,7 @@ public class Agregar_producto extends VistaAgregarproducto {
 			activo = 0;
 		}
 		
-		iadministrador.agregar_producto(nombre, categoria, Double.parseDouble(precio), descripcion, imagen);
+		administrador.agregar_producto(nombre, categoria, Double.parseDouble(precio), descripcion, imagen);
 	}
 
 	public void cargar_categorias() {
@@ -64,7 +66,7 @@ public class Agregar_producto extends VistaAgregarproducto {
 		this.getLayoutSelectCategoria().removeAll();
 		//labelSelect.setLabel("Categorias");
 		labelSelect.setPlaceholder("Categorías");
-		List<Categoria> departmentList = Arrays.asList(clientes.cargar_categorias());
+		List<Categoria> departmentList = Arrays.asList(administrador.cargar_categorias());
 
 		// Establece que valor de Categoria se va a agregar
 		labelSelect.setItemLabelGenerator(Categoria::getNombre);

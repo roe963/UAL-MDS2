@@ -9,18 +9,16 @@ import com.vaadin.flow.router.PreserveOnRefresh;
 import com.vaadin.flow.router.Route;
 
 import basededatos.Cliente;
+import bds.BDPrincipal;
+import bds.iAdministrador;
 import ual.mds2.ortegaortega.MenuHeader;
 import vistas.VistaAdministrarproductos;
 
 @PreserveOnRefresh
 @Route("administrar_productos")
 public class Administrar_productos extends VistaAdministrarproductos {
-	/*private label _productosActivos;
-	private textField _buscarProducto;
-	private button _guardarProducto;
-	public Administrador _administrador;
-	public Productos_administrados _productos_administrados;
-	public Agregar_producto _agregar_producto;*/
+	
+	iAdministrador administrador = new BDPrincipal();
 
 	public Administrar_productos() {
 	    MenuBar mb = MenuHeader.getMenuBar();
@@ -34,6 +32,8 @@ public class Administrar_productos extends VistaAdministrarproductos {
 	  	
 	  	this.getLayoutProductos().removeAll();
 	  	this.getLayoutProductos().add(new Productos_administrados(agregar_producto));
+	  	
+	  	modificar_producto(agregar_producto);
 	}
 	
 	public void agregar_producto() {
@@ -48,8 +48,29 @@ public class Administrar_productos extends VistaAdministrarproductos {
 		throw new UnsupportedOperationException();
 	}
 
-	public void modificar_producto() {
-		throw new UnsupportedOperationException();
+	public void modificar_producto(Agregar_producto agregar_producto) {
+		this.getButtonGuardar().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				
+				agregar_producto.getTextFieldNombre().getValue();
+				
+				int idProducto = Integer. parseInt(agregar_producto.getTextFieldIdProducto().getValue());
+				int idFoto = Integer. parseInt(agregar_producto.getTextFieldIdFoto().getValue());
+				
+				String nombre = agregar_producto.getTextFieldNombre().getValue();
+				String precio = agregar_producto.getTextFieldPrecio().getValue();
+				String descripcion = agregar_producto.getTextAreaDescripcion().getValue();
+				String imagen = agregar_producto.getTextFieldImagen().getValue();
+				int activo = 1;
+				
+				if(agregar_producto.getCheckboxProductoActivo().getValue() == false) {
+					activo = 0;
+				}
+				
+				administrador.modificar_proucto(idProducto, idFoto, nombre, agregar_producto.categoria, Double.parseDouble(precio), descripcion, imagen);
+			}
+		});
 	}
 
 	public void cambiar_estado_producto() {

@@ -6,7 +6,7 @@ import vistas.VistaProducto;
 
 public class Producto extends VistaProducto {
 
-    public Producto(basededatos.Producto producto) {        
+    public Producto(basededatos.Producto producto) {
         Foto[] fotos = producto.contiene_una.toArray();
 
         this.getImgProducto().addClickListener(e -> {

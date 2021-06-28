@@ -5,6 +5,8 @@ import java.util.Vector;
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
+import basededatos.Administrador;
+import basededatos.AdministradorDAO;
 import basededatos.Cantidad;
 import basededatos.CantidadDAO;
 import basededatos.Categoria;
@@ -169,8 +171,49 @@ public class Productos {
         }
 	}
 
-	public void modificar_proucto(String aNombreProducto, int aCategoria, double aPrecioProducto, String aDescripcionProducto, String aImagenProducto) throws PersistentException {
-		throw new UnsupportedOperationException();
+	public void modificar_proucto(int aIdProducto, int aIdFoto, String aNombreProducto, Categoria aCategoria, double aPrecioProducto, String aDescripcionProducto, String aImagenProducto) throws PersistentException {
+		PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession()
+                .beginTransaction();
+		
+		try {
+		//producto
+		Producto producto = ProductoDAO.getProductoByORMID(aIdProducto);
+        producto.setNombre(aNombreProducto);
+        producto.setAsignado_a(aCategoria);
+        producto.setPrecio((float)aPrecioProducto);
+        producto.setDescripcion(aDescripcionProducto);
+        producto.setActivo(true);
+        //Cantidad cantidad = CantidadDAO.getCantidadByORMID(1);
+        //producto.tiene_una(producto);
+        
+        //producto.contiene_una.toArray(aImagenProducto);
+        
+        //foto
+        //Foto foto = new Foto();
+        Foto foto = FotoDAO.getFotoByORMID(aIdFoto);
+        foto.setUrl(aImagenProducto);
+        foto.setPertenece_a(producto);
+        
+            t.commit();
+        } catch (PersistentException e) {
+            t.rollback();
+        }
+        
+        
+        /*try {
+            Cliente cliente = ClienteDAO.getClienteByORMID(aIdUsuario);
+            cliente.setNombre(aNombreUsuario);
+            cliente.setEmail(aMailUsuario);
+            cliente.setDireccionEnvio(aDireccionUsuario);
+            cliente.setMetodoPago(aFormaPagoUsuario);
+            cliente.setFotoURL(aFotoUsuario);
+            cliente.setActivo(aEstadoCuenta);
+
+            t.commit();
+        } catch (PersistentException e) {
+            t.rollback();
+        }*/
+        
 	}
 
 	public void activar_producto(int aIdProducto) {

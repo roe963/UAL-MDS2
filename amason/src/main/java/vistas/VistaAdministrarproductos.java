@@ -37,14 +37,16 @@ public class VistaAdministrarproductos extends PolymerTemplate<VistaAdministrarp
     }
     //////Barra Navegacion /////
 	
-	@Id("textFlield-buscar")
-	private TextField textFlieldBuscar;
 	@Id("layout-productos")
 	private HorizontalLayout layoutProductos;
 	@Id("button-guardar")
 	private Button buttonGuardar;
 	@Id("layout-anadirProducto")
 	private VerticalLayout layoutAnadirProducto;
+	@Id("textFlield-buscar")
+	private TextField textFlieldBuscar;
+	@Id("button-buscar")
+	private Button buttonBuscar;
 
 	/**
      * Creates a new VistaAdministrarproductos.
@@ -90,6 +92,14 @@ public class VistaAdministrarproductos extends PolymerTemplate<VistaAdministrarp
 
 	public void setLayoutAnadirProducto(VerticalLayout layoutAnadirProducto) {
 		this.layoutAnadirProducto = layoutAnadirProducto;
+	}
+
+	public Button getButtonBuscar() {
+		return buttonBuscar;
+	}
+
+	public void setButtonBuscar(Button buttonBuscar) {
+		this.buttonBuscar = buttonBuscar;
 	}
     
 }

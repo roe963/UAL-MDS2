@@ -39,7 +39,10 @@ public class VistaAgregarproducto extends PolymerTemplate<VistaAgregarproducto.V
 	private Button buttonAnadir;
 	@Id("checkbox-productoActivo")
 	private Checkbox checkboxProductoActivo;
-
+	@Id("textField-idProducto")
+	private TextField textFieldIdProducto;
+	@Id("textField-idFoto")
+	private TextField textFieldIdFoto;
 	/**
      * Creates a new VistaAgregarproducto.
      */
@@ -116,6 +119,22 @@ public class VistaAgregarproducto extends PolymerTemplate<VistaAgregarproducto.V
 
 	public void setCheckboxProductoActivo(Checkbox checkboxProductoActivo) {
 		this.checkboxProductoActivo = checkboxProductoActivo;
+	}
+
+	public TextField getTextFieldIdProducto() {
+		return textFieldIdProducto;
+	}
+
+	public void setTextFieldIdProducto(TextField textFieldIdProducto) {
+		this.textFieldIdProducto = textFieldIdProducto;
+	}
+
+	public TextField getTextFieldIdFoto() {
+		return textFieldIdFoto;
+	}
+
+	public void setTextFieldIdFoto(TextField textFieldIdFoto) {
+		this.textFieldIdFoto = textFieldIdFoto;
 	}
     
 }

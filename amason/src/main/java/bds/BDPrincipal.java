@@ -99,11 +99,11 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
         }
     }
 
-    public void modificar_proucto(String aNombreProducto, int aCategoria, double aPrecioProducto,
+    public void modificar_proucto(int aIdProducto, int aIdFoto, String aNombreProducto, Categoria aCategoria, double aPrecioProducto,
             String aDescripcionProducto, String aImagenProducto) {
     	
     	try {
-            _bd_productos.modificar_proucto(aNombreProducto, aCategoria, aPrecioProducto, aDescripcionProducto,
+            _bd_productos.modificar_proucto(aIdProducto, aIdFoto, aNombreProducto, aCategoria, aPrecioProducto, aDescripcionProducto,
                     aImagenProducto);
         } catch (PersistentException e) {
             e.printStackTrace();
