@@ -4,6 +4,9 @@ import java.util.Vector;
 
 import org.orm.PersistentException;
 
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Label;
 
 import basededatos.Producto;
@@ -31,7 +34,7 @@ public class Productos_administrados extends VistaProductosadministrados{
 		this.getLayoutProductos().removeAll();
 		if (productos.length != 0) {
             for (int i = 0; i < productos.length; i++) {
-                this.getLayoutProductos().add(new interfaz.Producto_administrado(productos[i],agregar_producto));
+                this.getLayoutProductos().add(new interfaz.Producto_administrado(productos[i], agregar_producto));
             }
         }else {
             Label titulo= new Label();
