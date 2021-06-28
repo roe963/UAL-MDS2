@@ -6,6 +6,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.templatemodel.TemplateModel;
+import com.vaadin.flow.dom.Element;
 
 /**
  * A Designer generated component for the vista-vertodoslospedidos template.
@@ -18,7 +19,7 @@ import com.vaadin.flow.templatemodel.TemplateModel;
 public class VistaVertodoslospedidos extends PolymerTemplate<VistaVertodoslospedidos.VistaVertodoslospedidosModel> {
 	
 	//////Barra Navegacion /////
-	/*@Id("layout-menu")
+	@Id("layout-menu")
 	private VerticalLayout layoutMenu;
 	
 	public VerticalLayout getLayoutMenu() {
@@ -27,9 +28,21 @@ public class VistaVertodoslospedidos extends PolymerTemplate<VistaVertodoslosped
 	
 	public void setLayoutMenu(VerticalLayout layoutMenu) {
 	    this.layoutMenu = layoutMenu;
-	}*/
+	}
 	////// Barra Navegacion /////
 	
+    @Id("layout-pedidos")
+    private VerticalLayout layoutPedidos;
+    
+
+    public VerticalLayout getLayoutPedidos() {
+        return layoutPedidos;
+    }
+
+    public void setLayoutPedidos(VerticalLayout layoutPedidos) {
+        this.layoutPedidos = layoutPedidos;
+    }
+
     /**
      * Creates a new VistaVertodoslospedidos.
      */
