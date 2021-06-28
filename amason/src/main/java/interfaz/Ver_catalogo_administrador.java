@@ -9,16 +9,23 @@ import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.menubar.MenuBar;
+import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.select.Select;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.router.PreserveOnRefresh;
+import com.vaadin.flow.router.Route;
 
 import basededatos.Categoria;
 import basededatos.Producto;
 import bds.BDPrincipal;
 import bds.iAdministrador;
+import ual.mds2.ortegaortega.MenuHeader;
 import ual.mds2.ortegaortega.ViewChanger;
 import vistas.VistaVercatalogoadministrador;
 
+@PreserveOnRefresh
+@Route("ver_catalogo_administrador")
 public class Ver_catalogo_administrador extends VistaVercatalogoadministrador {
 	
 	Select<Categoria> labelSelect = new Select<>();
@@ -27,6 +34,10 @@ public class Ver_catalogo_administrador extends VistaVercatalogoadministrador {
 	iAdministrador administradores = new BDPrincipal();
 	
 	public Ver_catalogo_administrador() {
+		
+		MenuBar mb = MenuHeader.getMenuBar();
+        this.getLayoutMenu().add(mb);
+        this.getLayoutMenu().setHorizontalComponentAlignment(Alignment.CENTER, mb);
 		
 		ViewChanger cambiarVista = new ViewChanger();
 		TextField txtBuscar = this.getTextfieldBuscar();

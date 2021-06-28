@@ -18,7 +18,7 @@ import com.vaadin.flow.templatemodel.TemplateModel;
 public class VistaVertodoslospedidos extends PolymerTemplate<VistaVertodoslospedidos.VistaVertodoslospedidosModel> {
 	
 	//////Barra Navegacion /////
-	@Id("layout-menu")
+	/*@Id("layout-menu")
 	private VerticalLayout layoutMenu;
 	
 	public VerticalLayout getLayoutMenu() {
@@ -27,7 +27,7 @@ public class VistaVertodoslospedidos extends PolymerTemplate<VistaVertodoslosped
 	
 	public void setLayoutMenu(VerticalLayout layoutMenu) {
 	    this.layoutMenu = layoutMenu;
-	}
+	}*/
 	////// Barra Navegacion /////
 	
     /**

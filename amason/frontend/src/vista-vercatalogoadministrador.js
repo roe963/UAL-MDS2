@@ -26,7 +26,7 @@ class VistaVercatalogoadministrador extends PolymerElement {
      <iron-icon icon="lumo:search" slot="prefix"></iron-icon>
     </vaadin-text-field>
     <vaadin-button theme="icon" aria-label="Search" id="button-buscar">
-     <iron-icon icon="lumo:plus"></iron-icon>
+     <iron-icon icon="lumo:search"></iron-icon>
     </vaadin-button>
    </vaadin-horizontal-layout>
    <vaadin-vertical-layout theme="spacing" id="layout-selectCategoria" style="flex-grow: 1;">
