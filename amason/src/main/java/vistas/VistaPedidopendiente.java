@@ -22,8 +22,8 @@ public class VistaPedidopendiente extends PolymerTemplate<VistaPedidopendiente.V
     private Label lblPedido;
     @Id("btn-ver-detalles-pedido")
     private Button btnVerDetallesPedido;
-    @Id("btn-marcar-entregado")
-    private Button btnMarcarEntregado;
+    @Id("btn-marcar-enviado")
+    private Button btnMarcarEnviado;
     
 
     public Label getLblPedido() {
@@ -42,12 +42,12 @@ public class VistaPedidopendiente extends PolymerTemplate<VistaPedidopendiente.V
         this.btnVerDetallesPedido = btnVerDetallesPedido;
     }
 
-    public Button getBtnMarcarEntregado() {
-        return btnMarcarEntregado;
+    public Button getBtnMarcarEnviado() {
+        return btnMarcarEnviado;
     }
 
-    public void setBtnMarcarEntregado(Button btnMarcarEntregado) {
-        this.btnMarcarEntregado = btnMarcarEntregado;
+    public void setBtnMarcarEnviado(Button btnMarcarEnviado) {
+        this.btnMarcarEnviado = btnMarcarEnviado;
     }
 
     /**
