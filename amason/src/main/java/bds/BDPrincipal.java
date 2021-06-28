@@ -261,7 +261,7 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
     }
 
     public boolean cancelar_compra(int aIdPedido) {
-        throw new UnsupportedOperationException();
+        return _bd_pedidos_pendientes.cancelar_compra(aIdPedido);
     }
 
     public void comprobar_envio(int aIdPedido) {
