@@ -25,15 +25,16 @@ import vistas.VistaVerpedido;
 @PreserveOnRefresh
 @Route("pedido")
 public class Ver_pedido extends VistaVerpedido implements HasUrlParameter<String> {
-	/*private event _cancelar_compra;
-	private button _cancelarCompra;
-	public Pedido_cliente_registrado _pedido_cliente_registrado;
-	public Productos_del_pedido _productos_del_pedido;*/
-    
+    /*
+     * private event _cancelar_compra; private button _cancelarCompra; public
+     * Pedido_cliente_registrado _pedido_cliente_registrado; public
+     * Productos_del_pedido _productos_del_pedido;
+     */
+
     @Override
     public void setParameter(BeforeEvent event, @OptionalParameter String parameter) {
         System.out.println(parameter);
-        
+
         try {
             Pedido p = basededatos.PedidoDAO.getPedidoByORMID(Integer.parseInt(parameter));
             cargar_pedido(p);
@@ -48,51 +49,77 @@ public class Ver_pedido extends VistaVerpedido implements HasUrlParameter<String
 
     iCliente_registrado bd = new BDPrincipal();
     private Cantidad[] cantidades;
-    
+
     private void cargar_pedido(Pedido p) {
         MenuBar mb = MenuHeader.getMenuBar();
         this.getLayoutMenu().add(mb);
         this.getLayoutMenu().setHorizontalComponentAlignment(Alignment.CENTER, mb);
-        
-        this.getIdPdido().setText("Pedido "+p.getId());
+
+        this.getIdPdido().setText("Pedido " + p.getId());
         this.getFechaPedido().setText(new SimpleDateFormat("dd/MM/yyyy").format(new Date(p.getFecha())));
-        this.getPrecioPedido().setText(String.valueOf(p.getPrecio())+"€");
-        
+        this.getPrecioPedido().setText(String.valueOf(p.getPrecio()) + "€");
+
         boolean estaPendiente = false;
-        
-        for (Pedido aux :  bd.cargar_pedidos_pendientes_cliente_registrado(Session.getUsuario().getId())) {
+        boolean estaEnviado = false;
+        boolean estaEntregado = false;
+
+        for (Pedido aux : bd.cargar_pedidos_pendientes_cliente_registrado(Session.getUsuario().getId())) {
             if (aux.getId() == p.getId()) {
                 estaPendiente = true;
                 break;
             }
         }
+
+        if (!estaPendiente) {
+            for (Pedido aux : bd.cargar_pedidos_enviados_cliente_registrado(Session.getUsuario().getId())) {
+                if (aux.getId() == p.getId()) {
+                    estaEnviado = true;
+                    break;
+                }
+            }
+        }
+
+        if (!estaPendiente && !estaEnviado) {
+            for (Pedido aux : bd.cargar_pedidos_entregados_cliente_registrado(Session.getUsuario().getId())) {
+                if (aux.getId() == p.getId()) {
+                    estaEntregado = true;
+                    break;
+                }
+            }
+        }
         
+        if (estaPendiente)
+            this.getEstadoPedido().setText("Pendiente");
+        if (estaEnviado)
+            this.getEstadoPedido().setText("Enviado");
+        if (estaEntregado)
+            this.getEstadoPedido().setText("Entregado");
+
         this.getCancelarCompra().setVisible(estaPendiente);
         this.getCancelarCompra().addClickListener(event -> {
             this.bd.cancelar_compra(p.getId());
             UI.getCurrent().navigate("pedidos");
         });
-        
+
         cantidades = bd.cargar_cantidades_pedido(p.getId());
-        System.out.println("cantidades: "+cantidades.length);
+        System.out.println("cantidades: " + cantidades.length);
         this.getProductosDelPedido().removeAll();
         this.getProductosDelPedido().add(new Productos_del_pedido(cantidades));
     }
-    
 
-	public void cancelar_compra() {
-		throw new UnsupportedOperationException();
-	}
+    public void cancelar_compra() {
+        throw new UnsupportedOperationException();
+    }
 
-	public void comprobar_enviado() {
-		throw new UnsupportedOperationException();
-	}
+    public void comprobar_enviado() {
+        throw new UnsupportedOperationException();
+    }
 
-	public void cargar_pedido_cliente_registrado() {
-		throw new UnsupportedOperationException();
-	}
+    public void cargar_pedido_cliente_registrado() {
+        throw new UnsupportedOperationException();
+    }
 
-	public void valorar_producto() {
-		throw new UnsupportedOperationException();
-	}
+    public void valorar_producto() {
+        throw new UnsupportedOperationException();
+    }
 }
