@@ -8,12 +8,16 @@ import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.notification.Notification.Position;
 import com.vaadin.flow.component.select.Select;
+import com.vaadin.flow.router.PreserveOnRefresh;
+import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouterLink;
 
 import bds.BDPrincipal;
 import bds.iCliente;
 import vistas.VistaRegistrarse;
 
+@PreserveOnRefresh
+@Route("registrar")
 public class Registrarse extends VistaRegistrarse {
 
 	iCliente cliente = new BDPrincipal();

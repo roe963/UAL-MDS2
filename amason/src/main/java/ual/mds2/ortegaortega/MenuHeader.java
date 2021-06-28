@@ -118,11 +118,18 @@ public class MenuHeader {
                 }
             });
             
+            Button btnSignUp = new Button("Registrarse");
+            btnChangeSesion.setThemeName("tertiary");
+            btnChangeSesion.addClickListener(event -> {
+                UI.getCurrent().navigate("registrar");
+            });
+            
             menuBar.addItem(btnHome);
             menuBar.addItem(txtBuscar);
             menuBar.addItem(btnBuscar);
             menuBar.addItem(btnCarrito);
             menuBar.addItem(btnChangeSesion);
+            menuBar.addItem(btnSignUp);
             
             break;
 
