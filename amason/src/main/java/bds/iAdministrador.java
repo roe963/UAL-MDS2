@@ -20,7 +20,11 @@ public interface iAdministrador {
 
 	public Producto cargar_producto(int aIdProducto);
 
-	public Pedido[] cargar_pedidos();
+	public Pedido[] cargar_pedidos_pendientes();
+	
+	public Pedido[] cargar_pedidos_enviados();
+	
+	public Pedido[] cargar_pedidos_entregados();
 
 	public Pedido detalle_pedido(int aIdPedido);
 
