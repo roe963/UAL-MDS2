@@ -2,6 +2,7 @@ package interfaz;
 
 import com.vaadin.flow.component.menubar.MenuBar;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
+import com.vaadin.flow.router.PreserveOnRefresh;
 import com.vaadin.flow.router.Route;
 
 import basededatos.Pedido_entregado;
@@ -13,6 +14,7 @@ import ual.mds2.ortegaortega.MenuHeader;
 import ual.mds2.ortegaortega.Session;
 import vistas.VistaVerpedidos;
 
+@PreserveOnRefresh
 @Route("pedidos")
 public class Ver_pedidos extends VistaVerpedidos {
 

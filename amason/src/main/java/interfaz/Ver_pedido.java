@@ -5,6 +5,7 @@ import java.util.Date;
 
 import org.orm.PersistentException;
 
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.menubar.MenuBar;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.router.BeforeEvent;
@@ -18,6 +19,7 @@ import basededatos.Pedido;
 import bds.BDPrincipal;
 import bds.iCliente_registrado;
 import ual.mds2.ortegaortega.MenuHeader;
+import ual.mds2.ortegaortega.Session;
 import vistas.VistaVerpedido;
 
 @PreserveOnRefresh
@@ -56,14 +58,20 @@ public class Ver_pedido extends VistaVerpedido implements HasUrlParameter<String
         this.getFechaPedido().setText(new SimpleDateFormat("dd/MM/yyyy").format(new Date(p.getFecha())));
         this.getPrecioPedido().setText(String.valueOf(p.getPrecio())+"€");
         
-        Pedido aux;
-		try {
-			aux = basededatos.Pedido_pendienteDAO.getPedido_pendienteByORMID(p.getId());
-			this.getCancelarCompra().setVisible(aux!=null);
-		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+        boolean estaPendiente = false;
+        
+        for (Pedido aux :  bd.cargar_pedidos_pendientes_cliente_registrado(Session.getUsuario().getId())) {
+            if (aux.getId() == p.getId()) {
+                estaPendiente = true;
+                break;
+            }
+        }
+        
+        this.getCancelarCompra().setVisible(estaPendiente);
+        this.getCancelarCompra().addClickListener(event -> {
+            this.bd.cancelar_compra(p.getId());
+            UI.getCurrent().navigate("pedidos");
+        });
         
         cantidades = bd.cargar_cantidades_pedido(p.getId());
         System.out.println("cantidades: "+cantidades.length);

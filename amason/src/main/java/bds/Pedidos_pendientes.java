@@ -84,7 +84,26 @@ public class Pedidos_pendientes {
     }
 
     public boolean cancelar_compra(int aIdPedido) {
-        throw new UnsupportedOperationException();
+        PersistentTransaction t;
+        try {
+            t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
+            try {
+                Pedido_pendiente pedido = Pedido_pendienteDAO.getPedido_pendienteByORMID(aIdPedido);
+                Cantidad[] cantidades = pedido.contiene_un.toArray();
+                for (Cantidad c : cantidades) {
+                    CantidadDAO.deleteAndDissociate(c);
+                }
+                Pedido_pendienteDAO.deleteAndDissociate(pedido);
+                t.commit();
+            } catch (PersistentException e) {
+                t.rollback();
+                return false;
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+            return false;
+        }
+        return true;
     }
 
     public Pedido_pendiente[] cargar_pedidos_pendientes_cliente_registrado(int aIdUsuario) {
