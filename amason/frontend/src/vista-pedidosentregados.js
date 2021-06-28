@@ -10,7 +10,7 @@ class VistaPedidosentregados extends PolymerElement {
                     height: 100%;
                 }
             </style>
-<vaadin-vertical-layout theme="spacing" id="layout-pedidos-entregados" style="width: 100%;"></vaadin-vertical-layout>
+<vaadin-vertical-layout id="layout-pedidos-entregados" style="width: 100%; align-items: stretch;"></vaadin-vertical-layout>
 `;
     }
 

@@ -135,6 +135,7 @@ public class Usuario implements Serializable {
         }
 
         if (usuarios.length > 0) {
+            Session.setUsuario(usuarios[0]);
             Usuario aux = new bds.Clientes().iniciar_sesion_cliente(usuarios[0].id);
             if (aux != null) {
 //                ViewChanger.usuario = ViewChanger.TIPOUSUARIO.REGISTRADO;

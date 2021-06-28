@@ -111,7 +111,6 @@ public class MenuHeader {
                         if (usu == null) {
                             ini.getLoginForm().setError(true);
                         } else {
-                            Session.setUsuario(usu);
                             d.close();
                         }
                     });

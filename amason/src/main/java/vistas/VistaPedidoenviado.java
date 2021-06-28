@@ -22,6 +22,8 @@ public class VistaPedidoenviado extends PolymerTemplate<VistaPedidoenviado.Vista
     private Label lblPedido;
     @Id("btn-ver-detalles-pedido")
     private Button btnVerDetallesPedido;
+    @Id("btn-entregar-pedido")
+    private Button btnEntregarPedido;
 
     public Button getBtnVerDetallesPedido() {
         return btnVerDetallesPedido;
@@ -37,6 +39,14 @@ public class VistaPedidoenviado extends PolymerTemplate<VistaPedidoenviado.Vista
 
     public void setLblPedido(Label lblPedido) {
         this.lblPedido = lblPedido;
+    }
+
+    public Button getBtnEntregarPedido() {
+        return btnEntregarPedido;
+    }
+
+    public void setBtnEntregarPedido(Button btnEntregarPedido) {
+        this.btnEntregarPedido = btnEntregarPedido;
     }
 
     /**

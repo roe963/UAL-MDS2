@@ -325,7 +325,8 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
     }
 
     public void marcar_como_entregado(int aIdPedido) {
-        throw new UnsupportedOperationException();
+        _bd_pedidos_entregados.agregar_enviado_entregado(aIdPedido);
+        _bd_pedidos_enviados.eliminar_enviado_entregado(aIdPedido);
     }
 
     public Pedido[] cargar_pedidos_pendientes() {

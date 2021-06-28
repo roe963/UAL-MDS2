@@ -7,6 +7,7 @@ import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
 import basededatos.Pedido;
+import basededatos.PedidoDAO;
 import basededatos.Pedido_enviado;
 import basededatos.Pedido_enviadoDAO;
 import basededatos.Pedido_pendiente;
@@ -42,7 +43,19 @@ public class Pedidos_enviados {
 	}
 
 	public void eliminar_enviado_entregado(int aIdPedido) {
-		throw new UnsupportedOperationException();
+	    PersistentTransaction t;
+        try {
+            t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
+            try {
+                Pedido_enviado pedido = Pedido_enviadoDAO.getPedido_enviadoByORMID(aIdPedido);
+                Pedido_enviadoDAO.deleteAndDissociate(pedido);
+                t.commit();
+            } catch (PersistentException e) {
+                t.rollback();
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
 	}
 
 	public Pedido[] cargar_pedidos_enviados() {
