@@ -7,6 +7,7 @@ import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.templatemodel.TemplateModel;
 import com.vaadin.flow.dom.Element;
 import com.vaadin.flow.component.polymertemplate.Id;
+import com.vaadin.flow.component.html.Label;
 
 /**
  * A Designer generated component for the vista-empresatransportes template.
@@ -25,6 +26,8 @@ public class VistaEmpresatransportes extends PolymerTemplate<VistaEmpresatranspo
     private VerticalLayout layoutPedidosEntregados;
     @Id("layout-header")
     private VerticalLayout layoutHeader;
+    @Id("id-email-transportes")
+    private Label idEmailTransportes;
     
 
     public VerticalLayout getLayoutPedidosEnviados() {
@@ -49,6 +52,14 @@ public class VistaEmpresatransportes extends PolymerTemplate<VistaEmpresatranspo
 
     public void setLayoutHeader(VerticalLayout layoutHeader) {
         this.layoutHeader = layoutHeader;
+    }
+
+    public Label getIdEmailTransportes() {
+        return idEmailTransportes;
+    }
+
+    public void setIdEmailTransportes(Label idEmailTransportes) {
+        this.idEmailTransportes = idEmailTransportes;
     }
 
     /**

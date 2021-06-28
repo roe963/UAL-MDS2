@@ -7,6 +7,7 @@ import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.templatemodel.TemplateModel;
 import com.vaadin.flow.dom.Element;
 import com.vaadin.flow.component.polymertemplate.Id;
+import com.vaadin.flow.component.html.Label;
 
 /**
  * A Designer generated component for the vista-encargadocompras template.
@@ -24,6 +25,8 @@ public class VistaEncargadocompras extends PolymerTemplate<VistaEncargadocompras
     private VerticalLayout layoutPedidosPendientes;
     @Id("layout-pedidos-enviados")
     private VerticalLayout layoutPedidosEnviados;
+    @Id("id-email-encargado")
+    private Label idEmailEncargado;
     
 
     public VerticalLayout getLayoutHeader() {
@@ -48,6 +51,14 @@ public class VistaEncargadocompras extends PolymerTemplate<VistaEncargadocompras
 
     public void setLayoutPedidosEnviados(VerticalLayout layoutPedidosEnviados) {
         this.layoutPedidosEnviados = layoutPedidosEnviados;
+    }
+
+    public Label getIdEmailEncargado() {
+        return idEmailEncargado;
+    }
+
+    public void setIdEmailEncargado(Label idEmailEncargado) {
+        this.idEmailEncargado = idEmailEncargado;
     }
 
     /**

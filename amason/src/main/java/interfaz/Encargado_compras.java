@@ -6,6 +6,7 @@ import com.vaadin.flow.router.PreserveOnRefresh;
 import com.vaadin.flow.router.Route;
 
 import ual.mds2.ortegaortega.MenuHeader;
+import ual.mds2.ortegaortega.Session;
 import vistas.VistaEncargadocompras;
 
 @PreserveOnRefresh
@@ -17,6 +18,7 @@ public class Encargado_compras extends VistaEncargadocompras {
         this.getLayoutHeader().removeAll();
         this.getLayoutHeader().add(mb);
         this.getLayoutHeader().setHorizontalComponentAlignment(Alignment.CENTER, mb);
+        this.getIdEmailEncargado().setText(Session.getUsuario().getEmail());
 		this.getLayoutPedidosPendientes().add(new Pedidos_pendientes());
         this.getLayoutPedidosEnviados().add(new Pedidos_enviados());
 	}
