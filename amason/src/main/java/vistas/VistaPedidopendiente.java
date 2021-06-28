@@ -4,9 +4,14 @@ import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.templatemodel.TemplateModel;
+
+import basededatos.Cliente;
+import basededatos.Empresa_transportes;
+
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.select.Select;
 
 /**
  * A Designer generated component for the vista-pedidopendiente template.
@@ -22,8 +27,8 @@ public class VistaPedidopendiente extends PolymerTemplate<VistaPedidopendiente.V
     private Label lblPedido;
     @Id("btn-ver-detalles-pedido")
     private Button btnVerDetallesPedido;
-    @Id("btn-marcar-enviado")
-    private Button btnMarcarEnviado;
+    @Id("select-empresa-transportes")
+    private Select<Empresa_transportes> selectEmpresaTransportes;
     
 
     public Label getLblPedido() {
@@ -42,12 +47,12 @@ public class VistaPedidopendiente extends PolymerTemplate<VistaPedidopendiente.V
         this.btnVerDetallesPedido = btnVerDetallesPedido;
     }
 
-    public Button getBtnMarcarEnviado() {
-        return btnMarcarEnviado;
+    public Select<Empresa_transportes> getSelectEmpresaTransportes() {
+        return selectEmpresaTransportes;
     }
 
-    public void setBtnMarcarEnviado(Button btnMarcarEnviado) {
-        this.btnMarcarEnviado = btnMarcarEnviado;
+    public void setSelectEmpresaTransportes(Select<Empresa_transportes> selectEmpresaTransportes) {
+        this.selectEmpresaTransportes = selectEmpresaTransportes;
     }
 
     /**

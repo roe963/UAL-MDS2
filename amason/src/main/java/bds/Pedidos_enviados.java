@@ -6,8 +6,14 @@ import java.util.Vector;
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
+import basededatos.Cantidad;
+import basededatos.CantidadDAO;
+import basededatos.Empresa_transportes;
+import basededatos.Empresa_transportesDAO;
 import basededatos.Pedido;
 import basededatos.PedidoDAO;
+import basededatos.Pedido_entregado;
+import basededatos.Pedido_entregadoDAO;
 import basededatos.Pedido_enviado;
 import basededatos.Pedido_enviadoDAO;
 import basededatos.Pedido_pendiente;
@@ -39,7 +45,41 @@ public class Pedidos_enviados {
 	}
 
 	public void agregar_pendiente_enviado(int aIdPedido, int aIdEmpresaTransportes) {
-		throw new UnsupportedOperationException();
+	    System.out.println("llegue");
+        PersistentTransaction t;
+        try {
+            t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
+            try {
+                Pedido_pendiente pendiente = Pedido_pendienteDAO.getPedido_pendienteByORMID(aIdPedido);
+                Pedido_enviado enviado = Pedido_enviadoDAO.createPedido_enviado();
+                Empresa_transportes tranportes = Empresa_transportesDAO.getEmpresa_transportesByORMID(aIdEmpresaTransportes);
+
+                enviado.setFecha(pendiente.getFecha());
+                enviado.setAsignado_a(tranportes);
+                enviado.setPrecio(pendiente.getPrecio());
+                enviado.setRealizado_por(pendiente.getRealizado_por());
+                if (Pedido_enviadoDAO.save(enviado)) {
+                    System.out.println("agreged");
+                } else {
+                    System.out.println("not agreged");
+                }
+
+                Cantidad[] cantidades = pendiente.contiene_un.toArray();
+
+                for (Cantidad c : cantidades) {
+                    c.setContenido_en(enviado);
+                    if (CantidadDAO.save(c)) {
+                        System.out.println("cantidad cambiada");
+                    }
+                }
+
+                t.commit();
+            } catch (PersistentException e) {
+                t.rollback();
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
 	}
 
 	public void eliminar_enviado_entregado(int aIdPedido) {
