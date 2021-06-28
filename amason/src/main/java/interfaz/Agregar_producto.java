@@ -56,7 +56,7 @@ public class Agregar_producto extends VistaAgregarproducto {
 			activo = 0;
 		}
 		
-		iadministrador.agregar_producto(nombre, categoria, Double.parseDouble(precio), descripcion, imagen, "imagen2", "imagen3", "imagen4", "imagen5", activo);
+		iadministrador.agregar_producto(nombre, categoria, Double.parseDouble(precio), descripcion, imagen);
 	}
 
 	public void cargar_categorias() {

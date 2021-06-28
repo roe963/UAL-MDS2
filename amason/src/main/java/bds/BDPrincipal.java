@@ -49,6 +49,17 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
         }
         return productos;
     }
+    
+    public Producto[] cargar_todos_productos() {
+        Producto[] productos = null;
+        try {
+            productos = _bd_productos.cargar_todos_productos();
+
+        } catch (PersistentException e) {
+            e.printStackTrace();
+        }
+        return productos;
+    }
 
     public Producto[] cargar_productos_categoria(String aNombreCategoria) {
         throw new UnsupportedOperationException();
@@ -78,22 +89,25 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
     }
 
     public void agregar_producto(String aNombreProducto, Categoria aCategoria, double aPrecioProducto,
-            String aDescripcionProducto, String aImagenProducto1, String aImagenProducto2, String aImagenProducto3,
-            String aImagenProducto4, String aImagenProducto5, int aMagenPrincipal) {
+            String aDescripcionProducto, String aImagenProducto) {
 
         try {
             _bd_productos.agregar_producto(aNombreProducto, aCategoria, aPrecioProducto, aDescripcionProducto,
-                    aImagenProducto1, aImagenProducto2, aImagenProducto3, aImagenProducto4, aImagenProducto5,
-                    aMagenPrincipal);
+                    aImagenProducto);
         } catch (PersistentException e) {
             e.printStackTrace();
         }
     }
 
     public void modificar_proucto(String aNombreProducto, int aCategoria, double aPrecioProducto,
-            String aDescripcionProducto, String aImagenProducto1, String aImagenProducto2, String aImagenProducto3,
-            String aImagenProducto4, String aImagenProducto5, int aImagenPrincipal) {
-        throw new UnsupportedOperationException();
+            String aDescripcionProducto, String aImagenProducto) {
+    	
+    	try {
+            _bd_productos.modificar_proucto(aNombreProducto, aCategoria, aPrecioProducto, aDescripcionProducto,
+                    aImagenProducto);
+        } catch (PersistentException e) {
+            e.printStackTrace();
+        }
     }
 
     public void agregar_categoria(String aNombreCategoria) {

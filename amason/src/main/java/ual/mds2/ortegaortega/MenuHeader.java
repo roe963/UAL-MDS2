@@ -55,8 +55,8 @@ public class MenuHeader {
             public void onComponentEvent(ClickEvent<Button> event) {                
                 if (txtBuscar.isEmpty()) {
                 	//UI.getCurrent().navigate("ver_catalogo_cliente");
-                	//UI.getCurrent().navigate("administrar_productos");
-                	UI.getCurrent().navigate("encargadocompras");
+                	UI.getCurrent().navigate("administrar_productos");
+                	//UI.getCurrent().navigate("encargadocompras");
     			} else {
     				//CambiarVista(new Buscar_producto_cliente(txtBuscar.getValue()));
     				//UI.getCurrent().navigate("producto");

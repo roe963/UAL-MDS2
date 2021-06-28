@@ -44,7 +44,7 @@ public class Administrar_productos extends VistaAdministrarproductos {
 		throw new UnsupportedOperationException();
 	}
 
-	public void cargar_productos() {
+	public void cargar_todos_productos() {
 		throw new UnsupportedOperationException();
 	}
 
