@@ -43,11 +43,6 @@ public class VistaAdministrarproductos extends PolymerTemplate<VistaAdministrarp
 	private Button buttonGuardar;
 	@Id("layout-anadirProducto")
 	private VerticalLayout layoutAnadirProducto;
-	@Id("textFlield-buscar")
-	private TextField textFlieldBuscar;
-	@Id("button-buscar")
-	private Button buttonBuscar;
-
 	/**
      * Creates a new VistaAdministrarproductos.
      */
@@ -61,14 +56,6 @@ public class VistaAdministrarproductos extends PolymerTemplate<VistaAdministrarp
     public interface VistaAdministrarproductosModel extends TemplateModel {
         // Add setters and getters for template properties here.
     }
-
-	public TextField getTextFlieldBuscar() {
-		return textFlieldBuscar;
-	}
-
-	public void setTextFlieldBuscar(TextField textFlieldBuscar) {
-		this.textFlieldBuscar = textFlieldBuscar;
-	}
 
 	public HorizontalLayout getLayoutProductos() {
 		return layoutProductos;
@@ -92,14 +79,6 @@ public class VistaAdministrarproductos extends PolymerTemplate<VistaAdministrarp
 
 	public void setLayoutAnadirProducto(VerticalLayout layoutAnadirProducto) {
 		this.layoutAnadirProducto = layoutAnadirProducto;
-	}
-
-	public Button getButtonBuscar() {
-		return buttonBuscar;
-	}
-
-	public void setButtonBuscar(Button buttonBuscar) {
-		this.buttonBuscar = buttonBuscar;
 	}
     
 }

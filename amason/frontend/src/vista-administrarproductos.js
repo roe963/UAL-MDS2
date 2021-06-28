@@ -22,12 +22,6 @@ class VistaAdministrarproductos extends PolymerElement {
   <vista-agregarproducto></vista-agregarproducto>
  </vaadin-vertical-layout>
  <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%; flex-grow: 1; margin-left: var(--lumo-space-m); margin-right: var(--lumo-space-xl); align-items: stretch;">
-  <vaadin-horizontal-layout theme="spacing">
-   <vaadin-text-field label="Buscar" id="textFlield-buscar" style="flex-grow: 1;"></vaadin-text-field>
-   <vaadin-button theme="icon" aria-label="Add new" id="button-buscar" style="align-self: flex-end;">
-    <iron-icon icon="lumo:search"></iron-icon>
-   </vaadin-button>
-  </vaadin-horizontal-layout>
   <h4>Productos Activos/Desactivos</h4>
   <vaadin-horizontal-layout theme="spacing" id="layout-productos" style="align-items: stretch;">
    <vista-productosadministrados></vista-productosadministrados>

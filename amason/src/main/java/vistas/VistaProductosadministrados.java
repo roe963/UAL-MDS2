@@ -10,6 +10,7 @@ import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.component.html.H4;
 
 /**
  * A Designer generated component for the vista-productosadministrados template.
@@ -25,15 +26,6 @@ public class VistaProductosadministrados extends PolymerTemplate<VistaProductosa
 	private VerticalLayout layoutProductos;
 	@Id("vistaProductoAdministrado")
 	private Element vistaProductoAdministrado;
-	@Id("vaadinHorizontalLayout")
-	private HorizontalLayout vaadinHorizontalLayout;
-	@Id("button-buscar")
-	private Button buttonBuscar;
-	@Id("textFlield-buscar")
-	private TextField textFlieldBuscar;
-	@Id("button-guardar")
-	private Button buttonGuardar;
-
 	/**
      * Creates a new VistaProductosadministrados.
      */
