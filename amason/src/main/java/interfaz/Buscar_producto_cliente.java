@@ -1,15 +1,41 @@
 package interfaz;
 
+import org.orm.PersistentException;
+
 import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.menubar.MenuBar;
+import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.select.Select;
+import com.vaadin.flow.router.BeforeEvent;
+import com.vaadin.flow.router.HasUrlParameter;
+import com.vaadin.flow.router.OptionalParameter;
+import com.vaadin.flow.router.PreserveOnRefresh;
+import com.vaadin.flow.router.Route;
 
 import basededatos.Categoria;
 import basededatos.Producto;
 import bds.BDPrincipal;
 import bds.iCliente;
+import ual.mds2.ortegaortega.MenuHeader;
 import vistas.VistaBuscarproductocliente;
 
-public class Buscar_producto_cliente extends VistaBuscarproductocliente {
+@PreserveOnRefresh
+@Route("buscar_producto_cliente")
+public class Buscar_producto_cliente extends VistaBuscarproductocliente implements HasUrlParameter<String> {
+	
+	@Override
+    public void setParameter(BeforeEvent event, @OptionalParameter String parameter) {
+        System.out.println(parameter);
+        
+        try {
+            /*Producto p = basededatos.ProductoDAO.getProductoByORMID(Integer.parseInt(parameter));
+            cargar_producto(p);*/
+        	busqueda_producto(parameter);
+        } catch (NumberFormatException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
 	
 	Select<Categoria> labelSelect = new Select<>();
 	String cadena = "";
@@ -19,6 +45,10 @@ public class Buscar_producto_cliente extends VistaBuscarproductocliente {
 	public Buscar_producto_cliente() {
 		super();
 		// TODO Auto-generated constructor stub
+		
+		MenuBar mb = MenuHeader.getMenuBar();
+	    this.getLayoutMenu().add(mb);
+	    this.getLayoutMenu().setHorizontalComponentAlignment(Alignment.CENTER, mb);
 		
 		// Crear la interfaz lista productos		
 		this.getVaadinHorizontalLayout().removeAll();

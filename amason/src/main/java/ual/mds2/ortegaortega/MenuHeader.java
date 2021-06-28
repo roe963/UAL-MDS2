@@ -54,13 +54,13 @@ public class MenuHeader {
             @Override
             public void onComponentEvent(ClickEvent<Button> event) {                
                 if (txtBuscar.isEmpty()) {
-                	//UI.getCurrent().navigate("ver_catalogo_cliente");
-                	UI.getCurrent().navigate("administrar_productos");
-                	//UI.getCurrent().navigate("encargadocompras");
+                	UI.getCurrent().navigate("ver_catalogo_cliente");
+                	//UI.getCurrent().navigate("administrar_productos");
     			} else {
     				//CambiarVista(new Buscar_producto_cliente(txtBuscar.getValue()));
     				//UI.getCurrent().navigate("producto");
-    				UI.getCurrent().navigate("ver_catalogo_cliente");
+    				//UI.getCurrent().navigate("buscar_producto_cliente");
+    				UI.getCurrent().navigate("buscar_producto_cliente/" + txtBuscar.getValue());
     			}
             }
         });
