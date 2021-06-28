@@ -14,11 +14,11 @@ public class Pedido extends VistaPedido{
     
     iAdministrador bd = new BDPrincipal();
 
-	public Pedido(basededatos.Pedido p) {
+	public Pedido(basededatos.Pedido p, String estado) {
 	    
 	    this.getLabelNpedido().setText(Integer.toString(p.getId()));
         this.getLabelNarticulos()
-                .setText(Arrays.stream(cantidades).map(c -> c.getCantidad()).reduce(0, Integer::sum).toString());
+                .setText(Arrays.stream(p.contiene_un.toArray()).map(c -> c.getCantidad()).reduce(0, Integer::sum).toString());
         this.getLabelFecha().setText(new SimpleDateFormat("dd/MM/yyyy").format(new Date(p.getFecha())));
         this.getLabelPrecio().setText(Float.toString(p.getPrecio()) + "€");
 

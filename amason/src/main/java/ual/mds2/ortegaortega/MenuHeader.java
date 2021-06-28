@@ -119,8 +119,8 @@ public class MenuHeader {
             });
             
             Button btnSignUp = new Button("Registrarse");
-            btnChangeSesion.setThemeName("tertiary");
-            btnChangeSesion.addClickListener(event -> {
+            btnSignUp.setThemeName("tertiary");
+            btnSignUp.addClickListener(event -> {
                 UI.getCurrent().navigate("registrar");
             });
             

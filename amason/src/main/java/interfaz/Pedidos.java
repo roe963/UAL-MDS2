@@ -6,9 +6,9 @@ import vistas.VistaPedidos;
 
 public class Pedidos extends VistaPedidos {
     
-   public Pedidos(basededatos.Pedido[] pedidos) {
+   public Pedidos(basededatos.Pedido[] pedidos, String estado) {
        for(basededatos.Pedido p : pedidos) {
-           this.getLayoutPedidos().add(new Pedido(p));
+           this.getLayoutPedidos().add(new Pedido(p, estado));
        }
    }
 }

@@ -24,6 +24,8 @@ public class Ver_todos_los_pedidos extends VistaVertodoslospedidos {
         this.getLayoutMenu().setHorizontalComponentAlignment(Alignment.CENTER, mb);
         
         this.getLayoutPedidos().removeAll();
-        this.getLayoutPedidos().add(new Pedidos(bd.cargar_pedidos()));
+        this.getLayoutPedidos().add(new Pedidos(bd.cargar_pedidos_pendientes(), "Pendiente"));
+        this.getLayoutPedidos().add(new Pedidos(bd.cargar_pedidos_enviados(), "Enviado"));
+        this.getLayoutPedidos().add(new Pedidos(bd.cargar_pedidos_entregados(), "Entregado"));
 	}
 }
