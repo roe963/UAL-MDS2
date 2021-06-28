@@ -3,7 +3,10 @@ package interfaz;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.menubar.MenuBar;
+import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.notification.Notification.Position;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.router.PreserveOnRefresh;
 import com.vaadin.flow.router.Route;
@@ -71,6 +74,23 @@ public class Administrar_productos extends VistaAdministrarproductos {
 					activo = 0;
 				}
 				
+				/*if (!(nombre.equals(cliente.getNombre()) && email.equals(cliente.getEmail())
+						&& direccionEnvio.equals(cliente.getDireccionEnvio())
+						&& metodoPago.equals(cliente.getMetodoPago()) && fotoURL.equals(cliente.getFotoURL())
+						&& activo.equals(cliente.getActivo()))) {
+					iclientes_registrado.guardar_perfil(cliente.getId(), nombre, email, direccionEnvio, metodoPago,
+							fotoURL, activo);
+					cargar_perfil();
+
+					notificacion("Los datos se han modificado correctamente.");
+				} else {
+					notificacion("No se ha realizado ningún cambio.");
+				}*/
+				
+				/*if(!(nombre.equals(cliente.getNombre()) && )) {
+					
+				}*/
+				
 				administrador.modificar_proucto(idProducto, idFoto, nombre, agregar_producto.categoria, Double.parseDouble(precio), descripcion, imagen);
 				cargar_todos_productos(agregar_producto);
 			}
@@ -80,4 +100,13 @@ public class Administrar_productos extends VistaAdministrarproductos {
 	public void cambiar_estado_producto() {
 		throw new UnsupportedOperationException();
 	}
+	
+	public void notificacion(String mensaje) {
+		Span content = new Span(mensaje);
+		Notification notification = new Notification(content);
+		notification.setPosition(Position.MIDDLE);
+		notification.setDuration(2000);
+		notification.open();
+	}
+	
 }
