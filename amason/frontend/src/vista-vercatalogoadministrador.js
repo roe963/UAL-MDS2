@@ -20,16 +20,16 @@ class VistaVercatalogoadministrador extends PolymerElement {
  <vaadin-vertical-layout theme="spacing" id="layout-menu"></vaadin-vertical-layout>
  <vaadin-vertical-layout theme="spacing" style="align-self: stretch; flex-grow: 1; margin: var(--lumo-space-xl);">
   <h4>Catálogo</h4>
-  <vaadin-horizontal-layout theme="spacing" style="align-self: stretch;">
-   <vaadin-horizontal-layout theme="spacing" style="flex-grow: 1;">
-    <vaadin-text-field placeholder="Search" id="textfield-buscar" style="flex-grow: 1;">
+  <vaadin-horizontal-layout theme="spacing" style="align-self: stretch; align-items: flex-start;">
+   <vaadin-horizontal-layout theme="spacing" style="flex-grow: 1; align-items: flex-start; margin: var(--lumo-space-m);">
+    <vaadin-text-field placeholder="Buscar..." id="textfield-buscar" style="flex-grow: 1;">
      <iron-icon icon="lumo:search" slot="prefix"></iron-icon>
     </vaadin-text-field>
     <vaadin-button theme="icon" aria-label="Search" id="button-buscar">
      <iron-icon icon="lumo:search"></iron-icon>
     </vaadin-button>
    </vaadin-horizontal-layout>
-   <vaadin-vertical-layout theme="spacing" id="layout-selectCategoria" style="flex-grow: 1;">
+   <vaadin-vertical-layout theme="spacing" id="layout-selectCategoria" style="flex-grow: 1; align-self: flex-start;">
     <vaadin-select value="Item one">
      <template>
       <vaadin-list-box>

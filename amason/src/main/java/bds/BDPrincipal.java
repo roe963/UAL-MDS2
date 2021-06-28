@@ -1,6 +1,9 @@
 package bds;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 import org.orm.PersistentException;
 
@@ -81,7 +84,19 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
     }
 
     public Pedido[] cargar_pedidos() {
-        throw new UnsupportedOperationException();
+        //throw new UnsupportedOperationException();
+        //_bd_pedidos_pendientes.cargar_pedidos_pendientes();
+        //_bd_pedidos_enviados.cargar_pedidos_enviados();
+        //_bd_pedidos_entregados.cargar_pedidos_entregados();
+    	Pedido[] pedidos = null;
+        List<Pedido> listPedidos = new ArrayList<Pedido>();
+        listPedidos.add((Pedido) Arrays.asList(_bd_pedidos_pendientes.cargar_pedidos_pendientes()));
+        listPedidos.add((Pedido) Arrays.asList(_bd_pedidos_enviados.cargar_pedidos_enviados()));
+        listPedidos.add((Pedido) Arrays.asList(_bd_pedidos_entregados.cargar_pedidos_entregados()));
+        //listPedidos.toArray(_bd_pedidos_pendientes.cargar_pedidos_pendientes());
+        //listPedidos.toArray(_bd_pedidos_enviados.cargar_pedidos_enviados());
+        //listPedidos.toArray(_bd_pedidos_entregados.cargar_pedidos_entregados());
+        return (Pedido[]) listPedidos.toArray();
     }
 
     public Pedido detalle_pedido(int aIdPedido) {

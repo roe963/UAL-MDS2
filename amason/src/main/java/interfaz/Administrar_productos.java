@@ -25,27 +25,30 @@ public class Administrar_productos extends VistaAdministrarproductos {
 	    this.getLayoutMenu().add(mb);
 	    this.getLayoutMenu().setHorizontalComponentAlignment(Alignment.CENTER, mb);
 	    
-	    //Crear la interfaz ofertas
-	    this.getLayoutAnadirProducto().removeAll();
 	    Agregar_producto agregar_producto = new Agregar_producto();
-	  	this.getLayoutAnadirProducto().add(agregar_producto);
+	    //this.getLayoutAnadirProducto().removeAll();
+	  	//this.getLayoutAnadirProducto().add(agregar_producto);
+	    agregar_producto(agregar_producto);
 	  	
-	  	this.getLayoutProductos().removeAll();
-	  	this.getLayoutProductos().add(new Productos_administrados(agregar_producto));
+	  	//this.getLayoutProductos().removeAll();
+	  	//this.getLayoutProductos().add(new Productos_administrados(agregar_producto));
+	  	cargar_todos_productos(agregar_producto);
 	  	
 	  	modificar_producto(agregar_producto);
 	}
 	
-	public void agregar_producto() {
-		throw new UnsupportedOperationException();
+	public void agregar_producto(Agregar_producto agregar_producto) {
+		this.getLayoutAnadirProducto().removeAll();
+	  	this.getLayoutAnadirProducto().add(agregar_producto);
 	}
 
 	public void cargar_categorias() {
 		throw new UnsupportedOperationException();
 	}
 
-	public void cargar_todos_productos() {
-		throw new UnsupportedOperationException();
+	public void cargar_todos_productos(Agregar_producto agregar_producto) {
+		this.getLayoutProductos().removeAll();
+	  	this.getLayoutProductos().add(new Productos_administrados(agregar_producto));
 	}
 
 	public void modificar_producto(Agregar_producto agregar_producto) {
@@ -69,6 +72,7 @@ public class Administrar_productos extends VistaAdministrarproductos {
 				}
 				
 				administrador.modificar_proucto(idProducto, idFoto, nombre, agregar_producto.categoria, Double.parseDouble(precio), descripcion, imagen);
+				cargar_todos_productos(agregar_producto);
 			}
 		});
 	}

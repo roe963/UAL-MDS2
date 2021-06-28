@@ -48,10 +48,6 @@ public class Ver_perfil extends VistaVeperfil {
 		cargar_perfil();
 	}
 
-	public void guardar_perfil() {
-		throw new UnsupportedOperationException();
-	}
-
 	/*
 	 * public void seleccionar_direccion_envio() { throw new
 	 * UnsupportedOperationException(); }
@@ -108,6 +104,49 @@ public class Ver_perfil extends VistaVeperfil {
 			this.getTextfieldFotousuario().setValue(cliente.getFotoURL());
 		}
 
+		/*this.getButtonGuardar().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+
+				String nombre = getTextfieldNombre().getValue();
+				String email = getCorreoElectrónico().getValue();
+				String direccionEnvio = datosCompra.getTextfieldDireccion().getValue();
+				String metodoPago = datosCompra.getFormadepago().getValue();
+
+				String fotoURL = getTextfieldFotousuario().getValue();
+
+				Boolean activo = false;
+
+				if (radioGroup.getValue().equals("Operativo")) {
+					activo = true;
+				}
+				if (radioGroup.getValue().equals("No Operativo")) {
+					activo = false;
+				}
+
+				if (!(nombre.equals(cliente.getNombre()) && email.equals(cliente.getEmail())
+						&& direccionEnvio.equals(cliente.getDireccionEnvio())
+						&& metodoPago.equals(cliente.getMetodoPago()) && fotoURL.equals(cliente.getFotoURL())
+						&& activo.equals(cliente.getActivo()))) {
+					iclientes_registrado.guardar_perfil(cliente.getId(), nombre, email, direccionEnvio, metodoPago,
+							fotoURL, activo);
+					cargar_perfil();
+
+					notificacion("Los datos se han modificado correctamente.");
+				} else {
+					notificacion("No se ha realizado ningún cambio.");
+				}
+
+			}
+		});*/
+		
+		guardar_perfil(cliente, datosCompra, radioGroup);
+
+	}
+	
+	public void guardar_perfil(Cliente cliente, Datos_de_compra datosCompra, RadioButtonGroup<String> radioGroup) {
+		//throw new UnsupportedOperationException();
+		
 		this.getButtonGuardar().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
@@ -143,7 +182,7 @@ public class Ver_perfil extends VistaVeperfil {
 
 			}
 		});
-
+		
 	}
 
 	public void notificacion(String mensaje) {

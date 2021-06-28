@@ -41,6 +41,23 @@ public class Pedidos_entregados {
         }
         return arrayPedido;
     }
+    
+    public Pedido[] cargar_pedidos_entregados() {
+        PersistentTransaction t;
+        Pedido_entregado[] arrayPedido = null;
+        try {
+            t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
+            try {
+                arrayPedido = Pedido_entregadoDAO.listPedido_entregadoByQuery(null, null);
+                t.commit();
+            } catch (PersistentException e) {
+                t.rollback();
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        return arrayPedido;
+    }
 
     public void agregar_enviado_entregado(int aIdPedido) {
         System.out.println("llegue");
