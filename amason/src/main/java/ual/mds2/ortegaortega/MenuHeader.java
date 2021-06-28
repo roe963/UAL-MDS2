@@ -54,13 +54,13 @@ public class MenuHeader {
             @Override
             public void onComponentEvent(ClickEvent<Button> event) {                
                 if (txtBuscar.isEmpty()) {
-                	//UI.getCurrent().navigate("ver_catalogo_cliente");
-                	UI.getCurrent().navigate("administrar_productos");
-                	//UI.getCurrent().navigate("encargadocompras");
+                	UI.getCurrent().navigate("ver_catalogo_cliente");
+                	//UI.getCurrent().navigate("administrar_productos");
     			} else {
     				//CambiarVista(new Buscar_producto_cliente(txtBuscar.getValue()));
     				//UI.getCurrent().navigate("producto");
-    				UI.getCurrent().navigate("ver_catalogo_cliente");
+    				//UI.getCurrent().navigate("buscar_producto_cliente");
+    				UI.getCurrent().navigate("buscar_producto_cliente/" + txtBuscar.getValue());
     			}
             }
         });
@@ -84,8 +84,9 @@ public class MenuHeader {
             administrateMenu.getSubMenu().addItem("Empleados", e -> UI.getCurrent().navigate("administrar_empleados"));
 
             MenuItem showMenu = menuBar.addItem("Ver");
-            showMenu.getSubMenu().addItem("Catalogo", e -> UI.getCurrent().navigate("ver_catalogo_administrador"));
-            showMenu.getSubMenu().addItem("Pedidos", e -> UI.getCurrent().navigate("pedidos"));
+            showMenu.getSubMenu().addItem("Catalogo", e -> UI.getCurrent().navigate("administrador"));
+            //showMenu.getSubMenu().addItem("Catalogo", e -> UI.getCurrent().navigate("ver_catalogo_administrador"));
+            showMenu.getSubMenu().addItem("Pedidos", e -> UI.getCurrent().navigate("ver_todos_los_pedidos"));
             showMenu.getSubMenu().addItem("Mensajes", e -> UI.getCurrent().navigate("ver_mensajes_administrador"));
 
             menuBar.addItem(closeSessionButton());
