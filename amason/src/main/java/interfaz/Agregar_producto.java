@@ -7,6 +7,7 @@ import org.orm.PersistentException;
 
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.menubar.MenuBar;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
@@ -38,13 +39,16 @@ public class Agregar_producto extends VistaAgregarproducto {
 		getCheckboxProductoActivo().setValue(true);
 		cargar_categorias();
 		
-		/*this.getButtonAnadir().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+		this.getButtonAnadir().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
 				agregar_producto();
+				
+				UI.getCurrent().navigate("");
+				UI.getCurrent().navigate("administrar_productos");
 			}
-		});*/
+		});
 	}
 	
 	public void agregar_producto() {
@@ -81,11 +85,11 @@ public class Agregar_producto extends VistaAgregarproducto {
 		});
 	}
 
-	public void modificar_producto(basededatos.Producto producto) {
-		this.getTextFieldNombre().setValue(producto.getNombre());
-	}
+//	public void modificar_producto(basededatos.Producto producto) {
+//		this.getTextFieldNombre().setValue(producto.getNombre());
+//	}
 
-	public void cambiar_estado_producto(Categoria categoria) {
+	public void asignarCategoria(Categoria categoria) {
 		labelSelect.setValue(categoria);
 	}
 }

@@ -13,10 +13,10 @@ public class Categoria extends VistaCategoria {
 		this.getLabelCategoria().setText(categoria.getNombre().toString());
 		this.getCheckboxActivar().setValue(categoria.getActivo());
 		
-		marcar_como_activo(categoria);
+		cambiar_estado_categoria(categoria);
 	}
 
-	public void marcar_como_activo(basededatos.Categoria categoria) {
+	public void cambiar_estado_categoria(basededatos.Categoria categoria) {
 
 		this.getCheckboxActivar().addClickListener(
 			event -> {

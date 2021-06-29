@@ -29,7 +29,7 @@ public class Producto_administrado extends VistaProductoadministrado {
 				agregar_producto.getTextFieldIdProducto().setValue(String.valueOf(producto.getId()));
 				agregar_producto.getTextFieldNombre().setValue(producto.getNombre());
 				//agregar_producto.getSelectCategoria().setValue(producto.getAsignado_a());
-				agregar_producto.cambiar_estado_producto(producto.getAsignado_a());
+				agregar_producto.asignarCategoria(producto.getAsignado_a());
 				agregar_producto.getTextFieldPrecio().setValue(String. valueOf(producto.getPrecio()));
 				agregar_producto.getTextAreaDescripcion().setValue(producto.getDescripcion());
 				agregar_producto.getTextFieldIdFoto().setValue(String.valueOf(fotos[0].getId()));
@@ -38,10 +38,10 @@ public class Producto_administrado extends VistaProductoadministrado {
 			}
 		);
 		
-		marcar_como_activo(producto);
+		cambiar_estado_producto(producto);
 	}
 	
-	public void marcar_como_activo(basededatos.Producto producto) {
+	public void cambiar_estado_producto(basededatos.Producto producto) {
 		this.getCheckboxActivar().addClickListener(
 			event -> {
 				

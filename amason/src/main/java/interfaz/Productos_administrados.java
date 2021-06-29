@@ -21,10 +21,10 @@ public class Productos_administrados extends VistaProductosadministrados{
 	iAdministrador administrador = new BDPrincipal();
 	
 	public Productos_administrados(Agregar_producto agregar_producto) {
-		cargar_todos_productos(agregar_producto);
+		modificar_producto(agregar_producto);
 	}
 	
-	public void cargar_todos_productos(Agregar_producto agregar_producto) {
+	public void modificar_producto(Agregar_producto agregar_producto) {
 		
 		Producto[] productos = administrador.cargar_todos_productos();
 		
@@ -40,4 +40,9 @@ public class Productos_administrados extends VistaProductosadministrados{
         }
 		
 	}
+	
+//	public void cambiar_estado_producto() {
+//		throw new UnsupportedOperationException();
+//	}
+	
 }

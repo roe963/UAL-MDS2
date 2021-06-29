@@ -29,39 +29,39 @@ public class Administrar_productos extends VistaAdministrarproductos {
 	    this.getLayoutMenu().setHorizontalComponentAlignment(Alignment.CENTER, mb);
 	    
 	    Agregar_producto agregar_producto = new Agregar_producto();
-	    //this.getLayoutAnadirProducto().removeAll();
-	  	//this.getLayoutAnadirProducto().add(agregar_producto);
-	    agregar_producto(agregar_producto);
+	    this.getLayoutAnadirProducto().removeAll();
+	  	this.getLayoutAnadirProducto().add(agregar_producto);
+	    //agregar_producto(agregar_producto);
 	  	
-	  	//this.getLayoutProductos().removeAll();
-	  	//this.getLayoutProductos().add(new Productos_administrados(agregar_producto));
-	  	cargar_todos_productos(agregar_producto);
+	  	this.getLayoutProductos().removeAll();
+	  	this.getLayoutProductos().add(new Productos_administrados(agregar_producto));
+	  	//cargar_todos_productos(agregar_producto);
 	  	
 	  	modificar_producto(agregar_producto);
 	}
 	
-	public void agregar_producto(Agregar_producto agregar_producto) {
-		this.getLayoutAnadirProducto().removeAll();
-	  	this.getLayoutAnadirProducto().add(agregar_producto);
-	  	
-	  	agregar_producto.getButtonAnadir().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				
-				agregar_producto.agregar_producto();
-				cargar_todos_productos(agregar_producto);
-			}
-		});
-	}
+//	public void agregar_producto(Agregar_producto agregar_producto) {
+//		this.getLayoutAnadirProducto().removeAll();
+//	  	this.getLayoutAnadirProducto().add(agregar_producto);
+//	  	
+//	  	agregar_producto.getButtonAnadir().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+//			@Override
+//			public void onComponentEvent(ClickEvent<Button> event) {
+//				
+//				agregar_producto.agregar_producto();
+//				cargar_todos_productos(agregar_producto);
+//			}
+//		});
+//	}
 
-	public void cargar_categorias() {
-		throw new UnsupportedOperationException();
-	}
+//	public void cargar_categorias() {
+//		throw new UnsupportedOperationException();
+//	}
 
-	public void cargar_todos_productos(Agregar_producto agregar_producto) {
-		this.getLayoutProductos().removeAll();
-	  	this.getLayoutProductos().add(new Productos_administrados(agregar_producto));
-	}
+//	public void cargar_todos_productos(Agregar_producto agregar_producto) {
+//		this.getLayoutProductos().removeAll();
+//	  	this.getLayoutProductos().add(new Productos_administrados(agregar_producto));
+//	}
 
 	public void modificar_producto(Agregar_producto agregar_producto) {
 		this.getButtonGuardar().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -86,7 +86,9 @@ public class Administrar_productos extends VistaAdministrarproductos {
 						&& agregar_producto.categoria.toString().isEmpty())) {
 					
 					administrador.modificar_proucto(idProducto, idFoto, nombre, agregar_producto.categoria, Double.parseDouble(precio), descripcion, imagen);
-					cargar_todos_productos(agregar_producto);
+					//cargar_todos_productos(agregar_producto);
+					getLayoutProductos().removeAll();
+				  	getLayoutProductos().add(new Productos_administrados(agregar_producto));
 					
 					notificacion("Los datos se han modificado correctamente.");
 				} else {
@@ -97,9 +99,9 @@ public class Administrar_productos extends VistaAdministrarproductos {
 		});
 	}
 
-	public void cambiar_estado_producto() {
-		throw new UnsupportedOperationException();
-	}
+//	public void cambiar_estado_producto() {
+//		throw new UnsupportedOperationException();
+//	}
 	
 	public void notificacion(String mensaje) {
 		Span content = new Span(mensaje);

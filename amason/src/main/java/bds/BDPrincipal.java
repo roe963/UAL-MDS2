@@ -94,12 +94,8 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
     public void agregar_producto(String aNombreProducto, Categoria aCategoria, double aPrecioProducto,
             String aDescripcionProducto, String aImagenProducto) {
 
-        try {
-            _bd_productos.agregar_producto(aNombreProducto, aCategoria, aPrecioProducto, aDescripcionProducto,
-                    aImagenProducto);
-        } catch (PersistentException e) {
-            e.printStackTrace();
-        }
+        _bd_productos.agregar_producto(aNombreProducto, aCategoria, aPrecioProducto, aDescripcionProducto,
+		        aImagenProducto);
     }
 
     public void modificar_proucto(int aIdProducto, int aIdFoto, String aNombreProducto, Categoria aCategoria, double aPrecioProducto,

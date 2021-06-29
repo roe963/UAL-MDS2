@@ -142,29 +142,35 @@ public class Productos {
 		throw new UnsupportedOperationException();
 	}
 
-	public void agregar_producto(String aNombreProducto, Categoria aCategoria, double aPrecioProducto, String aDescripcionProducto, String aImagenProducto) throws PersistentException {
+	public void agregar_producto(String aNombreProducto, Categoria aCategoria, double aPrecioProducto, String aDescripcionProducto, String aImagenProducto) {
 
-		PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession()
-                .beginTransaction();
+		PersistentTransaction t;
+		try {
+			t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession()
+			        .beginTransaction();
 		
-        Producto producto = new Producto();
-        producto.setNombre(aNombreProducto);
-        producto.setAsignado_a(aCategoria);
-        producto.setPrecio((float)aPrecioProducto);
-        producto.setDescripcion(aDescripcionProducto);
-        producto.setActivo(true);
-        
-        Foto foto = new Foto();
-        foto.setUrl(aImagenProducto);
-        foto.setPertenece_a(producto);
-
-        try {
-            ProductoDAO.save(producto);
-            FotoDAO.save(foto);
-            t.commit();
-        } catch (PersistentException e) {
-            t.rollback();
-        }
+	        Producto producto = new Producto();
+	        producto.setNombre(aNombreProducto);
+	        producto.setAsignado_a(aCategoria);
+	        producto.setPrecio((float)aPrecioProducto);
+	        producto.setDescripcion(aDescripcionProducto);
+	        producto.setActivo(true);
+	        
+	        Foto foto = new Foto();
+	        foto.setUrl(aImagenProducto);
+	        foto.setPertenece_a(producto);
+	
+	        try {
+	            ProductoDAO.save(producto);
+	            FotoDAO.save(foto);
+	            t.commit();
+	        } catch (PersistentException e) {
+	            t.rollback();
+	        }
+        } catch (PersistentException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 
 	public void modificar_proucto(int aIdProducto, int aIdFoto, String aNombreProducto, Categoria aCategoria, double aPrecioProducto, String aDescripcionProducto, String aImagenProducto) throws PersistentException {
