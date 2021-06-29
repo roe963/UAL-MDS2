@@ -86,7 +86,6 @@ public class Agregar_producto extends VistaAgregarproducto {
 	}
 
 	public void cambiar_estado_producto(Categoria categoria) {
-		//throw new UnsupportedOperationException();
 		labelSelect.setValue(categoria);
 	}
 }

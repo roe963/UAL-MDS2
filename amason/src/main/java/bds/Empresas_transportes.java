@@ -68,7 +68,7 @@ public class Empresas_transportes {
         return empresas;
 	}
 
-	public boolean cambiar_estado_usaurio(int aIdUsuario, boolean aActivo) {
+	public boolean cambiar_estado_usaurio_empresa_transportes(int aIdUsuario, boolean aActivo) {
 		throw new UnsupportedOperationException();
 	}
 }

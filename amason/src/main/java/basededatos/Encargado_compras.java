@@ -24,26 +24,6 @@ public class Encargado_compras extends basededatos.Usuario implements Serializab
 	public Encargado_compras() {
 	}
 	
-	public boolean agregar_usuario(String nombreUsuarioEncargadoCompras, String passwordUsuarioEncargadoCompras) {
-		//TODO: Implement Method
-		throw new UnsupportedOperationException();
-	}
-	
-	public interfaz.Encargado_compras[] cargar_empleados_encargado_compras() {
-		//TODO: Implement Method
-		throw new UnsupportedOperationException();
-	}
-	
-	public boolean modificar_usuario_encargado_compras(String nombreUsuarioEncargadoCompras, String passwordUsuarioEncargadoCompras) {
-		//TODO: Implement Method
-		throw new UnsupportedOperationException();
-	}
-	
-	public boolean cambiar_estado_usaurio(int idUsuario, boolean activo) {
-		//TODO: Implement Method
-		throw new UnsupportedOperationException();
-	}
-	
 	public String toString() {
 		return super.toString();
 	}

@@ -59,10 +59,6 @@ public class Administrar_categorias extends VistaAdministrarcategorias {
 	  	this.getLayoutCategorias().add(new Categorias(agregar_categoria));
 	}
 
-	public void activar_categoria() {
-		throw new UnsupportedOperationException();
-	}
-
 	public void cambiar_estado_categoria() {
 		throw new UnsupportedOperationException();
 	}

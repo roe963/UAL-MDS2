@@ -129,10 +129,6 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
         return categorias;
     }
 
-    public void activar_categoria(int aIdCategoria) {
-        throw new UnsupportedOperationException();
-    }
-
     public void activar_producto(int aIdProducto) {
         throw new UnsupportedOperationException();
     }
@@ -164,9 +160,9 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
         throw new UnsupportedOperationException();
     }
 
-    public boolean modificar_usuario(String aNombreUsuario, String aPasswordUsuario, int aTipoUsuario) {
-        throw new UnsupportedOperationException();
-    }
+//    public boolean modificar_usuario(String aNombreUsuario, String aPasswordUsuario, int aTipoUsuario) {
+//        throw new UnsupportedOperationException();
+//    }
 
     public Empresa_transportes[] cargar_empleados_empresa_transportes() {
         throw new UnsupportedOperationException();
@@ -184,9 +180,9 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
         _bd_categorias.cambiar_estado_categoria(aIdCategoria, aActivo);
     }
 
-    public boolean cambiar_estado_usaurio(int aIdUsuario, boolean aActivo) {
-        throw new UnsupportedOperationException();
-    }
+//    public boolean cambiar_estado_usaurio(int aIdUsuario, boolean aActivo) {
+//        throw new UnsupportedOperationException();
+//    }
 
     public Producto[] cargar_productos_categoria(int aIdCategoria) {
         Producto[] productos = null;
@@ -356,5 +352,21 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
     public boolean recuperar_contrasena(String aMailUsuario) {
         throw new UnsupportedOperationException();
     }
+    
+	public boolean cambiar_estado_usuario_encargado_compras(int aIdUsuario, boolean aActivo) {
+		throw new UnsupportedOperationException();
+	}
+    
+	public boolean modificar_usuario_encargado_compras(int aIdUsuario, String aNombreUsuario, String aPasswordUsuario, int aTipoUsuario) {
+		throw new UnsupportedOperationException();
+	}
+
+	public boolean cambiar_estado_usuario_empresa_transportes(int aIdUsuario, boolean aActivo) {
+		throw new UnsupportedOperationException();
+	}
+
+	public boolean modificar_usuario_empresa_transportes(int aIdUsuario, String aNombreUsuario, String aPasswordUsuario, int aTipoUsuario) {
+		throw new UnsupportedOperationException();
+	}
 
 }

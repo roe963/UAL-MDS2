@@ -36,8 +36,6 @@ public interface iAdministrador {
 
 	public Categoria[] cargar_categorias();
 
-	public void activar_categoria(int aIdCategoria);
-
 	public void activar_producto(int aIdProducto);
 
 	public void agregar_oferta(int aIdProducto, double aPrecioOferta, Date aFechaFinOferta);
@@ -50,7 +48,7 @@ public interface iAdministrador {
 
 	public Usuario[] cargar_empleados();
 
-	public boolean modificar_usuario(String aNombreUsuario, String aPasswordUsuario, int aTipoUsuario);
+//	public boolean modificar_usuario(String aNombreUsuario, String aPasswordUsuario, int aTipoUsuario);
 
 	public Empresa_transportes[] cargar_empleados_empresa_transportes();
 
@@ -60,5 +58,14 @@ public interface iAdministrador {
 
 	public void cambiar_estado_categoria(int aIdCategoria, boolean aActivo);
 
-	public boolean cambiar_estado_usaurio(int aIdUsuario, boolean aActivo);
+//	public boolean cambiar_estado_usaurio(int aIdUsuario, boolean aActivo);
+	
+	public boolean cambiar_estado_usuario_encargado_compras(int aIdUsuario, boolean aActivo);
+	
+	public boolean modificar_usuario_encargado_compras(int aIdUsuario, String aNombreUsuario, String aPasswordUsuario, int aTipoUsuario);
+	
+	public boolean cambiar_estado_usuario_empresa_transportes(int aIdUsuario, boolean aActivo);
+
+	public boolean modificar_usuario_empresa_transportes(int aIdUsuario, String aNombreUsuario, String aPasswordUsuario, int aTipoUsuario);
+	
 }
