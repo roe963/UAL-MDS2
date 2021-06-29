@@ -124,7 +124,7 @@ public class Usuario implements Serializable {
             t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
             try {
                 usuarios = UsuarioDAO
-                        .listUsuarioByQuery("Password='" + passwordUsuario + "' and Email='" + mailUsuario + "'", null);
+                        .listUsuarioByQuery("Password='" + passwordUsuario + "' and Email='" + mailUsuario + "' and Activo=1", null);
                 t.commit();
             } catch (Exception e) {
                 t.rollback();

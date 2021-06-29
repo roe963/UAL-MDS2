@@ -10,15 +10,15 @@ import bds.BDPrincipal;
 import bds.iAdministrador;
 import vistas.VistaPedido;
 
-public class Pedido extends VistaPedido{
-    
+public class Pedido extends VistaPedido {
+
     iAdministrador bd = new BDPrincipal();
 
-	public Pedido(basededatos.Pedido p, String estado) {
-	    
-	    this.getLabelNpedido().setText(Integer.toString(p.getId()));
-        this.getLabelNarticulos()
-                .setText(Arrays.stream(p.contiene_un.toArray()).map(c -> c.getCantidad()).reduce(0, Integer::sum).toString());
+    public Pedido(basededatos.Pedido p, String estado) {
+
+        this.getLabelNpedido().setText(Integer.toString(p.getId()));
+        this.getLabelNarticulos().setText(
+                Arrays.stream(p.contiene_un.toArray()).map(c -> c.getCantidad()).reduce(0, Integer::sum).toString());
         this.getLabelFecha().setText(new SimpleDateFormat("dd/MM/yyyy").format(new Date(p.getFecha())));
         this.getLabelPrecio().setText(Float.toString(p.getPrecio()) + "€");
 
@@ -35,11 +35,11 @@ public class Pedido extends VistaPedido{
         }
 
         this.getTbnVerDetallado().addClickListener(event -> {
-            System.out.println("has dado clic a btn ver detalle");
+            UI.getCurrent().navigate("pedido/" + p.getId());
         });
     }
 
     public void verificar_compra() {
-		throw new UnsupportedOperationException();
-	}
+        throw new UnsupportedOperationException();
+    }
 }

@@ -23,7 +23,7 @@ class VistaVeperfil extends PolymerElement {
   <vaadin-horizontal-layout theme="spacing" style="padding: var(--lumo-space-xl); padding-top: var(--lumo-space-xs); align-self: center; flex-grow: 0; padding-bottom: var(--lumo-space-xs);">
    <vaadin-vertical-layout theme="spacing" style="padding: var(--lumo-space-xl); padding-top: var(--lumo-space-xs); padding-bottom: var(--lumo-space-xs);">
     <vaadin-text-field label="Nombre y Apellidos" id="textfield-nombre" style="flex-shrink: 1;"></vaadin-text-field>
-    <vaadin-text-field label="Correo electrónico" name="textfield-email" id="correoElectrónico"></vaadin-text-field>
+    <vaadin-text-field label="Correo electrónico" name="textfield-email" id="correoElectronico"></vaadin-text-field>
    </vaadin-vertical-layout>
    <vaadin-vertical-layout theme="spacing" id="vlEstado"></vaadin-vertical-layout>
    <vaadin-vertical-layout theme="spacing" id="vlDireccionyformaPago">

@@ -31,15 +31,20 @@ public class Ver_catalogo_administrador extends VistaVercatalogoadministrador {
 	Select<Categoria> labelSelect = new Select<>();
 	String cadena = "";
 	
-	iAdministrador administradores = new BDPrincipal();
+	Producto[] todoslosproductos;
+	
+	iAdministrador bd = new BDPrincipal();
 	
 	public Ver_catalogo_administrador() {
 		
 		MenuBar mb = MenuHeader.getMenuBar();
         this.getLayoutMenu().add(mb);
         this.getLayoutMenu().setHorizontalComponentAlignment(Alignment.CENTER, mb);
-		
-		ViewChanger cambiarVista = new ViewChanger();
+        
+        todoslosproductos = bd.cargar_todos_productos();
+        buscar(todoslosproductos);
+        
+//		ViewChanger cambiarVista = new ViewChanger();
 		TextField txtBuscar = this.getTextfieldBuscar();
 		Button btnBuscar = this.getButtonBuscar();
 		
@@ -47,12 +52,9 @@ public class Ver_catalogo_administrador extends VistaVercatalogoadministrador {
             @Override
             public void onComponentEvent(ClickEvent<Button> event) {
                 if (txtBuscar.isEmpty()) {
-                	//cambiarVista.CambiarVista(new Ver_catalogo_cliente());
-                	cambiarVista.CambiarVista(new Ver_catalogo_administrador());
-                	System.out.println("Vacio");
+                    buscar(todoslosproductos);
     			} else {
-    				//cambiarVista.CambiarVista(new Buscar_producto_cliente(txtBuscar.getValue()));
-    				cambiarVista.CambiarVista(new Buscar_producto_administrador(txtBuscar.getValue()));
+    			    buscar(Arrays.stream(todoslosproductos).filter(x ->x.getNombre().toLowerCase().contains((CharSequence) txtBuscar.getValue().toLowerCase())).toArray(Producto[]::new));
     			}
             }
         });
@@ -60,14 +62,14 @@ public class Ver_catalogo_administrador extends VistaVercatalogoadministrador {
 		//new Buscar_producto_cliente(this.getTextfieldBuscar().getValue());
 		
 		// Crear la interfaz lista productos		
-		this.getVaadinHorizontalLayout().removeAll();
-		this.getVaadinHorizontalLayout().add(new Productos());
+//		this.getVaadinHorizontalLayout().removeAll();
+//		this.getVaadinHorizontalLayout().add(new Productos(productosamostrar));
 		
 		// Cargar select categorias
 		this.getLayoutSelectCategoria().removeAll();
 		//labelSelect.setLabel("Categorias");
 		labelSelect.setPlaceholder("Categorías");
-		List<Categoria> departmentList = Arrays.asList(administradores.cargar_categorias());
+		List<Categoria> departmentList = Arrays.asList(bd.cargar_categorias());
 
 		// Establece que valor de Categoria se va a agregar
 		labelSelect.setItemLabelGenerator(Categoria::getNombre);
@@ -89,8 +91,13 @@ public class Ver_catalogo_administrador extends VistaVercatalogoadministrador {
 		
 	}
 	
+	private void buscar(Producto[] productos)
+	{
+	    this.getVaadinHorizontalLayout().removeAll();
+        this.getVaadinHorizontalLayout().add(new Productos(productos));
+	}
 	public void seleccionar_categoria(int idCategoria) throws PersistentException {
-		Producto[] productos = administradores.cargar_productos_categoria(idCategoria);
+		Producto[] productos = bd.cargar_productos_categoria(idCategoria);
 		
 		this.getVaadinHorizontalLayout().removeAll();			
 		if (productos.length != 0) {

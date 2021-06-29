@@ -20,16 +20,12 @@ import bds.BDPrincipal;
 import bds.iCliente_registrado;
 import ual.mds2.ortegaortega.MenuHeader;
 import ual.mds2.ortegaortega.Session;
+import ual.mds2.ortegaortega.TIPOUSUARIO;
 import vistas.VistaVerpedido;
 
 @PreserveOnRefresh
 @Route("pedido")
 public class Ver_pedido extends VistaVerpedido implements HasUrlParameter<String> {
-    /*
-     * private event _cancelar_compra; private button _cancelarCompra; public
-     * Pedido_cliente_registrado _pedido_cliente_registrado; public
-     * Productos_del_pedido _productos_del_pedido;
-     */
 
     @Override
     public void setParameter(BeforeEvent event, @OptionalParameter String parameter) {
@@ -63,7 +59,7 @@ public class Ver_pedido extends VistaVerpedido implements HasUrlParameter<String
         boolean estaEnviado = false;
         boolean estaEntregado = false;
 
-        for (Pedido aux : bd.cargar_pedidos_pendientes_cliente_registrado(Session.getUsuario().getId())) {
+        for (Pedido aux : bd.cargar_pedidos_pendientes_cliente_registrado(p.getRealizado_por().getId())) {
             if (aux.getId() == p.getId()) {
                 estaPendiente = true;
                 break;
@@ -71,7 +67,7 @@ public class Ver_pedido extends VistaVerpedido implements HasUrlParameter<String
         }
 
         if (!estaPendiente) {
-            for (Pedido aux : bd.cargar_pedidos_enviados_cliente_registrado(Session.getUsuario().getId())) {
+            for (Pedido aux : bd.cargar_pedidos_enviados_cliente_registrado(p.getRealizado_por().getId())) {
                 if (aux.getId() == p.getId()) {
                     estaEnviado = true;
                     break;
@@ -80,7 +76,7 @@ public class Ver_pedido extends VistaVerpedido implements HasUrlParameter<String
         }
 
         if (!estaPendiente && !estaEnviado) {
-            for (Pedido aux : bd.cargar_pedidos_entregados_cliente_registrado(Session.getUsuario().getId())) {
+            for (Pedido aux : bd.cargar_pedidos_entregados_cliente_registrado(p.getRealizado_por().getId())) {
                 if (aux.getId() == p.getId()) {
                     estaEntregado = true;
                     break;
@@ -95,7 +91,7 @@ public class Ver_pedido extends VistaVerpedido implements HasUrlParameter<String
         if (estaEntregado)
             this.getEstadoPedido().setText("Entregado");
 
-        this.getCancelarCompra().setVisible(estaPendiente);
+        this.getCancelarCompra().setVisible(estaPendiente && Session.getTipo()==TIPOUSUARIO.REGISTRADO);
         this.getCancelarCompra().addClickListener(event -> {
             this.bd.cancelar_compra(p.getId());
             UI.getCurrent().navigate("pedidos");

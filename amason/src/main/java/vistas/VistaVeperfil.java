@@ -39,8 +39,8 @@ public class VistaVeperfil extends PolymerTemplate<VistaVeperfil.VistaVeperfilMo
 	private Image imgFotousuario;
 	@Id("textfield-nombre")
 	private TextField textfieldNombre;
-	@Id("correoElectrónico")
-	private TextField correoElectrónico;
+	@Id("correoElectronico")
+	private TextField correoElectronico;
 	@Id("button-guardar")
 	private Button buttonGuardar;
 	@Id("vlEstado")
@@ -96,12 +96,12 @@ public class VistaVeperfil extends PolymerTemplate<VistaVeperfil.VistaVeperfilMo
 		this.textfieldNombre = textfieldNombre;
 	}
 
-	public TextField getCorreoElectrónico() {
-		return correoElectrónico;
+	public TextField getCorreoElectronico() {
+		return correoElectronico;
 	}
 
-	public void setCorreoElectrónico(TextField correoElectrónico) {
-		this.correoElectrónico = correoElectrónico;
+	public void setCorreoElectronico(TextField correoElectronico) {
+		this.correoElectronico = correoElectronico;
 	}
 
 

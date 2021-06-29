@@ -99,14 +99,16 @@ public class Respuestas extends VistaRespuestas implements HasUrlParameter<Strin
 		TextArea textarea= new TextArea();
 
 		Button confirmButton = new Button("Enviar", event -> {
-		    message.setText("Confirmed!");
-		    
-		    
-		    //Redactar mensaje 
-		   icorreo.responder_respuesta(parametro, textarea.getValue());
-		    UI.getCurrent().navigate("respuestas/" +parametro);			
-		    
-		    dialog.close();
+//		    message.setText("Confirmed!");
+            
+            //Redactar mensaje 
+		    if (!textarea.getValue().isEmpty()) {
+		        icorreo.responder_respuesta(parametro, textarea.getValue());
+		        UI.getCurrent().navigate("respuestas/" +parametro); 
+                dialog.close();
+            }   else {
+                message.setText("El mensaje no puede estar vacío!");
+            }
 		});
 		Button cancelButton = new Button("Cancel", event -> {
 		    message.setText("Cancelled...");

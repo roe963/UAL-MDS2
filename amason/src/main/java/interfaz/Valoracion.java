@@ -18,7 +18,7 @@ public class Valoracion extends VistaValoracion {
 	public Valoracion(basededatos.Valoracion valoracion) {
 		
 		this.getLabelDescripcion().setText(valoracion.getComentario());
-		this.getLabelFecha().setText(new SimpleDateFormat("dd/MM/yyyy").format(new Date(valoracion.getFecha()*1000)));
+		this.getLabelFecha().setText(new SimpleDateFormat("dd/MM/yyyy").format(new Date(valoracion.getFecha())));
 		
 		for (int i = 0; i < 5; i++) {			
 			

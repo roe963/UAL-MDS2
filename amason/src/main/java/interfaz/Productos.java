@@ -27,4 +27,11 @@ public class Productos extends VistaProductos {
             this.getLayoutProductos().add(new Producto(productos[i]));
         }
     }
+
+    public Productos(basededatos.Producto[] productosamostrar) {
+        this.getLayoutProductos().removeAll();
+        for (int i = 0; i < productosamostrar.length; i++) {
+            this.getLayoutProductos().add(new Producto(productosamostrar[i]));
+        }
+    }
 }

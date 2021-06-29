@@ -77,14 +77,18 @@ public class Ver_mensajes_cliente_registrado extends VistaVermensajesclienteregi
 		TextArea textarea= new TextArea();
 
 		Button confirmButton = new Button("Enviar", event -> {
-		    message.setText("Confirmed!");
+//		    message.setText("Confirmed!");
 		    
 		    
 		    //Redactar mensaje 
-		    correo.redactar_mensaje(idUsuario, textarea.getValue());
-		    cargar_mensajes_cliente();	
+		    if (!textarea.getValue().isEmpty()) {
+	            correo.redactar_mensaje(idUsuario, textarea.getValue());
+	            cargar_mensajes_cliente();
+	            dialog.close();
+		    }	else {
+		        message.setText("El mensaje no puede estar vacío!");
+		    }
 		    
-		    dialog.close();
 		});
 		Button cancelButton = new Button("Cancel", event -> {
 		    message.setText("Cancelled...");
