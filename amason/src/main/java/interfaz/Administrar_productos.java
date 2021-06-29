@@ -43,6 +43,15 @@ public class Administrar_productos extends VistaAdministrarproductos {
 	public void agregar_producto(Agregar_producto agregar_producto) {
 		this.getLayoutAnadirProducto().removeAll();
 	  	this.getLayoutAnadirProducto().add(agregar_producto);
+	  	
+	  	agregar_producto.getButtonAnadir().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				
+				agregar_producto.agregar_producto();
+				cargar_todos_productos(agregar_producto);
+			}
+		});
 	}
 
 	public void cargar_categorias() {
@@ -58,9 +67,7 @@ public class Administrar_productos extends VistaAdministrarproductos {
 		this.getButtonGuardar().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				
-				agregar_producto.getTextFieldNombre().getValue();
-				
+								
 				int idProducto = Integer. parseInt(agregar_producto.getTextFieldIdProducto().getValue());
 				int idFoto = Integer. parseInt(agregar_producto.getTextFieldIdFoto().getValue());
 				
@@ -74,25 +81,18 @@ public class Administrar_productos extends VistaAdministrarproductos {
 					activo = 0;
 				}
 				
-				/*if (!(nombre.equals(cliente.getNombre()) && email.equals(cliente.getEmail())
-						&& direccionEnvio.equals(cliente.getDireccionEnvio())
-						&& metodoPago.equals(cliente.getMetodoPago()) && fotoURL.equals(cliente.getFotoURL())
-						&& activo.equals(cliente.getActivo()))) {
-					iclientes_registrado.guardar_perfil(cliente.getId(), nombre, email, direccionEnvio, metodoPago,
-							fotoURL, activo);
-					cargar_perfil();
-
+				if(!(agregar_producto.getTextFieldNombre().isEmpty() && agregar_producto.getTextFieldPrecio().isEmpty()
+						&& agregar_producto.getTextAreaDescripcion().isEmpty() && agregar_producto.getTextFieldImagen().isEmpty()
+						&& agregar_producto.categoria.toString().isEmpty())) {
+					
+					administrador.modificar_proucto(idProducto, idFoto, nombre, agregar_producto.categoria, Double.parseDouble(precio), descripcion, imagen);
+					cargar_todos_productos(agregar_producto);
+					
 					notificacion("Los datos se han modificado correctamente.");
 				} else {
 					notificacion("No se ha realizado ningún cambio.");
-				}*/
+				}
 				
-				/*if(!(nombre.equals(cliente.getNombre()) && )) {
-					
-				}*/
-				
-				administrador.modificar_proucto(idProducto, idFoto, nombre, agregar_producto.categoria, Double.parseDouble(precio), descripcion, imagen);
-				cargar_todos_productos(agregar_producto);
 			}
 		});
 	}

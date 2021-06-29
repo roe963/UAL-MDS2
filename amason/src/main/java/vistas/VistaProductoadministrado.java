@@ -24,6 +24,8 @@ public class VistaProductoadministrado extends PolymerTemplate<VistaProductoadmi
 	private HorizontalLayout layoutProducto;
 	@Id("label-producto")
 	private Label labelProducto;
+	@Id("checkbox-activar")
+	private Checkbox checkboxActivar;
 
 	/**
      * Creates a new VistaProductoadministrado.
@@ -53,6 +55,14 @@ public class VistaProductoadministrado extends PolymerTemplate<VistaProductoadmi
 
 	public void setLabelProducto(Label labelProducto) {
 		this.labelProducto = labelProducto;
+	}
+
+	public Checkbox getCheckboxActivar() {
+		return checkboxActivar;
+	}
+
+	public void setCheckboxActivar(Checkbox checkboxActivar) {
+		this.checkboxActivar = checkboxActivar;
 	}
     
 }

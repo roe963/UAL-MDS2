@@ -38,13 +38,13 @@ public class Agregar_producto extends VistaAgregarproducto {
 		getCheckboxProductoActivo().setValue(true);
 		cargar_categorias();
 		
-		this.getButtonAnadir().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+		/*this.getButtonAnadir().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
 				agregar_producto();
 			}
-		});
+		});*/
 	}
 	
 	public void agregar_producto() {

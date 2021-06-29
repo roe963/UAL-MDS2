@@ -23,8 +23,8 @@ public class Categorias {
         
         try {
         	productos = ProductoDAO.listProductoByQuery(null, null);
-        	//productos = CategoriaDAO.listCategoriaByQuery(null, null);
-
+        	//productos = ProductoDAO.listProductoByQuery("Activo=1", null);
+        	
             t.commit();
         } catch (PersistentException e) {
             t.rollback();
@@ -34,7 +34,26 @@ public class Categorias {
 	}
 
 	public void agregar_categoria(String aNombreCategoria) {
-		throw new UnsupportedOperationException();
+
+		PersistentTransaction t;
+		try {
+			t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession()
+	                .beginTransaction();
+			
+	        Categoria categoria = new Categoria();
+	        categoria.setNombre(aNombreCategoria);
+	        categoria.setActivo(true);
+
+	        try {
+	            CategoriaDAO.save(categoria);
+	            t.commit();
+	        } catch (PersistentException e) {
+	            t.rollback();
+	        }
+		} catch (Exception e) {
+	        // TODO: handle exception
+	    }
+		
 	}
 
 	public Categoria[] cargar_categorias() throws PersistentException {
@@ -59,6 +78,25 @@ public class Categorias {
 	}
 
 	public void cambiar_estado_categoria(int aIdCategoria, boolean aActivo) {
-		throw new UnsupportedOperationException();
+
+		PersistentTransaction t;
+		try {
+			t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession()
+	                .beginTransaction();
+			
+			//Producto producto = ProductoDAO.getProductoByORMID(aIdProducto);
+	        Categoria categoria = CategoriaDAO.getCategoriaByORMID(aIdCategoria);
+	        
+	        categoria.setActivo(aActivo);
+
+	        try {
+	            CategoriaDAO.save(categoria);
+	            t.commit();
+	        } catch (PersistentException e) {
+	            t.rollback();
+	        }
+		} catch (Exception e) {
+	        // TODO: handle exception
+	    }
 	}
 }

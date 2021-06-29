@@ -39,15 +39,10 @@ public class Registrarse extends VistaRegistrarse {
 
 	void cargarComponentes() {
 		// carga el select
-		labelSelect.setItems("Tarjeta", "Bizum");
+		labelSelect.setItems("PayPal", "Tarjeta");
 		labelSelect.setValue("Con Tarjeta");
 		labelSelect.setLabel("Forma de pago");
 		this.getVaadinHorizontalLayout1().add(labelSelect);
-		// carga la imagen
-		this.getImgFotousaurio().setMaxHeight("100px");
-		this.getImgFotousaurio().setMaxHeight("100px");
-		this.getImgFotousaurio().setSrc("https://www.ibei.org/images/4611/person_box.png");
-
 	}
 
 	public void validar_registro() {
@@ -73,7 +68,7 @@ public class Registrarse extends VistaRegistrarse {
 			cliente.registrar_usuario(nombreUsuario, mailUsuario, passwordUsuario, confirmPasswordUsuario,
 					direccionUsuario, formaPagoUsuario, fotoUsuario);
 			Notification.show("Se ha creado el usauario correctamente.", 2000, Position.BOTTOM_CENTER);
-
+			//UI.getCurrent().navigate("cliente");
 		} else {
 			Notification.show("¡La contraseñas no Coincide!", 2000, Position.BOTTOM_CENTER);
 		}

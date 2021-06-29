@@ -147,17 +147,13 @@ public class Productos {
 		PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession()
                 .beginTransaction();
 		
-		//producto
         Producto producto = new Producto();
         producto.setNombre(aNombreProducto);
         producto.setAsignado_a(aCategoria);
         producto.setPrecio((float)aPrecioProducto);
         producto.setDescripcion(aDescripcionProducto);
         producto.setActivo(true);
-        //Cantidad cantidad = CantidadDAO.getCantidadByORMID(1);
-        //producto.tiene_una(producto);
         
-        //foto
         Foto foto = new Foto();
         foto.setUrl(aImagenProducto);
         foto.setPertenece_a(producto);
@@ -172,47 +168,25 @@ public class Productos {
 	}
 
 	public void modificar_proucto(int aIdProducto, int aIdFoto, String aNombreProducto, Categoria aCategoria, double aPrecioProducto, String aDescripcionProducto, String aImagenProducto) throws PersistentException {
+		
 		PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession()
                 .beginTransaction();
-		
 		try {
-		//producto
-		Producto producto = ProductoDAO.getProductoByORMID(aIdProducto);
-        producto.setNombre(aNombreProducto);
-        producto.setAsignado_a(aCategoria);
-        producto.setPrecio((float)aPrecioProducto);
-        producto.setDescripcion(aDescripcionProducto);
-        producto.setActivo(true);
-        //Cantidad cantidad = CantidadDAO.getCantidadByORMID(1);
-        //producto.tiene_una(producto);
-        
-        //producto.contiene_una.toArray(aImagenProducto);
-        
-        //foto
-        //Foto foto = new Foto();
-        Foto foto = FotoDAO.getFotoByORMID(aIdFoto);
-        foto.setUrl(aImagenProducto);
-        foto.setPertenece_a(producto);
+			Producto producto = ProductoDAO.getProductoByORMID(aIdProducto);
+	        producto.setNombre(aNombreProducto);
+	        producto.setAsignado_a(aCategoria);
+	        producto.setPrecio((float)aPrecioProducto);
+	        producto.setDescripcion(aDescripcionProducto);
+	        producto.setActivo(true);
+	        
+	        Foto foto = FotoDAO.getFotoByORMID(aIdFoto);
+	        foto.setUrl(aImagenProducto);
+	        foto.setPertenece_a(producto);
         
             t.commit();
         } catch (PersistentException e) {
             t.rollback();
         }
-        
-        
-        /*try {
-            Cliente cliente = ClienteDAO.getClienteByORMID(aIdUsuario);
-            cliente.setNombre(aNombreUsuario);
-            cliente.setEmail(aMailUsuario);
-            cliente.setDireccionEnvio(aDireccionUsuario);
-            cliente.setMetodoPago(aFormaPagoUsuario);
-            cliente.setFotoURL(aFotoUsuario);
-            cliente.setActivo(aEstadoCuenta);
-
-            t.commit();
-        } catch (PersistentException e) {
-            t.rollback();
-        }*/
         
 	}
 
@@ -224,8 +198,26 @@ public class Productos {
 		throw new UnsupportedOperationException();
 	}
 
-	public void cambiar_estado_producto(int aDiProducto, boolean aActivo) {
-		throw new UnsupportedOperationException();
+	public void cambiar_estado_producto(int aIdProducto, boolean aActivo) {
+		
+		PersistentTransaction t;
+		try {
+			t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession()
+			        .beginTransaction();
+				try {
+				//producto
+				Producto producto = ProductoDAO.getProductoByORMID(aIdProducto);
+		        producto.setActivo(aActivo);
+	        
+	            t.commit();
+	        } catch (PersistentException e) {
+	            t.rollback();
+	        }
+		} catch (PersistentException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 	}
 
 	

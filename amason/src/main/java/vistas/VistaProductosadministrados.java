@@ -22,7 +22,7 @@ import com.vaadin.flow.component.html.H4;
 @JsModule("./src/vista-productosadministrados.js")
 public class VistaProductosadministrados extends PolymerTemplate<VistaProductosadministrados.VistaProductosadministradosModel> {
 
-    @Id("layout-Productos")
+    @Id("layout-productos")
 	private VerticalLayout layoutProductos;
 	@Id("vistaProductoAdministrado")
 	private Element vistaProductoAdministrado;

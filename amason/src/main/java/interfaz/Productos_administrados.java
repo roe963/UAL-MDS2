@@ -17,18 +17,15 @@ import interfaz.Producto_administrado;
 import vistas.VistaProductosadministrados;
 
 public class Productos_administrados extends VistaProductosadministrados{
-	/*public Administrar_productos _administrar_productos;
-	public Vector<Producto_administrado> _producto_administrado = new Vector<Producto_administrado>();*/
+	
+	iAdministrador administrador = new BDPrincipal();
 	
 	public Productos_administrados(Agregar_producto agregar_producto) {
 		cargar_todos_productos(agregar_producto);
 	}
 	
-	//iCliente clientes = new BDPrincipal();
-	iAdministrador administrador = new BDPrincipal();
-	
 	public void cargar_todos_productos(Agregar_producto agregar_producto) {
-		//Producto[] productos = clientes.cargar_productos();
+		
 		Producto[] productos = administrador.cargar_todos_productos();
 		
 		this.getLayoutProductos().removeAll();

@@ -15,10 +15,12 @@ public class Producto_administrado extends VistaProductoadministrado {
 	iAdministrador administrador = new BDPrincipal();
 	
 	public Producto_administrado(basededatos.Producto producto, Agregar_producto agregar_producto) {
+		
 		Producto[] productos = administrador.cargar_todos_productos();
 		Foto[] fotos = producto.contiene_una.toArray();
 		
 		this.getLabelProducto().setText(producto.getNombre().toString());
+		this.getCheckboxActivar().setValue(producto.getActivo());
 		
 		this.getLayoutProducto().addClickListener(
 			event -> {
@@ -35,9 +37,16 @@ public class Producto_administrado extends VistaProductoadministrado {
 				agregar_producto.getCheckboxProductoActivo().setValue(producto.getActivo());
 			}
 		);
+		
+		marcar_como_activo(producto);
 	}
 	
-	public void marcar_como_activo() {
-		throw new UnsupportedOperationException();
+	public void marcar_como_activo(basededatos.Producto producto) {
+		this.getCheckboxActivar().addClickListener(
+			event -> {
+				
+				administrador.cambiar_estado_producto(producto.getId(), this.getCheckboxActivar().getValue());
+			}
+		);
 	}
 }

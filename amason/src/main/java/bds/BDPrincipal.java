@@ -114,7 +114,7 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
     }
 
     public void agregar_categoria(String aNombreCategoria) {
-        throw new UnsupportedOperationException();
+    	_bd_categorias.agregar_categoria(aNombreCategoria);
     }
 
     public Categoria[] cargar_categorias() {
@@ -177,11 +177,11 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
     }
 
     public void cambiar_estado_producto(int aIdProducto, boolean aActivo) {
-        throw new UnsupportedOperationException();
+    	_bd_productos.cambiar_estado_producto(aIdProducto, aActivo);
     }
 
     public void cambiar_estado_categoria(int aIdCategoria, boolean aActivo) {
-        throw new UnsupportedOperationException();
+        _bd_categorias.cambiar_estado_categoria(aIdCategoria, aActivo);
     }
 
     public boolean cambiar_estado_usaurio(int aIdUsuario, boolean aActivo) {

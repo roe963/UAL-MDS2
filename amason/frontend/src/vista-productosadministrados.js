@@ -12,7 +12,7 @@ class VistaProductosadministrados extends PolymerElement {
                     height: 100%;
                 }
             </style>
-<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: stretch;" id="layout-Productos">
+<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: stretch;" id="layout-productos">
  <vista-productoadministrado style="align-self: stretch; flex-grow: 1;" id="vistaProductoAdministrado"></vista-productoadministrado>
 </vaadin-vertical-layout>
 `;

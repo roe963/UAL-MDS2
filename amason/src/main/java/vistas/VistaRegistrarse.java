@@ -47,8 +47,6 @@ public class VistaRegistrarse extends PolymerTemplate<VistaRegistrarse.VistaRegi
 	private PasswordField repeatpassword;
 	@Id("textarea-direccion")
 	private TextField textareaDireccion;
-	@Id("img-fotousaurio")
-	private Image imgFotousaurio;
 	@Id("textarea-fotousuario")
 	private TextField textareaFotousuario;
 	@Id("button-crearcuenta")
@@ -85,11 +83,6 @@ public class VistaRegistrarse extends PolymerTemplate<VistaRegistrarse.VistaRegi
 	public TextField getTextareaDireccion() {
 		return textareaDireccion;
 	}
-	
-
-	public Image getImgFotousaurio() {
-		return imgFotousaurio;
-	}
 
 	public TextField getTextareaFotousuario() {
 		return textareaFotousuario;
@@ -106,10 +99,7 @@ public class VistaRegistrarse extends PolymerTemplate<VistaRegistrarse.VistaRegi
         // You can initialise any data required for the connected UI components here.
     	//this.vaadinListBox.setAttribute("pago1", "Efectivo");
     	//this.vaadinListBox.setAttribute("pago2", "Tarjeta");
-
-    	
     }
-
 
 	/**
      * This model binds properties between VistaRegistrarse and vista-registrarse

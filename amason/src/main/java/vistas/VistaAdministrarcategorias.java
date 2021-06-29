@@ -6,6 +6,9 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.templatemodel.TemplateModel;
+import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.button.Button;
 
 /**
  * A Designer generated component for the vista-administrarcategorias template.
@@ -20,8 +23,11 @@ public class VistaAdministrarcategorias extends PolymerTemplate<VistaAdministrar
     //////Barra Navegacion /////
     @Id("layout-menu")
     private VerticalLayout layoutMenu;
-    
-    public VerticalLayout getLayoutMenu() {
+	@Id("layout-anadirCategoria")
+	private VerticalLayout layoutAnadirCategoria;
+	@Id("layout-categorias")
+	private HorizontalLayout layoutCategorias;
+	public VerticalLayout getLayoutMenu() {
         return layoutMenu;
     }
 
@@ -43,4 +49,21 @@ public class VistaAdministrarcategorias extends PolymerTemplate<VistaAdministrar
     public interface VistaAdministrarcategoriasModel extends TemplateModel {
         // Add setters and getters for template properties here.
     }
+
+	public VerticalLayout getLayoutAnadirCategoria() {
+		return layoutAnadirCategoria;
+	}
+
+	public void setLayoutAnadirCategoria(VerticalLayout layoutAnadirCategoria) {
+		this.layoutAnadirCategoria = layoutAnadirCategoria;
+	}
+
+	public HorizontalLayout getLayoutCategorias() {
+		return layoutCategorias;
+	}
+
+	public void setLayoutCategorias(HorizontalLayout layoutCategorias) {
+		this.layoutCategorias = layoutCategorias;
+	}
+    
 }
