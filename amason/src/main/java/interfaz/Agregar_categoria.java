@@ -26,8 +26,7 @@ public class Agregar_categoria extends VistaAgregarcategoria {
 	
 	public void agregar_categoria() {
 		String nombre = getTextFieldNombre().getValue();
-		
-		administrador.agregar_categoria(nombre);
+		if (!nombre.isEmpty())	administrador.agregar_categoria(nombre);
 	}
 	
 }
