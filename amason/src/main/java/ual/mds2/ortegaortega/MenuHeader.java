@@ -8,7 +8,10 @@ import com.vaadin.flow.component.contextmenu.MenuItem;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
+import com.vaadin.flow.component.login.LoginI18n;
 import com.vaadin.flow.component.menubar.MenuBar;
+import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.notification.Notification.Position;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.textfield.TextField;
 
@@ -97,25 +100,25 @@ public class MenuHeader {
             
             Button btnChangeSesion = new Button("Entrar");
             btnChangeSesion.setThemeName("tertiary");
-            btnChangeSesion.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-                @Override
-                public void onComponentEvent(ClickEvent<Button> event) {
-                    
-                    Iniciar_sesion ini = new Iniciar_sesion();
-                    ini.getLoginForm().setEnabled(true);
-                    Dialog d = new Dialog();
-                    d.add(ini);
-                    d.open();
-                    ini.getLoginForm().addLoginListener(e -> {
+            btnChangeSesion.addClickListener(event -> {
+                Iniciar_sesion ini = new Iniciar_sesion();
+                ini.getLoginForm().setEnabled(true);
+                Dialog d = new Dialog();
+                d.add(ini);
+                d.open();
+                ini.getLoginForm().setI18n(SpanishI18n());;
+                ini.getLoginForm().addLoginListener(e1 -> {
 
-                        Usuario usu = new BDPrincipal().iniciar_sesion(e.getUsername(), e.getPassword());
-                        if (usu == null) {
-                            ini.getLoginForm().setError(true);
-                        } else {
-                            d.close();
-                        }
-                    });
-                }
+                    Usuario usu = new BDPrincipal().iniciar_sesion(e1.getUsername(), e1.getPassword());
+                    if (usu == null) {
+                        ini.getLoginForm().setError(true);
+                    } else {
+                        d.close();
+                    }
+                });
+                ini.getLoginForm().addForgotPasswordListener(e2 -> {
+                    new Notification("Se le ha enviado un correo con un enlace de recuperación", 2000, Position.MIDDLE).open();
+                });
             });
             
             Button btnSignUp = new Button("Registrarse");
@@ -171,5 +174,24 @@ public class MenuHeader {
             }
         });
         return btnChangeSesion;
+    }
+    
+    private static LoginI18n SpanishI18n() {
+        final LoginI18n i18n = LoginI18n.createDefault();
+
+        i18n.setHeader(new LoginI18n.Header());
+        i18n.getHeader().setTitle("Iniciar sesión");
+        i18n.getHeader().setDescription("Descripción");
+        i18n.getForm().setUsername("Usuario");
+        i18n.getForm().setTitle("Iniciar sesión");
+        i18n.getForm().setSubmit("Entrar");
+        i18n.getForm().setPassword("Contraseña");
+        i18n.getForm().setForgotPassword("He olvidado la contraseña");
+        i18n.getErrorMessage().setTitle("Usuario/contraseña inválidos");
+        i18n.getErrorMessage()
+            .setMessage("Introduzca su contreseña e intentelo de nuevo.");
+        i18n.setAdditionalInformation("");
+        
+        return i18n;
     }
 }
