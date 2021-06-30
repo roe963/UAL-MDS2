@@ -2,6 +2,7 @@ package interfaz;
 
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.menubar.MenuBar;
@@ -89,6 +90,9 @@ public class Administrar_productos extends VistaAdministrarproductos {
 					//cargar_todos_productos(agregar_producto);
 					getLayoutProductos().removeAll();
 				  	getLayoutProductos().add(new Productos_administrados(agregar_producto));
+				  	
+				  	UI.getCurrent().navigate("");
+					UI.getCurrent().navigate("administrar_productos");
 					
 					notificacion("Los datos se han modificado correctamente.");
 				} else {

@@ -1,9 +1,11 @@
 package interfaz;
 
+import com.vaadin.flow.router.PreserveOnRefresh;
 import com.vaadin.flow.router.Route;
 
 import vistas.VistaAdministrarempleados;
 
+@PreserveOnRefresh
 @Route("administrar_empleados")
 public class Administrar_empleados extends VistaAdministrarempleados {
 	/*private label _nombre;

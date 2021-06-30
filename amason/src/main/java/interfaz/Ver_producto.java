@@ -1,5 +1,7 @@
 package interfaz;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -101,8 +103,10 @@ public class Ver_producto extends VistaVerproducto implements HasUrlParameter<St
 			this.getFechaOferta().setVisible(false);
 
 		} else {
-			this.getPrecioAnterior().setText(Double.toString(oferta.getPrecio()));
-			this.getFechaOferta().setText(Long.toString(oferta.getFecha()));
+			this.getNombrePrecio().getStyle().set("text-decoration", "line-through");
+			this.getPrecioAnterior().setText(Double.toString(oferta.getPrecio())+"€");
+			//this.getFechaOferta().setText(Long.toString(oferta.getFecha()));
+	        this.getFechaOferta().setText(new SimpleDateFormat("dd/MM/yyyy").format(new Date(oferta.getFecha())));
 		}
 
 		// Sincroniza la imagen principal
@@ -174,14 +178,6 @@ public class Ver_producto extends VistaVerproducto implements HasUrlParameter<St
 		    Session.addToCarrito(c);
 		});
 	}
-	
-	public void notificacion() {
-		Span content = new Span("Tu producto se ha añadido correctamente al carrito!");
-		Notification notification = new Notification(content);
-		notification.setPosition(Position.MIDDLE);
-		notification.setDuration(2000);
-		notification.open();
-	}
 
 	private void cargarElRestoDeImagenes(Producto producto) {
 
@@ -231,5 +227,12 @@ public class Ver_producto extends VistaVerproducto implements HasUrlParameter<St
 		return suma / valoraciones.length;
 	}
 	
+	public void notificacion() {
+		Span content = new Span("Tu producto se ha añadido correctamente al carrito!");
+		Notification notification = new Notification(content);
+		notification.setPosition(Position.MIDDLE);
+		notification.setDuration(2000);
+		notification.open();
+	}
 	
 }

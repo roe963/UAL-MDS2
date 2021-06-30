@@ -2,8 +2,11 @@ package vistas;
 
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.templatemodel.TemplateModel;
+import com.vaadin.flow.component.polymertemplate.Id;
+import vistas.VistaOfertaadministrador;
 
 /**
  * A Designer generated component for the vista-ofertasadministrador template.
@@ -15,7 +18,12 @@ import com.vaadin.flow.templatemodel.TemplateModel;
 @JsModule("./src/vista-ofertasadministrador.js")
 public class VistaOfertasadministrador extends PolymerTemplate<VistaOfertasadministrador.VistaOfertasadministradorModel> {
 
-    /**
+    @Id("layout-ofertas")
+	private VerticalLayout layoutOfertas;
+	@Id("vistaOfertaAdministrador")
+	private VistaOfertaadministrador vistaOfertaAdministrador;
+
+	/**
      * Creates a new VistaOfertasadministrador.
      */
     public VistaOfertasadministrador() {
@@ -28,4 +36,21 @@ public class VistaOfertasadministrador extends PolymerTemplate<VistaOfertasadmin
     public interface VistaOfertasadministradorModel extends TemplateModel {
         // Add setters and getters for template properties here.
     }
+
+	public VerticalLayout getLayoutOfertas() {
+		return layoutOfertas;
+	}
+
+	public void setLayoutOfertas(VerticalLayout layoutOfertas) {
+		this.layoutOfertas = layoutOfertas;
+	}
+
+	public VistaOfertaadministrador getVistaOfertaAdministrador() {
+		return vistaOfertaAdministrador;
+	}
+
+	public void setVistaOfertaAdministrador(VistaOfertaadministrador vistaOfertaAdministrador) {
+		this.vistaOfertaAdministrador = vistaOfertaAdministrador;
+	}
+    
 }

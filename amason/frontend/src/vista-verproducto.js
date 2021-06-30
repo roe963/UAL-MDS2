@@ -37,7 +37,7 @@ class VistaVerproducto extends PolymerElement {
    <vaadin-horizontal-layout theme="spacing">
     <h4>Precio</h4>
     <label style="align-self: center;" id="label-precio">Precio</label>
-    <h4 id="h41">Precio anterior</h4>
+    <h4 id="h41">Precio oferta</h4>
     <label style="align-self: center;" id="label-precioanterior">Precio</label>
     <h4 id="h4">En oferta hasta</h4>
     <label style="align-self: center;" id="label-fechaoferta">Fecha</label>

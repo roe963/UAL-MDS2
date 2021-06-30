@@ -6,6 +6,8 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.button.Button;
 
 /**
  * A Designer generated component for the vista-administrarofertas template.
@@ -20,8 +22,7 @@ public class VistaAdministrarofertas extends PolymerTemplate<VistaAdministrarofe
     //////Barra Navegacion /////
     @Id("layout-menu")
     private VerticalLayout layoutMenu;
-    
-    public VerticalLayout getLayoutMenu() {
+	public VerticalLayout getLayoutMenu() {
         return layoutMenu;
     }
 
@@ -30,6 +31,11 @@ public class VistaAdministrarofertas extends PolymerTemplate<VistaAdministrarofe
     }
     //////Barra Navegacion /////
 	
+	@Id("layout-anadirOferta")
+	private VerticalLayout layoutAnadirOferta;
+	@Id("layout-ofertas")
+	private HorizontalLayout layoutOfertas;
+    
     /**
      * Creates a new VistaAdministrarofertas.
      */
@@ -43,4 +49,21 @@ public class VistaAdministrarofertas extends PolymerTemplate<VistaAdministrarofe
     public interface VistaAdministrarofertasModel extends TemplateModel {
         // Add setters and getters for template properties here.
     }
+
+	public VerticalLayout getLayoutAnadirOferta() {
+		return layoutAnadirOferta;
+	}
+
+	public void setLayoutAnadirOferta(VerticalLayout layoutAnadirOferta) {
+		this.layoutAnadirOferta = layoutAnadirOferta;
+	}
+
+	public HorizontalLayout getLayoutOfertas() {
+		return layoutOfertas;
+	}
+
+	public void setLayoutOfertas(HorizontalLayout layoutOfertas) {
+		this.layoutOfertas = layoutOfertas;
+	}
+    
 }

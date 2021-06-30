@@ -6,6 +6,7 @@ import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.menubar.MenuBar;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
+import com.vaadin.flow.router.PreserveOnRefresh;
 import com.vaadin.flow.router.Route;
 
 import bds.BDPrincipal;
@@ -13,6 +14,7 @@ import bds.iAdministrador;
 import ual.mds2.ortegaortega.MenuHeader;
 import vistas.VistaAdministrarcategorias;
 
+@PreserveOnRefresh
 @Route("administrar_categorias")
 public class Administrar_categorias extends VistaAdministrarcategorias {
 	

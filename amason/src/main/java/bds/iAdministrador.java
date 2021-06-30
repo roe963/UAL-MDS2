@@ -38,7 +38,7 @@ public interface iAdministrador {
 
 	public void activar_producto(int aIdProducto);
 
-	public void agregar_oferta(int aIdProducto, double aPrecioOferta, Date aFechaFinOferta);
+	public void agregar_oferta(int aIdProducto, double aPrecioOferta, long aFechaFinOferta);
 
 	public Oferta[] cargar_ofertas();
 

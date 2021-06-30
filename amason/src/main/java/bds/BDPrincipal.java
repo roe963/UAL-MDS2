@@ -129,8 +129,8 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
         throw new UnsupportedOperationException();
     }
 
-    public void agregar_oferta(int aIdProducto, double aPrecioOferta, Date aFechaFinOferta) {
-        throw new UnsupportedOperationException();
+    public void agregar_oferta(int aIdProducto, double aPrecioOferta, long aFechaFinOferta) {
+    	_bd_ofertas.agregar_oferta(aIdProducto, aPrecioOferta, aFechaFinOferta);
     }
 
     public Oferta[] cargar_ofertas() {
@@ -145,7 +145,7 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
     }
 
     public void finalizar_oferta(int aIdOferta) {
-        throw new UnsupportedOperationException();
+    	_bd_ofertas.finalizar_oferta(aIdOferta);
     }
 
     public boolean agregar_usuario(String aNombreUsuario, String aPasswordUsuario, int aTipoUsuario) {
