@@ -187,8 +187,23 @@ public class Usuario implements Serializable {
 	}
 	
 	public boolean recuperar_contrasena(String mailUsuario) {
-		//TODO: Implement Method
-		throw new UnsupportedOperationException();
+        Usuario[] usuarios = null;
+	    PersistentTransaction t;
+        try {
+            t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
+            try {
+                usuarios = UsuarioDAO
+                        .listUsuarioByQuery("Email='" + mailUsuario + "'", null);
+                if (usuarios.length > 0) return true;
+                t.commit();
+            } catch (Exception e) {
+                t.rollback();
+            }
+        } catch (PersistentException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+        return false;
 	}
 	
 	public String toString() {

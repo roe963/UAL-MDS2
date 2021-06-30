@@ -20,6 +20,7 @@ import bds.BDPrincipal;
 import interfaz.Buscar_producto_cliente;
 import interfaz.Cliente;
 import interfaz.Iniciar_sesion;
+import interfaz.Recuperar_contrasena;
 import interfaz.Ver_catalogo_cliente;
 import interfaz.Ver_pedidos;
 import interfaz.Ver_perfil;
@@ -117,7 +118,9 @@ public class MenuHeader {
                     }
                 });
                 ini.getLoginForm().addForgotPasswordListener(e2 -> {
-                    new Notification("Se le ha enviado un correo con un enlace de recuperación", 2000, Position.MIDDLE).open();
+                    Dialog dd = new Dialog();
+                    dd.add(new Recuperar_contrasena(dd));
+                    dd.open();
                 });
             });
             

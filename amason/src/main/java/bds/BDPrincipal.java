@@ -358,7 +358,7 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
     }
 
     public boolean recuperar_contrasena(String aMailUsuario) {
-        throw new UnsupportedOperationException();
+        return _bd_usuario.recuperar_contrasena(aMailUsuario);
     }
     
 	public boolean cambiar_estado_usuario_encargado_compras(int aIdUsuario, boolean aActivo) {
