@@ -1,21 +1,15 @@
 package interfaz;
 
-import com.vaadin.flow.router.PreserveOnRefresh;
-import com.vaadin.flow.router.Route;
-
 import vistas.VistaAdministrarempleados;
 
-@PreserveOnRefresh
-@Route("administrar_empleados")
 public class Administrar_empleados extends VistaAdministrarempleados {
-	/*private label _nombre;
-	private textField _buscarUsuario;
-	private button _guardarUsuario;
-	public Administrador _administrador;
-	public Agregar_empleado _agregar_empleado;
-	public Empresas_de_transporte _empresas_de_transporte;
-	public Encargados_de_compras _encargados_de_compras;*/
-
+	
+	public Administrar_empleados() {
+		throw new UnsupportedOperationException();
+	}
+	
+	
+	
 	public void cargar_empleados() {
 		throw new UnsupportedOperationException();
 	}
