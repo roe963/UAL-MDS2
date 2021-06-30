@@ -29,9 +29,6 @@ public class Agregar_oferta extends VistaAgregaroferta {
 
 	public Agregar_oferta() {
 		
-		//getTextFieldIdOferta().setVisible(false);
-		//getTextFieldIdProducto().setVisible(false);
-		
 		cargar_productos();
 		
 		this.getButtonAnadir().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -82,9 +79,5 @@ public class Agregar_oferta extends VistaAgregaroferta {
         	producto = event.getValue();
 		});
 	}
-	
-//	public void asignarProducto(basededatos.Producto producto) {
-//		labelSelect.setValue(producto);
-//	}
 	
 }

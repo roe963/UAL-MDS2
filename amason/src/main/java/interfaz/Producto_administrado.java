@@ -46,6 +46,9 @@ public class Producto_administrado extends VistaProductoadministrado {
 			event -> {
 				
 				administrador.cambiar_estado_producto(producto.getId(), this.getCheckboxActivar().getValue());
+				
+			  	UI.getCurrent().navigate("");
+				UI.getCurrent().navigate("administrar_productos");
 			}
 		);
 	}

@@ -85,10 +85,6 @@ public class Agregar_producto extends VistaAgregarproducto {
 		});
 	}
 
-//	public void modificar_producto(basededatos.Producto producto) {
-//		this.getTextFieldNombre().setValue(producto.getNombre());
-//	}
-
 	public void asignarCategoria(Categoria categoria) {
 		labelSelect.setValue(categoria);
 	}

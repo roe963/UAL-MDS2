@@ -28,8 +28,4 @@ public class Categorias extends VistaCategorias {
         }
 	}
 	
-//	public void cambiar_estado_categoria() {
-//		throw new UnsupportedOperationException();
-//	}
-	
 }

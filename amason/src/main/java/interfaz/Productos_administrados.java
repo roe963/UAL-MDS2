@@ -41,8 +41,4 @@ public class Productos_administrados extends VistaProductosadministrados{
 		
 	}
 	
-//	public void cambiar_estado_producto() {
-//		throw new UnsupportedOperationException();
-//	}
-	
 }

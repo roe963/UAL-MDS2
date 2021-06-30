@@ -28,37 +28,9 @@ public class Administrar_categorias extends VistaAdministrarcategorias {
 	    Agregar_categoria agregar_categoria = new Agregar_categoria();
 	    this.getLayoutAnadirCategoria().removeAll();
 	  	this.getLayoutAnadirCategoria().add(agregar_categoria);
-	    //agregar_categoria(agregar_categoria);
 	  	
 	  	this.getLayoutCategorias().removeAll();
 	  	this.getLayoutCategorias().add(new Categorias(agregar_categoria));
-	    //cargar_categorias(agregar_categoria);
-	  	
-	  	//modificar_producto(agregar_categoria);
 	}
-
-//	public void agregar_categoria(Agregar_categoria agregar_categoria) {
-//		this.getLayoutAnadirCategoria().removeAll();
-//	  	this.getLayoutAnadirCategoria().add(agregar_categoria);
-//	  	
-//	  	agregar_categoria.getButtonAnadir().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-//			@Override
-//			public void onComponentEvent(ClickEvent<Button> event) {
-//				
-//				agregar_categoria.agregar_categoria();
-//				//cargar_categorias(agregar_categoria);
-//				UI.getCurrent().navigate("");
-//				UI.getCurrent().navigate("administrar_categorias");
-//			}
-//		});
-//	}
-//
-//	public void cargar_categorias(Agregar_categoria agregar_categoria) {
-//		this.getLayoutCategorias().removeAll();
-//	  	this.getLayoutCategorias().add(new Categorias(agregar_categoria));
-//	}
-
-//	public void cambiar_estado_categoria() {
-//		throw new UnsupportedOperationException();
-//	}
+	
 }

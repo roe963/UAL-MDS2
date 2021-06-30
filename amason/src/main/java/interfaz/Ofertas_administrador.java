@@ -11,13 +11,16 @@ public class Ofertas_administrador extends VistaOfertasadministrador {
 	iAdministrador administrador = new BDPrincipal();
 	interfaz.Oferta_administrador oferta_administrador;
 	
-	public Ofertas_administrador(Agregar_oferta agregar_oferta) {
+	public Ofertas_administrador() {
+		cargar_ofertas();
+	}
+
+	public void cargar_ofertas() {
 		basededatos.Oferta[] ofertas = administrador.cargar_ofertas();
 		
 		this.getLayoutOfertas().removeAll();
 		if (ofertas.length != 0) {
             for (int i = 0; i < ofertas.length; i++) {
-                //this.getLayoutCategorias().add(new interfaz.Categoria(categorias[i]));
             	oferta_administrador = new interfaz.Oferta_administrador(ofertas[i]);
             	this.getLayoutOfertas().add(oferta_administrador);
             }
@@ -27,9 +30,5 @@ public class Ofertas_administrador extends VistaOfertasadministrador {
             this.getLayoutOfertas().add(titulo);
         }
 	}
-
-//	public void finalizar_oferta() {
-//		throw new UnsupportedOperationException();
-//	}
 	
 }
