@@ -35,6 +35,8 @@ public interface iAdministrador {
 	public void agregar_categoria(String aNombreCategoria);
 
 	public Categoria[] cargar_categorias();
+	
+	public Categoria[] cargar_todas_categorias();
 
 	public void activar_producto(int aIdProducto);
 

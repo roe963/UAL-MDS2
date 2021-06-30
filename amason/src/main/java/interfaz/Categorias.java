@@ -11,7 +11,7 @@ public class Categorias extends VistaCategorias {
 	iAdministrador administrador = new BDPrincipal();
 
 	public Categorias() {
-		basededatos.Categoria[] categorias = administrador.cargar_categorias();
+		basededatos.Categoria[] categorias = administrador.cargar_todas_categorias();
 		
 		this.getLayoutCategorias().removeAll();
 		if (categorias.length != 0) {
