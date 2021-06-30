@@ -78,7 +78,8 @@ public class Session {
     public static double calcularPrecioTotalCarrito() {
         Double precioTotal = 0.0;
         for(Cantidad c: carrito) {
-            precioTotal += c.getCantidad()*c.getContiene_un().getPrecio();
+            double precio = c.getContiene_un().getPertenece_a() == null ? c.getContiene_un().getPrecio() : c.getContiene_un().getPertenece_a().getPrecio();
+            precioTotal += c.getCantidad()*precio;
         }
         return precioTotal;
     }
