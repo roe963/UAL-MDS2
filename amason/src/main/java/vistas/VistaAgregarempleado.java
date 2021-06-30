@@ -4,6 +4,11 @@ import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.templatemodel.TemplateModel;
+import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.component.polymertemplate.Id;
+import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.select.Select;
+import com.vaadin.flow.component.button.Button;
 
 /**
  * A Designer generated component for the vista-agregarempleado template.
@@ -15,7 +20,20 @@ import com.vaadin.flow.templatemodel.TemplateModel;
 @JsModule("./src/vista-agregarempleado.js")
 public class VistaAgregarempleado extends PolymerTemplate<VistaAgregarempleado.VistaAgregarempleadoModel> {
 
-    /**
+    @Id("textField-idUsuario")
+	private TextField textFieldIdUsuario;
+	@Id("textField-usuario")
+	private TextField textFieldUsuario;
+	@Id("textField-password")
+	private TextField textFieldPassword;
+	@Id("layout-selectTipoUsuario")
+	private Element layoutSelectTipoUsuario;
+	@Id("select-tipoUsuario")
+	private Select selectTipoUsuario;
+	@Id("button-anadir")
+	private Button buttonAnadir;
+
+	/**
      * Creates a new VistaAgregarempleado.
      */
     public VistaAgregarempleado() {
@@ -28,4 +46,53 @@ public class VistaAgregarempleado extends PolymerTemplate<VistaAgregarempleado.V
     public interface VistaAgregarempleadoModel extends TemplateModel {
         // Add setters and getters for template properties here.
     }
+
+	public TextField getTextFieldIdUsuario() {
+		return textFieldIdUsuario;
+	}
+
+	public void setTextFieldIdUsuario(TextField textFieldIdUsuario) {
+		this.textFieldIdUsuario = textFieldIdUsuario;
+	}
+
+	public TextField getTextFieldUsuario() {
+		return textFieldUsuario;
+	}
+
+	public void setTextFieldUsuario(TextField textFieldUsuario) {
+		this.textFieldUsuario = textFieldUsuario;
+	}
+
+	public TextField getTextFieldPassword() {
+		return textFieldPassword;
+	}
+
+	public void setTextFieldPassword(TextField textFieldPassword) {
+		this.textFieldPassword = textFieldPassword;
+	}
+
+	public Element getLayoutSelectTipoUsuario() {
+		return layoutSelectTipoUsuario;
+	}
+
+	public void setLayoutSelectTipoUsuario(Element layoutSelectTipoUsuario) {
+		this.layoutSelectTipoUsuario = layoutSelectTipoUsuario;
+	}
+
+	public Select getSelectTipoUsuario() {
+		return selectTipoUsuario;
+	}
+
+	public void setSelectTipoUsuario(Select selectTipoUsuario) {
+		this.selectTipoUsuario = selectTipoUsuario;
+	}
+
+	public Button getButtonAnadir() {
+		return buttonAnadir;
+	}
+
+	public void setButtonAnadir(Button buttonAnadir) {
+		this.buttonAnadir = buttonAnadir;
+	}
+    
 }

@@ -19,6 +19,8 @@ public interface iCliente_registrado extends iCliente {
 	public boolean cancelar_compra(int aIdPedido);
 
 	public void comprobar_envio(int aIdPedido);
+	
+	public void valorar_producto(int aIdProducto, int aIdUsuario, int aPuntuacion, String aComentario, long aFecha);
 
 	public Pedido_pendiente[] cargar_pedidos_pendientes_cliente_registrado(int aIdUsuario);
 

@@ -6,12 +6,13 @@ import com.vaadin.flow.component.dialog.Dialog;
 import basededatos.Producto;
 import bds.BDPrincipal;
 import bds.iCliente;
+import bds.iCliente_registrado;
 import ual.mds2.ortegaortega.Session;
 import vistas.VistaValorarproducto;
 
 public class Valorar_producto extends VistaValorarproducto {
     
-    iCliente bd = new BDPrincipal();
+    iCliente_registrado bd = new BDPrincipal();
     
     public Valorar_producto(Producto p, Dialog d, UI current) {
         this.getNombreproducto().setText(p.getNombre());
