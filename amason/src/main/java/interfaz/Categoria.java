@@ -20,14 +20,12 @@ public class Categoria extends VistaCategoria {
 
 	public void cambiar_estado_categoria(basededatos.Categoria categoria) {
 
-		this.getCheckboxActivar().addClickListener(
-			event -> {
-				
-				administrador.cambiar_estado_categoria(categoria.getId(), this.getCheckboxActivar().getValue());
-				
-			  	UI.getCurrent().navigate("");
-				UI.getCurrent().navigate("administrar_categorias");
-			}
-		);
+		this.getCheckboxActivar().addValueChangeListener(event -> {
+                
+                administrador.cambiar_estado_categoria(categoria.getId(), this.getCheckboxActivar().getValue());
+                
+                UI.getCurrent().navigate("");
+                UI.getCurrent().navigate("administrar_categorias");
+            });
 	}
 }
