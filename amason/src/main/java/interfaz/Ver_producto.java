@@ -37,6 +37,7 @@ import bds.BDPrincipal;
 import bds.iCliente;
 import ual.mds2.ortegaortega.MenuHeader;
 import ual.mds2.ortegaortega.Session;
+import ual.mds2.ortegaortega.TIPOUSUARIO;
 import ual.mds2.ortegaortega.ViewChanger;
 import vistas.VistaVerproducto;
 
@@ -126,18 +127,6 @@ public class Ver_producto extends VistaVerproducto implements HasUrlParameter<St
 
 		// Sincronizar la n opinión
 		this.getnOpiniones().setText(Integer.toString(nopiniones) + " Opiniones");
-
-		// El botón es visible cuando eres cliente ????falta hacer que eres cliente para
-		// activar el botón
-		
-		
-		
-		Boolean activarBoton = false;
-		if(ViewChanger.getEresAdministrador().equals("ADMINISTRADOR")) {
-			activarBoton= false; //ocultar el boton
-		}else {
-			activarBoton= true;//activa el boton cuando eres cliente, y no estas registrado
-		}
 		
 		// configurar El tabs
 
@@ -177,7 +166,9 @@ public class Ver_producto extends VistaVerproducto implements HasUrlParameter<St
 		    c.setContiene_un(producto);
 		    Session.addToCarrito(c);
 		});
-	}
+		
+		this.getButtonComprar().setVisible(Session.getTipo()==TIPOUSUARIO.CLIENTE || Session.getTipo()==TIPOUSUARIO.REGISTRADO);
+		}
 
 	private void cargarElRestoDeImagenes(Producto producto) {
 

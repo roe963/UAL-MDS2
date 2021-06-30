@@ -14,8 +14,9 @@ public class Producto_del_carrito extends VistaProductodelcarrito {
         Producto p = c.getContiene_un();
         this.getNombreProducto().setText(p.getNombre());
         this.getCategoriaProducto().setText(p.getAsignado_a().getNombre());
-        this.getPrecioPoducto().setText(String.valueOf(p.getPrecio()) + "€");
-        this.getPrecioTotalPoducto().setText(String.valueOf(p.getPrecio() * c.getCantidad()) + "€");
+        double precio = c.getContiene_un().getPertenece_a() == null ? c.getContiene_un().getPrecio() : c.getContiene_un().getPertenece_a().getPrecio();
+        this.getPrecioPoducto().setText(String.valueOf(precio) + "€");
+        this.getPrecioTotalPoducto().setText(String.valueOf(precio * c.getCantidad()) + "€");
         this.getImageProducto().setSrc(p.contiene_una.toArray()[0].getUrl());
 
         Elegir_cantidad ec = new Elegir_cantidad();
