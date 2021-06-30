@@ -4,6 +4,8 @@ import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.notification.Notification.Position;
 
 import bds.BDPrincipal;
 import bds.iAdministrador;
@@ -21,16 +23,20 @@ public class Agregar_categoria extends VistaAgregarcategoria {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
 				agregar_categoria();
-				
-				UI.getCurrent().navigate("");
-				UI.getCurrent().navigate("administrar_categorias");
 			}
 		});
 	}
 	
 	public void agregar_categoria() {
 		String nombre = getTextFieldNombre().getValue();
-		if (!nombre.isEmpty())	administrador.agregar_categoria(nombre);
+		if (nombre.isEmpty()) {
+            new Notification("Nombre puede estar vacío", 3000, Position.MIDDLE).open();;
+        } else {
+            administrador.agregar_categoria(nombre);
+            UI.getCurrent().navigate("");
+            UI.getCurrent().navigate("administrar_categorias");
+            new Notification(nombre + " añadida correctamente", 3000, Position.MIDDLE).open();;
+        }
 	}
 	
 }

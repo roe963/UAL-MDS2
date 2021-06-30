@@ -30,7 +30,7 @@ public class Administrar_categorias extends VistaAdministrarcategorias {
 	  	this.getLayoutAnadirCategoria().add(agregar_categoria);
 	  	
 	  	this.getLayoutCategorias().removeAll();
-	  	this.getLayoutCategorias().add(new Categorias(agregar_categoria));
+	  	this.getLayoutCategorias().add(new Categorias());
 	}
 	
 }

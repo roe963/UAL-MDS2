@@ -10,10 +10,13 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.menubar.MenuBar;
+import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.notification.Notification.Position;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.radiobutton.RadioButtonGroup;
 import com.vaadin.flow.component.radiobutton.RadioGroupVariant;
 import com.vaadin.flow.component.select.Select;
+import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.router.Route;
 
 import basededatos.Categoria;
@@ -31,8 +34,7 @@ public class Agregar_producto extends VistaAgregarproducto {
 	
 	Categoria categoria = null;
 	
-	public Agregar_producto() {
-		
+	public Agregar_producto() {		
 		getTextFieldIdProducto().setVisible(false);
 		getTextFieldIdFoto().setVisible(false);
 		
@@ -44,16 +46,12 @@ public class Agregar_producto extends VistaAgregarproducto {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
 				agregar_producto();
-				
-				UI.getCurrent().navigate("");
-				UI.getCurrent().navigate("administrar_productos");
 			}
 		});
 	}
 	
 	public void agregar_producto() {
 		String nombre = getTextFieldNombre().getValue();
-		String precio = getTextFieldPrecio().getValue();
 		String descripcion = getTextAreaDescripcion().getValue();
 		String imagen = getTextFieldImagen().getValue();
 		int activo = 1;
@@ -61,8 +59,20 @@ public class Agregar_producto extends VistaAgregarproducto {
 		if(getCheckboxProductoActivo().getValue() == false) {
 			activo = 0;
 		}
+		Double precio = null;
+		try {
+		    precio = Double.parseDouble(getTextFieldPrecio().getValue());
+		} catch (Exception e) {
+        }
 		
-		if (!nombre.isEmpty() && !precio.isEmpty()) administrador.agregar_producto(nombre, categoria, Double.parseDouble(precio), descripcion, imagen);
+		if (nombre.isEmpty() || precio == null || categoria == null) {
+		    new Notification("Nombre, precio y categoría no puede estar vacíos", 3000, Position.MIDDLE).open();;
+		} else {
+		    administrador.agregar_producto(nombre, categoria, precio, descripcion, imagen);
+            UI.getCurrent().navigate("");
+            UI.getCurrent().navigate("administrar_productos");
+            new Notification(nombre + " añadido correctamente", 3000, Position.MIDDLE).open();;
+		}
 	}
 
 	public void cargar_categorias() {

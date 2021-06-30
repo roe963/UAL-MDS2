@@ -12,6 +12,8 @@ import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.notification.Notification.Position;
 import com.vaadin.flow.component.select.Select;
 
 import basededatos.Categoria;
@@ -35,30 +37,32 @@ public class Agregar_oferta extends VistaAgregaroferta {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
-				Agregar_oferta();
-				
-				UI.getCurrent().navigate("");
-				UI.getCurrent().navigate("administrar_ofertas");
+				agregar_oferta();
 			}
 		});
 	}
 	
-	public void Agregar_oferta() {
-		
-		String precio = getTextFieldPrecio().getValue();
-		String fecha = getDatePickerFechaFinOferta().getValue().toString();
-		
+	public void agregar_oferta() {		
+		Double precio = null;
+		Date d = null;
 		SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
 		try {
-		    Date d = f.parse(fecha);
-		    long fechaLong = d.getTime();
-		    System.out.println(fechaLong);
-		    
-		    if (!precio.isEmpty() && !fecha.isEmpty()) administrador.agregar_oferta(producto.getId(), Double.parseDouble(precio), fechaLong);
-		    
-		} catch (ParseException e) {
+		    precio = Double.parseDouble(getTextFieldPrecio().getValue());
+		    d = f.parse(getDatePickerFechaFinOferta().getValue().toString());
+		} catch (Exception e) {
 		    e.printStackTrace();
 		}
+		
+		
+		if (precio == null || d == null || producto == null) {
+            new Notification("Precio y fecha no pueden estar vacíos", 3000, Position.MIDDLE).open();;
+        } else {
+            administrador.agregar_oferta(producto.getId(), precio, d.getTime());
+            UI.getCurrent().navigate("");
+            UI.getCurrent().navigate("administrar_ofertas");
+            new Notification("Oferta añadida correctamente", 3000, Position.MIDDLE).open();;
+        }
+        
 	}
 	
 	public void cargar_productos() {
