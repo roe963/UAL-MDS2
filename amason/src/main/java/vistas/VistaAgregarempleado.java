@@ -2,6 +2,7 @@ package vistas;
 
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.templatemodel.TemplateModel;
 import com.vaadin.flow.component.textfield.TextField;
@@ -27,7 +28,7 @@ public class VistaAgregarempleado extends PolymerTemplate<VistaAgregarempleado.V
 	@Id("textField-password")
 	private TextField textFieldPassword;
 	@Id("layout-selectTipoUsuario")
-	private Element layoutSelectTipoUsuario;
+	private VerticalLayout layoutSelectTipoUsuario;
 	@Id("select-tipoUsuario")
 	private Select selectTipoUsuario;
 	@Id("button-anadir")
@@ -71,11 +72,11 @@ public class VistaAgregarempleado extends PolymerTemplate<VistaAgregarempleado.V
 		this.textFieldPassword = textFieldPassword;
 	}
 
-	public Element getLayoutSelectTipoUsuario() {
+	public VerticalLayout getLayoutSelectTipoUsuario() {
 		return layoutSelectTipoUsuario;
 	}
 
-	public void setLayoutSelectTipoUsuario(Element layoutSelectTipoUsuario) {
+	public void setLayoutSelectTipoUsuario(VerticalLayout layoutSelectTipoUsuario) {
 		this.layoutSelectTipoUsuario = layoutSelectTipoUsuario;
 	}
 

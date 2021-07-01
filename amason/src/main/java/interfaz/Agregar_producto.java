@@ -34,7 +34,7 @@ public class Agregar_producto extends VistaAgregarproducto {
 	
 	Categoria categoria = null;
 	
-	public Agregar_producto() {		
+	public Agregar_producto() {
 		getTextFieldIdProducto().setVisible(false);
 		getTextFieldIdFoto().setVisible(false);
 		
@@ -66,7 +66,7 @@ public class Agregar_producto extends VistaAgregarproducto {
         }
 		
 		if (nombre.isEmpty() || precio == null || categoria == null) {
-		    new Notification("Nombre, precio y categoría no puede estar vacíos", 3000, Position.MIDDLE).open();;
+		    new Notification("Nombre, precio y categoría no puede estar vacíos", 3000, Position.MIDDLE).open();
 		} else {
 		    administrador.agregar_producto(nombre, categoria, precio, descripcion, imagen);
             UI.getCurrent().navigate("");
@@ -90,7 +90,7 @@ public class Agregar_producto extends VistaAgregarproducto {
 		
 		labelSelect.addValueChangeListener(
         event -> {
-        	        	
+        	
         	categoria = event.getValue();
 		});
 	}
@@ -98,4 +98,5 @@ public class Agregar_producto extends VistaAgregarproducto {
 	public void asignarCategoria(Categoria categoria) {
 		labelSelect.setValue(categoria);
 	}
+	
 }

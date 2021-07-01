@@ -1,5 +1,7 @@
 package interfaz;
 
+import com.vaadin.flow.component.html.Label;
+
 import basededatos.Oferta;
 import bds.BDPrincipal;
 import bds.iCliente;
@@ -11,8 +13,14 @@ public class Ofertas extends VistaOfertas {
 	
 	public Ofertas() {
 	    Oferta[] ofertas = clientes.cargar_ofertas();
-	    for (int i = 0; i < ofertas.length; i++) {
-            this.getLayoutOfertas().add(new interfaz.Oferta(ofertas[i]));
+	    if (ofertas.length != 0) {
+		    for (int i = 0; i < ofertas.length; i++) {
+	            this.getLayoutOfertas().add(new interfaz.Oferta(ofertas[i]));
+	        }
+	    } else {
+            Label titulo= new Label();
+            titulo.setText("No hay ofertas en la BD");
+            this.getLayoutOfertas().add(titulo);
         }
 	}
 }

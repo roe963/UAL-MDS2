@@ -18,6 +18,10 @@ public class Categorias extends VistaCategorias {
             for (int i = 0; i < categorias.length; i++) {
             	this.getLayoutCategorias().add(new Categoria(categorias[i]));
             }
+        } else {
+            Label titulo= new Label();
+            titulo.setText("No hay categorias en la BD");
+            this.getLayoutCategorias().add(titulo);
         }
 	}
 }

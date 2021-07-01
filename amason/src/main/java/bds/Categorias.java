@@ -17,6 +17,7 @@ public class Categorias {
 	public Vector<Categoria> _contiene_categoria = new Vector<Categoria>();
 
 	public Producto[] cargar_categoria(int aIdCategoria) throws PersistentException {
+		
 		Producto[] productos = null;
 		
         PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();

@@ -64,10 +64,10 @@ public interface iAdministrador {
 	
 	public boolean cambiar_estado_usuario_encargado_compras(int aIdUsuario, boolean aActivo);
 	
-	public boolean modificar_usuario_encargado_compras(int aIdUsuario, String aNombreUsuario, String aPasswordUsuario, int aTipoUsuario);
+	public boolean modificar_usuario_encargado_compras(int aIdUsuario, String aNombreUsuario, String aPasswordUsuario);
 	
 	public boolean cambiar_estado_usuario_empresa_transportes(int aIdUsuario, boolean aActivo);
 
-	public boolean modificar_usuario_empresa_transportes(int aIdUsuario, String aNombreUsuario, String aPasswordUsuario, int aTipoUsuario);
+	public boolean modificar_usuario_empresa_transportes(int aIdUsuario, String aNombreUsuario, String aPasswordUsuario);
 	
 }

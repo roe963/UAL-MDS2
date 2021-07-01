@@ -24,9 +24,9 @@ public class Ofertas_administrador extends VistaOfertasadministrador {
             	oferta_administrador = new interfaz.Oferta_administrador(ofertas[i]);
             	this.getLayoutOfertas().add(oferta_administrador);
             }
-        }else {
+        } else {
             Label titulo= new Label();
-            titulo.setText("No hay productos en la BD");
+            titulo.setText("No hay ofertas en la BD");
             this.getLayoutOfertas().add(titulo);
         }
 	}

@@ -24,10 +24,8 @@ public class Producto_administrado extends VistaProductoadministrado {
 
         this.getLayoutProducto().addClickListener(event -> {
 
-            // agregar_producto.modificar_producto(producto);
             agregar_producto.getTextFieldIdProducto().setValue(String.valueOf(producto.getId()));
             agregar_producto.getTextFieldNombre().setValue(producto.getNombre());
-            // agregar_producto.getSelectCategoria().setValue(producto.getAsignado_a());
             agregar_producto.asignarCategoria(producto.getAsignado_a());
             agregar_producto.getTextFieldPrecio().setValue(String.valueOf(producto.getPrecio()));
             agregar_producto.getTextAreaDescripcion().setValue(producto.getDescripcion());

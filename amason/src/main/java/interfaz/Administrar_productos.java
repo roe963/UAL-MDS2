@@ -61,7 +61,7 @@ public class Administrar_productos extends VistaAdministrarproductos {
 						&& agregar_producto.categoria.toString().isEmpty())) {
 					
 					administrador.modificar_proucto(idProducto, idFoto, nombre, agregar_producto.categoria, Double.parseDouble(precio), descripcion, imagen);
-					//cargar_todos_productos(agregar_producto);
+					
 					getLayoutProductos().removeAll();
 				  	getLayoutProductos().add(new Productos_administrados(agregar_producto));
 				  	
@@ -77,68 +77,6 @@ public class Administrar_productos extends VistaAdministrarproductos {
 		});
 	  	
 	}
-	
-//	public void agregar_producto(Agregar_producto agregar_producto) {
-//		this.getLayoutAnadirProducto().removeAll();
-//	  	this.getLayoutAnadirProducto().add(agregar_producto);
-//	  	
-//	  	agregar_producto.getButtonAnadir().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-//			@Override
-//			public void onComponentEvent(ClickEvent<Button> event) {
-//				
-//				agregar_producto.agregar_producto();
-//				cargar_todos_productos(agregar_producto);
-//			}
-//		});
-//	}
-
-//	public void cargar_categorias() {
-//		throw new UnsupportedOperationException();
-//	}
-
-//	public void cargar_todos_productos(Agregar_producto agregar_producto) {
-//		this.getLayoutProductos().removeAll();
-//	  	this.getLayoutProductos().add(new Productos_administrados(agregar_producto));
-//	}
-
-//	public void modificar_producto(Agregar_producto agregar_producto) {
-//		this.getButtonGuardar().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-//			@Override
-//			public void onComponentEvent(ClickEvent<Button> event) {
-//								
-//				int idProducto = Integer. parseInt(agregar_producto.getTextFieldIdProducto().getValue());
-//				int idFoto = Integer. parseInt(agregar_producto.getTextFieldIdFoto().getValue());
-//				
-//				String nombre = agregar_producto.getTextFieldNombre().getValue();
-//				String precio = agregar_producto.getTextFieldPrecio().getValue();
-//				String descripcion = agregar_producto.getTextAreaDescripcion().getValue();
-//				String imagen = agregar_producto.getTextFieldImagen().getValue();
-//				int activo = 1;
-//				
-//				if(agregar_producto.getCheckboxProductoActivo().getValue() == false) {
-//					activo = 0;
-//				}
-//				
-//				if(!(agregar_producto.getTextFieldNombre().isEmpty() && agregar_producto.getTextFieldPrecio().isEmpty()
-//						&& agregar_producto.getTextAreaDescripcion().isEmpty() && agregar_producto.getTextFieldImagen().isEmpty()
-//						&& agregar_producto.categoria.toString().isEmpty())) {
-//					
-//					administrador.modificar_proucto(idProducto, idFoto, nombre, agregar_producto.categoria, Double.parseDouble(precio), descripcion, imagen);
-//					//cargar_todos_productos(agregar_producto);
-//					getLayoutProductos().removeAll();
-//				  	getLayoutProductos().add(new Productos_administrados(agregar_producto));
-//				  	
-//				  	UI.getCurrent().navigate("");
-//					UI.getCurrent().navigate("administrar_productos");
-//					
-//					notificacion("Los datos se han modificado correctamente.");
-//				} else {
-//					notificacion("No se ha realizado ningún cambio.");
-//				}
-//				
-//			}
-//		});
-//	}
 
 //	public void cambiar_estado_producto() {
 //		throw new UnsupportedOperationException();

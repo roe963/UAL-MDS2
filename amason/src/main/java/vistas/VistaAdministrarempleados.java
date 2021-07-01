@@ -33,8 +33,8 @@ public class VistaAdministrarempleados extends PolymerTemplate<VistaAdministrare
     }
     //////Barra Navegacion /////
     
-	@Id("vaadinVerticalLayout")
-	private VerticalLayout vaadinVerticalLayout;
+	@Id("layout-anadirUsuario")
+	private VerticalLayout layoutAnadirUsuario;
 	@Id("layout-encargadoCompras")
 	private HorizontalLayout layoutEncargadoCompras;
 	@Id("layout-empresaTransportes")
@@ -56,12 +56,12 @@ public class VistaAdministrarempleados extends PolymerTemplate<VistaAdministrare
         // Add setters and getters for template properties here.
     }
 
-	public VerticalLayout getVaadinVerticalLayout() {
-		return vaadinVerticalLayout;
+	public VerticalLayout getLayoutAnadirUsuario() {
+		return layoutAnadirUsuario;
 	}
 
-	public void setVaadinVerticalLayout(VerticalLayout vaadinVerticalLayout) {
-		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	public void setLayoutAnadirUsuario(VerticalLayout layoutAnadirUsuario) {
+		this.layoutAnadirUsuario = layoutAnadirUsuario;
 	}
 
 	public HorizontalLayout getLayoutEncargadoCompras() {

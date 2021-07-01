@@ -81,6 +81,7 @@ public class Productos {
 	}
 
 	public Producto[] cargar_productos() throws PersistentException {
+		
 		Producto[] productos = null;
 		Foto[] fotos= null;
 		
@@ -211,7 +212,6 @@ public class Productos {
 			t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession()
 			        .beginTransaction();
 				try {
-				//producto
 				Producto producto = ProductoDAO.getProductoByORMID(aIdProducto);
 		        producto.setActivo(aActivo);
 	        
