@@ -37,10 +37,6 @@ public class Encargados_compras {
         }
         return encargado;
 	}
-
-	public String recuperar_contrasena(String aMailUsuario) {
-		throw new UnsupportedOperationException();
-	}
 	
 	public Encargado_compras[] cargar_empleados_encargado_compras() {
 

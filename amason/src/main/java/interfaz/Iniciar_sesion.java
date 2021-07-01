@@ -4,7 +4,6 @@ import basededatos.Usuario;
 import bds.BDPrincipal;
 import bds.iCliente;
 import bds.iIniciar_sesion;
-import ual.mds2.ortegaortega.ViewChanger;
 import vistas.VistaIniciarsesion;
 
 public class Iniciar_sesion extends VistaIniciarsesion{
@@ -14,5 +13,9 @@ public class Iniciar_sesion extends VistaIniciarsesion{
 
     public Iniciar_sesion() {
 
+    }
+    
+    public Usuario iniciar_sesion(String user, String password) {
+        return ini.iniciar_sesion(user, password);
     }
 }

@@ -79,17 +79,10 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
         return productos;
     }
 
-    public Producto cargar_producto(int aIdProducto) {
-        throw new UnsupportedOperationException();
-    }
-
     public Pedido[] cargar_pedidos_entregados() {
         return _bd_pedidos_entregados.cargar_pedidos_entregados();
     }
 
-    public Pedido detalle_pedido(int aIdPedido) {
-        throw new UnsupportedOperationException();
-    }
 
     public void agregar_producto(String aNombreProducto, Categoria aCategoria, double aPrecioProducto,
             String aDescripcionProducto, String aImagenProducto) {
@@ -137,10 +130,6 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
         return categorias;
 	}
 
-    public void activar_producto(int aIdProducto) {
-        throw new UnsupportedOperationException();
-    }
-
     public void agregar_oferta(int aIdProducto, double aPrecioOferta, long aFechaFinOferta) {
     	_bd_ofertas.agregar_oferta(aIdProducto, aPrecioOferta, aFechaFinOferta);
     }
@@ -170,14 +159,6 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
     	return false;
     }
 
-    public Usuario[] cargar_empleados() {
-        throw new UnsupportedOperationException();
-    }
-
-//    public boolean modificar_usuario(String aNombreUsuario, String aPasswordUsuario, int aTipoUsuario) {
-//        throw new UnsupportedOperationException();
-//    }
-
     public Empresa_transportes[] cargar_empleados_empresa_transportes() {
     	return _bd_empresas_transportes.cargar_empleados_empresa_transportes();
     }
@@ -193,10 +174,6 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
     public void cambiar_estado_categoria(int aIdCategoria, boolean aActivo) {
         _bd_categorias.cambiar_estado_categoria(aIdCategoria, aActivo);
     }
-
-//    public boolean cambiar_estado_usaurio(int aIdUsuario, boolean aActivo) {
-//        throw new UnsupportedOperationException();
-//    }
 
     public Producto[] cargar_productos_categoria(int aIdCategoria) {
         Producto[] productos = null;
@@ -234,25 +211,9 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
         return valoracion;
     }
 
-    public void validar_registro() {
-        throw new UnsupportedOperationException();
-    }
-
-    public void seleccionar_direccion_envio(int aIdUsuario, String aDireccionUsuario) {
-        throw new UnsupportedOperationException();
-    }
-
-    public void seleccionar_metodo_pago(int aIdUsuario, String aFormaPagoUsuario) {
-        throw new UnsupportedOperationException();
-    }
-
     public void realizar_pedido(Cantidad[] aCantidades, Cliente aCliente, String aDireccion, String aFormaPago) {
         _bd_clientes.actualizas_datos_compra(aDireccion, aFormaPago, aCliente);
         _bd_pedidos_pendientes.realizar_pedido(aCantidades, aCliente);
-    }
-    
-    public void verificar_compra() {
-        throw new UnsupportedOperationException();
     }
 
     public Cliente cargar_perfil(int aIdUsuario) {
@@ -269,16 +230,8 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
         }
     }
 
-    public Producto[] cargar_productos_pedido(Cantidad[] aCantidades) {
-        throw new UnsupportedOperationException();
-    }
-
     public boolean cancelar_compra(int aIdPedido) {
         return _bd_pedidos_pendientes.cancelar_compra(aIdPedido);
-    }
-
-    public void comprobar_envio(int aIdPedido) {
-        throw new UnsupportedOperationException();
     }
 
     public Pedido_pendiente[] cargar_pedidos_pendientes_cliente_registrado(int aIdUsuario) {
@@ -316,10 +269,6 @@ public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrad
 	public Respuesta[] cargar_respuestas_mensaje(int aIdMensaje) {
 		return _bd_respuestas.cargar_respuestas_mensaje(aIdMensaje);
 	}
-	
-    public void ver_mensaje(int aIdMensaje) {
-        throw new UnsupportedOperationException();
-    }
         
 	public void responder_respuesta(int aIdMensaje, String aRespuesta) {
 		_bd_respuestas.responder_respuesta(aIdMensaje, aRespuesta);

@@ -33,7 +33,4 @@ public class Administradores {
         return admin;
 	}
 
-	public String recuperar_contrasena(String aMailUsuario) {
-		throw new UnsupportedOperationException();
-	}
 }

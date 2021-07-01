@@ -10,21 +10,11 @@ import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.login.LoginI18n;
 import com.vaadin.flow.component.menubar.MenuBar;
-import com.vaadin.flow.component.notification.Notification;
-import com.vaadin.flow.component.notification.Notification.Position;
-import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.textfield.TextField;
 
 import basededatos.Usuario;
-import bds.BDPrincipal;
-import interfaz.Buscar_producto_cliente;
-import interfaz.Cliente;
 import interfaz.Iniciar_sesion;
 import interfaz.Recuperar_contrasena;
-import interfaz.Ver_catalogo_cliente;
-import interfaz.Ver_pedidos;
-import interfaz.Ver_perfil;
-import interfaz.Ver_producto;
 
 public class MenuHeader {
     
@@ -110,7 +100,7 @@ public class MenuHeader {
                 ini.getLoginForm().setI18n(SpanishI18n());;
                 ini.getLoginForm().addLoginListener(e1 -> {
 
-                    Usuario usu = new BDPrincipal().iniciar_sesion(e1.getUsername(), e1.getPassword());
+                    Usuario usu = ini.iniciar_sesion(e1.getUsername(), e1.getPassword());
                     if (usu == null) {
                         ini.getLoginForm().setError(true);
                     } else {

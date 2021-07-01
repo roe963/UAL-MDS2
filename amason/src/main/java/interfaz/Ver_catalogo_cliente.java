@@ -59,44 +59,8 @@ public class Ver_catalogo_cliente extends VistaVercatalogocliente{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-        	
-        	//System.out.println(event.getValue().getNombre());
-        	//System.out.println(event.getValue().getId());
-        	
-			//cantidadCache cantidaCache= new cantidadCache(producto.getId(), Integer.parseInt(labelSelect.getValue()) ); 
-			//ViewChanger.cambiarCantidad(cantidaCache);
-			//ViewChanger.CambiarVista(new Carrito());
 
-		});
-		
-		/*Categoria[] categorias = clientes.cargar_categorias();
-		
-		//List playersList = Arrays.asList(categorias.toString());
-		
-		List<Categoria> list = new ArrayList<Categoria>(Arrays.asList(categorias));
-		
-		//System.out.println(categorias[0].getNombre());
-		
-		for (int i = 0; i < categorias.length; i++) {
-			//labelSelect.setItems(categorias[i].getNombre());
-			cadena += "\"" + categorias[i].getNombre() + "\"";
-			
-			if (i < categorias.length - 1) {
-				cadena += ", ";
-			}
-		}
-		
-		System.out.println(cadena);
-		
-		this.getLayoutSelectCategoria().removeAll();
-				
-		///labelSelect.setItems("1", "2","3","4","5");
-		//labelSelect.setValue(Integer.toString(cantidad.getCantidad()));
-		labelSelect.setValue(categorias[0].getNombre());
-		labelSelect.setPlaceholder("Categorias");
-		//labelSelect.setLabel("Categorias");
-		this.getLayoutSelectCategoria().add(labelSelect);*/
-		
+		});		
 	}
 	
 	public void seleccionar_categoria(int idCategoria) throws PersistentException {

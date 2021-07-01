@@ -20,8 +20,12 @@ public class Valorar_producto extends VistaValorarproducto {
         ec.getSelectCantidad().setValue(1);
         this.getSelectPuntuacion().add(ec);
         this.getEnviarValoracion().addClickListener(event -> {
-            bd.valorar_producto(p.getId(), Session.getUsuario().getId(), ec.getSelectCantidad().getValue(), this.getDescripcionValoracion().getValue(), System.currentTimeMillis());
-            d.close();
+            valorar_producto(p, d, ec);
         });
+    }
+    
+    public void valorar_producto(Producto p, Dialog d, Elegir_cantidad ec) {
+        bd.valorar_producto(p.getId(), Session.getUsuario().getId(), ec.getSelectCantidad().getValue(), this.getDescripcionValoracion().getValue(), System.currentTimeMillis());
+        d.close();
     }
 }

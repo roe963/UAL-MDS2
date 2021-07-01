@@ -5,8 +5,6 @@ import java.util.List;
 
 import org.orm.PersistentException;
 
-import com.vaadin.flow.component.ClickEvent;
-import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.menubar.MenuBar;
@@ -21,7 +19,6 @@ import basededatos.Producto;
 import bds.BDPrincipal;
 import bds.iAdministrador;
 import ual.mds2.ortegaortega.MenuHeader;
-import ual.mds2.ortegaortega.ViewChanger;
 import vistas.VistaVercatalogoadministrador;
 
 @PreserveOnRefresh
@@ -48,15 +45,12 @@ public class Ver_catalogo_administrador extends VistaVercatalogoadministrador {
 		TextField txtBuscar = this.getTextfieldBuscar();
 		Button btnBuscar = this.getButtonBuscar();
 		
-		btnBuscar.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-            @Override
-            public void onComponentEvent(ClickEvent<Button> event) {
-                if (txtBuscar.isEmpty()) {
-                    buscar(todoslosproductos);
-    			} else {
-    			    buscar(Arrays.stream(todoslosproductos).filter(x ->x.getNombre().toLowerCase().contains((CharSequence) txtBuscar.getValue().toLowerCase())).toArray(Producto[]::new));
-    			}
-            }
+		btnBuscar.addClickListener(event -> {
+            if (txtBuscar.isEmpty()) {
+                buscar(todoslosproductos);
+        	} else {
+        	    buscar(Arrays.stream(todoslosproductos).filter(x ->x.getNombre().toLowerCase().contains((CharSequence) txtBuscar.getValue().toLowerCase())).toArray(Producto[]::new));
+        	}
         });
 		
 		//new Buscar_producto_cliente(this.getTextfieldBuscar().getValue());
@@ -96,6 +90,7 @@ public class Ver_catalogo_administrador extends VistaVercatalogoadministrador {
 	    this.getVaadinHorizontalLayout().removeAll();
         this.getVaadinHorizontalLayout().add(new Productos(productos));
 	}
+	
 	public void seleccionar_categoria(int idCategoria) throws PersistentException {
 		Producto[] productos = bd.cargar_productos_categoria(idCategoria);
 		

@@ -88,10 +88,6 @@ public class Categorias {
         return categorias;
 	}
 
-	public void activar_categoria(int aIdCategoria) {
-		throw new UnsupportedOperationException();
-	}
-
 	public void cambiar_estado_categoria(int aIdCategoria, boolean aActivo) {
 
 		PersistentTransaction t;

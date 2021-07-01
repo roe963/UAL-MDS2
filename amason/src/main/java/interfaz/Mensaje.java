@@ -6,7 +6,6 @@ import com.vaadin.flow.router.Route;
 
 import ual.mds2.ortegaortega.Session;
 import ual.mds2.ortegaortega.TIPOUSUARIO;
-import ual.mds2.ortegaortega.ViewChanger;
 import vistas.VistaMensaje;
 
 @PreserveOnRefresh

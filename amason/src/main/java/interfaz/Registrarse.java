@@ -1,8 +1,6 @@
 package interfaz;
 
 import com.vaadin.flow.component.ClickEvent;
-import com.vaadin.flow.component.ComponentEvent;
-import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.notification.Notification;
@@ -27,25 +25,15 @@ public class Registrarse extends VistaRegistrarse {
 	@SuppressWarnings("unchecked")
 	public Registrarse() {
 
-		cargarComponentes();
+	    labelSelect.setItems("PayPal", "Tarjeta");
+        labelSelect.setValue("Con Tarjeta");
+        labelSelect.setLabel("Forma de pago");
+        this.getVaadinHorizontalLayout1().add(labelSelect);
 
-		this.getButtonCrearcuenta().addClickListener(new ComponentEventListener() {
-			@Override
-			public void onComponentEvent(ComponentEvent event) {
-				validar_registro();
-			}
-		});
+		this.getButtonCrearcuenta().addClickListener(event -> registrar_usuario());
 	}
 
-	void cargarComponentes() {
-		// carga el select
-		labelSelect.setItems("PayPal", "Tarjeta");
-		labelSelect.setValue("Con Tarjeta");
-		labelSelect.setLabel("Forma de pago");
-		this.getVaadinHorizontalLayout1().add(labelSelect);
-	}
-
-	public void validar_registro() {
+	public void registrar_usuario() {
 
 		String nombreUsuario = getTextareaNombre().getValue();
 		String mailUsuario = getTextareaEmail().getValue();

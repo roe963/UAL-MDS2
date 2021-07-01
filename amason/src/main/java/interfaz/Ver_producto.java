@@ -38,26 +38,25 @@ import bds.iCliente;
 import ual.mds2.ortegaortega.MenuHeader;
 import ual.mds2.ortegaortega.Session;
 import ual.mds2.ortegaortega.TIPOUSUARIO;
-import ual.mds2.ortegaortega.ViewChanger;
 import vistas.VistaVerproducto;
 
 @PreserveOnRefresh
 @Route("producto")
 public class Ver_producto extends VistaVerproducto implements HasUrlParameter<String> {
-	/*
-	 * private label _nombre; private label _nombreProducto; private label
-	 * _categoria; private label _nombreCategoria; private label _precio; private
-	 * label _precioProducto; private label _valoracion; private label
-	 * _valoracionMedia; private label _descripcion; private label
-	 * _descripcionProducto; private label _numOpiniones; private image _foto1;
-	 * private image _foto2; private image _foto3; private image _foto4; private
-	 * image _foto5; public Producto _producto; public Valoraciones _valoraciones;
-	 */
-    
+    /*
+     * private label _nombre; private label _nombreProducto; private label
+     * _categoria; private label _nombreCategoria; private label _precio; private
+     * label _precioProducto; private label _valoracion; private label
+     * _valoracionMedia; private label _descripcion; private label
+     * _descripcionProducto; private label _numOpiniones; private image _foto1;
+     * private image _foto2; private image _foto3; private image _foto4; private
+     * image _foto5; public Producto _producto; public Valoraciones _valoraciones;
+     */
+
     @Override
     public void setParameter(BeforeEvent event, @OptionalParameter String parameter) {
         System.out.println(parameter);
-        
+
         try {
             Producto p = basededatos.ProductoDAO.getProductoByORMID(Integer.parseInt(parameter));
             cargar_producto(p);
@@ -70,160 +69,131 @@ public class Ver_producto extends VistaVerproducto implements HasUrlParameter<St
         }
     }
 
-	iCliente cliente = new BDPrincipal();
+    iCliente cliente = new BDPrincipal();
 
-	public Ver_producto() {
-	    MenuBar mb = MenuHeader.getMenuBar();
+    public void cargar_producto(basededatos.Producto producto) {
+        MenuBar mb = MenuHeader.getMenuBar();
         this.getLayoutMenu().add(mb);
         this.getLayoutMenu().setHorizontalComponentAlignment(Alignment.CENTER, mb);
-	}
+        
+        basededatos.Valoracion[] valoraciones = cliente.cargar_valoraciones(producto.getId());
 
-//	public Ver_producto(basededatos.Producto producto) {
-//		cargar_producto(producto);
-//
-//	}
+        int valoracion;
+        int nopiniones = valoraciones.length;
 
-	public void cargar_producto(basededatos.Producto producto) {
-		basededatos.Valoracion[] valoraciones = cliente.cargar_valoraciones(producto.getId());
+        if (valoraciones.length <= 0) {// cuando no hay valoración
+            valoracion = 0;
+        } else {
+            int suma = 0;
+            for (int i = 0; i < valoraciones.length; i++) {
+                suma += valoraciones[i].getPuntuacion();
+            }
 
-		int valoracion = numeroValoracion(valoraciones);
-		int nopiniones = valoraciones.length;
+            valoracion = suma / valoraciones.length;
+        }
 
-		this.getNombreProducto().setText(producto.getNombre());
-		this.getNombreCategoria().setText(producto.getAsignado_a().getNombre());
-		this.getNombrePrecio().setText(Double.toString(producto.getPrecio())+"€");
-		Oferta oferta = producto.getPertenece_a();
+        this.getNombreProducto().setText(producto.getNombre());
+        this.getNombreCategoria().setText(producto.getAsignado_a().getNombre());
+        this.getNombrePrecio().setText(Double.toString(producto.getPrecio()) + "€");
+        Oferta oferta = producto.getPertenece_a();
 
-		// Oculta botones cuando ese producto no tiene ofertas
-		if (oferta == null) {
-			// ocultar los titulo porque no hay ofertas
-			this.getTituloAnteriorh41().setVisible(false);
-			this.getPrecioAnterior().setVisible(false);
-			this.getTituloOfertah4().setVisible(false);
-			;
-			this.getFechaOferta().setVisible(false);
+        // Oculta botones cuando ese producto no tiene ofertas
+        if (oferta == null) {
+            // ocultar los titulo porque no hay ofertas
+            this.getTituloAnteriorh41().setVisible(false);
+            this.getPrecioAnterior().setVisible(false);
+            this.getTituloOfertah4().setVisible(false);
+            ;
+            this.getFechaOferta().setVisible(false);
 
-		} else {
-			this.getNombrePrecio().getStyle().set("text-decoration", "line-through");
-			this.getPrecioAnterior().setText(Double.toString(oferta.getPrecio())+"€");
-			//this.getFechaOferta().setText(Long.toString(oferta.getFecha()));
-	        this.getFechaOferta().setText(new SimpleDateFormat("dd/MM/yyyy").format(new Date(oferta.getFecha())));
-		}
+        } else {
+            this.getNombrePrecio().getStyle().set("text-decoration", "line-through");
+            this.getPrecioAnterior().setText(Double.toString(oferta.getPrecio()) + "€");
+            // this.getFechaOferta().setText(Long.toString(oferta.getFecha()));
+            this.getFechaOferta().setText(new SimpleDateFormat("dd/MM/yyyy").format(new Date(oferta.getFecha())));
+        }
 
-		// Sincroniza la imagen principal
-		Foto[] fotos = producto.contiene_una.toArray();
-		if (fotos.length == 0) {// si no tiene ninguna imagen poner esta por defecto
-			this.getImg1Producto().setSrc("https://www.sabormarino.com/assets/images/default.png");
-		} else {
-			this.getImg1Producto().setSrc(fotos[0].getUrl());
+        // Sincroniza la imagen principal
+        Foto[] fotos = producto.contiene_una.toArray();
+        if (fotos.length == 0) {// si no tiene ninguna imagen poner esta por defecto
+            this.getImg1Producto().setSrc("https://www.sabormarino.com/assets/images/default.png");
+        } else {
+            this.getImg1Producto().setSrc(fotos[0].getUrl());
 
-		}
+        }
 
-		// sincronizar el resto de las imagenes
-		cargarElRestoDeImagenes(producto);
+        // sincronizar el resto de las imagenes
+        // TODO Auto-generated method stub
 
-		// Sincronizar las estreallas para la valoración
-		cargarLasEstrellasDeValoracion(valoracion);
+        Foto[] fotos1 = producto.contiene_una.toArray();
 
-		// Sincronizar la n opinión
-		this.getnOpiniones().setText(Integer.toString(nopiniones) + " Opiniones");
-		
-		// configurar El tabs
+        for (int i = 1; i < producto.contiene_una.toArray().length; i++) {
+            Image image = new Image();
+            image.setHeight("15%");
+            image.setWidth("15%");
+            image.setSrc(fotos1[i].getUrl());
+            this.getVlCargarImagenes().add(image);
 
-		this.getVldescripcionAndValoracion().removeAll();
+        }
 
-		Tab tab1 = new Tab("Descripción");
-		Div page1 = new Div();
-		Label label = new Label();
-		label.setText(producto.getDescripcion());
-		page1.add(label);
+        // Sincronizar las estreallas para la valoración
+        for (int i = 0; i < 5; i++) {
 
-		Tab tab2 = new Tab("Valoración");
-		Div page2 = new Div();
-		Valoraciones v = new Valoraciones(valoraciones);
-		page2.add(v);
+            if (i < valoracion) {
+                Icon IconEstrella = VaadinIcon.STAR.create();
+                IconEstrella.setColor("gold");
+                this.getHlValoracion().add(IconEstrella);
+            } else {
+                Icon IconEstrellaVacia = VaadinIcon.STAR_O.create();
+                IconEstrellaVacia.setColor("gold");
+                this.getHlValoracion().add(IconEstrellaVacia);
+            }
+        }
 
-		page2.setVisible(false);
+        // Sincronizar la n opinión
+        this.getnOpiniones().setText(Integer.toString(nopiniones) + " Opiniones");
 
-		Map<Tab, Component> tabsToPages = new HashMap<>();
-		tabsToPages.put(tab1, page1);
-		tabsToPages.put(tab2, page2);
-		Tabs tabs = new Tabs(tab1, tab2);
-		Div pages = new Div(page1, page2);
+        // configurar El tabs
 
-		tabs.addSelectedChangeListener(event -> {
-			tabsToPages.values().forEach(page -> page.setVisible(false));
-			Component selectedPage = tabsToPages.get(tabs.getSelectedTab());
-			selectedPage.setVisible(true);
-		});
+        this.getVldescripcionAndValoracion().removeAll();
 
-		this.getVldescripcionAndValoracion().add(tabs, pages);
-		
-		this.getButtonComprar().addClickListener(event -> {
-		    System.out.println("Se añade al carrito" +producto.getNombre());		    
-		    Cantidad c = new Cantidad();
-		    c.setCantidad(1);
-		    c.setContiene_un(producto);
-		    Session.addToCarrito(c);
-		});
-		
-		this.getButtonComprar().setVisible(Session.getTipo()==TIPOUSUARIO.CLIENTE || Session.getTipo()==TIPOUSUARIO.REGISTRADO);
-		}
+        Tab tab1 = new Tab("Descripción");
+        Div page1 = new Div();
+        Label label = new Label();
+        label.setText(producto.getDescripcion());
+        page1.add(label);
 
-	private void cargarElRestoDeImagenes(Producto producto) {
+        Tab tab2 = new Tab("Valoración");
+        Div page2 = new Div();
+        Valoraciones v = new Valoraciones(valoraciones);
+        page2.add(v);
 
-		// TODO Auto-generated method stub
+        page2.setVisible(false);
 
-		Foto[] fotos = producto.contiene_una.toArray();
+        Map<Tab, Component> tabsToPages = new HashMap<>();
+        tabsToPages.put(tab1, page1);
+        tabsToPages.put(tab2, page2);
+        Tabs tabs = new Tabs(tab1, tab2);
+        Div pages = new Div(page1, page2);
 
-		for (int i = 1; i < producto.contiene_una.toArray().length; i++) {
-				Image image = new Image();
-				image.setHeight("15%");
-				image.setWidth("15%");
-				image.setSrc(fotos[i].getUrl());			
-				this.getVlCargarImagenes().add(image);			
-	
-			
-		}
+        tabs.addSelectedChangeListener(event -> {
+            tabsToPages.values().forEach(page -> page.setVisible(false));
+            Component selectedPage = tabsToPages.get(tabs.getSelectedTab());
+            selectedPage.setVisible(true);
+        });
 
-	}
+        this.getVldescripcionAndValoracion().add(tabs, pages);
 
-	private void cargarLasEstrellasDeValoracion(int valoracion) {
-		for (int i = 0; i < 5; i++) {
+        this.getButtonComprar().addClickListener(event -> {
+            System.out.println("Se añade al carrito" + producto.getNombre());
+            Cantidad c = new Cantidad();
+            c.setCantidad(1);
+            c.setContiene_un(producto);
+            Session.addToCarrito(c);
+        });
 
-			if (i < valoracion) {
-				Icon IconEstrella = VaadinIcon.STAR.create();
-				IconEstrella.setColor("gold");
-				this.getHlValoracion().add(IconEstrella);
-			} else {
-				Icon IconEstrellaVacia = VaadinIcon.STAR_O.create();
-				IconEstrellaVacia.setColor("gold");
-				this.getHlValoracion().add(IconEstrellaVacia);
-			}
-		}
+        this.getButtonComprar()
+                .setVisible(Session.getTipo() == TIPOUSUARIO.CLIENTE || Session.getTipo() == TIPOUSUARIO.REGISTRADO);
+    }
 
-	}
-
-	private int numeroValoracion(Valoracion[] valoraciones) {
-
-		if (valoraciones.length <= 0) {// cuando no hay valoración
-			return 0;
-		}
-
-		int suma = 0;
-		for (int i = 0; i < valoraciones.length; i++) {
-			suma += valoraciones[i].getPuntuacion();
-		}
-
-		return suma / valoraciones.length;
-	}
-	
-	public void notificacion() {
-		Span content = new Span("Tu producto se ha añadido correctamente al carrito!");
-		Notification notification = new Notification(content);
-		notification.setPosition(Position.MIDDLE);
-		notification.setDuration(2000);
-		notification.open();
-	}
-	
 }

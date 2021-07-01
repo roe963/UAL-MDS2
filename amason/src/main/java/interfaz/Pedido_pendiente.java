@@ -26,10 +26,14 @@ public class Pedido_pendiente extends VistaPedidopendiente {
         this.getSelectEmpresaTransportes().setItems(bd.cargar_empresas_transportes());
         this.getSelectEmpresaTransportes().setItemLabelGenerator(Usuario::getEmail);
         this.getSelectEmpresaTransportes().addValueChangeListener(event -> {
-            bd.marcar_como_enviado(p.getId(), this.getSelectEmpresaTransportes().getValue().getId());
-            UI.getCurrent().navigate("");
-            UI.getCurrent().navigate("encargadocompras");
+            marcar_como_enviado(p);
         });
+    }
+    
+    public void marcar_como_enviado(Pedido p) {
+        bd.marcar_como_enviado(p.getId(), this.getSelectEmpresaTransportes().getValue().getId());
+        UI.getCurrent().navigate("");
+        UI.getCurrent().navigate("encargadocompras");
     }
 
 }

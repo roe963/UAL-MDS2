@@ -25,9 +25,13 @@ public class Pedido_enviado extends VistaPedidoenviado {
         });
         this.getBtnEntregarPedido().setVisible(Session.getTipo() == TIPOUSUARIO.TRANSPORTES);
         this.getBtnEntregarPedido().addClickListener(event -> {
-            bd.marcar_como_entregado(p.getId());
-            UI.getCurrent().navigate("");
-            UI.getCurrent().navigate("empresatransportes");
+            marcar_como_entregado(p);
         });
+    }
+    
+    public void marcar_como_entregado(Pedido p) {
+        bd.marcar_como_entregado(p.getId());
+        UI.getCurrent().navigate("");
+        UI.getCurrent().navigate("empresatransportes");
     }
 }

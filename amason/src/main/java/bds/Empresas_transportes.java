@@ -37,10 +37,6 @@ public class Empresas_transportes {
         return transportes;
 	}
 
-	public String recuperar_contrasena(String aMailUsuario) {
-		throw new UnsupportedOperationException();
-	}
-
 	public boolean agregar_usuario(String aNombreUsuarioEmpresaTransportes, String aPasswordUsuarioEmpresaTransportes) {
 		PersistentTransaction t;
 		try {

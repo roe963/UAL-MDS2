@@ -15,7 +15,6 @@ import basededatos.Pedido_enviado;
 import basededatos.Pedido_pendiente;
 import bds.BDPrincipal;
 import bds.iCliente_registrado;
-import ual.mds2.ortegaortega.ViewChanger;
 import vistas.VistaPedidoclienteregistrado;
 
 @CssImport(value = "../frontend/styles/shared-styles.css")

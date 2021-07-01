@@ -8,8 +8,6 @@ import org.orm.PersistentTransaction;
 import basededatos.Cliente;
 import basededatos.ClienteDAO;
 import basededatos.Usuario;
-import basededatos.UsuarioDAO;
-import ual.mds2.ortegaortega.ViewChanger;
 
 public class Clientes {
     public BDPrincipal _bdprincipal_clientes;
@@ -31,10 +29,6 @@ public class Clientes {
             e1.printStackTrace();
         }
         return cliente;
-    }
-
-    public String recuperar_contrasena(String aMailUsuario) {
-        throw new UnsupportedOperationException();
     }
 
     public void registrar_usuario(String aNombreUsuario, String aMailUsuario, String aPasswordUsuario,
@@ -78,18 +72,6 @@ public class Clientes {
         }
 
         return cliente;
-    }
-
-    public void seleccionar_direccion_envio(int aIdUsuario, String aDireccionUsuario) {
-        throw new UnsupportedOperationException();
-    }
-
-    public void seleccionar_metodo_pago(int aIdUsuario, String aMetodoPagoUsuario) {
-        throw new UnsupportedOperationException();
-    }
-
-    public void validar_registro() {
-        throw new UnsupportedOperationException();
     }
 
     public void guardar_perfil(int aIdUsuario, String aNombreUsuario, String aMailUsuario, String aDireccionUsuario,

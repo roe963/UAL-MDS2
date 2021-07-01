@@ -32,7 +32,7 @@ public class Ver_pedido extends VistaVerpedido implements HasUrlParameter<String
         System.out.println(parameter);
 
         try {
-            Pedido p = basededatos.PedidoDAO.getPedidoByORMID(Integer.parseInt(parameter));
+            p = basededatos.PedidoDAO.getPedidoByORMID(Integer.parseInt(parameter));
             cargar_pedido(p);
         } catch (NumberFormatException e) {
             // TODO Auto-generated catch block
@@ -45,7 +45,7 @@ public class Ver_pedido extends VistaVerpedido implements HasUrlParameter<String
 
     iCliente_registrado bd = new BDPrincipal();
     private Cantidad[] cantidades;
-
+    Pedido p;
     private void cargar_pedido(Pedido p) {
         MenuBar mb = MenuHeader.getMenuBar();
         this.getLayoutMenu().add(mb);
@@ -93,8 +93,7 @@ public class Ver_pedido extends VistaVerpedido implements HasUrlParameter<String
 
         this.getCancelarCompra().setVisible(estaPendiente && Session.getTipo()==TIPOUSUARIO.REGISTRADO);
         this.getCancelarCompra().addClickListener(event -> {
-            this.bd.cancelar_compra(p.getId());
-            UI.getCurrent().navigate("pedidos");
+            cancelar_compra();
         });
 
         cantidades = bd.cargar_cantidades_pedido(p.getId());
@@ -104,18 +103,7 @@ public class Ver_pedido extends VistaVerpedido implements HasUrlParameter<String
     }
 
     public void cancelar_compra() {
-        throw new UnsupportedOperationException();
-    }
-
-    public void comprobar_enviado() {
-        throw new UnsupportedOperationException();
-    }
-
-    public void cargar_pedido_cliente_registrado() {
-        throw new UnsupportedOperationException();
-    }
-
-    public void valorar_producto() {
-        throw new UnsupportedOperationException();
+        this.bd.cancelar_compra(p.getId());
+        UI.getCurrent().navigate("pedidos");
     }
 }

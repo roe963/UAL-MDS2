@@ -139,10 +139,6 @@ public class Productos {
         return productos;
 	}
 
-	public Producto cargar_producto(int aIdProducto) {
-		throw new UnsupportedOperationException();
-	}
-
 	public void agregar_producto(String aNombreProducto, Categoria aCategoria, double aPrecioProducto, String aDescripcionProducto, String aImagenProducto) {
 
 		PersistentTransaction t;
@@ -195,14 +191,6 @@ public class Productos {
             t.rollback();
         }
         
-	}
-
-	public void activar_producto(int aIdProducto) {
-		throw new UnsupportedOperationException();
-	}
-
-	public Producto[] cargar_productos_pedido(Cantidad[] aCantidades) {
-		throw new UnsupportedOperationException();
 	}
 
 	public void cambiar_estado_producto(int aIdProducto, boolean aActivo) {

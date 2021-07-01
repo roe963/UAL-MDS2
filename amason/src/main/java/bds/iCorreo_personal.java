@@ -9,8 +9,6 @@ public interface iCorreo_personal {
 
 	public void redactar_mensaje(int aIdUsuario, String aMensajeUsuario);
 
-	public void ver_mensaje(int aIdMensaje);
-
 	public Respuesta[] cargar_respuestas_mensaje(int aIdMensaje);
 
 	public void responder_respuesta(int aIdMensaje, String aRespuesta);

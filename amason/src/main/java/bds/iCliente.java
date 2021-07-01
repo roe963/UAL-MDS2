@@ -23,11 +23,6 @@ public interface iCliente {
 
 	public void valorar_producto(int aIdProducto, int aIdUsuario, int aPuntuacion, String aComentario, long aFecha);
 
-	public Producto cargar_producto(int aIdProducto);
-
 	public Valoracion[] cargar_valoraciones(int aIdProducto);
-
-	public void validar_registro();
-
 	
 }

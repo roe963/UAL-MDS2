@@ -10,7 +10,7 @@ import ual.mds2.ortegaortega.TIPOUSUARIO;
 import vistas.VistaProductodelpedido;
 
 public class Producto_del_pedido extends VistaProductodelpedido {
-
+    
     public Producto_del_pedido(Cantidad c) {
         super(c);
         Producto p = c.getContiene_un();

@@ -162,24 +162,16 @@ public class Ver_perfil extends VistaVeperfil {
                     iclientes_registrado.guardar_perfil(cliente.getId(), nombre, email, direccionEnvio, metodoPago,
                             fotoURL, activo);
 
-                    notificacion("Los datos se han modificado correctamente.");
+                    new Notification("Los datos se han modificado correctamente.", 300, Position.MIDDLE).open();
                   UI.getCurrent().navigate("");
                   UI.getCurrent().navigate("ver_perfil");
                 } else {
-                    notificacion("No se ha realizado ningún cambio.");
+                    new Notification("No se ha realizado ningún cambio.", 300, Position.MIDDLE).open();
                 }
 
             }
         });
 
-    }
-
-    public void notificacion(String mensaje) {
-        Span content = new Span(mensaje);
-        Notification notification = new Notification(content);
-        notification.setPosition(Position.MIDDLE);
-        notification.setDuration(2000);
-        notification.open();
     }
 
 }
