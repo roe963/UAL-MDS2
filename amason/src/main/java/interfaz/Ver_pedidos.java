@@ -5,11 +5,11 @@ import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.router.PreserveOnRefresh;
 import com.vaadin.flow.router.Route;
 
+import basededatos.BDPrincipal;
 import basededatos.Pedido_entregado;
 import basededatos.Pedido_enviado;
 import basededatos.Pedido_pendiente;
-import bds.BDPrincipal;
-import bds.iCliente_registrado;
+import basededatos.iCliente_registrado;
 import ual.mds2.ortegaortega.MenuHeader;
 import ual.mds2.ortegaortega.Session;
 import vistas.VistaVerpedidos;

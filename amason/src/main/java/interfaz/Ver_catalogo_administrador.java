@@ -14,10 +14,10 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PreserveOnRefresh;
 import com.vaadin.flow.router.Route;
 
+import basededatos.BDPrincipal;
 import basededatos.Categoria;
 import basededatos.Producto;
-import bds.BDPrincipal;
-import bds.iAdministrador;
+import basededatos.iAdministrador;
 import ual.mds2.ortegaortega.MenuHeader;
 import vistas.VistaVercatalogoadministrador;
 

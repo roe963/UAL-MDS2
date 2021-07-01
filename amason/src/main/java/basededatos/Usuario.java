@@ -136,7 +136,7 @@ public class Usuario implements Serializable {
 
         if (usuarios.length > 0) {
             Session.setUsuario(usuarios[0]);
-            Usuario aux = new bds.Clientes().iniciar_sesion_cliente(usuarios[0].id);
+            Usuario aux = new basededatos.Clientes().iniciar_sesion_cliente(usuarios[0].id);
             if (aux != null) {
 //                ViewChanger.usuario = ViewChanger.TIPOUSUARIO.REGISTRADO;
                 Session.setTipo(TIPOUSUARIO.REGISTRADO);
@@ -146,7 +146,7 @@ public class Usuario implements Serializable {
                 UI.getCurrent().navigate("cliente");
                 return aux;
             } else {
-                aux = new bds.Administradores().iniciar_sesion_administrador(usuarios[0].id);
+                aux = new basededatos.Administradores().iniciar_sesion_administrador(usuarios[0].id);
                 if (aux != null) {
 //                    ViewChanger.usuario = ViewChanger.TIPOUSUARIO.ADMIN;
                     Session.setTipo(TIPOUSUARIO.ADMIN);
@@ -156,7 +156,7 @@ public class Usuario implements Serializable {
                     UI.getCurrent().navigate("administrador");
                     return aux;
                 } else {
-                    aux = new bds.Encargados_compras().iniciar_sesion_encargado_compras(usuarios[0].id);
+                    aux = new basededatos.Encargados_compras().iniciar_sesion_encargado_compras(usuarios[0].id);
                     if (aux != null) {
 //                        ViewChanger.usuario = ViewChanger.TIPOUSUARIO.ENCARGADO;
                         Session.setTipo(TIPOUSUARIO.ENCARGADO);
@@ -166,7 +166,7 @@ public class Usuario implements Serializable {
                         UI.getCurrent().navigate("encargadocompras");
                         return aux;
                     } else {
-                        aux = new bds.Empresas_transportes().iniciar_sesion_empresa_transportes(usuarios[0].id);
+                        aux = new basededatos.Empresas_transportes().iniciar_sesion_empresa_transportes(usuarios[0].id);
                         if (aux != null) {
 //                            ViewChanger.usuario = ViewChanger.TIPOUSUARIO.TRANSPORTES;
                             Session.setTipo(TIPOUSUARIO.TRANSPORTES);

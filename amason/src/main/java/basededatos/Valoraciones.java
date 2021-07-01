@@ -1,4 +1,4 @@
-package bds;
+package basededatos;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -7,11 +7,6 @@ import java.util.Vector;
 
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
-
-import basededatos.ClienteDAO;
-import basededatos.ProductoDAO;
-import basededatos.Valoracion;
-import basededatos.ValoracionDAO;
 
 public class Valoraciones {
     public BDPrincipal _bdprincipal_valoraciones;

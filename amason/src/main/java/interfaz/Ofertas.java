@@ -2,9 +2,9 @@ package interfaz;
 
 import com.vaadin.flow.component.html.Label;
 
+import basededatos.BDPrincipal;
 import basededatos.Oferta;
-import bds.BDPrincipal;
-import bds.iCliente;
+import basededatos.iCliente;
 import vistas.VistaOfertas;
 
 public class Ofertas extends VistaOfertas {

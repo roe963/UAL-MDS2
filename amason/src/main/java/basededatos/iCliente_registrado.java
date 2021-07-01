@@ -1,11 +1,4 @@
-package bds;
-
-import basededatos.Cantidad;
-import basededatos.Cliente;
-import basededatos.Pedido_entregado;
-import basededatos.Pedido_enviado;
-import basededatos.Pedido_pendiente;
-import basededatos.Producto;
+package basededatos;
 
 public interface iCliente_registrado extends iCliente {
 

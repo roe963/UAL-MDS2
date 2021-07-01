@@ -1,9 +1,9 @@
 package interfaz;
 
+import basededatos.BDPrincipal;
 import basededatos.Usuario;
-import bds.BDPrincipal;
-import bds.iCliente;
-import bds.iIniciar_sesion;
+import basededatos.iCliente;
+import basededatos.iIniciar_sesion;
 import vistas.VistaIniciarsesion;
 
 public class Iniciar_sesion extends VistaIniciarsesion{

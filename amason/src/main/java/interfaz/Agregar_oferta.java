@@ -13,9 +13,9 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.notification.Notification.Position;
 import com.vaadin.flow.component.select.Select;
 
+import basededatos.BDPrincipal;
 import basededatos.Categoria;
-import bds.BDPrincipal;
-import bds.iAdministrador;
+import basededatos.iAdministrador;
 import vistas.VistaAgregaroferta;
 
 public class Agregar_oferta extends VistaAgregaroferta {

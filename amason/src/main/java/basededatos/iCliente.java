@@ -1,11 +1,6 @@
-package bds;
+package basededatos;
 
 import java.util.Date;
-
-import basededatos.Categoria;
-import basededatos.Oferta;
-import basededatos.Producto;
-import basededatos.Valoracion;
 
 public interface iCliente {
 

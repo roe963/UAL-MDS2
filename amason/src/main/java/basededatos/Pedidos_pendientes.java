@@ -1,4 +1,4 @@
-package bds;
+package basededatos;
 
 import java.util.Arrays;
 import java.util.Vector;
@@ -6,16 +6,6 @@ import java.util.Vector;
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
-import basededatos.Cantidad;
-import basededatos.CantidadDAO;
-import basededatos.Cliente;
-import basededatos.ClienteDAO;
-import basededatos.Pedido;
-import basededatos.PedidoDAO;
-import basededatos.Pedido_enviado;
-import basededatos.Pedido_enviadoDAO;
-import basededatos.Pedido_pendiente;
-import basededatos.Pedido_pendienteDAO;
 import ual.mds2.ortegaortega.Session;
 
 public class Pedidos_pendientes {

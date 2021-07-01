@@ -1,7 +1,7 @@
 package interfaz;
 
-import bds.BDPrincipal;
-import bds.iEmpresa_transportes;
+import basededatos.BDPrincipal;
+import basededatos.iEmpresa_transportes;
 import ual.mds2.ortegaortega.Session;
 import vistas.VistaPedidosentregados;
 

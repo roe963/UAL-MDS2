@@ -6,8 +6,8 @@ import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.router.PreserveOnRefresh;
 import com.vaadin.flow.router.Route;
 
-import bds.BDPrincipal;
-import bds.iCorreo_personal;
+import basededatos.BDPrincipal;
+import basededatos.iCorreo_personal;
 import ual.mds2.ortegaortega.MenuHeader;
 import ual.mds2.ortegaortega.Session;
 import vistas.VistaVermensajesadministrador;

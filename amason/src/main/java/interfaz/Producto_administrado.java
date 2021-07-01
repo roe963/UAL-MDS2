@@ -3,11 +3,11 @@ package interfaz;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.html.Label;
 
+import basededatos.BDPrincipal;
 import basededatos.Categoria;
 import basededatos.Foto;
 import basededatos.Producto;
-import bds.BDPrincipal;
-import bds.iAdministrador;
+import basededatos.iAdministrador;
 import vistas.VistaProductoadministrado;
 
 public class Producto_administrado extends VistaProductoadministrado {

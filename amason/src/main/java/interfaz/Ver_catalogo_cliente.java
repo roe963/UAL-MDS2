@@ -12,10 +12,10 @@ import com.vaadin.flow.component.select.Select;
 import com.vaadin.flow.router.PreserveOnRefresh;
 import com.vaadin.flow.router.Route;
 
+import basededatos.BDPrincipal;
 import basededatos.Categoria;
 import basededatos.Producto;
-import bds.BDPrincipal;
-import bds.iCliente;
+import basededatos.iCliente;
 import ual.mds2.ortegaortega.MenuHeader;
 import vistas.VistaVercatalogocliente;
 

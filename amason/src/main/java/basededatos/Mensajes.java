@@ -1,16 +1,9 @@
-package bds;
+package basededatos;
 
 import java.util.Vector;
 
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
-
-import basededatos.Cliente;
-import basededatos.ClienteDAO;
-import basededatos.Mensaje;
-import basededatos.MensajeDAO;
-import basededatos.Oferta;
-import basededatos.OfertaDAO;
 
 public class Mensajes {
 	public BDPrincipal _bdprincipal_mensajes;

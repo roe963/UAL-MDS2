@@ -2,9 +2,9 @@ package vistas;
 
 import com.vaadin.flow.templatemodel.TemplateModel;
 
+import basededatos.BDPrincipal;
 import basededatos.Producto;
-import bds.BDPrincipal;
-import bds.iCliente;
+import basededatos.iCliente;
 
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;

@@ -1,19 +1,9 @@
-package bds;
+package basededatos;
 
 import java.util.Vector;
 
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
-
-import basededatos.Cliente;
-import basededatos.ClienteDAO;
-import basededatos.Empresa_transportes;
-import basededatos.Empresa_transportesDAO;
-import basededatos.Encargado_compras;
-import basededatos.Encargado_comprasDAO;
-import basededatos.Pedido_enviado;
-import basededatos.Pedido_enviadoDAO;
-import basededatos.Usuario;
 
 public class Empresas_transportes {
 	public BDPrincipal _bdprincipal_empresas_trasnportes;

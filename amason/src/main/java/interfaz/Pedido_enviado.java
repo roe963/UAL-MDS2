@@ -3,9 +3,9 @@ package interfaz;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.dialog.Dialog;
 
+import basededatos.BDPrincipal;
 import basededatos.Pedido;
-import bds.BDPrincipal;
-import bds.iEmpresa_transportes;
+import basededatos.iEmpresa_transportes;
 import ual.mds2.ortegaortega.Session;
 import ual.mds2.ortegaortega.TIPOUSUARIO;
 import vistas.VistaPedidoenviado;

@@ -3,10 +3,10 @@ package interfaz;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.dialog.Dialog;
 
+import basededatos.BDPrincipal;
 import basededatos.Producto;
-import bds.BDPrincipal;
-import bds.iCliente;
-import bds.iCliente_registrado;
+import basededatos.iCliente;
+import basededatos.iCliente_registrado;
 import ual.mds2.ortegaortega.Session;
 import vistas.VistaValorarproducto;
 

@@ -1,14 +1,6 @@
-package bds;
+package basededatos;
 
 import java.util.Date;
-
-import basededatos.Categoria;
-import basededatos.Empresa_transportes;
-import basededatos.Encargado_compras;
-import basededatos.Oferta;
-import basededatos.Pedido;
-import basededatos.Producto;
-import basededatos.Usuario;
 
 public interface iAdministrador {
 

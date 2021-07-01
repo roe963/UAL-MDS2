@@ -22,10 +22,10 @@ import com.vaadin.flow.router.OptionalParameter;
 import com.vaadin.flow.router.PreserveOnRefresh;
 import com.vaadin.flow.router.Route;
 
+import basededatos.BDPrincipal;
 import basededatos.Producto;
-import bds.BDPrincipal;
-import bds.iCliente;
-import bds.iCorreo_personal;
+import basededatos.iCliente;
+import basededatos.iCorreo_personal;
 import interfaz.Respuesta;
 import ual.mds2.ortegaortega.MenuHeader;
 import ual.mds2.ortegaortega.Session;

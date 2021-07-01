@@ -4,8 +4,8 @@ import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.notification.Notification.Position;
 
-import bds.BDPrincipal;
-import bds.iAdministrador;
+import basededatos.BDPrincipal;
+import basededatos.iAdministrador;
 import vistas.VistaAgregarcategoria;
 
 public class Agregar_categoria extends VistaAgregarcategoria {

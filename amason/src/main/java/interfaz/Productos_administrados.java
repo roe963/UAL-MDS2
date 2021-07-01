@@ -5,10 +5,10 @@ import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.notification.Notification.Position;
 
+import basededatos.BDPrincipal;
 import basededatos.Categoria;
 import basededatos.Producto;
-import bds.BDPrincipal;
-import bds.iAdministrador;
+import basededatos.iAdministrador;
 import vistas.VistaProductosadministrados;
 
 public class Productos_administrados extends VistaProductosadministrados {

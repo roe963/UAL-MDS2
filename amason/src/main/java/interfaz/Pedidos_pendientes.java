@@ -1,7 +1,7 @@
 package interfaz;
 
-import bds.BDPrincipal;
-import bds.iEncargado_compras;
+import basededatos.BDPrincipal;
+import basededatos.iEncargado_compras;
 import vistas.VistaPedidospendientes;
 
 public class Pedidos_pendientes extends VistaPedidospendientes {

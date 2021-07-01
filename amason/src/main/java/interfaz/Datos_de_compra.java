@@ -1,7 +1,7 @@
 package interfaz;
 
-import bds.BDPrincipal;
-import bds.iCliente_registrado;
+import basededatos.BDPrincipal;
+import basededatos.iCliente_registrado;
 import ual.mds2.ortegaortega.Session;
 import vistas.VistaDatosdecompra;
 

@@ -14,9 +14,9 @@ import com.vaadin.flow.component.radiobutton.RadioGroupVariant;
 import com.vaadin.flow.router.PreserveOnRefresh;
 import com.vaadin.flow.router.Route;
 
+import basededatos.BDPrincipal;
 import basededatos.Cliente;
-import bds.BDPrincipal;
-import bds.iCliente_registrado;
+import basededatos.iCliente_registrado;
 import ual.mds2.ortegaortega.MenuHeader;
 import ual.mds2.ortegaortega.Session;
 import vistas.VistaVeperfil;

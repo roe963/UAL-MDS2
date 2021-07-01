@@ -1,6 +1,4 @@
-package bds;
-
-import basededatos.Usuario;
+package basededatos;
 
 public interface iIniciar_sesion {
 

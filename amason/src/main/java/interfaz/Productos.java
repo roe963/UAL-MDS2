@@ -1,8 +1,8 @@
 package interfaz;
 
+import basededatos.BDPrincipal;
 import basededatos.Categoria;
-import bds.BDPrincipal;
-import bds.iCliente;
+import basededatos.iCliente;
 import vistas.VistaProductos;
 
 public class Productos extends VistaProductos {

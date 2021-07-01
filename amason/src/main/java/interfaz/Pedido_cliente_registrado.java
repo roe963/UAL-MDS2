@@ -8,13 +8,13 @@ import java.util.Set;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.dependency.CssImport;
 
+import basededatos.BDPrincipal;
 import basededatos.Cantidad;
 import basededatos.Pedido;
 import basededatos.Pedido_entregado;
 import basededatos.Pedido_enviado;
 import basededatos.Pedido_pendiente;
-import bds.BDPrincipal;
-import bds.iCliente_registrado;
+import basededatos.iCliente_registrado;
 import vistas.VistaPedidoclienteregistrado;
 
 @CssImport(value = "../frontend/styles/shared-styles.css")

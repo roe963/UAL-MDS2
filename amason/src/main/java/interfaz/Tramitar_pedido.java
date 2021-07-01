@@ -6,9 +6,9 @@ import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.notification.Notification.Position;
 
+import basededatos.BDPrincipal;
 import basededatos.Cantidad;
-import bds.BDPrincipal;
-import bds.iCliente_registrado;
+import basededatos.iCliente_registrado;
 import ual.mds2.ortegaortega.Session;
 import vistas.VistaTramitarpedido;
 

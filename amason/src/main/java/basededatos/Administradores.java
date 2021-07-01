@@ -1,15 +1,9 @@
-package bds;
+package basededatos;
 
 import java.util.Vector;
 
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
-
-import basededatos.Administrador;
-import basededatos.AdministradorDAO;
-import basededatos.Cliente;
-import basededatos.ClienteDAO;
-import basededatos.Usuario;
 
 public class Administradores {
 	public BDPrincipal _bdprincipal_administradores;

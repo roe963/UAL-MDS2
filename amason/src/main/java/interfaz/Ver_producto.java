@@ -27,14 +27,14 @@ import com.vaadin.flow.router.OptionalParameter;
 import com.vaadin.flow.router.PreserveOnRefresh;
 import com.vaadin.flow.router.Route;
 
+import basededatos.BDPrincipal;
 import basededatos.Cantidad;
 import basededatos.CantidadDAO;
 import basededatos.Foto;
 import basededatos.Oferta;
 import basededatos.Producto;
 import basededatos.Valoracion;
-import bds.BDPrincipal;
-import bds.iCliente;
+import basededatos.iCliente;
 import ual.mds2.ortegaortega.MenuHeader;
 import ual.mds2.ortegaortega.Session;
 import ual.mds2.ortegaortega.TIPOUSUARIO;

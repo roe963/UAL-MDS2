@@ -5,9 +5,9 @@ import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.router.PreserveOnRefresh;
 import com.vaadin.flow.router.Route;
 
-import bds.BDPrincipal;
-import bds.iEmpresa_transportes;
-import bds.iIniciar_sesion;
+import basededatos.BDPrincipal;
+import basededatos.iEmpresa_transportes;
+import basededatos.iIniciar_sesion;
 import ual.mds2.ortegaortega.MenuHeader;
 import ual.mds2.ortegaortega.Session;
 import vistas.VistaEmpresatransportes;

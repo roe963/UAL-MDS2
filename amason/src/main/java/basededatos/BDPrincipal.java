@@ -1,4 +1,4 @@
-package bds;
+package basededatos;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,22 +6,6 @@ import java.util.Date;
 import java.util.List;
 
 import org.orm.PersistentException;
-
-import basededatos.Cantidad;
-import basededatos.Categoria;
-import basededatos.Cliente;
-import basededatos.Empresa_transportes;
-import basededatos.Encargado_compras;
-import basededatos.Mensaje;
-import basededatos.Oferta;
-import basededatos.Pedido;
-import basededatos.Pedido_entregado;
-import basededatos.Pedido_enviado;
-import basededatos.Pedido_pendiente;
-import basededatos.Producto;
-import basededatos.Respuesta;
-import basededatos.Usuario;
-import basededatos.Valoracion;
 
 public class BDPrincipal implements iAdministrador, iCliente, iCliente_registrado, iCorreo_personal,
         iEmpresa_transportes, iEncargado_compras, iIniciar_sesion, iPasarela_de_pagos {

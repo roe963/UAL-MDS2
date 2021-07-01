@@ -1,18 +1,10 @@
-package bds;
+package basededatos;
 
 import java.util.Vector;
 
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
-import basededatos.Cliente;
-import basededatos.ClienteDAO;
-import basededatos.Mensaje;
-import basededatos.MensajeDAO;
-import basededatos.Oferta;
-import basededatos.OfertaDAO;
-import basededatos.Respuesta;
-import basededatos.RespuestaDAO;
 import ual.mds2.ortegaortega.Session;
 
 public class Respuestas {

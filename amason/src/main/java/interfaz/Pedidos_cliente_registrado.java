@@ -2,8 +2,8 @@ package interfaz;
 
 import java.util.Vector;
 
-import bds.BDPrincipal;
-import bds.iCliente_registrado;
+import basededatos.BDPrincipal;
+import basededatos.iCliente_registrado;
 import interfaz.Pedido_cliente_registrado;
 import vistas.VistaPedidosclienteregistrado;
 

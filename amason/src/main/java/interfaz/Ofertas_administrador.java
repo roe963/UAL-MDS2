@@ -2,8 +2,8 @@ package interfaz;
 
 import com.vaadin.flow.component.html.Label;
 
-import bds.BDPrincipal;
-import bds.iAdministrador;
+import basededatos.BDPrincipal;
+import basededatos.iAdministrador;
 import vistas.VistaOfertasadministrador;
 
 public class Ofertas_administrador extends VistaOfertasadministrador {

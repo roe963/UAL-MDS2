@@ -14,10 +14,10 @@ import com.vaadin.flow.router.OptionalParameter;
 import com.vaadin.flow.router.PreserveOnRefresh;
 import com.vaadin.flow.router.Route;
 
+import basededatos.BDPrincipal;
 import basededatos.Cantidad;
 import basededatos.Pedido;
-import bds.BDPrincipal;
-import bds.iCliente_registrado;
+import basededatos.iCliente_registrado;
 import ual.mds2.ortegaortega.MenuHeader;
 import ual.mds2.ortegaortega.Session;
 import ual.mds2.ortegaortega.TIPOUSUARIO;

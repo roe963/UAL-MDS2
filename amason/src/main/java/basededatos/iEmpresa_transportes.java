@@ -1,6 +1,4 @@
-package bds;
-
-import basededatos.Pedido;
+package basededatos;
 
 public interface iEmpresa_transportes {
 

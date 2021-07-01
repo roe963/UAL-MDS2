@@ -5,8 +5,8 @@ import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.notification.Notification.Position;
 
-import bds.BDPrincipal;
-import bds.iAdministrador;
+import basededatos.BDPrincipal;
+import basededatos.iAdministrador;
 import vistas.VistaEmpresasdetransportes;
 
 public class Empresas_de_transporte extends VistaEmpresasdetransportes {

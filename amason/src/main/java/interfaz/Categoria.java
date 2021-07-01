@@ -2,8 +2,8 @@ package interfaz;
 
 import com.vaadin.flow.component.UI;
 
-import bds.BDPrincipal;
-import bds.iAdministrador;
+import basededatos.BDPrincipal;
+import basededatos.iAdministrador;
 import vistas.VistaCategoria;
 
 public class Categoria extends VistaCategoria {

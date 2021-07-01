@@ -1,7 +1,4 @@
-package bds;
-
-import basededatos.Empresa_transportes;
-import basededatos.Pedido;
+package basededatos;
 
 public interface iEncargado_compras {
     

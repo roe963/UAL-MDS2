@@ -1,20 +1,9 @@
-package bds;
+package basededatos;
 
 import java.util.Vector;
 
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
-
-import basededatos.Cliente;
-import basededatos.ClienteDAO;
-import basededatos.Encargado_compras;
-import basededatos.Encargado_comprasDAO;
-import basededatos.Foto;
-import basededatos.FotoDAO;
-import basededatos.Producto;
-import basededatos.ProductoDAO;
-import basededatos.Usuario;
-import basededatos.UsuarioDAO;
 
 public class Encargados_compras {
 	public BDPrincipal _bdprincipal_encargados_compras;

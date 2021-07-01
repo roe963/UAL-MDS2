@@ -5,8 +5,8 @@ import java.util.Date;
 
 import com.vaadin.flow.component.UI;
 
-import bds.BDPrincipal;
-import bds.iAdministrador;
+import basededatos.BDPrincipal;
+import basededatos.iAdministrador;
 import vistas.VistaOfertaadministrador;
 
 public class Oferta_administrador extends VistaOfertaadministrador {

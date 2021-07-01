@@ -10,8 +10,8 @@ import com.vaadin.flow.router.PreserveOnRefresh;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouterLink;
 
-import bds.BDPrincipal;
-import bds.iCliente;
+import basededatos.BDPrincipal;
+import basededatos.iCliente;
 import vistas.VistaRegistrarse;
 
 @PreserveOnRefresh

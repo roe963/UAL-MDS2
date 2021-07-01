@@ -5,9 +5,9 @@ import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.router.PreserveOnRefresh;
 import com.vaadin.flow.router.Route;
 
-import bds.BDPrincipal;
-import bds.iAdministrador;
-import bds.iCliente_registrado;
+import basededatos.BDPrincipal;
+import basededatos.iAdministrador;
+import basededatos.iCliente_registrado;
 import ual.mds2.ortegaortega.MenuHeader;
 import vistas.VistaVertodoslospedidos;
 

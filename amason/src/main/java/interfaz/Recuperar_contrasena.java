@@ -4,8 +4,8 @@ import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.notification.Notification.Position;
 
-import bds.BDPrincipal;
-import bds.iIniciar_sesion;
+import basededatos.BDPrincipal;
+import basededatos.iIniciar_sesion;
 import vistas.VistaRecuperarcontrasena;
 
 public class Recuperar_contrasena extends VistaRecuperarcontrasena {

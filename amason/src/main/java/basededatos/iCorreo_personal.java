@@ -1,7 +1,4 @@
-package bds;
-
-import basededatos.Mensaje;
-import basededatos.Respuesta;
+package basededatos;
 
 public interface iCorreo_personal {
 

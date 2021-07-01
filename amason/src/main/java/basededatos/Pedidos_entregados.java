@@ -1,21 +1,10 @@
-package bds;
+package basededatos;
 
 import java.util.Arrays;
 import java.util.Vector;
 
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
-
-import basededatos.Cantidad;
-import basededatos.CantidadDAO;
-import basededatos.Pedido;
-import basededatos.PedidoDAO;
-import basededatos.Pedido_entregado;
-import basededatos.Pedido_entregadoDAO;
-import basededatos.Pedido_enviado;
-import basededatos.Pedido_enviadoDAO;
-import basededatos.Pedido_pendiente;
-import basededatos.Pedido_pendienteDAO;
 
 public class Pedidos_entregados {
     public BDPrincipal _bdprincipal_pedidos_entregados;

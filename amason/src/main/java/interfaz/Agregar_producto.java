@@ -16,10 +16,10 @@ import com.vaadin.flow.component.select.Select;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.router.Route;
 
+import basededatos.BDPrincipal;
 import basededatos.Categoria;
-import bds.BDPrincipal;
-import bds.iAdministrador;
-import bds.iCliente;
+import basededatos.iAdministrador;
+import basededatos.iCliente;
 import ual.mds2.ortegaortega.MenuHeader;
 import vistas.VistaAgregarproducto;
 

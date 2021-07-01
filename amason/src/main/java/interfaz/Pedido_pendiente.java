@@ -3,11 +3,11 @@ package interfaz;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.dialog.Dialog;
 
+import basededatos.BDPrincipal;
 import basededatos.Pedido;
 import basededatos.Usuario;
-import bds.BDPrincipal;
-import bds.iEmpresa_transportes;
-import bds.iEncargado_compras;
+import basededatos.iEmpresa_transportes;
+import basededatos.iEncargado_compras;
 import vistas.VistaPedidopendiente;
 
 public class Pedido_pendiente extends VistaPedidopendiente {

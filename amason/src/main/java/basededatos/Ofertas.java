@@ -1,17 +1,10 @@
-package bds;
+package basededatos;
 
 import java.util.Date;
 import java.util.Vector;
 
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
-
-import basededatos.Foto;
-import basededatos.FotoDAO;
-import basededatos.Oferta;
-import basededatos.OfertaDAO;
-import basededatos.Producto;
-import basededatos.ProductoDAO;
 
 public class Ofertas {
 	public BDPrincipal _bdprincipal_ofertas;
