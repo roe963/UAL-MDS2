@@ -21,6 +21,8 @@ public class Agregar_empleado extends VistaAgregarempleado {
 	Select<String> labelSelect = new Select<>();
 	
 	int tipoUsuario = 0;
+	
+	int idUsuario;
 
 	public Agregar_empleado() {
 		getTextFieldIdUsuario().setVisible(false);
@@ -64,10 +66,5 @@ public class Agregar_empleado extends VistaAgregarempleado {
             UI.getCurrent().navigate("administrar_empleados");
             new Notification(nombre + " añadido correctamente", 3000, Position.MIDDLE).open();;
 		}
-	}
-	
-	public void asignarUsuario(String usuario) {
-		labelSelect.setValue(usuario);
-	}
-	
+	}	
 }

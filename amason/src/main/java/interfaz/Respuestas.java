@@ -44,15 +44,12 @@ public class Respuestas extends VistaRespuestas implements HasUrlParameter<Strin
 	iCorreo_personal icorreo = new BDPrincipal();
 	public static int parametro=0; 
 	
+	basededatos.Respuesta[] respuestas;
+	
 	@Override
     public void setParameter(BeforeEvent event, @OptionalParameter String parameter) {
-        
         try {
-        	basededatos.Respuesta[] respuestas = icorreo.cargar_respuestas_mensaje(Integer.parseInt(parameter));
-        	cargar_respuestas_mensaje(respuestas); 
         	parametro = Integer.parseInt(parameter);
-    		this.gethMensaje().setText("Mensaje");
-
         } catch (NumberFormatException e) {
             e.printStackTrace();
         } catch (PersistentObjectException e) {
@@ -68,29 +65,31 @@ public class Respuestas extends VistaRespuestas implements HasUrlParameter<Strin
 		this.getLayoutMenu().add(mb);
 		this.getLayoutMenu().setHorizontalComponentAlignment(Alignment.CENTER, mb);
 		
+		this.getVaadinVerticalLayout().removeAll();
+
+        respuestas = icorreo.cargar_respuestas_mensaje(parametro);
+
+        if (respuestas.length != 0) {
+            for (int i = 0; i < respuestas.length; i++) {
+                this.getVaadinVerticalLayout().add(new interfaz.Respuesta(respuestas[i]));
+            }
+
+        } else {
+            Label titulo = new Label();
+            titulo.setText("No hay respuesta en la BD");
+            this.getVaadinVerticalLayout().add(titulo);
+        }
+
+        this.gethMensaje().setText("Mensaje");
+		
 		this.getButtonResponder().addClickListener(e->{
 			responder_respuesta();			
 		});
 		
 	}
-	
-	public void cargar_respuestas_mensaje(basededatos.Respuesta[] respuestas) {
-		
-		this.getVaadinVerticalLayout().removeAll();
 
-		if (respuestas.length != 0) {
-			for (int i = 0; i < respuestas.length; i++) {
-				this.getVaadinVerticalLayout().add(new interfaz.Respuesta(respuestas[i]));
-			}
 
-		} else {
-			Label titulo = new Label();
-			titulo.setText("No hay respuesta en la BD");
-			this.getVaadinVerticalLayout().add(titulo);
-		}
-	}
-
-	public void responder_respuesta() {
+	private void responder_respuesta() {
 		Dialog dialog = new Dialog();
 		dialog.add(new Text("Escribe un Mensaje..."));
 		dialog.setCloseOnEsc(false);

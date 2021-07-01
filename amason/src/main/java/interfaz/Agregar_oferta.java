@@ -8,10 +8,7 @@ import java.util.List;
 
 import org.springframework.boot.origin.SystemEnvironmentOrigin;
 
-import com.vaadin.flow.component.ClickEvent;
-import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.UI;
-import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.notification.Notification.Position;
 import com.vaadin.flow.component.select.Select;
@@ -26,20 +23,20 @@ public class Agregar_oferta extends VistaAgregaroferta {
 	iAdministrador administrador = new BDPrincipal();
 	
 	Select<basededatos.Producto> labelSelect = new Select<>();
-	
-	basededatos.Producto producto = null;
 
 	public Agregar_oferta() {
 		
-		cargar_productos();
+	    this.getLayoutSelectProducto().removeAll();
+        labelSelect.setPlaceholder("Productos");
+        List<basededatos.Producto> departmentList = Arrays.asList(administrador.cargar_todos_productos());
+
+        // Establece que valor de Producto se va a agregar
+        labelSelect.setItemLabelGenerator(basededatos.Producto::getNombre);
+        labelSelect.setItems(departmentList);
+        
+        this.getLayoutSelectProducto().add(labelSelect);
 		
-		this.getButtonAnadir().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				
-				agregar_oferta();
-			}
-		});
+		this.getButtonAnadir().addClickListener(event -> agregar_oferta());
 	}
 	
 	public void agregar_oferta() {		
@@ -52,7 +49,7 @@ public class Agregar_oferta extends VistaAgregaroferta {
 		} catch (Exception e) {
 		    e.printStackTrace();
 		}
-		
+		basededatos.Producto producto = labelSelect.getValue();
 		
 		if (precio == null || d == null || producto == null) {
             new Notification("Precio y fecha no pueden estar vacíos", 3000, Position.MIDDLE).open();;
@@ -63,25 +60,5 @@ public class Agregar_oferta extends VistaAgregaroferta {
             new Notification("Oferta añadida correctamente", 3000, Position.MIDDLE).open();;
         }
         
-	}
-	
-	public void cargar_productos() {
-		// Cargar select categorias
-		this.getLayoutSelectProducto().removeAll();
-		labelSelect.setPlaceholder("Productos");
-		List<basededatos.Producto> departmentList = Arrays.asList(administrador.cargar_todos_productos());
-
-		// Establece que valor de Producto se va a agregar
-		labelSelect.setItemLabelGenerator(basededatos.Producto::getNombre);
-		labelSelect.setItems(departmentList);
-		
-		this.getLayoutSelectProducto().add(labelSelect);
-		
-		labelSelect.addValueChangeListener(
-        event -> {
-        	        	
-        	producto = event.getValue();
-		});
-	}
-	
+	}	
 }

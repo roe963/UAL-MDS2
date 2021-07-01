@@ -1,9 +1,6 @@
 package interfaz;
 
-import com.vaadin.flow.component.ClickEvent;
-import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.UI;
-import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.notification.Notification.Position;
 
@@ -18,13 +15,7 @@ public class Agregar_categoria extends VistaAgregarcategoria {
 	public Agregar_categoria() {
 		getTextFieldIdCategoria().setVisible(false);
 				
-		this.getButtonAnadir().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				
-				agregar_categoria();
-			}
-		});
+		this.getButtonAnadir().addClickListener(event -> agregar_categoria());
 	}
 	
 	public void agregar_categoria() {
