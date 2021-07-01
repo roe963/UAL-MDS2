@@ -31,7 +31,7 @@ public class Tramitar_pedido extends VistaTramitarpedido {
         this.getDatosCompra().add(dc);
 
         this.getButtonComprar().addClickListener(event -> {
-            
+            comprar();
         });
 
     }
