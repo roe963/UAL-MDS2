@@ -36,7 +36,7 @@ public class Encargados_de_compras extends VistaEncargadosdecompras {
         Integer idUsuario = null;
         
         try {
-            idUsuario = Integer.parseInt(ae.getTextFieldUsuario().getValue());
+            idUsuario = Integer.parseInt(ae.getTextFieldIdUsuario().getValue());
         } catch(Exception e) {
             
         }
@@ -47,7 +47,7 @@ public class Encargados_de_compras extends VistaEncargadosdecompras {
             administrador.modificar_usuario_encargado_compras((int)idUsuario, nombre, password);
             UI.getCurrent().navigate("");
             UI.getCurrent().navigate("administrar_empleados");
-            new Notification(nombre + " añadido correctamente", 3000, Position.MIDDLE).open();;
+            new Notification(nombre + " modificado correctamente", 3000, Position.MIDDLE).open();
         }
 		
 	}

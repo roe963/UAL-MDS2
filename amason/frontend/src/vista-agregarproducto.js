@@ -5,7 +5,6 @@ import '@vaadin/vaadin-item/src/vaadin-item.js';
 import '@vaadin/vaadin-text-field/src/vaadin-text-area.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
-import '@vaadin/vaadin-checkbox/src/vaadin-checkbox.js';
 import '@vaadin/vaadin-text-field/src/vaadin-text-field.js';
 
 class VistaAgregarproducto extends PolymerElement {
@@ -44,10 +43,7 @@ class VistaAgregarproducto extends PolymerElement {
  <vaadin-text-area label="Descripción" placeholder="" id="textArea-descripcion"></vaadin-text-area>
  <vaadin-text-field label="Id Foto" placeholder="Placeholder" id="textField-idFoto"></vaadin-text-field>
  <vaadin-text-field label="Imagen" id="textField-imagen" style="flex-grow: 0;"></vaadin-text-field>
- <vaadin-checkbox id="checkbox-productoActivo" style="align-self: center; margin: var(--lumo-space-m);" checked>
-   Producto Activo/Desactivo 
- </vaadin-checkbox>
- <vaadin-button id="button-anadir">
+ <vaadin-button id="button-anadir" style="margin-top: var(--lumo-space-xl);">
    Añadir 
  </vaadin-button>
 </vaadin-vertical-layout>

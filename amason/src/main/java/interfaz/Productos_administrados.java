@@ -38,7 +38,8 @@ public class Productos_administrados extends VistaProductosadministrados {
 
         Integer idProducto = null;
         Integer idFoto = null;
-        basededatos.Categoria categoria = (Categoria) ap.getSelectCategoria().getValue();
+        //basededatos.Categoria categoria = (Categoria) ap.getSelectCategoria().getValue();
+        basededatos.Categoria categoria = (Categoria) ap.labelSelect.getValue();
         String nombre = ap.getTextFieldNombre().getValue();
         String descripcion = ap.getTextAreaDescripcion().getValue();
         String imagen = ap.getTextFieldImagen().getValue();
