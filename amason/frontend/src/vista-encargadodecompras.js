@@ -13,9 +13,9 @@ class VistaEncargadodecompras extends PolymerElement {
                     height: 100%;
                 }
             </style>
-<vaadin-horizontal-layout class="content" style="width: 100%; height: 100%; align-items: flex-start;" id="layout-encargadoCompras" theme="spacing">
- <label id="label-encargadoCompras" style="flex-grow: 1;">Label</label>
- <vaadin-checkbox id="checkbox-activarEncargadoCompras">
+<vaadin-horizontal-layout class="content" style="width: 100%; justify-content: space-around; border: 1px solid black; padding-right: var(--lumo-space-xl); padding-left: var(--lumo-space-m);" id="layout-encargadoCompras">
+ <label id="label-encargadoCompras" style="flex-grow: 0; width: 90%; flex-shrink: 0;">Label</label>
+ <vaadin-checkbox id="checkbox-activarEncargadoCompras" style="width: 10%; flex-shrink: 0;">
   <iron-icon icon="lumo:eye" style="vertical-align: top;"></iron-icon>
  </vaadin-checkbox>
 </vaadin-horizontal-layout>

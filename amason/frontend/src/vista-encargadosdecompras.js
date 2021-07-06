@@ -12,8 +12,8 @@ class VistaEncargadosdecompras extends PolymerElement {
                     height: 100%;
                 }
             </style>
-<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: stretch;" id="layout-encargadosCompras">
- <vista-encargadodecompras id="vistaEncargadodecompras"></vista-encargadodecompras>
+<vaadin-vertical-layout style="align-items: stretch;" id="layout-encargadosCompras">
+ <vista-encargadodecompras id="vistaEncargadodecompras" style="align-self: stretch;"></vista-encargadodecompras>
 </vaadin-vertical-layout>
 `;
     }

@@ -13,9 +13,9 @@ class VistaEmpresadetransportes extends PolymerElement {
                     height: 100%;
                 }
             </style>
-<vaadin-horizontal-layout theme="spacing" id="layout-empresaTransportes" class="content" style="width: 100%; height: 100%; align-items: flex-start;">
- <label id="label-empresaTransportes" style="flex-grow: 1;">Label</label>
- <vaadin-checkbox id="checkbox-empresaTransportes">
+<vaadin-horizontal-layout id="layout-empresaTransportes" class="content" style="width: 100%; justify-content: space-around; border: 1px solid black; padding-right: var(--lumo-space-xl); padding-left: var(--lumo-space-m);">
+ <label id="label-empresaTransportes" style="flex-grow: 0; flex-shrink: 0; width: 90%;">Label</label>
+ <vaadin-checkbox id="checkbox-empresaTransportes" style="flex-shrink: 0; width: 10%;">
   <iron-icon icon="lumo:eye" style="vertical-align: top;"></iron-icon>
  </vaadin-checkbox>
 </vaadin-horizontal-layout>
