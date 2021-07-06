@@ -11,8 +11,8 @@ class VistaRespuesta extends PolymerElement {
                     height: 100%;
                 }
             </style>
-<vaadin-vertical-layout>
- <h4 id="h-respuesta">Usuario: </h4>
+<vaadin-vertical-layout style="border: 1px solid black; align-items: stretch; padding-bottom: var(--lumo-space-l); padding-left: var(--lumo-space-l); padding-right: var(--lumo-space-l);">
+ <h4 id="h-respuesta" style="flex-grow: 0;">Usuario: </h4>
  <label id="label-mensaje">Mensaje</label>
 </vaadin-vertical-layout>
 `;

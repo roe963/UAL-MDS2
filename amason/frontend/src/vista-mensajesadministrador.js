@@ -12,9 +12,7 @@ class VistaMensajesadministrador extends PolymerElement {
                     height: 100%;
                 }
             </style>
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vista-mensaje style="align-self: stretch;"></vista-mensaje>
-</vaadin-vertical-layout>
+<vaadin-vertical-layout style="width: 100%; align-items: stretch;"></vaadin-vertical-layout>
 `;
     }
 

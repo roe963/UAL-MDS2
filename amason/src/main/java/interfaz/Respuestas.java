@@ -12,10 +12,14 @@ import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.html.H4;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.menubar.MenuBar;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
+import com.vaadin.flow.component.orderedlayout.FlexComponent.JustifyContentMode;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextArea;
 import com.vaadin.flow.router.BeforeEvent;
 import com.vaadin.flow.router.OptionalParameter;
@@ -50,6 +54,8 @@ public class Respuestas extends VistaRespuestas implements HasUrlParameter<Strin
     public void setParameter(BeforeEvent event, @OptionalParameter String parameter) {
         try {
         	parametro = Integer.parseInt(parameter);
+        	respuestas = icorreo.cargar_respuestas_mensaje(parametro);
+        	cargar();
         } catch (NumberFormatException e) {
             e.printStackTrace();
         } catch (PersistentObjectException e) {
@@ -57,17 +63,12 @@ public class Respuestas extends VistaRespuestas implements HasUrlParameter<Strin
         }
     }
 	
-	
-	
-	public Respuestas() {
-		//cargar el menú 
-		MenuBar mb = MenuHeader.getMenuBar();
-		this.getLayoutMenu().add(mb);
-		this.getLayoutMenu().setHorizontalComponentAlignment(Alignment.CENTER, mb);
-		
-		this.getVaadinVerticalLayout().removeAll();
-
-        respuestas = icorreo.cargar_respuestas_mensaje(parametro);
+	public void cargar() {
+	    MenuBar mb = MenuHeader.getMenuBar();
+        this.getLayoutMenu().add(mb);
+        this.getLayoutMenu().setHorizontalComponentAlignment(Alignment.CENTER, mb);
+        
+        this.getVaadinVerticalLayout().removeAll();
 
         if (respuestas.length != 0) {
             for (int i = 0; i < respuestas.length; i++) {
@@ -80,22 +81,29 @@ public class Respuestas extends VistaRespuestas implements HasUrlParameter<Strin
             this.getVaadinVerticalLayout().add(titulo);
         }
 
-        this.gethMensaje().setText("Mensaje");
-		
-		this.getButtonResponder().addClickListener(e->{
-			responder_respuesta();			
-		});
-		
+//        this.gethMensaje().setText("Mensaje");
+        
+        this.getButtonResponder().addClickListener(e->{
+            responder_respuesta();          
+        });
 	}
 
 
 	private void responder_respuesta() {
 		Dialog dialog = new Dialog();
-		dialog.add(new Text("Escribe un Mensaje..."));
+		dialog.setHeight("400px");
+		dialog.setWidth("600px");
+		
+		VerticalLayout vldialog = new VerticalLayout();
+		vldialog.setWidth("100%");
+		
 		dialog.setCloseOnEsc(false);
 		dialog.setCloseOnOutsideClick(false);
 		Span message = new Span();
 		TextArea textarea= new TextArea();
+		textarea.setWidth("100%");
+        textarea.setHeight("220px");
+        
 
 		Button confirmButton = new Button("Enviar", event -> {
 //		    message.setText("Confirmed!");
@@ -109,7 +117,7 @@ public class Respuestas extends VistaRespuestas implements HasUrlParameter<Strin
                 message.setText("El mensaje no puede estar vacío!");
             }
 		});
-		Button cancelButton = new Button("Cancel", event -> {
+		Button cancelButton = new Button("Cancelar", event -> {
 		    message.setText("Cancelled...");
 		    dialog.close();
 		});
@@ -119,8 +127,17 @@ public class Respuestas extends VistaRespuestas implements HasUrlParameter<Strin
 		    dialog.close();
 		}, Key.ESCAPE);
 		
-		dialog.add(new Div(textarea));
-		dialog.add(new Div( confirmButton, cancelButton));
+		HorizontalLayout hlbuttos = new HorizontalLayout();
+        hlbuttos.setWidth("100%");
+        hlbuttos.add(confirmButton);
+        hlbuttos.add(cancelButton);
+        hlbuttos.setJustifyContentMode(JustifyContentMode.CENTER);
+        
+        vldialog.add(new H4("Escribe un Mensaje..."));
+        vldialog.add(textarea);
+        vldialog.add(hlbuttos);
+        
+		dialog.add(vldialog);
 		
 		dialog.open();
 	}

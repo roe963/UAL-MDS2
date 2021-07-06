@@ -24,8 +24,8 @@ public class VistaProductosadministrados extends PolymerTemplate<VistaProductosa
 
     @Id("layout-productos")
 	private VerticalLayout layoutProductos;
-	@Id("vistaProductoAdministrado")
-	private Element vistaProductoAdministrado;
+//	@Id("vistaProductoAdministrado")
+//	private Element vistaProductoAdministrado;
 	/**
      * Creates a new VistaProductosadministrados.
      */
@@ -48,12 +48,12 @@ public class VistaProductosadministrados extends PolymerTemplate<VistaProductosa
 		this.layoutProductos = layoutProductos;
 	}
 
-	public Element getVistaProductoAdministrado() {
-		return vistaProductoAdministrado;
-	}
-
-	public void setVistaProductoAdministrado(Element vistaProductoAdministrado) {
-		this.vistaProductoAdministrado = vistaProductoAdministrado;
-	}
+//	public Element getVistaProductoAdministrado() {
+//		return vistaProductoAdministrado;
+//	}
+//
+//	public void setVistaProductoAdministrado(Element vistaProductoAdministrado) {
+//		this.vistaProductoAdministrado = vistaProductoAdministrado;
+//	}
     
 }

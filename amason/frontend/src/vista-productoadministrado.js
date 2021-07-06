@@ -12,10 +12,10 @@ class VistaProductoadministrado extends PolymerElement {
                     height: 100%;
                 }
             </style>
-<vaadin-horizontal-layout class="content" style="width: 100%; height: 100%; align-items: flex-start; margin: var(--lumo-space-m);" id="layout-producto">
- <label id="label-producto" style="flex-grow: 1;">Label</label>
- <vaadin-checkbox id="checkbox-activar">
-  🔏
+<vaadin-horizontal-layout class="content" style="width: 100%; justify-content: space-between; border: 1px solid black; padding-right: var(--lumo-space-xs); padding-left: var(--lumo-space-m);" id="layout-producto">
+ <label id="label-producto" style="flex-grow: 1; width: 90%;">Label</label>
+ <vaadin-checkbox id="checkbox-activar" style="width: 10%;">
+   🔏 
  </vaadin-checkbox>
 </vaadin-horizontal-layout>
 `;

@@ -38,7 +38,7 @@ public class VistaAdministrarproductos extends PolymerTemplate<VistaAdministrarp
     //////Barra Navegacion /////
 	
 	@Id("layout-productos")
-	private HorizontalLayout layoutProductos;
+	private VerticalLayout layoutProductos;
 	@Id("button-guardar")
 	private Button buttonGuardar;
 	@Id("layout-anadirProducto")
@@ -57,11 +57,11 @@ public class VistaAdministrarproductos extends PolymerTemplate<VistaAdministrarp
         // Add setters and getters for template properties here.
     }
 
-	public HorizontalLayout getLayoutProductos() {
+	public VerticalLayout getLayoutProductos() {
 		return layoutProductos;
 	}
 
-	public void setLayoutProductos(HorizontalLayout layoutProductos) {
+	public void setLayoutProductos(VerticalLayout layoutProductos) {
 		this.layoutProductos = layoutProductos;
 	}
 

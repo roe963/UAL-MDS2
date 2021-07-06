@@ -41,8 +41,6 @@ public class Producto_administrado extends VistaProductoadministrado {
     }
 
     public void cambiar_estado_producto(basededatos.Producto producto) {
-        this.getCheckboxActivar().addValueChangeListener(event -> {
-            administrador.cambiar_estado_producto(producto.getId(), this.getCheckboxActivar().getValue());
-        });
+        administrador.cambiar_estado_producto(producto.getId(), this.getCheckboxActivar().getValue());
     }
 }

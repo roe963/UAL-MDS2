@@ -17,8 +17,8 @@ class VistaAgregarproducto extends PolymerElement {
                     height: 100%;
                 }
             </style>
-<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: stretch;">
- <h4 style="margin-top: var(--lumo-space-xs);">Agregar Producto</h4>
+<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: stretch; padding: var(--lumo-space-s);">
+ <h4 style="margin-top: var(--lumo-space-xs); align-self: center;">Agregar Producto</h4>
  <vaadin-text-field label="Id Producto" placeholder="Placeholder" id="textField-idProducto"></vaadin-text-field>
  <vaadin-text-field label="Nombre" id="textField-nombre" style="align-self: stretch;"></vaadin-text-field>
  <label>Categoría</label>

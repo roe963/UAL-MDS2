@@ -180,6 +180,8 @@ public class Productos {
 	}
 
 	public void cambiar_estado_producto(int aIdProducto, boolean aActivo) {
+	    
+	    System.out.println(aIdProducto+" "+aActivo);
 		
 		PersistentTransaction t;
 		try {

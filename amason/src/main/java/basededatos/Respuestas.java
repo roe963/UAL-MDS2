@@ -49,7 +49,7 @@ public class Respuestas {
         try {
         	t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
 	        try {
-	        	respuestas = RespuestaDAO.listRespuestaByQuery("MensajeId=" + aIdMensaje, null);
+	        	respuestas = RespuestaDAO.listRespuestaByQuery("MensajeId=" + aIdMensaje, "Orden");
 	            t.commit();
 	        } catch (PersistentException e) {
 	            t.rollback();
