@@ -16,7 +16,7 @@ public class Oferta_administrador extends VistaOfertaadministrador {
     public Oferta_administrador(basededatos.Oferta oferta) {
 
         this.getLabelProducto().setText(oferta.getContiene_un().getNombre());
-        this.getLabelFecha().setText(String.valueOf(oferta.getPrecio()));
+        this.getLabelPrecio().setText(String.valueOf(oferta.getPrecio())+"€");
         this.getLabelFecha().setText(new SimpleDateFormat("dd/MM/yyyy").format(new Date(oferta.getFecha())));
 
         this.getButtonEliminar().addClickListener(event -> {

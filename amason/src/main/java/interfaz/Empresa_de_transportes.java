@@ -10,9 +10,9 @@ public class Empresa_de_transportes extends VistaEmpresadetransportes {
 
     iAdministrador administrador = new BDPrincipal();
     basededatos.Empresa_transportes empresaTransportes;
-    public Empresa_de_transportes(basededatos.Empresa_transportes empresaTransportes,
-            Agregar_empleado agregar_empleado) {
-
+    public Empresa_de_transportes(basededatos.Empresa_transportes empresaTransportes, Agregar_empleado agregar_empleado) {
+    	
+    	this.empresaTransportes = empresaTransportes;
         basededatos.Empresa_transportes[] empresasTransportes = administrador.cargar_empleados_empresa_transportes();
 
         this.getLabelEmpresaTransportes().setText(empresaTransportes.getEmail().toString());
@@ -23,8 +23,10 @@ public class Empresa_de_transportes extends VistaEmpresadetransportes {
             agregar_empleado.getTextFieldIdUsuario().setValue(String.valueOf(empresaTransportes.getId()));
             agregar_empleado.getTextFieldUsuario().setValue(empresaTransportes.getEmail());
             agregar_empleado.getTextFieldPassword().setValue(String.valueOf(empresaTransportes.getPassword()));
-            agregar_empleado.getSelectTipoUsuario().setValue(empresaTransportes);
+            //agregar_empleado.getSelectTipoUsuario().setValue(empresaTransportes);
+            agregar_empleado.labelSelect.setValue("Empresa de transportes");
         });
+        
         this.getCheckboxEmpresaTransportes().addValueChangeListener(event -> {
 
             cambiar_estado_usuario_empresa_transportes();
@@ -38,6 +40,5 @@ public class Empresa_de_transportes extends VistaEmpresadetransportes {
 
         administrador.cambiar_estado_usuario_empresa_transportes(empresaTransportes.getId(),
                 this.getCheckboxEmpresaTransportes().getValue());
-
     }
 }

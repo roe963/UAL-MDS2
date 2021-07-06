@@ -23,7 +23,8 @@ public class Encargado_de_compras extends VistaEncargadodecompras {
             agregar_empleado.getTextFieldIdUsuario().setValue(String.valueOf(encargadoCompras.getId()));
             agregar_empleado.getTextFieldUsuario().setValue(encargadoCompras.getEmail());
             agregar_empleado.getTextFieldPassword().setValue(String.valueOf(encargadoCompras.getPassword()));
-            agregar_empleado.getSelectTipoUsuario().setValue(encargadoCompras);
+            //agregar_empleado.getSelectTipoUsuario().setValue(encargadoCompras);
+            agregar_empleado.labelSelect.setValue("Encargado de compras");
         });
 
         this.getCheckboxActivarEncargadoCompras().addValueChangeListener(event -> {
@@ -36,6 +37,7 @@ public class Encargado_de_compras extends VistaEncargadodecompras {
     }
 
     public void cambiar_estado_usuario_encargado_compras() {
+    	
         administrador.cambiar_estado_usuario_encargado_compras(encargadoCompras.getId(),
                 this.getCheckboxActivarEncargadoCompras().getValue());
     }

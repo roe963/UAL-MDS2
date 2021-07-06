@@ -37,15 +37,13 @@ public class Agregar_producto extends VistaAgregarproducto {
         this.getLayoutSelectCategoria().removeAll();
         //labelSelect.setLabel("Categorias");
         labelSelect.setPlaceholder("Categorías");
-        List<Categoria> departmentList = Arrays.asList(administrador.cargar_categorias());
+        List<Categoria> departmentList = Arrays.asList(administrador.cargar_todas_categorias());
 
         // Establece que valor de Categoria se va a agregar
         labelSelect.setItemLabelGenerator(Categoria::getNombre);
         labelSelect.setItems(departmentList);
         
         this.getLayoutSelectCategoria().add(labelSelect);
-		
-		getCheckboxProductoActivo().setValue(true);
 		
 		this.getButtonAnadir().addClickListener(event -> agregar_producto());
 	}
@@ -55,7 +53,7 @@ public class Agregar_producto extends VistaAgregarproducto {
 		String descripcion = getTextAreaDescripcion().getValue();
 		String imagen = getTextFieldImagen().getValue();
 		Double precio = null;
-		Categoria categoria = (Categoria) getSelectCategoria().getValue();
+		Categoria categoria = (Categoria) labelSelect.getValue();
 		try {
 		    precio = Double.parseDouble(getTextFieldPrecio().getValue());
 		} catch (Exception e) {

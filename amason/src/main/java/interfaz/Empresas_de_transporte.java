@@ -39,7 +39,7 @@ public class Empresas_de_transporte extends VistaEmpresasdetransportes {
         Integer idUsuario = null;
         
         try {
-            idUsuario = Integer.parseInt(ae.getTextFieldUsuario().getValue());
+            idUsuario = Integer.parseInt(ae.getTextFieldIdUsuario().getValue());
         } catch(Exception e) {
             
         }
@@ -50,7 +50,7 @@ public class Empresas_de_transporte extends VistaEmpresasdetransportes {
             administrador.modificar_usuario_empresa_transportes((int)idUsuario, nombre, password);
             UI.getCurrent().navigate("");
             UI.getCurrent().navigate("administrar_empleados");
-            new Notification(nombre + " añadido correctamente", 3000, Position.MIDDLE).open();;
+            new Notification(nombre + " modificado correctamente", 3000, Position.MIDDLE).open();;
         }
         
     }

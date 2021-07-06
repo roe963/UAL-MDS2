@@ -28,7 +28,6 @@ public class Agregar_empleado extends VistaAgregarempleado {
 		getTextFieldIdUsuario().setVisible(false);
 		
 		this.getLayoutSelectTipoUsuario().removeAll();
-		///this.getSelectTipoUsuario().setItems("Tarjeta", "PayPal");
 		labelSelect.setPlaceholder("Tipo usuario");
 		labelSelect.setItems(new String[] { "Encargado de compras", "Empresa de transportes" });
 		
