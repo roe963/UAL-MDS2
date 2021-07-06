@@ -12,7 +12,7 @@ class VistaEmpresasdetransportes extends PolymerElement {
                     height: 100%;
                 }
             </style>
-<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: stretch;" id="layout-empresasTransportes">
+<vaadin-vertical-layout style="width: 100%; align-items: stretch;" id="layout-empresasTransportes">
  <vista-empresadetransportes id="vistaEmpresadetransportes"></vista-empresadetransportes>
 </vaadin-vertical-layout>
 `;

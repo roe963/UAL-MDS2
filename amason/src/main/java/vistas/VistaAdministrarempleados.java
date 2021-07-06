@@ -36,9 +36,9 @@ public class VistaAdministrarempleados extends PolymerTemplate<VistaAdministrare
 	@Id("layout-anadirUsuario")
 	private VerticalLayout layoutAnadirUsuario;
 	@Id("layout-encargadoCompras")
-	private HorizontalLayout layoutEncargadoCompras;
+	private VerticalLayout layoutEncargadoCompras;
 	@Id("layout-empresaTransportes")
-	private HorizontalLayout layoutEmpresaTransportes;
+	private VerticalLayout layoutEmpresaTransportes;
 	@Id("button-guardar")
 	private Button buttonGuardar;
 	
@@ -64,19 +64,19 @@ public class VistaAdministrarempleados extends PolymerTemplate<VistaAdministrare
 		this.layoutAnadirUsuario = layoutAnadirUsuario;
 	}
 
-	public HorizontalLayout getLayoutEncargadoCompras() {
+	public VerticalLayout getLayoutEncargadoCompras() {
 		return layoutEncargadoCompras;
 	}
 
-	public void setLayoutEncargadoCompras(HorizontalLayout layoutEncargadoCompras) {
+	public void setLayoutEncargadoCompras(VerticalLayout layoutEncargadoCompras) {
 		this.layoutEncargadoCompras = layoutEncargadoCompras;
 	}
 
-	public HorizontalLayout getLayoutEmpresaTransportes() {
+	public VerticalLayout getLayoutEmpresaTransportes() {
 		return layoutEmpresaTransportes;
 	}
 
-	public void setLayoutEmpresaTransportes(HorizontalLayout layoutEmpresaTransportes) {
+	public void setLayoutEmpresaTransportes(VerticalLayout layoutEmpresaTransportes) {
 		this.layoutEmpresaTransportes = layoutEmpresaTransportes;
 	}
 

@@ -16,17 +16,17 @@ class VistaAgregarempleado extends PolymerElement {
                     height: 100%;
                 }
             </style>
-<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: stretch;">
- <h4>Agregar Usuario</h4>
+<vaadin-vertical-layout style="width: 100%; align-items: stretch; padding: var(--lumo-space-s);">
+ <h4 style="align-self: center;">Agregar Usuario</h4>
  <vaadin-text-field label="Id Usuario" placeholder="Placeholder" id="textField-idUsuario"></vaadin-text-field>
  <vaadin-text-field label="Usuario" id="textField-usuario"></vaadin-text-field>
  <vaadin-text-field label="Contraseña" id="textField-password"></vaadin-text-field>
- <label>Tipo de usuario</label>
- <vaadin-vertical-layout theme="spacing" id="layout-selectTipoUsuario">
-  <vaadin-select value="Item one" id="select-tipoUsuario">
+ <label style="margin-top: var(--lumo-space-s);">Tipo de usuario</label>
+ <vaadin-vertical-layout id="layout-selectTipoUsuario" style="align-self: stretch;">
+  <vaadin-select value="Item one" id="select-tipoUsuario" style="align-self: stretch;">
    <template>
     <vaadin-list-box>
-     <vaadin-item selected>
+     <vaadin-item selected style="flex-shrink: 0;">
        Item one 
      </vaadin-item>
      <vaadin-item>
@@ -40,7 +40,7 @@ class VistaAgregarempleado extends PolymerElement {
   </vaadin-select>
  </vaadin-vertical-layout>
  <vaadin-button id="button-anadir" style="margin-top: var(--lumo-space-xl);">
-  Añadir
+   Añadir 
  </vaadin-button>
 </vaadin-vertical-layout>
 `;

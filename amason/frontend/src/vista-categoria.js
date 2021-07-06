@@ -12,10 +12,10 @@ class VistaCategoria extends PolymerElement {
                     height: 100%;
                 }
             </style>
-<vaadin-horizontal-layout class="content" style="width: 100%; height: 100%; margin: var(--lumo-space-m);" id="layout-categoria">
- <label id="label-categoria" style="flex-grow: 1;">Label</label>
- <vaadin-checkbox id="checkbox-activar" style="flex-grow: 0;">
-  🔏
+<vaadin-horizontal-layout class="content" style="justify-content: space-around; border: 1px solid black; padding-left: var(--lumo-space-m); padding-right: var(--lumo-space-m);" id="layout-categoria">
+ <label id="label-categoria" style="flex-grow: 0; flex-shrink: 0; width: 90%;">Label</label>
+ <vaadin-checkbox id="checkbox-activar" style="flex-grow: 0; width: 10%; flex-shrink: 0;">
+   🔏 
  </vaadin-checkbox>
 </vaadin-horizontal-layout>
 `;

@@ -13,7 +13,7 @@ class VistaAgregarcategoria extends PolymerElement {
                     height: 100%;
                 }
             </style>
-<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: stretch;">
+<vaadin-vertical-layout style="width: 100%; align-items: stretch;">
  <vaadin-text-field label="Id Categoria" placeholder="Placeholder" id="textField-idCategoria"></vaadin-text-field>
  <vaadin-text-field label="Nombre" id="textField-nombre" style="align-self: stretch;"></vaadin-text-field>
  <vaadin-button id="button-anadir" style="margin-top: var(--lumo-space-xl);">
