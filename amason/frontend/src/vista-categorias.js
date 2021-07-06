@@ -12,7 +12,7 @@ class VistaCategorias extends PolymerElement {
                     height: 100%;
                 }
             </style>
-<vaadin-vertical-layout style="width: 100%; height: 100%;" id="layout-categorias">
+<vaadin-vertical-layout style="align-items: stretch;" id="layout-categorias">
  <vista-categoria id="vistaCategoria"></vista-categoria>
 </vaadin-vertical-layout>
 `;

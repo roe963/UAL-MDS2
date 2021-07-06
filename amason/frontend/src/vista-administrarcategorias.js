@@ -15,17 +15,21 @@ class VistaAdministrarcategorias extends PolymerElement {
                 }
             </style>
 <vaadin-vertical-layout theme="spacing" id="layout-menu"></vaadin-vertical-layout>
-<h3 style="margin-left: var(--lumo-space-xl);">Administrar Categorías</h3>
-<vaadin-horizontal-layout class="content" style="width: 100%; height: 100%;">
- <vaadin-vertical-layout theme="spacing" id="layout-anadirCategoria" style="width: 100%; height: 100%; flex-grow: 1; align-items: stretch; margin-left: var(--lumo-space-xl); margin-right: var(--lumo-space-m);">
-  <h4>Agregar Categoría</h4>
-  <vista-agregarcategoria></vista-agregarcategoria>
+<vaadin-vertical-layout style="align-items: center; justify-content: center;">
+ <h3 style="align-self: center;">Administrar categorías</h3>
+</vaadin-vertical-layout>
+<vaadin-horizontal-layout class="content" style="width: 100%; height: 100%; justify-content: space-around;">
+ <vaadin-vertical-layout style="width: 100%; height: 80%; flex-grow: 1; align-items: stretch; padding: var(--lumo-space-l); border: 1px solid black; margin: var(--lumo-space-s);">
+  <h4 style="align-self: center;">Agregar Categoría</h4>
+  <vaadin-vertical-layout theme="spacing" id="layout-anadirCategoria" style="align-items: stretch;">
+   <vista-agregarcategoria style="padding-right: var(--lumo-space-s); padding-left: var(--lumo-space-s);"></vista-agregarcategoria>
+  </vaadin-vertical-layout>
  </vaadin-vertical-layout>
- <vaadin-vertical-layout theme="spacing" style="flex-grow: 1; align-items: stretch; width: 100%; height: 100%; margin-right: var(--lumo-space-xl); margin-left: var(--lumo-space-xl);">
-  <h4>Categorías Activas/Desactivas</h4>
-  <vaadin-horizontal-layout theme="spacing" id="layout-categorias" style="margin-top: var(--lumo-space-xs); width: 100%;">
-   <vista-categorias></vista-categorias>
-  </vaadin-horizontal-layout>
+ <vaadin-vertical-layout style="flex-grow: 1; align-items: stretch; width: 100%; height: 80%; padding: var(--lumo-space-l); border: 1px solid black; margin: var(--lumo-space-s);">
+  <h4 style="align-self: center;">Categorías Activas/Desactivas</h4>
+  <vaadin-vertical-layout id="layout-categorias" style="align-self: stretch; align-items: stretch;">
+   <vista-categorias style="flex-grow: 0; flex-shrink: 0;"></vista-categorias>
+  </vaadin-vertical-layout>
  </vaadin-vertical-layout>
 </vaadin-horizontal-layout>
 `;

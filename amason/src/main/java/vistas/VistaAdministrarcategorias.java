@@ -23,10 +23,10 @@ public class VistaAdministrarcategorias extends PolymerTemplate<VistaAdministrar
     //////Barra Navegacion /////
     @Id("layout-menu")
     private VerticalLayout layoutMenu;
-	@Id("layout-anadirCategoria")
-	private VerticalLayout layoutAnadirCategoria;
 	@Id("layout-categorias")
-	private HorizontalLayout layoutCategorias;
+	private VerticalLayout layoutCategorias;
+    @Id("layout-anadirCategoria")
+    private VerticalLayout layoutAnadirCategoria;
 	public VerticalLayout getLayoutMenu() {
         return layoutMenu;
     }
@@ -58,11 +58,11 @@ public class VistaAdministrarcategorias extends PolymerTemplate<VistaAdministrar
 		this.layoutAnadirCategoria = layoutAnadirCategoria;
 	}
 
-	public HorizontalLayout getLayoutCategorias() {
+	public VerticalLayout getLayoutCategorias() {
 		return layoutCategorias;
 	}
 
-	public void setLayoutCategorias(HorizontalLayout layoutCategorias) {
+	public void setLayoutCategorias(VerticalLayout layoutCategorias) {
 		this.layoutCategorias = layoutCategorias;
 	}
     
