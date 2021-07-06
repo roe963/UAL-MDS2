@@ -185,7 +185,7 @@ public class Ver_producto extends VistaVerproducto implements HasUrlParameter<St
         this.getVldescripcionAndValoracion().add(tabs, pages);
 
         this.getButtonComprar().addClickListener(event -> {
-            System.out.println("Se añade al carrito" + producto.getNombre());
+            new Notification(producto.getNombre() + " añadido al carrito", 3000, Position.MIDDLE).open();
             Cantidad c = new Cantidad();
             c.setCantidad(1);
             c.setContiene_un(producto);
