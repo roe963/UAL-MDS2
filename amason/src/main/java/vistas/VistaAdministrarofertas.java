@@ -34,7 +34,7 @@ public class VistaAdministrarofertas extends PolymerTemplate<VistaAdministrarofe
 	@Id("layout-anadirOferta")
 	private VerticalLayout layoutAnadirOferta;
 	@Id("layout-ofertas")
-	private HorizontalLayout layoutOfertas;
+	private VerticalLayout layoutOfertas;
     
     /**
      * Creates a new VistaAdministrarofertas.
@@ -58,11 +58,11 @@ public class VistaAdministrarofertas extends PolymerTemplate<VistaAdministrarofe
 		this.layoutAnadirOferta = layoutAnadirOferta;
 	}
 
-	public HorizontalLayout getLayoutOfertas() {
+	public VerticalLayout getLayoutOfertas() {
 		return layoutOfertas;
 	}
 
-	public void setLayoutOfertas(HorizontalLayout layoutOfertas) {
+	public void setLayoutOfertas(VerticalLayout layoutOfertas) {
 		this.layoutOfertas = layoutOfertas;
 	}
     

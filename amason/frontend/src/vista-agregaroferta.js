@@ -17,11 +17,11 @@ class VistaAgregaroferta extends PolymerElement {
                     height: 100%;
                 }
             </style>
-<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: stretch;">
- <h4>Agregar Oferta</h4>
+<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: stretch; padding-right: var(--lumo-space-m); padding-left: var(--lumo-space-m);">
+ <h4 style="align-self: center;">Agregar Oferta</h4>
  <label>Seleccionar producto</label>
  <vaadin-vertical-layout theme="spacing" id="layout-selectProducto">
-  <vaadin-select value="Item one" id="select-producto">
+  <vaadin-select value="Item one" id="select-producto" style="align-self: stretch;">
    <template>
     <vaadin-list-box>
      <vaadin-item selected>
@@ -38,7 +38,7 @@ class VistaAgregaroferta extends PolymerElement {
   </vaadin-select>
  </vaadin-vertical-layout>
  <vaadin-text-field label="Precio" id="textField-precio"></vaadin-text-field>
- <vaadin-date-picker label="Fecha fin oferta" placeholder="Elija una fecha" id="datePicker-fechaFinOferta"></vaadin-date-picker>
+ <vaadin-date-picker label="Fecha fin oferta" placeholder="Elija una fecha" id="datePicker-fechaFinOferta" style="flex-shrink: 0;"></vaadin-date-picker>
  <vaadin-button id="button-anadir" style="margin-top: var(--lumo-space-xl);">
    Añadir 
  </vaadin-button>

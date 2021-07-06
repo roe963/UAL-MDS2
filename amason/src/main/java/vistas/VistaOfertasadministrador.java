@@ -20,8 +20,8 @@ public class VistaOfertasadministrador extends PolymerTemplate<VistaOfertasadmin
 
     @Id("layout-ofertas")
 	private VerticalLayout layoutOfertas;
-	@Id("vistaOfertaAdministrador")
-	private VistaOfertaadministrador vistaOfertaAdministrador;
+//	@Id("vistaOfertaAdministrador")
+//	private VistaOfertaadministrador vistaOfertaAdministrador;
 
 	/**
      * Creates a new VistaOfertasadministrador.
@@ -45,12 +45,12 @@ public class VistaOfertasadministrador extends PolymerTemplate<VistaOfertasadmin
 		this.layoutOfertas = layoutOfertas;
 	}
 
-	public VistaOfertaadministrador getVistaOfertaAdministrador() {
-		return vistaOfertaAdministrador;
-	}
-
-	public void setVistaOfertaAdministrador(VistaOfertaadministrador vistaOfertaAdministrador) {
-		this.vistaOfertaAdministrador = vistaOfertaAdministrador;
-	}
+//	public VistaOfertaadministrador getVistaOfertaAdministrador() {
+//		return vistaOfertaAdministrador;
+//	}
+//
+//	public void setVistaOfertaAdministrador(VistaOfertaadministrador vistaOfertaAdministrador) {
+//		this.vistaOfertaAdministrador = vistaOfertaAdministrador;
+//	}
     
 }

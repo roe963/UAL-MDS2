@@ -36,7 +36,7 @@ class VistaAdministrarempleados extends PolymerElement {
     </vaadin-vertical-layout>
    </vaadin-vertical-layout>
   </vaadin-horizontal-layout>
-  <vaadin-button id="button-guardar" style="align-self: stretch;">
+  <vaadin-button id="button-guardar" style="align-self: stretch; margin: var(--lumo-space-s);">
     Guardar 
   </vaadin-button>
  </vaadin-vertical-layout>

@@ -1,8 +1,6 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
-import './vista-ofertasadministrador.js';
-import './vista-agregaroferta.js';
 
 class VistaAdministrarofertas extends PolymerElement {
 
@@ -15,16 +13,14 @@ class VistaAdministrarofertas extends PolymerElement {
                 }
             </style>
 <vaadin-vertical-layout theme="spacing" id="layout-menu"></vaadin-vertical-layout>
-<h3 style="margin-left: var(--lumo-space-xl);">Administrar Ofertas</h3>
-<vaadin-horizontal-layout class="content" style="width: 100%; height: 100%;">
- <vaadin-vertical-layout theme="spacing" id="layout-anadirOferta" style="width: 100%; height: 100%; flex-grow: 1; align-items: stretch; margin-right: var(--lumo-space-m); margin-left: var(--lumo-space-xl);">
-  <vista-agregaroferta></vista-agregaroferta>
- </vaadin-vertical-layout>
- <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%; align-items: stretch; flex-grow: 1; margin-right: var(--lumo-space-xl); margin-left: var(--lumo-space-m);">
-  <h4 style="margin-top: var(--lumo-space-l); margin-bottom: var(--lumo-space-xs);">Ofertas Activos/Desactivos</h4>
-  <vaadin-horizontal-layout theme="spacing" id="layout-ofertas">
-   <vista-ofertasadministrador></vista-ofertasadministrador>
-  </vaadin-horizontal-layout>
+<vaadin-vertical-layout style="width: 100%; align-items: center;">
+ <h3 style="margin-left: var(--lumo-space-xl);">Administrar ofertas</h3>
+</vaadin-vertical-layout>
+<vaadin-horizontal-layout class="content" style="width: 100%; height: 85%; justify-content: space-around;">
+ <vaadin-vertical-layout id="layout-anadirOferta" style="width: 50%; height: 100%; flex-grow: 0; border: 1px solid black; flex-shrink: 1; margin: var(--lumo-space-s); align-items: stretch;"></vaadin-vertical-layout>
+ <vaadin-vertical-layout style="width: 50%; height: 100%; align-items: stretch; flex-grow: 0; border: 1px solid black; margin: var(--lumo-space-s);">
+  <h4 style="margin-top: var(--lumo-space-l); margin-bottom: var(--lumo-space-xs); align-self: center;">Ofertas Activos/Desactivos</h4>
+  <vaadin-vertical-layout id="layout-ofertas" style="align-self: stretch; align-items: stretch;"></vaadin-vertical-layout>
  </vaadin-vertical-layout>
 </vaadin-horizontal-layout>
 `;
