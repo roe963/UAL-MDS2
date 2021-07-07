@@ -17,11 +17,11 @@ class VistaEncargadocompras extends PolymerElement {
  <h1 style="align-self: center;">Encargado de compras</h1>
  <label id="id-email-encargado" style="align-self: center;">Label</label>
  <vaadin-horizontal-layout style="align-self: stretch; margin-top: var(--lumo-space-m); justify-content: space-around; width: 100%; height: 90%;">
-  <vaadin-vertical-layout style="flex-grow: 0; flex-shrink: 0; width: 40%; height: 95%;">
+  <vaadin-vertical-layout style="flex-grow: 0; flex-shrink: 0; width: 45%; height: 95%;">
    <h4 style="align-self: center;">Pedidos pendientes</h4>
    <vaadin-vertical-layout id="layout-pedidos-pendientes" style="flex-shrink: 1; width: 100%; height: 100%; border: 1px solid black; align-items: stretch;"></vaadin-vertical-layout>
   </vaadin-vertical-layout>
-  <vaadin-vertical-layout style="flex-grow: 0; flex-shrink: 0; width: 40%; height: 95%;">
+  <vaadin-vertical-layout style="flex-grow: 0; flex-shrink: 0; width: 45%; height: 95%;">
    <h4 style="align-self: center;">Pedidos enviados</h4>
    <vaadin-vertical-layout id="layout-pedidos-enviados" style="flex-grow: 0; flex-shrink: 1; width: 100%; height: 100%; border: 1px solid black; align-items: stretch;"></vaadin-vertical-layout>
   </vaadin-vertical-layout>

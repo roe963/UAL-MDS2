@@ -19,7 +19,7 @@ class VistaVercatalogocliente extends PolymerElement {
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
  <vaadin-vertical-layout theme="spacing" id="layout-menu"></vaadin-vertical-layout>
  <vaadin-vertical-layout theme="spacing" style="align-self: stretch; flex-grow: 1; margin: var(--lumo-space-xl);">
-  <h4>Catálogo</h4>
+  <h3 style="align-self: center;">Catálogo</h3>
   <vaadin-vertical-layout id="layout-selectCategoria">
    <vaadin-select value="Item one" id="select-categoria">
     <template>

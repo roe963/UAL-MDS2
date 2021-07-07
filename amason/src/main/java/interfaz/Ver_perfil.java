@@ -72,6 +72,7 @@ public class Ver_perfil extends VistaVeperfil {
         }
 
         this.getVlEstado().add(radioGroup);
+        this.getVlEstado().setHorizontalComponentAlignment(Alignment.CENTER, radioGroup);
 
         this.getVlDireccionyformaPago().removeAll();
         Datos_de_compra datosCompra = new Datos_de_compra();
@@ -81,10 +82,10 @@ public class Ver_perfil extends VistaVeperfil {
 
         this.getTextfieldNombre().setValue(cliente.getNombre());
         this.getCorreoElectronico().setValue(cliente.getEmail());
-        this.getImgFotousuario().setSrc(cliente.getFotoURL());
+//        this.getImgFotousuario().setSrc(cliente.getFotoURL());
 
-        this.getImgFotousuario().setMaxHeight("30%");
-        this.getImgFotousuario().setMaxWidth("30%");
+//        this.getImgFotousuario().setMaxHeight("30%");
+//        this.getImgFotousuario().setMaxWidth("30%");
 
         if (cliente.getFotoURL() == null) {// si no tiene ninguna imagen poner esta por defecto
             this.getImgFotousuario().setSrc(

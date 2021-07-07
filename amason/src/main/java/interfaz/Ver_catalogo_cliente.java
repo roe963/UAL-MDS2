@@ -61,6 +61,8 @@ public class Ver_catalogo_cliente extends VistaVercatalogocliente{
 			}
 
 		});		
+		
+		this.labelSelect.setValue(departmentList.get(0));
 	}
 	
 	public void seleccionar_categoria(int idCategoria) throws PersistentException {

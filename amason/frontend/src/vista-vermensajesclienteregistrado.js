@@ -18,14 +18,14 @@ class VistaVermensajesclienteregistrado extends PolymerElement {
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
  <vaadin-vertical-layout theme="spacing" id="layout-menu"></vaadin-vertical-layout>
  <vaadin-vertical-layout theme="spacing" style="align-self: stretch; flex-grow: 1; margin: var(--lumo-space-xl);">
-  <h4>Contacto</h4>
+  <h3 style="align-self: center;">Contacto</h3>
   <vaadin-horizontal-layout theme="spacing" style="align-self: stretch;">
    <h4 style="flex-grow: 1;">Bandeja de entrada</h4>
    <vaadin-button id="button-redactar" style="flex-grow: 0; align-self: center;">
      Redactar 
    </vaadin-button>
   </vaadin-horizontal-layout>
-  <vaadin-vertical-layout theme="spacing" style="align-self: stretch;" id="vaadinVerticalLayout2">
+  <vaadin-vertical-layout theme="spacing" style="align-self: stretch; align-items: stretch;" id="vaadinVerticalLayout2">
    <vista-mensajesclienteregistrado style="align-self: stretch; width: 100%;"></vista-mensajesclienteregistrado>
   </vaadin-vertical-layout>
  </vaadin-vertical-layout>

@@ -11,7 +11,7 @@ class VistaProductosdelcarrito extends PolymerElement {
                     height: 100%;
                 }
             </style>
-<vaadin-vertical-layout id="layout-productosdelcarrito"></vaadin-vertical-layout>
+<vaadin-vertical-layout id="layout-productosdelcarrito" style="align-items: stretch;"></vaadin-vertical-layout>
 `;
     }
 

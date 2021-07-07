@@ -13,10 +13,10 @@ class VistaDatosdecompra extends PolymerElement {
                     height: 100%;
                 }
             </style>
-<vaadin-vertical-layout style="margin: var(--lumo-space-m);">
- <label style="align-self: center;">Dirección</label>
+<vaadin-vertical-layout style="align-items: stretch; justify-content: center;">
+ <label style="align-self: flex-start;">Dirección</label>
  <vaadin-text-field id="textfield-direccion" style="align-self: stretch;"></vaadin-text-field>
- <label style="align-self: center; flex-grow: 0; flex-shrink: 0;">Forma de pago</label>
+ <label style="align-self: flex-start; flex-grow: 0; flex-shrink: 0; margin-top: var(--lumo-space-s);">Forma de pago</label>
  <vaadin-select value="Item one" id="select-formadepago" style="align-self: stretch;"></vaadin-select>
 </vaadin-vertical-layout>
 `;

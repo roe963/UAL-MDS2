@@ -40,24 +40,6 @@ public class Ver_catalogo_administrador extends VistaVercatalogoadministrador {
         
         todoslosproductos = bd.cargar_todos_productos();
         buscar(todoslosproductos);
-        
-//		ViewChanger cambiarVista = new ViewChanger();
-		TextField txtBuscar = this.getTextfieldBuscar();
-		Button btnBuscar = this.getButtonBuscar();
-		
-		btnBuscar.addClickListener(event -> {
-            if (txtBuscar.isEmpty()) {
-                buscar(todoslosproductos);
-        	} else {
-        	    buscar(Arrays.stream(todoslosproductos).filter(x ->x.getNombre().toLowerCase().contains((CharSequence) txtBuscar.getValue().toLowerCase())).toArray(Producto[]::new));
-        	}
-        });
-		
-		//new Buscar_producto_cliente(this.getTextfieldBuscar().getValue());
-		
-		// Crear la interfaz lista productos		
-//		this.getVaadinHorizontalLayout().removeAll();
-//		this.getVaadinHorizontalLayout().add(new Productos(productosamostrar));
 		
 		// Cargar select categorias
 		this.getLayoutSelectCategoria().removeAll();
@@ -82,6 +64,23 @@ public class Ver_catalogo_administrador extends VistaVercatalogoadministrador {
 			}
 
 		});
+		
+		this.labelSelect.setValue(departmentList.get(0));
+		
+		TextField txtBuscar = this.getTextfieldBuscar();
+        Button btnBuscar = this.getButtonBuscar();
+        
+        btnBuscar.addClickListener(event -> {
+            if (txtBuscar.isEmpty()) {
+                buscar(todoslosproductos);
+                this.labelSelect.setEnabled(true);
+                this.labelSelect.setValue(departmentList.get(1));
+                this.labelSelect.setValue(departmentList.get(0));
+            } else {
+                this.labelSelect.setEnabled(false);
+                buscar(Arrays.stream(todoslosproductos).filter(x ->x.getNombre().toLowerCase().contains((CharSequence) txtBuscar.getValue().toLowerCase())).toArray(Producto[]::new));
+            }
+        });
 		
 	}
 	

@@ -19,7 +19,7 @@ class VistaVercatalogoadministrador extends PolymerElement {
 <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%;">
  <vaadin-vertical-layout theme="spacing" id="layout-menu"></vaadin-vertical-layout>
  <vaadin-vertical-layout theme="spacing" style="align-self: stretch; flex-grow: 1; margin: var(--lumo-space-xl);">
-  <h4>Catálogo</h4>
+  <h3 style="align-self: center;">Catálogo</h3>
   <vaadin-horizontal-layout theme="spacing" style="align-self: stretch; align-items: flex-start;">
    <vaadin-horizontal-layout theme="spacing" style="flex-grow: 1; align-items: flex-start; margin: var(--lumo-space-m);">
     <vaadin-text-field placeholder="Buscar..." id="textfield-buscar" style="flex-grow: 1;">

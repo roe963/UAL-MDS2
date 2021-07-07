@@ -15,7 +15,7 @@ class VistaVertodoslospedidos extends PolymerElement {
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
  <vaadin-vertical-layout id="layout-menu" style="align-self: center;"></vaadin-vertical-layout>
  <vaadin-vertical-layout style="align-self: stretch; flex-grow: 1; margin: var(--lumo-space-m);">
-  <h4 style="align-self: flex-start; flex-shrink: 0;">Pedidos</h4>
+  <h3 style="align-self: center; flex-shrink: 0;">Pedidos</h3>
   <vaadin-vertical-layout id="layout-pedidos" style="flex-grow: 0; flex-shrink: 1; align-self: stretch; align-items: stretch;"></vaadin-vertical-layout>
  </vaadin-vertical-layout>
 </vaadin-vertical-layout>

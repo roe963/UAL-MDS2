@@ -16,7 +16,7 @@ class VistaVermensajesadministrador extends PolymerElement {
 <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%;">
  <vaadin-vertical-layout theme="spacing" id="layout-menu"></vaadin-vertical-layout>
  <vaadin-vertical-layout style="flex-grow: 1; align-self: stretch; margin-left: var(--lumo-space-xl); margin-right: var(--lumo-space-xl);">
-  <h2 style="align-self: center;">Contacto</h2>
+  <h3 style="align-self: center;">Contacto</h3>
   <vaadin-horizontal-layout style="align-self: stretch;">
    <h4 style="flex-grow: 1;">Bandeja de entrada</h4>
   </vaadin-horizontal-layout>

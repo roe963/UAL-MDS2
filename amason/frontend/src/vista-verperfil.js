@@ -21,13 +21,13 @@ class VistaVerperfil extends PolymerElement {
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
  <vaadin-vertical-layout theme="spacing" id="layout-menu"></vaadin-vertical-layout>
  <vaadin-vertical-layout theme="spacing" style="padding: var(--lumo-space-xl); align-self: stretch; flex-grow: 1;">
-  <h4>Mi cuenta</h4>
-  <vaadin-horizontal-layout theme="spacing" style="padding: var(--lumo-space-xl); padding-top: var(--lumo-space-xs); align-self: center; flex-grow: 0; padding-bottom: var(--lumo-space-xs);">
-   <vaadin-vertical-layout theme="spacing" style="padding: var(--lumo-space-xl); padding-top: var(--lumo-space-xs); padding-bottom: var(--lumo-space-xs);">
+  <h3 style="align-self: center;">Mi cuenta</h3>
+  <vaadin-horizontal-layout theme="spacing" style="padding: var(--lumo-space-xl); padding-top: var(--lumo-space-xs); align-self: center; flex-grow: 0; padding-bottom: var(--lumo-space-xs); border: 1px solid black; align-items: stretch; flex-shrink: 1;">
+   <vaadin-vertical-layout theme="spacing" style="padding: var(--lumo-space-xl); padding-top: var(--lumo-space-xs); padding-bottom: var(--lumo-space-xs); align-self: center;">
     <vaadin-text-field label="Nombre y Apellidos" id="textfield-nombre" style="flex-shrink: 1;"></vaadin-text-field>
     <vaadin-text-field label="Correo electrónico" name="textfield-email" id="correoElectrónico"></vaadin-text-field>
    </vaadin-vertical-layout>
-   <vaadin-radio-group theme="vertical" id="radio-estado" style="padding: var(--lumo-space-xl); padding-top: var(--lumo-space-xs); padding-bottom: var(--lumo-space-xs);" value="on">
+   <vaadin-radio-group theme="vertical" id="radio-estado" style="padding: var(--lumo-space-xl); padding-top: var(--lumo-space-xs); padding-bottom: var(--lumo-space-xs); align-self: center;" value="on">
     <label>Estado</label>
     <vaadin-radio-button checked>
      <div>
@@ -40,9 +40,9 @@ class VistaVerperfil extends PolymerElement {
      </div>
     </vaadin-radio-button>
    </vaadin-radio-group>
-   <vista-datosdecompra style="padding: var(--lumo-space-xl); padding-top: var(--lumo-space-xs); padding-bottom: var(--lumo-space-xs);" id="vistaDatosdecompra"></vista-datosdecompra>
+   <vista-datosdecompra style="align-self: center;" id="vistaDatosdecompra"></vista-datosdecompra>
    <vaadin-vertical-layout theme="spacing" style="padding: var(--lumo-space-xl); padding-top: var(--lumo-space-xs); padding-bottom: var(--lumo-space-xs);">
-    <img id="img-fotousuario" style="padding: var(--lumo-space-xl); align-self: center;">
+    <img id="img-fotousuario" style="padding: var(--lumo-space-xl); align-self: center; min-width: 100px; max-width: 100px; min-height: 100px; max-height: 100px;">
     <vaadin-text-field label="Foto de usuario" id="textfield-fotousuario"></vaadin-text-field>
    </vaadin-vertical-layout>
   </vaadin-horizontal-layout>
