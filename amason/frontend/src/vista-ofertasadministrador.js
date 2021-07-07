@@ -11,7 +11,7 @@ class VistaOfertasadministrador extends PolymerElement {
                     height: 100%;
                 }
             </style>
-<vaadin-vertical-layout style="width: 100%;" id="layout-ofertas"></vaadin-vertical-layout>
+<vaadin-vertical-layout style="width: 100%; align-items: stretch;" id="layout-ofertas"></vaadin-vertical-layout>
 `;
     }
 

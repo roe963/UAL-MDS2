@@ -17,12 +17,12 @@ class VistaAgregarproducto extends PolymerElement {
                     height: 100%;
                 }
             </style>
-<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: stretch; padding: var(--lumo-space-s);">
+<vaadin-vertical-layout style="align-items: stretch; padding: var(--lumo-space-s); width: 100%;">
  <h4 style="margin-top: var(--lumo-space-xs); align-self: center;">Agregar Producto</h4>
  <vaadin-text-field label="Id Producto" placeholder="Placeholder" id="textField-idProducto"></vaadin-text-field>
  <vaadin-text-field label="Nombre" id="textField-nombre" style="align-self: stretch;"></vaadin-text-field>
- <label>Categoría</label>
- <vaadin-vertical-layout theme="spacing" id="layout-selectCategoria">
+ <label style="align-self: stretch;">Categoría</label>
+ <vaadin-vertical-layout theme="spacing" id="layout-selectCategoria" style="align-items: stretch;">
   <vaadin-select value="Item one" id="select-categoria">
    <template>
     <vaadin-list-box>
@@ -39,11 +39,11 @@ class VistaAgregarproducto extends PolymerElement {
    </template>
   </vaadin-select>
  </vaadin-vertical-layout>
- <vaadin-text-field label="Precio" id="textField-precio"></vaadin-text-field>
- <vaadin-text-area label="Descripción" placeholder="" id="textArea-descripcion"></vaadin-text-area>
- <vaadin-text-field label="Id Foto" placeholder="Placeholder" id="textField-idFoto"></vaadin-text-field>
- <vaadin-text-field label="Imagen" id="textField-imagen" style="flex-grow: 0;"></vaadin-text-field>
- <vaadin-button id="button-anadir" style="margin-top: var(--lumo-space-xl);">
+ <vaadin-text-field label="Precio" id="textField-precio" style="align-self: stretch;"></vaadin-text-field>
+ <vaadin-text-area label="Descripción" placeholder="" id="textArea-descripcion" style="align-self: stretch;"></vaadin-text-area>
+ <vaadin-text-field label="Id Foto" placeholder="Placeholder" id="textField-idFoto" style="align-self: stretch;"></vaadin-text-field>
+ <vaadin-text-field label="Imagen" id="textField-imagen" style="flex-grow: 0; align-self: stretch;"></vaadin-text-field>
+ <vaadin-button id="button-anadir" style="margin-top: var(--lumo-space-xl); align-self: stretch;">
    Añadir 
  </vaadin-button>
 </vaadin-vertical-layout>
