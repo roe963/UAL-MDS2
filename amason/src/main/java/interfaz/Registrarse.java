@@ -3,8 +3,10 @@ package interfaz;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.menubar.MenuBar;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.notification.Notification.Position;
+import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.select.Select;
 import com.vaadin.flow.router.PreserveOnRefresh;
 import com.vaadin.flow.router.Route;
@@ -12,6 +14,7 @@ import com.vaadin.flow.router.RouterLink;
 
 import basededatos.BDPrincipal;
 import basededatos.iCliente;
+import ual.mds2.ortegaortega.MenuHeader;
 import vistas.VistaRegistrarse;
 
 @PreserveOnRefresh
@@ -24,9 +27,13 @@ public class Registrarse extends VistaRegistrarse {
 	// Constructor
 	@SuppressWarnings("unchecked")
 	public Registrarse() {
+		
+		MenuBar mb = MenuHeader.getMenuBar();
+	    this.getLayoutMenu().add(mb);
+	    this.getLayoutMenu().setHorizontalComponentAlignment(Alignment.CENTER, mb);
 
 	    labelSelect.setItems("PayPal", "Tarjeta");
-        labelSelect.setValue("Con Tarjeta");
+        //labelSelect.setValue("Tarjeta");
         labelSelect.setLabel("Forma de pago");
         this.getVaadinHorizontalLayout1().add(labelSelect);
 
@@ -56,7 +63,8 @@ public class Registrarse extends VistaRegistrarse {
 			cliente.registrar_usuario(nombreUsuario, mailUsuario, passwordUsuario, confirmPasswordUsuario,
 					direccionUsuario, formaPagoUsuario, fotoUsuario);
 			new Notification("Usauario creado correctamente", 3000, Position.MIDDLE).open();
-			UI.getCurrent().navigate("cliente");
+			UI.getCurrent().navigate("");
+			UI.getCurrent().navigate("registrar");
 		} else {
 			new Notification("¡La contraseña no coincide!", 3000, Position.MIDDLE).open();
 		}
