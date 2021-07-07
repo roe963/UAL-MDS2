@@ -3,6 +3,7 @@ package vistas;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.html.H3;
 import com.vaadin.flow.component.html.H4;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -38,7 +39,7 @@ public class VistaVerpedido extends PolymerTemplate<VistaVerpedido.VistaVerpedid
     private VerticalLayout productosDelPedido;
     
     @Id("h-idpedido")
-    private H4 idPdido;
+    private H3 idPdido;
     
     @Id("lbl-fecha-pedido")
     private Label fechaPedido;
@@ -60,11 +61,11 @@ public class VistaVerpedido extends PolymerTemplate<VistaVerpedido.VistaVerpedid
         this.productosDelPedido = productosDelPedido;
     }    
 	
-    public H4 getIdPdido() {
+    public H3 getIdPdido() {
         return idPdido;
     }
 
-    public void setIdPdido(H4 idPdido) {
+    public void setIdPdido(H3 idPdido) {
         this.idPdido = idPdido;
     }
 

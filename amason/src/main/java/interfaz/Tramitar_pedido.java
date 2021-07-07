@@ -41,7 +41,7 @@ public class Tramitar_pedido extends VistaTramitarpedido {
                 cliente, dc.getTextfieldDireccion().getValue(), dc.getFormadepago().getValue());
 
         dialog.close();
-        new Notification("Tu Pedido se ha realizado correctamente!", 3000, Position.MIDDLE).open();
+        new Notification("Pedido realizado correctamente", 3000, Position.MIDDLE).open();
         Session.vaciarCarrito();
         ui.navigate("cliente");
     }

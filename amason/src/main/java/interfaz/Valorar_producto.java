@@ -2,6 +2,8 @@ package interfaz;
 
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.dialog.Dialog;
+import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.notification.Notification.Position;
 
 import basededatos.BDPrincipal;
 import basededatos.Producto;
@@ -27,5 +29,6 @@ public class Valorar_producto extends VistaValorarproducto {
     public void valorar_producto(Producto p, Dialog d, Elegir_cantidad ec) {
         bd.valorar_producto(p.getId(), Session.getUsuario().getId(), ec.getSelectCantidad().getValue(), this.getDescripcionValoracion().getValue(), System.currentTimeMillis());
         d.close();
+        new Notification("Valoración realizada correctamente", 3000, Position.MIDDLE).open();
     }
 }
