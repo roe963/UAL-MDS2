@@ -55,7 +55,7 @@ public class Categorias {
         PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
         
         try {
-        	categorias = CategoriaDAO.listCategoriaByQuery("Activo=1", null);
+        	categorias = CategoriaDAO.listCategoriaByQuery("Activo=1", "Nombre");
 
             t.commit();
         } catch (PersistentException e) {
@@ -71,7 +71,7 @@ public class Categorias {
         PersistentTransaction t = basededatos.MDS12021PFOrtegaOrtegaPersistentManager.instance().getSession().beginTransaction();
         
         try {
-        	categorias = CategoriaDAO.listCategoriaByQuery(null, null);
+        	categorias = CategoriaDAO.listCategoriaByQuery(null, "Nombre");
 
             t.commit();
         } catch (PersistentException e) {
