@@ -7,6 +7,8 @@ import org.orm.PersistentException;
 
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.menubar.MenuBar;
+import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.notification.Notification.Position;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.router.BeforeEvent;
 import com.vaadin.flow.router.HasUrlParameter;
@@ -94,6 +96,7 @@ public class Ver_pedido extends VistaVerpedido implements HasUrlParameter<String
         this.getCancelarCompra().setVisible(estaPendiente && Session.getTipo()==TIPOUSUARIO.REGISTRADO);
         this.getCancelarCompra().addClickListener(event -> {
             cancelar_compra();
+            new Notification("Compra cancelada correctamente", 3000, Position.MIDDLE).open();
         });
 
         cantidades = bd.cargar_cantidades_pedido(p.getId());

@@ -55,10 +55,10 @@ public class Registrarse extends VistaRegistrarse {
 			// Llamar a la base de datos principal y en el se encuentran las interfaces
 			cliente.registrar_usuario(nombreUsuario, mailUsuario, passwordUsuario, confirmPasswordUsuario,
 					direccionUsuario, formaPagoUsuario, fotoUsuario);
-			Notification.show("Se ha creado el usauario correctamente.", 2000, Position.BOTTOM_CENTER);
-			//UI.getCurrent().navigate("cliente");
+			new Notification("Usauario creado correctamente", 3000, Position.MIDDLE).open();
+			UI.getCurrent().navigate("cliente");
 		} else {
-			Notification.show("¡La contraseñas no Coincide!", 2000, Position.BOTTOM_CENTER);
+			new Notification("¡La contraseña no coincide!", 3000, Position.MIDDLE).open();
 		}
 	}
 
